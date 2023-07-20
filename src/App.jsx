@@ -21,6 +21,7 @@ import { Model } from "./animations/Robot/Robot";
 import { useRef, useState } from "react";
 import EcoSystemSection from "./sections/EcoSystemSection";
 import HowSection from "./sections/HowSection";
+import TeamSection from "./sections/TeamSection";
 
 function App() {
   const ref = useRef();
@@ -72,6 +73,7 @@ function App() {
             <TokenSection />
             <EcoSystemSection />
             <HowSection />
+            <TeamSection />
           </Box>
           <motion.div
             initial="hidden"

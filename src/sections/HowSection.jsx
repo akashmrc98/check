@@ -1,11 +1,13 @@
-import { Box, Grid, GridItem, Text } from "@chakra-ui/react";
+/* eslint-disable react/prop-types */
+import { Box, Grid, GridItem, Image, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
 import HeadLines from "../components/HeadLine";
-import { ecoSystemData } from "../data/EcoSystemData";
 import { HowData } from "../data/HowData";
 import { colors } from "../theme/colors";
 import { fonts } from "../theme/fonts";
+import Single from "/public/how/6462121fbf7e8d2d4108b668_individual-1.webp";
+import Multiple from "/public/how/64621236d8607c1dd175c676_developer-or-business.webp";
 
 function HowSection() {
   return (
@@ -28,11 +30,48 @@ function HowSection() {
         }}
       >
         <Grid mx="auto" width="80%" py={24}>
-          <Grid gridTemplateColumns={{ base: "1fr", lg: "1fr 1fr" }}>
+          <Grid
+            border={`1px groove ${colors.boxBorder}`}
+            gridTemplateColumns={{ base: "1fr", lg: "1fr 1fr" }}
+          >
             <Box border={`1px groove ${colors.boxBorder}`} minH="180px">
+              <Box
+                display={"grid"}
+                justifyContent="center"
+                alignItems={"center"}
+              >
+                <Box pt={4} px={24} pb={12} translateY={-32}>
+                  <Image maxW="128" src={Single} />
+                </Box>
+                <Text
+                  textAlign={"center"}
+                  fontFamily={fonts.parafont}
+                  color={colors.fontLightColor}
+                  fontSize={{ base: "3xl" }}
+                >
+                  {HowData[0].whom}
+                </Text>
+              </Box>
               <HowTypeFactory l={0} {...HowData[0]} />
             </Box>
             <Box border={`1px groove ${colors.boxBorder}`} minH="180px">
+              <Box
+                display={"grid"}
+                justifyContent="center"
+                alignItems={"center"}
+              >
+                <Box pt={4} px={24} pb={12} translateY={-32}>
+                  <Image maxW="128" src={Multiple} />
+                </Box>
+                <Text
+                  textAlign={"center"}
+                  fontFamily={fonts.parafont}
+                  color={colors.fontLightColor}
+                  fontSize={{ base: "3xl" }}
+                >
+                  {HowData[1].whom}
+                </Text>
+              </Box>
               <HowTypeFactory l={1} {...HowData[1]} />
             </Box>
           </Grid>
@@ -45,14 +84,18 @@ function HowSection() {
 export default HowSection;
 
 function HowTypeFactory(props) {
-  return props.steps.map((s, i) => {
-    if (s.type === "SIMPLE")
-      return <SimpleBox l={props.l} i={i + 1} key={i} {...s} />;
-    if (s.type === "ALTERNATIVE")
-      return <AlternateBox l={props.l} i={i + 1} key={i} {...s} />;
-    if (s.type === "PLAN")
-      return <PlanBox l={props.l} key={i} i={i + 1} {...s} />;
-  });
+  return (
+    <Box pt={8} pl={8}>
+      {props.steps.map((s, i) => {
+        if (s.type === "SIMPLE")
+          return <SimpleBox l={props.l} i={i + 1} key={i} {...s} />;
+        if (s.type === "ALTERNATIVE")
+          return <AlternateBox l={props.l} i={i + 1} key={i} {...s} />;
+        if (s.type === "PLAN")
+          return <PlanBox l={props.l} key={i} i={i + 1} {...s} />;
+      })}
+    </Box>
+  );
 }
 
 function SimpleBox(props) {
@@ -60,7 +103,6 @@ function SimpleBox(props) {
   return (
     <GridItem
       border={`1px groove ${colors.boxBorder}`}
-      borderLeft={0}
       borderRight={0}
       minH="180px"
       pos="relative"
@@ -100,7 +142,6 @@ function AlternateBox(props) {
       border={`1px groove ${colors.boxBorder}`}
       minH="180px"
       pos="relative"
-      borderLeft={0}
       borderRight={0}
       display="flex"
       flexDir={"column"}
@@ -122,7 +163,7 @@ function AlternateBox(props) {
       <Text
         textAlign={"center"}
         fontFamily={fonts.headingFont}
-        color={colors.fontLightColor}
+        color={colors.fontLightColorV2}
         fontSize={{ base: "2xl" }}
         borderTop={0}
         borderLeft={0}
@@ -153,6 +194,8 @@ function PlanBox(props) {
         display="flex"
         flexDir={"column"}
         rowGap="1rem"
+        borderTop={0}
+        borderRight={0}
         pb={8}
       >
         <Text
