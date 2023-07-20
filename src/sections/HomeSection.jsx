@@ -34,10 +34,12 @@ const HomeSection = () => {
                   <Box
                     color={colors.fontLightColorV2}
                     pos={"relative"}
-                    borderRight="none"
                     border={isActive ? "1px" : "none"}
+                    borderStyle="groove"
                     position="relative"
-                    borderTopLeftRadius={{ base: "none", lg: "xl" }}
+                    borderColor={colors.boxBorder}
+                    borderRight={0}
+                    borderLeft={0}
                   >
                     {isNext ? (
                       <Box
@@ -70,16 +72,16 @@ const HomeSection = () => {
           {homeUtilsData.map((h, j) => (
             <Box
               zIndex={3}
-              border="1px"
-              borderColor={colors.boxBorder}
               fontFamily={fonts.parafont}
-              borderTop={0}
-              borderRight={0}
               key={j}
               p={4}
               display="flex"
               justifyContent={"flex-end"}
-              bordert="none"
+              border="1px"
+              borderColor={colors.boxBorder}
+              borderTop={j === 0 ? `1px groove ${colors.boxBorder}` : "none"}
+              borderLeft={0}
+              borderRight={0}
             >
               <Box>{`>`}</Box>
               <motion.div

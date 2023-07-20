@@ -23,10 +23,10 @@ function RoadmapSection() {
   return (
     <Box maxW="100%">
       <Grid gridTemplateColumns={"1fr 1fr"}>
-        <GridItem></GridItem>
         <GridItem p={12}>
           <HeadLines desc="" subTitle="TKN" title="ROADMAP" />
         </GridItem>
+        <GridItem></GridItem>
       </Grid>
 
       <Swiper
@@ -59,8 +59,18 @@ function RoadmapSection() {
                 damping: 20,
               }}
             >
-              <Box border={`1px solid ${colors.boxBorder}`} key={i}>
-                <Box borderBottom={`1px solid ${colors.boxBorder}`} p={4}>
+              <Box
+                border={`1px groove ${colors.boxBorder}`}
+                borderLeft={0}
+                borderRight={0}
+                key={i}
+              >
+                <Box
+                  borderLeft={0}
+                  borderRight={0}
+                  borderBottom={`1px groove ${colors.boxBorder}`}
+                  p={4}
+                >
                   <Text
                     color={colors.fontLightColorV2}
                     fontSize={{ base: "sm" }}

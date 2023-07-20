@@ -1,7 +1,7 @@
+/* eslint-disable react/prop-types */
 import { Box, Divider, Flex, Grid, GridItem, Text } from "@chakra-ui/react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { Model as Token } from "../animations/Buster/Buster_drone";
 import HeadLines from "../components/HeadLine";
 
 import { Tokenomics } from "../data/TokenomicsData";
@@ -42,8 +42,15 @@ function TokenSection() {
       <Box
         display={{ base: "grid" }}
         gridTemplateColumns={{ base: "1fr ", lg: "1fr 1fr" }}
+        alignItems="center"
       >
-        <Box px={8}>
+        <Box
+          border={`1px groove ${colors.boxBorder}`}
+          py={4}
+          borderLeft={0}
+          borderRight={0}
+          px={8}
+        >
           {Tokenomics.map((t, i) => (
             <Box key={i}>
               <PropViewer value={t.value} keyv={t.key} />
@@ -63,7 +70,6 @@ function TokenSection() {
             frameloop="demand"
             shadows
           >
-            <Token />
             <OrbitControls
               enableZoom={false}
               enableRotate={true}

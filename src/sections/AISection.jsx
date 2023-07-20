@@ -47,7 +47,6 @@ const AISection = () => {
           justifyContent="center"
           alignItems={"center"}
           width="100%"
-          px={8}
         >
           <Swiper
             autoplay={{
@@ -68,10 +67,12 @@ const AISection = () => {
                   gridTemplateColumns={"1fr 9fr"}
                 >
                   <Box
-                    borderTopLeftRadius="xl"
                     p={{ base: 2, md: 6, lg: 8 }}
                     border="1px"
+                    borderStyle={"groove"}
                     borderColor={colors.boxBorder}
+                    borderLeft={0}
+                    borderRight={0}
                   >
                     <Text
                       fontFamily={fonts.parafont}
@@ -85,10 +86,12 @@ const AISection = () => {
                   <Box
                     display={"flex"}
                     alignItems="center"
-                    borderTopRightRadius="xl"
                     p={{ base: 2, md: 6, lg: 8 }}
                     border="1px"
+                    borderStyle={"groove"}
                     borderColor={colors.boxBorder}
+                    borderLeft={0}
+                    borderRight={0}
                   >
                     <Text
                       fontFamily={fonts.parafont}
@@ -101,11 +104,12 @@ const AISection = () => {
                   </Box>
                 </GridItem>
                 <Box
-                  border={`1px solid ${colors.boxBorder}`}
+                  border={`1px groove ${colors.boxBorder}`}
                   bg={colors.boxBorder}
-                  borderBottomRadius="xl"
+                  borderLeft={0}
+                  borderRight={0}
                 >
-                  <Image borderBottomRadius={"xl"} src={aiImages[i]} />
+                  <Image src={aiImages[i]} />
                 </Box>
               </SwiperSlide>
             ))}

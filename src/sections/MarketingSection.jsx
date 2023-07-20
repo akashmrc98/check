@@ -30,9 +30,10 @@ function MarketingSection() {
       >
         <Box
           borderRightRadius={{ base: 0, lg: "xl" }}
-          border={`3px solid ${colors.boxBorder}`}
+          border={`1px solid ${colors.boxBorder}`}
           borderStyle="groove"
           p={4}
+          borderLeft={0}
         >
           <Marquee>
             <Flex justifyContent={"space-evenly"} columnGap="1rem">

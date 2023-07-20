@@ -15,9 +15,6 @@ function PartnersSection() {
       justifyContent="flex-start"
       alignItems={"center"}
     >
-      <Box py={8} px={8}>
-        <HeadLines desc="" subTitle="" title="PARTNERS" />
-      </Box>
       <motion.div
         style={{ width: "100%" }}
         initial="hidden"
@@ -34,9 +31,10 @@ function PartnersSection() {
         }}
       >
         <Box
-          borderLeftRadius={{ base: 0, lg: "xl" }}
-          border={`3px solid ${colors.boxBorder}`}
+          borderRightRadius={{ base: 0, lg: "xl" }}
+          border={`1px solid ${colors.boxBorder}`}
           borderStyle="groove"
+          borderLeft={0}
           p={4}
         >
           <Marquee>
@@ -48,6 +46,9 @@ function PartnersSection() {
           </Marquee>
         </Box>
       </motion.div>
+      <Box py={8} px={8}>
+        <HeadLines desc="" subTitle="" title="PARTNERS" />
+      </Box>
     </Box>
   );
 }

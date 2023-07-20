@@ -1,16 +1,12 @@
 import { colors } from "../theme/colors";
-
-import { ecoSystemData } from "../data/EcoSystemData";
-
-import { Box, Grid, GridItem, Text } from "@chakra-ui/react";
-
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation } from "swiper/modules";
-
 import { fonts } from "../theme/fonts";
 import { motion } from "framer-motion";
 
+import { ecoSystemData } from "../data/EcoSystemData";
+import { Box, Grid, GridItem, Image, Text } from "@chakra-ui/react";
+
 import HeadLines from "../components/HeadLine";
+import EcoSystem from "/public/eco_system/main.webp";
 
 function EcoSystemSection() {
   return (
@@ -32,75 +28,65 @@ function EcoSystemSection() {
           damping: 20,
         }}
       >
-        <Box mx="auto" width={{ base: "100%", md: "80%" }} pos="relative">
-          <Swiper
-            autoplay={{
-              delay: 3500,
-              disableOnInteraction: false,
-            }}
-            loop={true}
-            modules={[Autoplay, Navigation]}
-            spaceBetween={0}
-            slidesPerView={1}
-            style={{
-              border: `1px solid ${colors.boxBorder}`,
-              borderRadius: "10px",
-            }}
-          >
-            {ecoSystemData.map((d, i) => (
-              <SwiperSlide key={i}>
-                <GridItem
-                  backgroundImage={d.img}
-                  height="100%"
+        <Image src={EcoSystem} />
+        <Grid mx="auto" width="80%" py={24}>
+          {ecoSystemData.map((e, i) => (
+            <Grid
+              border={`1px groove ${colors.boxBorder}`}
+              borderTop={i === 0 ? `1px groove ${colors.boxBorder}` : 0}
+              borderTopRightRadius={i === 0 ? "xl" : "none"}
+              borderBottomRadius={
+                i === ecoSystemData.length - 1 ? "xl" : "none"
+              }
+              gridTemplateColumns={{ base: "1fr", lg: "1fr 1fr" }}
+              key={i}
+            >
+              <GridItem pos="relative">
+                <Box
+                  height={"52px"}
+                  width="52px"
+                  border={`1px groove ${colors.boxBorder}`}
+                  borderRight="none"
+                  left={"-52px"}
+                  top={"-2px"}
+                  pos="absolute"
                   display={"flex"}
-                  justifyContent="flex-end"
-                  flexDir="column"
-                  pos={"relative"}
-                  rowGap="1rem"
-                  backgroundRepeat={"no-repeat"}
-                  backgroundSize="cover"
-                  backgroundPosition={"center"}
-                  minH="332px"
+                  justifyContent="center"
+                  alignItems={"center"}
+                  borderTopLeftRadius="xl"
+                  borderBottomLeftRadius={"xl"}
                 >
-                  <Box px={4}>
-                    <Text
-                      textAlign={"left"}
-                      fontWeight={"bold"}
-                      fontSize={{ base: "3xl" }}
-                      fontFamily={fonts.headingFont}
-                      color={colors.highLightColor}
-                    >
-                      {d.title}
-                    </Text>
-                  </Box>
-                  <Box
-                    pt={4}
-                    boxShadow={`0px 0px 8px ${colors.boxBorder}`}
-                    pos="relative"
+                  <Text
+                    fontFamily={fonts.parafont}
+                    color={colors.fontLightColor}
+                    fontWeight="bold"
+                    fontSize={{ base: "3xl" }}
                   >
-                    <Text
-                      zIndex={8}
-                      px={4}
-                      fontFamily={fonts.parafont}
-                      color={colors.highLightColor}
-                      pb={2}
-                    >
-                      {d.subTitle}
-                    </Text>
-                    <Box
-                      bg={colors.highLightColor}
-                      filter="blur(40px)"
-                      pos="absolute"
-                      width={"100%"}
-                      minH="320px"
-                      zIndex={4}
-                    ></Box>
-                  </Box>
-                </GridItem>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </Box>
+                    {i + 1}
+                  </Text>
+                </Box>
+                <Text
+                  fontFamily={fonts.headingFont}
+                  color={colors.fontLightColor}
+                  fontWeight="bold"
+                  fontSize={{ base: "3xl" }}
+                  p={6}
+                >
+                  {e.title}
+                </Text>
+              </GridItem>
+              <Text
+                p={6}
+                fontFamily={fonts.parafont}
+                color={colors.fontLightColorV2}
+                fontWeight="bold"
+                fontSize={{ base: "md" }}
+              >
+                {e.sub}
+              </Text>
+            </Grid>
+          ))}
+        </Grid>
       </motion.div>
     </Box>
   );
