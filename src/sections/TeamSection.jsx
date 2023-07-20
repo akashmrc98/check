@@ -57,49 +57,18 @@ const TeamSection = () => {
           >
             {TeamData.map((s, i) => (
               <SwiperSlide key={i}>
-                <GridItem
-                  pos={"relative"}
-                  borderColor={colors.boxBorder}
-                  display="grid"
-                  gridTemplateColumns={"1fr 9fr"}
-                >
-                  <Box
-                    p={{ base: 2, md: 6, lg: 8 }}
-                    border="1px"
-                    borderStyle={"groove"}
-                    borderColor={colors.boxBorder}
-                    borderLeft={0}
-                    borderRight={0}
+                <Box borderTop={`1px groove ${colors.boxBorder}`}>
+                  <Text
+                    mt={4}
+                    textAlign={"center"}
+                    fontFamily={fonts.parafont}
+                    fontSize={{ base: "3xl" }}
+                    fontWeight={"bold"}
+                    color={colors.fontLightColorV2}
                   >
-                    <Text
-                      fontFamily={fonts.parafont}
-                      fontSize={"xl"}
-                      fontWeight={"bold"}
-                      color={colors.fontLightColorV2}
-                    >
-                      {i + 1}
-                    </Text>
-                  </Box>
-                  <Box
-                    display={"flex"}
-                    alignItems="center"
-                    p={{ base: 2, md: 6, lg: 8 }}
-                    border="1px"
-                    borderStyle={"groove"}
-                    borderColor={colors.boxBorder}
-                    borderLeft={0}
-                    borderRight={0}
-                  >
-                    <Text
-                      fontFamily={fonts.parafont}
-                      fontSize={{ base: "md" }}
-                      fontWeight={"bold"}
-                      color={colors.fontLightColorV2}
-                    >
-                      {s.name}
-                    </Text>
-                  </Box>
-                </GridItem>
+                    {s.name}
+                  </Text>
+                </Box>
                 <Box
                   borderLeft={0}
                   borderRight={0}
