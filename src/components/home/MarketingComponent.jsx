@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { colors } from "../../theme/colors";
-import { partnersData } from "../../data/PartnersData";
+import { partnersData } from "../../data/partnersData";
 import { Box, Flex, Image } from "@chakra-ui/react";
 
 import HeadLines from "../common/HeadLine";

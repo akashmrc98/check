@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Box, Grid, GridItem, Text } from "@chakra-ui/react";
 
-import { featuresData } from "../../data/FeaturesData";
+import { featuresData } from "../../data/featuresData";
 
 import HeadLines from "../common/HeadLine";
 
