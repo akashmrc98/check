@@ -1,6 +1,3 @@
-import { fonts } from "/src/theme/fonts.js";
-import { colors } from "/src/theme/colors.js";
-
 import { Box, Grid, GridItem, Image, Text } from "@chakra-ui/react";
 import { aiSectionData, aiImages } from "../../data/aiSectionData";
 
@@ -10,7 +7,9 @@ import { Autoplay, Navigation } from "swiper/modules";
 
 import { useMediaQuery } from "@chakra-ui/react";
 
-import HeadLines from "/src/components/common/HeadLine";
+import { fonts } from "../../theme/fonts";
+import { colors } from "../../theme/colors";
+import HeadLines from "../common/HeadLine";
 
 const AIComponent = () => {
   const [is990Px] = useMediaQuery("(min-width: 990px)");
