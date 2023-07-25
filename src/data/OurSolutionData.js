@@ -1,4 +1,4 @@
-export const solutionsData = [
+export const ourSolutionsData = [
   {
     title: "ChainGPT Chatbot",
     subTitle:

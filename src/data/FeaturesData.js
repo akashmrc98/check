@@ -5,7 +5,7 @@ import AI_4 from "/public/ai_section/4.jpg";
 import AI_5 from "/public/ai_section/5.jpg";
 import AI_6 from "/public/ai_section/6.jpg";
 
-export const FeaturesData = [
+export const featuresData = [
   {
     title: "AI Model",
     img: AI_1,

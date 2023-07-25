@@ -1,4 +1,4 @@
-export const Tokenomics = [
+export const tokenomicsData = [
   {
     key: "Name",
     value: "TKN",

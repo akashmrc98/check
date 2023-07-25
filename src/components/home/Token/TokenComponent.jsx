@@ -1,36 +1,16 @@
-/* eslint-disable react/prop-types */
-import { Box, Divider, Flex, Grid, GridItem, Text } from "@chakra-ui/react";
+import { Box, Divider, Grid, GridItem } from "@chakra-ui/react";
+
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import HeadLines from "../components/HeadLine";
 
-import { Tokenomics } from "../data/TokenomicsData";
-import { colors } from "../theme/colors";
-import { fonts } from "../theme/fonts";
+import HeadLines from "../../common/HeadLine";
 
-function PropViewer(props) {
-  return (
-    <Flex my={4} flexDir={"row"} justifyContent="space-between">
-      <Text
-        fontSize={{ base: "", lg: "xl" }}
-        fontFamily={fonts.headingFont}
-        color={colors.fontLightColor}
-      >
-        {props.keyv}
-      </Text>
-      <Text
-        fontWeight={"bold"}
-        fontSize={{ base: "", lg: "xl" }}
-        fontFamily={fonts.parafont}
-        color={colors.fontLightColorV2}
-      >
-        {props.value}
-      </Text>
-    </Flex>
-  );
-}
+import { colors } from "../../../theme/colors";
+import { tokenomicsData } from "../../../data/tokenomicsData";
 
-function TokenSection() {
+import TokenomicsCardComponent from "./TokenomicCardComponent";
+
+function TokenComponent() {
   return (
     <Box width="100%">
       <Grid gridTemplateColumns={{ base: "1fr", lg: "1fr 1fr" }}>
@@ -51,15 +31,15 @@ function TokenSection() {
           borderRight={0}
           px={8}
         >
-          {Tokenomics.map((t, i) => (
+          {tokenomicsData.map((t, i) => (
             <Box key={i}>
-              <PropViewer value={t.value} keyv={t.key} />
+              <TokenomicsCardComponent value={t.value} keyv={t.key} />
             </Box>
           ))}
           <Divider />
           <Box>
-            <PropViewer keyv="SELL TAX" value="3%" />
-            <PropViewer keyv="BUY TAX" value="3%" />
+            <TokenomicsCardComponent keyv="SELL TAX" value="3%" />
+            <TokenomicsCardComponent keyv="BUY TAX" value="3%" />
           </Box>
         </Box>
         <Box h="60vh">
@@ -85,4 +65,4 @@ function TokenSection() {
   );
 }
 
-export default TokenSection;
+export default TokenComponent;

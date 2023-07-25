@@ -1,20 +1,18 @@
-/* eslint-disable react/prop-types */
-import { fonts } from "../theme/fonts";
-import { colors } from "../theme/colors";
+import { fonts } from "../../theme/fonts";
+import { colors } from "../../theme/colors";
 
 import { Box, Divider, Grid, GridItem, Image, Text } from "@chakra-ui/react";
-import { aiImages } from "../data/AISectionData";
-import { TeamData } from "../data/TeamData";
 
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
+import { teamData } from "../../data/teamData";
 
 import { useMediaQuery } from "@chakra-ui/react";
 
-import HeadLines from "../components/HeadLine";
+import HeadLines from "../../components/common/HeadLine";
 
-const TeamSection = () => {
+const TeamComponent = () => {
   const [is990Px] = useMediaQuery("(min-width: 990px)");
 
   return (
@@ -55,7 +53,7 @@ const TeamSection = () => {
             spaceBetween={10}
             slidesPerView={is990Px ? 2 : 1}
           >
-            {TeamData.map((s, i) => (
+            {teamData.map((s, i) => (
               <SwiperSlide key={i}>
                 <Box borderTop={`1px groove ${colors.boxBorder}`}>
                   <Text
@@ -128,4 +126,4 @@ const TeamSection = () => {
   );
 };
 
-export default TeamSection;
+export default TeamComponent;

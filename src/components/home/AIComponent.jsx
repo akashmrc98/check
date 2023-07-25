@@ -1,9 +1,8 @@
-/* eslint-disable react/prop-types */
-import { fonts } from "../theme/fonts";
-import { colors } from "../theme/colors";
+import { fonts } from "/src/theme/fonts.js";
+import { colors } from "/src/theme/colors.js";
 
 import { Box, Grid, GridItem, Image, Text } from "@chakra-ui/react";
-import { aiSectionData, aiImages } from "../data/AISectionData";
+import { aiSectionData, aiImages } from "../../data/aiSectionData";
 
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -11,9 +10,9 @@ import { Autoplay, Navigation } from "swiper/modules";
 
 import { useMediaQuery } from "@chakra-ui/react";
 
-import HeadLines from "../components/HeadLine";
+import HeadLines from "/src/components/common/HeadLine";
 
-const AISection = () => {
+const AIComponent = () => {
   const [is990Px] = useMediaQuery("(min-width: 990px)");
 
   return (
@@ -48,19 +47,18 @@ const AISection = () => {
           alignItems={"center"}
           width="100%"
         >
+          {" "}
           <Swiper
-            autoplay={{
-              delay: 2500,
-              disableOnInteraction: false,
-            }}
+            autoplay={{ delay: 2500, disableOnInteraction: false }}
             loop={true}
             modules={[Autoplay, Navigation]}
-            spaceBetween={10}
-            slidesPerView={is990Px ? 2 : 1}
+            slidesPerView={is990Px ? 4 : 1}
+            onSlideChange={(e) => console.log(e)}
           >
             {aiSectionData.map((s, i) => (
               <SwiperSlide key={i}>
                 <GridItem
+                  zIndex={4}
                   pos={"relative"}
                   borderColor={colors.boxBorder}
                   display="grid"
@@ -71,8 +69,10 @@ const AISection = () => {
                     border="1px"
                     borderStyle={"groove"}
                     borderColor={colors.boxBorder}
-                    borderLeft={0}
-                    borderRight={0}
+                    bg={colors.bgColor}
+
+                    // borderLeft={0}
+                    // borderRight={0}
                   >
                     <Text
                       fontFamily={fonts.parafont}
@@ -90,8 +90,9 @@ const AISection = () => {
                     border="1px"
                     borderStyle={"groove"}
                     borderColor={colors.boxBorder}
-                    borderLeft={0}
-                    borderRight={0}
+                    bg={colors.bgColor}
+                    // borderLeft={0}
+                    // borderRight={0}
                   >
                     <Text
                       fontFamily={fonts.parafont}
@@ -106,8 +107,8 @@ const AISection = () => {
                 <Box
                   border={`1px groove ${colors.boxBorder}`}
                   bg={colors.boxBorder}
-                  borderLeft={0}
-                  borderRight={0}
+                  // borderLeft={0}
+                  // borderRight={0}
                 >
                   <Image src={aiImages[i]} />
                 </Box>
@@ -120,4 +121,4 @@ const AISection = () => {
   );
 };
 
-export default AISection;
+export default AIComponent;

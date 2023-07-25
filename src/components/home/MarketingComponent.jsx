@@ -1,28 +1,29 @@
-import { Box, Flex, Image } from "@chakra-ui/react";
-import { partnersData } from "../data/PartnersData";
-
-import { colors } from "../theme/colors";
 import { motion } from "framer-motion";
+import { colors } from "../../theme/colors";
+import { partnersData } from "../../data/PartnersData";
+import { Box, Flex, Image } from "@chakra-ui/react";
 
+import HeadLines from "../common/HeadLine";
 import Marquee from "react-fast-marquee";
-import HeadLines from "../components/HeadLine";
 
-function PartnersSection() {
+function MarketingComponent() {
   return (
     <Box
-      flexDirection={{ base: "column", lg: "row" }}
+      zIndex={4}
+      flexDir={{ base: "column", lg: "row" }}
       display={"flex"}
-      justifyContent="flex-start"
+      justifyContent={{ md: "flex-start" }}
       alignItems={"center"}
     >
       <motion.div
+        zIndex={4}
         style={{ width: "100%" }}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         variants={{
           visible: { visibility: "visible", opacity: 1, x: 0 },
-          hidden: { visibility: "hidden", opacity: 0, x: 220 },
+          hidden: { visibility: "hidden", opacity: 0, x: -220 },
         }}
         transition={{
           type: "spring",
@@ -34,8 +35,8 @@ function PartnersSection() {
           borderRightRadius={{ base: 0, lg: "xl" }}
           border={`1px solid ${colors.boxBorder}`}
           borderStyle="groove"
-          borderLeft={0}
           p={4}
+          borderLeft={0}
         >
           <Marquee>
             <Flex justifyContent={"space-evenly"} columnGap="1rem">
@@ -46,10 +47,15 @@ function PartnersSection() {
           </Marquee>
         </Box>
       </motion.div>
-      <Box py={8} px={8}>
-        <HeadLines desc="" subTitle="" title="PARTNERS" />
+      <Box
+        display={"flex"}
+        justifyContent={{ base: "flex-start", md: "flex-end" }}
+        py={8}
+        px={8}
+      >
+        <HeadLines desc="" subTitle="" title="MARKETING" />
       </Box>
     </Box>
   );
 }
-export default PartnersSection;
+export default MarketingComponent;

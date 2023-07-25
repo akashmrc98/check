@@ -1,14 +1,14 @@
-import { fonts } from "../theme/fonts";
-import { colors } from "../theme/colors";
+import { fonts } from "../../theme/fonts";
+import { colors } from "../../theme/colors";
 
 import { Box, Grid, GridItem, Text } from "@chakra-ui/react";
-import { homeSummaryData, homeUtilsData } from "../data/HomeData";
+import { homeSummaryData, homeUtilsData } from "../../data/homeData";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import { motion } from "framer-motion";
 
-const HomeSection = () => {
+function HomeComponent() {
   return (
     <Box pos="relative">
       <Grid
@@ -115,6 +115,6 @@ const HomeSection = () => {
       </Grid>
     </Box>
   );
-};
+}
 
-export default HomeSection;
+export default HomeComponent;

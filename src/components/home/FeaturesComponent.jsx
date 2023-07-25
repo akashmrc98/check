@@ -1,18 +1,15 @@
-import { colors } from "../theme/colors";
-
-import { Box, Grid, GridItem, Text } from "@chakra-ui/react";
-
+import { fonts } from "../../theme/fonts";
+import { motion } from "framer-motion";
+import { colors } from "../../theme/colors";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
+import { Box, Grid, GridItem, Text } from "@chakra-ui/react";
 
-import { fonts } from "../theme/fonts";
-import { motion } from "framer-motion";
+import { featuresData } from "../../data/FeaturesData";
 
-import HeadLines from "../components/HeadLine";
+import HeadLines from "../common/HeadLine";
 
-import { FeaturesData } from "../data/FeaturesData";
-
-function FeaturesSection() {
+function FeaturesComponent() {
   return (
     <Box pos="relative">
       <Grid gridTemplateColumns={"1fr"} p={12}>
@@ -46,7 +43,7 @@ function FeaturesSection() {
               border: `1px groove ${colors.boxBorder}`,
             }}
           >
-            {FeaturesData.map((d, i) => (
+            {featuresData.map((d, i) => (
               <SwiperSlide key={i}>
                 <GridItem
                   backgroundImage={d.img}
@@ -105,4 +102,4 @@ function FeaturesSection() {
   );
 }
 
-export default FeaturesSection;
+export default FeaturesComponent;

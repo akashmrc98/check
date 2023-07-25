@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import { Box, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { colors } from "../theme/colors";
-import { fonts } from "../theme/fonts";
+import { colors } from "../../theme/colors";
+import { fonts } from "../../theme/fonts";
 
 function HeadLines(props) {
   return (

@@ -1,11 +1,11 @@
 import { Box, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { colors } from "../theme/colors";
-import { fonts } from "../theme/fonts";
+import { colors } from "../../theme/colors";
+import { fonts } from "../../theme/fonts";
 
-function TitleSection() {
+function TitleComponent() {
   return (
-    <Box width="100%">
+    <Box zIndex={1} width="100%">
       <Box
         flexDir={"column"}
         display={"flex"}
@@ -66,4 +66,4 @@ function TitleSection() {
   );
 }
 
-export default TitleSection;
+export default TitleComponent;

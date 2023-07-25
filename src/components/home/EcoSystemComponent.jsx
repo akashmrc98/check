@@ -1,14 +1,14 @@
-import { colors } from "../theme/colors";
-import { fonts } from "../theme/fonts";
+import { fonts } from "../../theme/fonts";
 import { motion } from "framer-motion";
-
-import { ecoSystemData } from "../data/EcoSystemData";
+import { colors } from "../../theme/colors";
 import { Box, Grid, GridItem, Image, Text } from "@chakra-ui/react";
 
-import HeadLines from "../components/HeadLine";
+import HeadLines from "../common/HeadLine";
 import EcoSystem from "/public/eco_system/main.webp";
 
-function EcoSystemSection() {
+import { ecoSystemData } from "../../data/EcoSystemData";
+
+function EcoSystemComponent() {
   return (
     <Box pos="relative">
       <Grid gridTemplateColumns={"1fr"} p={12}>
@@ -92,4 +92,4 @@ function EcoSystemSection() {
   );
 }
 
-export default EcoSystemSection;
+export default EcoSystemComponent;

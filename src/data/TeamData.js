@@ -1,6 +1,6 @@
 import Image from "/public/ai_section/1.jpg";
 
-export const TeamData = [
+export const teamData = [
   {
     name: "VLADI FILATOV",
     img: Image,

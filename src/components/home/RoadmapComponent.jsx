@@ -1,6 +1,6 @@
-import { fonts } from "../theme/fonts";
-import { colors } from "../theme/colors";
-import { roadmapData } from "../data/RoadmapData";
+import { fonts } from "../../theme/fonts";
+import { colors } from "../../theme/colors";
+import { roadmapData } from "../../data/roadmapData";
 import {
   Box,
   Grid,
@@ -16,9 +16,10 @@ import { Autoplay, Navigation } from "swiper/modules";
 
 import Verify from "/public/icons/verify.png";
 import Pending from "/public/icons/signal.png";
-import HeadLines from "../components/HeadLine";
 
-function RoadmapSection() {
+import HeadLines from "../../components/common/HeadLine";
+
+function RoadmapComponent() {
   const [is990Px] = useMediaQuery("(min-width: 990px)");
   return (
     <Box maxW="100%">
@@ -155,4 +156,4 @@ function RoadmapSection() {
   );
 }
 
-export default RoadmapSection;
+export default RoadmapComponent;

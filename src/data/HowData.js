@@ -1,4 +1,4 @@
-export const HowData = [
+export const howData = [
   {
     whom: "INDIVIDUAL",
     img: "",

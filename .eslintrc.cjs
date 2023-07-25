@@ -13,6 +13,7 @@ module.exports = {
 
   plugins: ["react-refresh"],
   rules: {
+    "react/prop-types": "off",
     "react/no-unknown-property": ["off", { ignore: ["JSX"] }],
     "react-refresh/only-export-components": [
       "warn",
