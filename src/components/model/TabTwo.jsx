@@ -12,9 +12,9 @@ import {
   TabPanel,
 } from "@chakra-ui/react";
 
-import { dappData } from "/src/data/dappData.js";
-import { colors } from "/src/theme/colors.js";
-import { fonts } from "/src/theme/fonts.js";
+import { dappData } from "../../data/dappData";
+import { colors } from "../../theme/colors.js";
+import { fonts } from "../../theme/fonts";
 
 function TabTwo() {
   return (
