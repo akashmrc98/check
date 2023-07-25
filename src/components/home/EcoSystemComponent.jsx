@@ -5,8 +5,7 @@ import { Box, Grid, GridItem, Image, Text } from "@chakra-ui/react";
 
 import HeadLines from "../common/HeadLine";
 import EcoSystem from "/public/eco_system/main.webp";
-
-import { ecoSystemData } from "../../data/EcoSystemData";
+import { ecoSystemData } from "../../data/ecoSystemData";
 
 function EcoSystemComponent() {
   return (
