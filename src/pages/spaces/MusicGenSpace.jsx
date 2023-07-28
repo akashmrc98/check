@@ -1,12 +1,19 @@
 import {
   Box,
   Button,
-  Checkbox,
   FormControl,
   FormLabel,
   Grid,
   GridItem,
   Input,
+  Radio,
+  RadioGroup,
+  Slider,
+  SliderFilledTrack,
+  SliderMark,
+  SliderThumb,
+  SliderTrack,
+  Stack,
   Table,
   Tbody,
   Td,
@@ -15,10 +22,78 @@ import {
   Thead,
   Tr,
 } from "@chakra-ui/react";
+
+import { useState } from "react";
 import { colors } from "../../theme/colors";
 import { fonts } from "../../theme/fonts";
+import { useRef } from "react";
+import axios from "axios";
+
+import { Audio } from "react-loader-spinner";
 
 function MusicGenSpace() {
+  const ref = useRef();
+  const [input, setInput] = useState("");
+  const [duration, setDuration] = useState(2);
+  const checks = ["melody", "medium", "small", "large"];
+  const [model, setModel] = useState("melody");
+  const [loaded, setLoaded] = useState(false);
+
+  function generateMusic() {
+    setLoaded(true);
+    axios
+      .post(
+        "http://127.0.0.1:5000/music-gen",
+        {
+          model: model,
+          duration: duration,
+          input: input,
+        },
+        {
+          responseType: "blob",
+        }
+      )
+
+      .then((res) => {
+        const fileReader = new FileReader();
+        fileReader.readAsDataURL(res.data);
+        fileReader.onload = () => {
+          ref.current.src = fileReader.result;
+          ref.current.play();
+        };
+      })
+      .then(() => {
+        setLoaded(false);
+      })
+      .catch((e) => console.log(e));
+
+    // fetch("http://127.0.0.1:5000/music-gen", {
+    //   method: "POST",
+    //   body: {
+    //     model: model,
+    //     duration: duration,
+    //     input: input,
+    //   },
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     "Content-Length": 600,
+    //   },
+    // })
+    //   .then((res) => res.blob())
+    //   .then((blob) => {
+    //     const fileReader = new FileReader();
+    //     fileReader.readAsDataURL(blob);
+    //     fileReader.onload = () => {
+    //       console.log(fileReader.result);
+    //       console.log(ref);
+    //       ref.current.src = fileReader.result;
+    //       ref.current.play();
+    //       setLoaded(true);
+    //     };
+    //   })
+    //   .catch((e) => console.log(e));
+  }
+
   return (
     <Box bg={colors.bgColor}>
       <Box
@@ -72,9 +147,12 @@ function MusicGenSpace() {
                 fontWeight="bold"
                 color={colors.highLightColor}
               >
-                Describe your music
+                Describe Your Music
               </FormLabel>
               <Input
+                value={input}
+                onChange={(i) => setInput(i.target.value)}
+                placeholder="Classic, Pop, Blues, Phonk, Rock..."
                 variant={"unstyled"}
                 border={`2px groove ${colors.boxBorder}`}
                 p={4}
@@ -83,6 +161,33 @@ function MusicGenSpace() {
                 fontWeight="bold"
                 color={colors.fontLightColor}
               />
+            </FormControl>
+            <FormControl border="2px" px={8} py={8} bg={"gray.900"}>
+              <FormLabel
+                fontFamily={fonts.headingFont}
+                fontSize={{ base: "lg" }}
+                fontWeight="bold"
+                color={colors.highLightColor}
+              >
+                Model
+              </FormLabel>
+
+              <RadioGroup onChange={setModel} value={model}>
+                <Stack direction="row">
+                  {checks.map((c, i) => (
+                    <Radio value={c} key={i} colorScheme="purple">
+                      <Text
+                        color={colors.boxBorder}
+                        fontWeight="bold"
+                        size="lg"
+                        fontFamily={fonts.parafont}
+                      >
+                        {c}
+                      </Text>
+                    </Radio>
+                  ))}
+                </Stack>
+              </RadioGroup>
             </FormControl>
 
             <FormControl border="2px" px={8} py={8} bg={"gray.900"}>
@@ -92,52 +197,41 @@ function MusicGenSpace() {
                 fontWeight="bold"
                 color={colors.highLightColor}
               >
-                Condition on a melody (optional) File or Mic
+                Duration in seconds
               </FormLabel>
-              <Checkbox
-                fontFamily={fonts.parafont}
-                size="lg"
-                colorScheme="orange"
-                defaultChecked
-                fontSize={{ base: "2xl" }}
-                color={colors.fontLightColor}
-                mr={4}
-                fontWeight="bold"
+              <Slider
+                onChange={(val) => setDuration(val)}
+                defaultValue={2}
+                min={2}
+                max={120}
+                step={2}
               >
-                File
-              </Checkbox>
-              <Checkbox
-                fontWeight="bold"
-                fontFamily={fonts.parafont}
-                color={colors.fontLightColor}
-                fontSize={{ base: "2xl" }}
-                size="lg"
-                colorScheme="orange"
-                defaultChecked
-              >
-                Mic
-              </Checkbox>
+                <SliderMark value={0}>0%</SliderMark>
+                <SliderMark value={60}>50%</SliderMark>
+                <SliderMark value={120}>100%</SliderMark>
+                <SliderMark
+                  value={duration}
+                  textAlign="center"
+                  bg={colors.bgColor}
+                  color={colors.boxBorder}
+                  mt="5"
+                  ml="-6"
+                  fontFamily={fonts.parafont}
+                  fontWeight="bold"
+                  w="12"
+                >
+                  {duration}
+                </SliderMark>
+
+                <SliderTrack bg={colors.bgColor}>
+                  <SliderFilledTrack bg={colors.highLightColor} />
+                </SliderTrack>
+                <SliderThumb boxSize={6}>
+                  {/* <Box color="tomato" as={MdGraphicEq} /> */}
+                </SliderThumb>
+              </Slider>
             </FormControl>
-            <FormControl border="2px" px={8} py={8} bg={"gray.900"}>
-              <FormLabel
-                fontFamily={fonts.headingFont}
-                fontSize={{ base: "lg" }}
-                fontWeight="bold"
-                color={colors.highLightColor}
-              >
-                File
-              </FormLabel>
-              <Input
-                variant={"unstyled"}
-                border={`2px groove ${colors.boxBorder}`}
-                p={4}
-                fontFamily={fonts.parafont}
-                fontSize={{ base: "md" }}
-                fontWeight="bold"
-                color={colors.fontLightColor}
-                type="file"
-              />
-            </FormControl>
+
             <Box py={4}>
               <Button
                 width={"100%"}
@@ -153,13 +247,14 @@ function MusicGenSpace() {
                 }}
                 fontFamily={fonts.headingFont}
                 borderRadius="none"
+                onClick={() => generateMusic()}
               >
                 Generate
               </Button>
             </Box>
           </GridItem>
 
-          <GridItem pos="relative" minH="440px" bg={"gray.900"}>
+          <GridItem pos="relative" minH="240px" bg={"gray.900"}>
             <Box px={2} py={1} pos="absolute" border="2px">
               <Text
                 fontFamily={fonts.parafont}
@@ -169,6 +264,26 @@ function MusicGenSpace() {
               >
                 Audio output
               </Text>
+            </Box>
+            <Box
+              pt={4}
+              display={"flex"}
+              alignItems="center"
+              justifyContent={"center"}
+              flexDirection="column"
+            >
+              <video minW="100%" ref={ref} controls />
+              {!loaded ? null : (
+                <Audio
+                  height="80"
+                  width="80"
+                  radius="9"
+                  color="green"
+                  ariaLabel="loading"
+                  wrapperStyle
+                  wrapperClass
+                />
+              )}
             </Box>
           </GridItem>
         </Grid>

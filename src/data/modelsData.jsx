@@ -1,3 +1,225 @@
+export const gradientData = [
+  {
+    gradient:
+      "radial-gradient( circle 311px at 8.6% 27.9%,  rgba(62,147,252,0.57) 12.9%, rgba(239,183,192,0.44) 91.2% )",
+    likes: "51",
+  },
+  {
+    gradient:
+      "radial-gradient( circle farthest-corner at 10% 20%,  rgba(176,229,208,1) 42%, rgba(92,202,238,0.41) 93.6% )",
+    likes: "42",
+  },
+  {
+    gradient:
+      "linear-gradient( 184.1deg,  rgba(249,255,182,1) 44.7%, rgba(226,255,172,1) 67.2% )",
+    likes: "14",
+  },
+  {
+    gradient:
+      "linear-gradient( 111.4deg,  rgba(238,113,113,1) 1%, rgba(246,215,148,1) 58% )",
+    likes: "44",
+  },
+  {
+    gradient:
+      "radial-gradient( circle 897px at 9% 80.3%,  rgba(55,60,245,1) 0%, rgba(234,161,15,0.90) 100.2% )",
+    likes: "12",
+  },
+  {
+    gradient:
+      "linear-gradient( 180.7deg,  rgba(0,213,255,1) 2.5%, rgba(79,255,255,1) 97.7% )",
+    likes: "10",
+  },
+  {
+    gradient:
+      "linear-gradient( 90.2deg,  rgba(79,255,255,1) 0.3%, rgba(0,213,255,1) 99.8% )",
+    likes: "13",
+  },
+  {
+    gradient:
+      "linear-gradient( 109.6deg,  rgba(61,131,97,1) 11.2%, rgba(28,103,88,1) 91.1% )",
+    likes: "8",
+  },
+  {
+    gradient:
+      "radial-gradient( circle 975px at 2.6% 48.3%,  rgba(0,8,120,1) 0%, rgba(95,184,224,1) 99.7% )",
+    likes: "8",
+  },
+  {
+    gradient:
+      "radial-gradient( circle farthest-corner at 10% 20%,  rgba(100,43,115,1) 0%, rgba(4,0,4,1) 90% )",
+    likes: "-77",
+  },
+  {
+    gradient:
+      "radial-gradient( circle farthest-corner at 17.1% 22.8%,  rgba(226,24,24,1) 0%, rgba(160,6,6,1) 90% )",
+    likes: "22",
+  },
+  {
+    gradient:
+      "radial-gradient( circle farthest-corner at 10% 20%,  rgba(249,232,51,1) 0%, rgba(250,196,59,1) 100.2% )",
+    likes: "9",
+  },
+  {
+    gradient:
+      "linear-gradient( 58.2deg,  rgba(40,91,212,0.73) -3%, rgba(171,53,163,0.45) 49.3%, rgba(255,204,112,0.37) 97.7% )",
+    likes: "67",
+  },
+  {
+    gradient:
+      "linear-gradient( 111.4deg,  rgba(7,7,9,1) 6.5%, rgba(27,24,113,1) 93.2% )",
+    likes: "15",
+  },
+  {
+    gradient:
+      "linear-gradient( 288deg,  rgba(0,85,255,1) 1.5%, rgba(4,56,115,1) 91.6% )",
+    likes: "14",
+  },
+  {
+    gradient:
+      "linear-gradient( 90.1deg,  rgba(84,212,228,1) 0.2%, rgba(68,36,164,1) 99.9% )",
+    likes: "14",
+  },
+  {
+    gradient:
+      "radial-gradient( circle farthest-corner at 0.2% 0.5%,  rgba(68,36,164,1) 3.7%, rgba(84,212,228,1) 92.7% )",
+    likes: "-26",
+  },
+  {
+    gradient:
+      "linear-gradient( 270.3deg,  rgba(84,212,228,1) 0.2%, rgba(68,36,164,1) 100% )",
+    likes: "20",
+  },
+  {
+    gradient:
+      "linear-gradient( 179deg,  rgba(0,0,0,1) 9.2%, rgba(127,16,16,1) 103.9% )",
+    likes: "26",
+  },
+  {
+    gradient:
+      "linear-gradient( 91deg,  rgba(72,154,78,1) 5.2%, rgba(251,206,70,1) 95.9% )",
+    likes: "9",
+  },
+  {
+    gradient:
+      "radial-gradient( circle farthest-corner at 10% 20%,  rgba(38,51,97,1) 0%, rgba(65,143,222,1) 79% )",
+    likes: "11",
+  },
+  {
+    gradient:
+      "linear-gradient( 86.3deg,  rgba(0,119,182,1) 3.6%, rgba(8,24,68,1) 87.6% )",
+    likes: "13",
+  },
+  {
+    gradient:
+      "radial-gradient( circle farthest-corner at 10% 20%,  rgba(237,3,32,0.87) 20.8%, rgba(242,121,1,0.84) 74.4% )",
+    likes: "16",
+  },
+  {
+    gradient:
+      "radial-gradient( circle 763px at 18.3% 24.1%,  rgba(255,249,137,1) 7.4%, rgba(226,183,40,1) 58.3% )",
+    likes: "13",
+  },
+  {
+    gradient:
+      "linear-gradient( 173.1deg,  rgba(226,66,249,0.94) 10.2%, rgba(79,147,249,1) 77.3% )",
+    likes: "20",
+  },
+  {
+    gradient:
+      "linear-gradient( 108.7deg,  rgba(221,22,224,1) 11%, rgba(111,22,190,1) 88.2% )",
+    likes: "25",
+  },
+  {
+    gradient:
+      "radial-gradient( circle 815px at 23.4% -21.8%,  rgba(9,29,85,1) 0.2%, rgba(0,0,0,1) 100.2% )",
+    likes: "13",
+  },
+  {
+    gradient:
+      "radial-gradient( circle farthest-corner at 10% 20%,  rgba(0,160,187,1) 0%, rgba(0,188,219,0.90) 90% )",
+    likes: "7",
+  },
+  {
+    gradient:
+      "linear-gradient( 109.6deg,  rgba(103,30,117,1) 11.2%, rgba(252,76,2,1) 91.1% )",
+    likes: "10",
+  },
+  {
+    gradient:
+      "radial-gradient( circle 325px at 19.2% 64.8%,  rgba(254,62,101,1) 9.7%, rgba(166,24,146,1) 91.3% )",
+    likes: "13",
+  },
+  {
+    gradient:
+      "linear-gradient( 109.6deg,  rgba(103,30,117,1) 11.2%, rgba(252,76,2,1) 91.1% )",
+    likes: "10",
+  },
+  {
+    gradient:
+      "radial-gradient( circle 325px at 19.2% 64.8%,  rgba(254,62,101,1) 9.7%, rgba(166,24,146,1) 91.3% )",
+    likes: "13",
+  },
+  {
+    gradient:
+      "linear-gradient( 109.6deg,  rgba(103,30,117,1) 11.2%, rgba(252,76,2,1) 91.1% )",
+    likes: "10",
+  },
+  {
+    gradient:
+      "radial-gradient( circle 325px at 19.2% 64.8%,  rgba(254,62,101,1) 9.7%, rgba(166,24,146,1) 91.3% )",
+    likes: "13",
+  },
+  {
+    gradient:
+      "linear-gradient( 109.6deg,  rgba(103,30,117,1) 11.2%, rgba(252,76,2,1) 91.1% )",
+    likes: "10",
+  },
+  {
+    gradient:
+      "radial-gradient( circle 325px at 19.2% 64.8%,  rgba(254,62,101,1) 9.7%, rgba(166,24,146,1) 91.3% )",
+    likes: "13",
+  },
+];
+
+export const emojis = [
+  "🎃",
+  "🎄",
+  "🎆",
+  "🎇",
+  "🧨",
+  "✨",
+  "🎈",
+  "🎉",
+  "🎊",
+  "🎋",
+  "🎍",
+  "🎎",
+  "🎏",
+  "🎑",
+  "🧧",
+  "🎀",
+  "🎁",
+  "🎗",
+  "🎟",
+  "🎫",
+  "🎖",
+  "🏆",
+  "🏅",
+  "🥇	",
+  "🥈	",
+  "🥉",
+  "👓",
+  "🕶	",
+  "🥽",
+  "🥼",
+  "🦺",
+  "🎖",
+  "🏆",
+  "🎄",
+  "🎆",
+  "🎀",
+];
+
 export const modelsData = [
   {
     service_row_id: 4947,

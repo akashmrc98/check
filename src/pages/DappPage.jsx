@@ -3,54 +3,15 @@ import { Box, Tabs, TabList, Tab, TabPanel, TabPanels } from "@chakra-ui/react";
 import { fonts } from "../theme/fonts.js";
 import { colors } from "../theme/colors.js";
 
-import TabOne from "../components/model/TabOne";
-import TabTwo from "../components/model/TabTwo";
+import ModelsPage from "./ModelsPage";
+import SpacesPage from "./SpacesPage.jsx";
 
-import ModelHeadComponent from "../components/model/HeadComponent.jsx";
-
-import { useEffect } from "react";
-import { useState } from "react";
-import { modelsData } from "../data/modelsData.jsx";
-import { useParams } from "react-router";
-
-function ModelPage() {
-  const params = useParams();
-
-  const [model, setModel] = useState({
-    description: "",
-    tags: [],
-    url: "",
-    service_id: "",
-    org_id: "",
-    contributors: [],
-    service_rating: {
-      rating: 5,
-      total_users_rated: 1,
-    },
-    media: {
-      url: "",
-    },
-    org_assets_url: {
-      hero_image: "",
-    },
-  });
-
-  useEffect(() => {
-    modelsData.map((m) => {
-      if (m.service_id === params.model) {
-        setModel(m);
-        return;
-      }
-    });
-  }, []);
-  console.log(model);
-
+function DappPage() {
   return (
     <Box pt={32} pos="relative" bg={colors.bgColor}>
-      <ModelHeadComponent {...model} />
-      <Box width={{ base: "100%", lg: "88%" }} mx="auto">
+      <Box width={{ base: "100%", lg: "100%" }} mx="auto">
         <Tabs
-          py={4}
+          align="center"
           borderBottom={"none"}
           variant={"enclosed"}
           bg={colors.bgColor}
@@ -66,7 +27,7 @@ function ModelPage() {
                 borderBottom: `1px soild ${colors.highLightColor}`,
               }}
             >
-              About
+              Models
             </Tab>
             <Tab
               fontSize="xl"
@@ -78,15 +39,15 @@ function ModelPage() {
                 border: `1px soild ${colors.highLightColor}`,
               }}
             >
-              Install & Run
+              Spaces
             </Tab>
           </TabList>
-          <TabPanels py={4}>
+          <TabPanels>
             <TabPanel>
-              <TabOne {...model} />
+              <ModelsPage />
             </TabPanel>
             <TabPanel>
-              <TabTwo />
+              <SpacesPage />
             </TabPanel>
           </TabPanels>
         </Tabs>
@@ -95,4 +56,4 @@ function ModelPage() {
   );
 }
 
-export default ModelPage;
+export default DappPage;

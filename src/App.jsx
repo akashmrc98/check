@@ -1,13 +1,13 @@
-import { ChakraProvider } from "@chakra-ui/react";
+import { Box, ChakraProvider } from "@chakra-ui/react";
 
 import HomePage from "./pages/HomePage";
 import ModelPage from "./pages/ModelPage";
-import ModelsPage from "./pages/ModelsPage";
-import SpacesPage from "./pages/SpacesPage";
+import Dapp from "./pages/DappPage";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import SpaceFactory from "./pages/spaces/SpacesFactory";
 import Navbar from "./components/common/Navbar";
+import { colors } from "./theme/colors";
 
 const router = createBrowserRouter([
   {
@@ -15,12 +15,8 @@ const router = createBrowserRouter([
     element: <HomePage />,
   },
   {
-    path: "/dapp/models",
-    element: <ModelsPage />,
-  },
-  {
-    path: "/dapp/spaces",
-    element: <SpacesPage />,
+    path: "/dapp",
+    element: <Dapp />,
   },
   {
     path: "/dapp/models/:model",

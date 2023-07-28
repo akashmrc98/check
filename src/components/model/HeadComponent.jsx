@@ -8,16 +8,21 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-import { dappData } from "../../data/dappData";
 import { colors } from "../../theme/colors";
 import { fonts } from "../../theme/fonts";
 
-import Star from "/public/dapp/star.png";
-
-function ModelHeadComponent() {
+function ModelHeadComponent({
+  url,
+  org_id,
+  service_id,
+  organization_name,
+  display_name,
+  media,
+  org_assets_url,
+}) {
   return (
     <Grid
-      border={`1px solid ${colors.boxBorder}`}
+      border={`2px`}
       w={{ base: "100%", lg: "88%" }}
       borderTop={0}
       mx="auto"
@@ -30,15 +35,14 @@ function ModelHeadComponent() {
           p={{ base: 4, lg: 0 }}
           columnGap={"2rem"}
         >
-          <Flex justifyContent={"start"}>
-            <Image
-              boxShadow={`0px 0px 4px ${colors.boxBorder}`}
-              width="128"
-              height={"128"}
-              ml={{ base: 0, lg: 6 }}
-              src={dappData.logo}
-            ></Image>
-          </Flex>
+          <Image
+            boxShadow={`0px 0px 24px ${colors.highLightColor}`}
+            width="168"
+            height={"168"}
+            borderRadius="md"
+            ml={{ base: 0, lg: 6 }}
+            src={media.url}
+          ></Image>
           <Grid>
             <Flex
               rowGap={"1rem"}
@@ -47,16 +51,14 @@ function ModelHeadComponent() {
               flexDirection="column"
               justifyContent={"center"}
             >
-              <Flex columnGap="1rem">
-                <Box boxShadow={`0px 0px 2px ${colors.boxBorder}`}>
-                  <Image
-                    borderRadius={"50%"}
-                    boxShadow={`1px solid ${colors.boxBorder}`}
-                    maxH="12"
-                    maxW="16"
-                    src={dappData.subLogo}
-                  />
-                </Box>
+              <Flex alignItems={"center"} columnGap="1rem">
+                <Image
+                  boxShadow={`0px 0px 6px ${colors.highLightColor}`}
+                  borderRadius={"80%"}
+                  maxH="16"
+                  maxW="20"
+                  src={org_assets_url.hero_image}
+                />
                 <Box>
                   <Text
                     color={colors.highLightColor}
@@ -65,47 +67,33 @@ function ModelHeadComponent() {
                     lineHeight=".8"
                     fontSize={{ base: "sm", lg: "md" }}
                   >
-                    {dappData.main}
+                    {organization_name}
                   </Text>
                   <Text
                     color={colors.fontLightColorV2}
                     fontFamily={fonts.parafont}
                     fontSize={{ base: "lg", lg: "xl" }}
                   >
-                    {dappData.sub}
+                    {organization_name}
                   </Text>
                 </Box>
               </Flex>
-              <Box>
-                <Flex columnGap="1rem" alignItems="center">
-                  {dappData.rating.map((i) => (
-                    <Image maxW="8" key={i} src={Star} />
-                  ))}
-                  <Text
-                    color={colors.fontLightColorV2}
-                    fontWeight="bold"
-                    fontFamily={fonts.parafont}
-                  >
-                    {`4(${dappData.totalRatins})`}
-                  </Text>
-                </Flex>
-              </Box>
             </Flex>
+
+            <Text
+              color={colors.fontLightColor}
+              textAlign={"left"}
+              fontFamily={fonts.parafont}
+              fontSize={{ base: "xl", lg: "3xl" }}
+              fontWeight={{ base: "bold", lg: "normal" }}
+              px={8}
+            >
+              {display_name}
+            </Text>
           </Grid>
         </Flex>
 
-        <Box borderTop={"2px"} borderColor={colors.boxBorder}></Box>
-        <Text
-          textAlign={"center"}
-          color={colors.fontLightColor}
-          fontFamily={fonts.parafont}
-          fontSize={{ base: "xl", lg: "3xl" }}
-          fontWeight={{ base: "bold", lg: "normal" }}
-        >
-          {dappData.title}
-        </Text>
-
-        <Box display={"flex"} justifyContent="center">
+        <Box px={8} display={"flex"} justifyContent="flex-start">
           <Button
             size="lg"
             fontSize={{ base: "4xl" }}
@@ -123,20 +111,17 @@ function ModelHeadComponent() {
           </Button>
         </Box>
       </Grid>
-      <GridItem
-        pt={{ base: 0, lg: 6 }}
-        borderLeft={`1px solid ${colors.boxBorder}`}
-      >
+      <GridItem borderLeft="2px" pt={{ base: 0, lg: 6 }}>
         <Box px={{ base: 0, lg: 8 }} display="grid" rowGap="1rem">
           <Flex flexDirection={"column"} columnGap={"2rem"}>
             <Text
               fontSize="2xl"
               fontFamily={fonts.headingFont}
               color={colors.highLightColor}
+              mb={4}
             >
               Project Details
             </Text>
-            <Box my={4} border={"1px"} borderColor={colors.boxBorder}></Box>
             <Box
               columnGap={"1rem"}
               display="flex"
@@ -147,10 +132,6 @@ function ModelHeadComponent() {
               <Flex
                 flexDirection={{ base: "column", lg: "row" }}
                 justifyContent={"space-between"}
-                borderBottom={{
-                  base: `1px solid ${colors.boxBorder}`,
-                  lg: "none",
-                }}
               >
                 <Text
                   fontFamily={fonts.headingFont}
@@ -163,7 +144,7 @@ function ModelHeadComponent() {
                   fontFamily={fonts.parafont}
                   color={colors.fontLightColorV2}
                 >
-                  {dappData.projectUrl}
+                  {url}
                 </Text>
               </Flex>
               <Flex
@@ -185,16 +166,12 @@ function ModelHeadComponent() {
                   fontFamily={fonts.parafont}
                   color={colors.fontLightColorV2}
                 >
-                  {dappData.organizationId}
+                  {org_id}
                 </Text>
               </Flex>
               <Flex
                 flexDirection={{ base: "column", lg: "row" }}
                 justifyContent={"space-between"}
-                borderBottom={{
-                  base: `1px solid ${colors.boxBorder}`,
-                  lg: "none",
-                }}
               >
                 <Text
                   fontFamily={fonts.headingFont}
@@ -207,39 +184,17 @@ function ModelHeadComponent() {
                   fontFamily={fonts.parafont}
                   color={colors.fontLightColorV2}
                 >
-                  {dappData.serviceId}
-                </Text>
-              </Flex>
-              <Flex
-                flexDirection={{ base: "column", lg: "row" }}
-                justifyContent={"space-between"}
-                borderBottom={{
-                  base: `1px solid ${colors.boxBorder}`,
-                  lg: "none",
-                }}
-              >
-                <Text
-                  fontFamily={fonts.headingFont}
-                  fontWeight="bold"
-                  color={colors.fontLightColor}
-                >
-                  Contributors
-                </Text>
-                <Text
-                  fontFamily={fonts.parafont}
-                  color={colors.fontLightColorV2}
-                >
-                  {dappData.contributors[0]}
+                  {service_id}
                 </Text>
               </Flex>
             </Box>
           </Flex>
 
-          <Box border={"1px"} borderColor={colors.boxBorder}></Box>
+          <Box border={"2px"}></Box>
 
           <Flex
             textAlign={"center"}
-            justifyContent={"center"}
+            justifyContent={"flex-start"}
             alignItems="center"
             columnGap="2rem"
             py={4}
@@ -260,7 +215,7 @@ function ModelHeadComponent() {
                 0.000001
               </Text>
             </Box>
-            <Box height={"100%"} w={"2px"} bg={colors.boxBorder}></Box>
+            <Box border="2px" height={"100%"} w={"2px"}></Box>
             <Text
               color={colors.fontLightColorV2}
               fontWeight="bold"

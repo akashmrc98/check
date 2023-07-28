@@ -18,11 +18,7 @@ import { fonts } from "../../theme/fonts";
 
 function TabTwo() {
   return (
-    <Grid
-      borderBottom={`1px solid ${colors.boxBorder}`}
-      templateColumns={{ base: "1fr" }}
-      pb={{ base: 0, lg: 0 }}
-    >
+    <Grid templateColumns={{ base: "1fr" }} pb={{ base: 0, lg: 0 }}>
       <GridItem>
         <Box display="grid" rowGap="2rem">
           <Text
@@ -79,17 +75,6 @@ function TabTwo() {
                     fontFamily={fonts.headingFont}
                   >
                     DOWNLOAD INTEGRATION FILES
-                  </Button>
-                  <Button
-                    _hover={{
-                      bg: colors.bgColor,
-                      boxShadow: `0px 0px 4px ${colors.fontLightColorV2}`,
-                    }}
-                    color={colors.fontLightColorV2}
-                    fontFamily={fonts.headingFont}
-                    variant={"ghost"}
-                  >
-                    VIEW TUTORIAL
                   </Button>
                 </Flex>
                 <Text

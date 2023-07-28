@@ -1,9 +1,22 @@
-import { Box, Flex, Grid, GridItem, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  Grid,
+  GridItem,
+  Image,
+  Text,
+} from "@chakra-ui/react";
 import { colors } from "../theme/colors";
 import { fonts } from "../theme/fonts";
-import BG from "/public/ai_section/1.jpg";
+import { emojisData, sGradientData, spacesData } from "../data/spacesData";
+
+import Star from "/public/dapp/star.png";
+import { useNavigate } from "react-router";
 
 function SpacesPage() {
+  const navigate = useNavigate();
+
   return (
     <Box bg={colors.bgColor}>
       <Box mx="auto" width={{ base: "100%", lg: "88%" }} pos="relative">
@@ -41,50 +54,123 @@ function SpacesPage() {
           gridTemplateColumns={{
             base: "1fr",
             md: "1fr 1fr",
-            lg: "1fr 1fr 1fr",
             xl: "1fr 1fr 1fr 1fr",
           }}
         >
-          {data.map((d, i) => (
+          {spacesData.map((d, i) => (
             <GridItem
-              objectFit={"contain"}
-              backgroundSize="cover"
-              backgroundRepeat={"no-repeat"}
-              backgroundImage={BG}
-              p={{ base: 4, lg: 8 }}
+              onClick={() => navigate(`/dapp/spaces/${d.link}`)}
+              cursor={"pointer"}
+              borderRadius={"lg"}
+              pos={"relative"}
               key={i}
-              display="grid"
-              rowGap="1rem"
             >
-              <Text
-                px={2}
-                fontWeight={"bold"}
-                fontFamily={fonts.parafont}
-                bg={colors.fontLightColorV2}
-                width="auto"
-                mx="auto"
-                fontSize={{ base: "xs" }}
+              <Box
+                borderRadius={"xl"}
+                backgroundImage={sGradientData[i].gradient}
+                pos="relative"
+                minH="200px"
               >
-                {d.tag}
-              </Text>
-              <Text
-                textAlign={"center"}
-                fontSize={{ base: "2xl" }}
-                color={colors.highLightColor}
-                fontWeight="bold"
-                fontFamily={fonts.headingFont}
-              >
-                {d.title}
-              </Text>
-              <Flex justifyContent={"space-between"}>
-                <Text fontFamily={fonts.parafont} color={colors.fontLightColor}>
-                  {d.author}
-                </Text>
+                <Box
+                  bg={`rgba(0, 0, 0, 0.5)`}
+                  borderBottomLeftRadius="xl"
+                  left={0}
+                  pos="absolute"
+                  display={"flex"}
+                  alignItems="center"
+                  px={4}
+                >
+                  <Image w={"20px"} height="20px" src={Star} />
+                  <Text
+                    textAlign={"center"}
+                    zIndex={2}
+                    fontWeight={"bold"}
+                    fontFamily={fonts.headingFont}
+                    textTransform="uppercase"
+                    color={colors.fontLightColor}
+                    mx="auto"
+                    fontSize={{ base: "sm" }}
+                    p={2}
+                  >
+                    Running on{" "}
+                    <Box
+                      fontStyle={"italic"}
+                      color={colors.highLightColor}
+                      fontWeight="bold"
+                      fontFamily={fonts.parafont}
+                      display={"inline"}
+                      fontSize={{ base: "xl" }}
+                    >
+                      CPU
+                    </Box>
+                  </Text>{" "}
+                </Box>
+                <Box zIndex={2} width="100%" top={"33%"} pos="absolute">
+                  <Text
+                    textAlign={"center"}
+                    fontWeight={"bold"}
+                    fontFamily={fonts.headingFont}
+                    textTransform="uppercase"
+                    color={colors.fontLightColorV2}
+                    mx="auto"
+                    width="80%"
+                    borderRadius={"xl"}
+                    bg={`rgba(0, 0, 0, 0.3)`}
+                    fontSize={{ base: "xl" }}
+                    p={2}
+                    zIndex={8}
+                  >
+                    {d.display_name}
+                  </Text>{" "}
+                </Box>
+
+                <Box
+                  top={"10%"}
+                  display={"flex"}
+                  justifyContent="center"
+                  alignItems={"center"}
+                  width="100%"
+                  pos="absolute"
+                  zIndex={0}
+                >
+                  <Text fontSize={{ base: "8xl" }}>{emojisData[i]}</Text>
+                </Box>
+                <Box
+                  pos={"absolute"}
+                  bottom={0}
+                  right={0}
+                  alignItems={"flex-end"}
+                  display={"flex"}
+                  justifyContent="flex-end"
+                  p={4}
+                >
+                  <Button
+                    _hover={{
+                      bg: colors.highLightColor,
+                      color: colors.bgColor,
+                    }}
+                    variant={"outline"}
+                    bg={colors.bgColor}
+                    color={colors.highLightColor}
+                    fontWeight="bold"
+                    fontFamily={fonts.headingFont}
+                    size="sm"
+                    boxShadow={`0px 0px 4px ${colors.highLightColor}`}
+                    border={0}
+                  >
+                    {d.tags[0]}
+                  </Button>
+                </Box>
+              </Box>
+              <Flex py={2} justifyContent={"space-between"}>
                 <Text
+                  zIndex={2}
+                  pl={2}
                   color={colors.fontLightColorV2}
                   fontFamily={fonts.parafont}
+                  width="100%"
                 >
-                  {d.day}
+                  Overpoweredai-project
                 </Text>
               </Flex>
             </GridItem>
@@ -96,48 +182,3 @@ function SpacesPage() {
 }
 
 export default SpacesPage;
-
-const data = [
-  {
-    title: "Llama2 70B Chatbot",
-    tag: "Running on CPU UPGRADE",
-    author: "ysharma",
-    day: "5 days ago",
-  },
-  {
-    title: "Llama2 70B Chatbot",
-    tag: "Running on CPU UPGRADE",
-    author: "ysharma",
-    day: "5 days ago",
-  },
-  {
-    title: "Llama2 70B Chatbot",
-    tag: "Running on CPU UPGRADE",
-    author: "ysharma",
-    day: "5 days ago",
-  },
-  {
-    title: "Llama2 70B Chatbot",
-    tag: "Running on CPU UPGRADE",
-    author: "ysharma",
-    day: "5 days ago",
-  },
-  {
-    title: "Llama2 70B Chatbot",
-    tag: "Running on CPU UPGRADE",
-    author: "ysharma",
-    day: "5 days ago",
-  },
-  {
-    title: "Llama2 70B Chatbot",
-    tag: "Running on CPU UPGRADE",
-    author: "ysharma",
-    day: "5 days ago",
-  },
-  {
-    title: "Llama2 70B Chatbot",
-    tag: "Running on CPU UPGRADE",
-    author: "ysharma",
-    day: "5 days ago",
-  },
-];

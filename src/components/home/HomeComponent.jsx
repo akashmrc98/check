@@ -38,8 +38,6 @@ function HomeComponent() {
                     borderStyle="groove"
                     position="relative"
                     borderColor={colors.boxBorder}
-                    borderRight={0}
-                    borderLeft={0}
                   >
                     {isNext ? (
                       <Box
@@ -80,8 +78,6 @@ function HomeComponent() {
               border="1px"
               borderColor={colors.boxBorder}
               borderTop={j === 0 ? `1px groove ${colors.boxBorder}` : "none"}
-              borderLeft={0}
-              borderRight={0}
             >
               <Box>{`>`}</Box>
               <motion.div

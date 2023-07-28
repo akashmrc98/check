@@ -9,22 +9,13 @@ import {
 } from "@chakra-ui/react";
 import { colors } from "../theme/colors";
 import { fonts } from "../theme/fonts";
-import { modelsData } from "../data/modelsData";
+import { emojis, gradientData, modelsData } from "../data/modelsData";
 
 import Star from "/public/dapp/star.png";
-
-function Stars(props) {
-  let arr = [...Array(Math.round(props.ratings)).keys()] ?? [0];
-  return (
-    <Flex>
-      {arr.map((i) => (
-        <Image zIndex={8} key={i} height="6" src={Star} />
-      ))}
-    </Flex>
-  );
-}
+import { useNavigate } from "react-router";
 
 function ModelsPage() {
+  const navigate = useNavigate();
   return (
     <Box bg={colors.bgColor}>
       <Box mx="auto" width={{ base: "100%", lg: "88%" }} pos="relative">
@@ -62,85 +53,115 @@ function ModelsPage() {
           gridTemplateColumns={{
             base: "1fr",
             md: "1fr 1fr",
-            lg: "1fr 1fr 1fr",
             xl: "1fr 1fr 1fr 1fr",
           }}
         >
           {modelsData.map((d, i) => (
-            <GridItem border={`2px solid ${colors.boxBorder}`} key={i}>
+            <GridItem
+              onClick={() => navigate("/dapp/models/" + d.service_id)}
+              cursor={"pointer"}
+              borderRadius={"lg"}
+              pos={"relative"}
+              key={i}
+            >
               <Box
-                objectFit={"contain"}
-                backgroundSize="cover"
-                backgroundRepeat={"no-repeat"}
-                backgroundImage={d.media.url}
-                minH="160px"
-                display="grid"
-                rowGap="1rem"
+                borderRadius={"xl"}
+                backgroundImage={gradientData[i].gradient}
                 pos="relative"
-              ></Box>
-              <Text
-                fontWeight={"bold"}
-                fontFamily={fonts.parafont}
-                bg={colors.bgColor}
-                color={colors.fontLightColor}
-                width="auto"
-                mx="auto"
-                fontSize={{ base: "md" }}
-                p={2}
+                minH="200px"
               >
-                {d.display_name}
-              </Text>{" "}
-              <Flex
-                bottom={0}
-                border="2px"
-                bg={colors.bgColor}
-                p={1}
-                width="100%"
-                alignItems={"center"}
-              >
-                <Stars ratings={d.service_rating.rating} />
+                <Box
+                  bg={`rgba(0, 0, 0, 0.5)`}
+                  borderBottomRightRadius="xl"
+                  left={0}
+                  pos="absolute"
+                  display={"flex"}
+                  alignItems="center"
+                  px={4}
+                >
+                  <Image height={"20px"} src={Star} />
+                  <Text
+                    textAlign={"center"}
+                    zIndex={2}
+                    fontWeight={"bold"}
+                    fontFamily={fonts.headingFont}
+                    textTransform="uppercase"
+                    color={colors.fontLightColor}
+                    mx="auto"
+                    fontSize={{ base: "xl" }}
+                    p={2}
+                  >
+                    {gradientData[i].likes}
+                  </Text>{" "}
+                </Box>
+                <Box zIndex={2} width="100%" top={"33%"} pos="absolute">
+                  <Text
+                    textAlign={"center"}
+                    fontWeight={"bold"}
+                    fontFamily={fonts.headingFont}
+                    textTransform="uppercase"
+                    color={colors.fontLightColorV2}
+                    mx="auto"
+                    width="80%"
+                    borderRadius={"xl"}
+                    bg={`rgba(0, 0, 0, 0.3)`}
+                    fontSize={{ base: "xl" }}
+                    p={2}
+                    zIndex={8}
+                  >
+                    {d.display_name}
+                  </Text>{" "}
+                </Box>
+
+                <Box
+                  top={"10%"}
+                  display={"flex"}
+                  justifyContent="center"
+                  alignItems={"center"}
+                  width="100%"
+                  pos="absolute"
+                  zIndex={0}
+                >
+                  <Text fontSize={{ base: "8xl" }}>{emojis[i]}</Text>
+                </Box>
+                <Box
+                  pos={"absolute"}
+                  bottom={0}
+                  right={0}
+                  alignItems={"flex-end"}
+                  display={"flex"}
+                  justifyContent="flex-end"
+                  p={4}
+                >
+                  <Button
+                    _hover={{
+                      bg: colors.highLightColor,
+                      color: colors.bgColor,
+                    }}
+                    variant={"outline"}
+                    bg={colors.bgColor}
+                    color={colors.highLightColor}
+                    fontWeight="bold"
+                    fontFamily={fonts.headingFont}
+                    size="sm"
+                    boxShadow={`0px 0px 4px ${colors.highLightColor}`}
+                    border={0}
+                  >
+                    {d.tags[0]}
+                  </Button>
+                </Box>
+              </Box>
+              <Flex py={2} justifyContent={"space-between"}>
                 <Text
+                  zIndex={2}
                   pl={2}
                   color={colors.fontLightColorV2}
                   fontFamily={fonts.parafont}
+                  width="100%"
                 >
-                  {`${d.service_rating.rating}.0 (${d.service_rating.total_users_rated})`}
+                  OverpoweredAI-project
                 </Text>
               </Flex>
-              <Flex>
-                <Text
-                  p={2}
-                  color={colors.fontLightColorV2}
-                  fontFamily={fonts.parafont}
-                  fontSize={{ base: "xs" }}
-                  pt={2}
-                >
-                  {d.short_description}
-                </Text>
-              </Flex>
-              <Box
-                alignItems={"flex-end"}
-                display={"flex"}
-                justifyContent="flex-end"
-                p={4}
-              >
-                <Button
-                  _hover={{
-                    bg: colors.highLightColor,
-                    color: colors.bgColor,
-                  }}
-                  variant={"outline"}
-                  bg={colors.bgColor}
-                  color={colors.highLightColor}
-                  fontWeight="bold"
-                  fontFamily={fonts.headingFont}
-                  size="sm"
-                  boxShadow={`0px 0px 4px ${colors.highLightColor}`}
-                  border={0}
-                >
-                  View Demo
-                </Button>
-              </Box>
             </GridItem>
           ))}
         </Grid>
