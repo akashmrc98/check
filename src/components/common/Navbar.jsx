@@ -15,7 +15,7 @@ import { fonts } from "../../theme/fonts";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { FiMenu } from "react-icons/fi";
 import Logo from "/public/logo.png";
-import NavLogo from "/public/nav_logo_2.png";
+import Logo2 from "/public/logo_2.png";
 
 function NavItem(props) {
   return (
@@ -205,7 +205,7 @@ function Navbar() {
           <NavItem title={"Technology"} />
           <NavItem title={"EcoSystem"} />
           <Flex py={2} justifyContent={"center"}>
-            <Image p={2} maxW="32" src={Logo} />
+            <Image p={2} maxW="32" src={Logo2} />
           </Flex>
           <NavItem title={"About"} />
           <NavItem onClick={() => toggleMenu()} title={"Menu"} />
