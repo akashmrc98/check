@@ -16,20 +16,21 @@ function TokenComponent() {
       <Grid gridTemplateColumns={{ base: "1fr", lg: "1fr 1fr" }}>
         <GridItem></GridItem>
         <GridItem p={12}>
-          <HeadLines desc="" subTitle="TKN" title="TOKENOMICS" />
+          <HeadLines desc="" subTitle="OPAI" title="TOKENOMICS" />
         </GridItem>
       </Grid>
       <Box
         display={{ base: "grid" }}
-        gridTemplateColumns={{ base: "1fr ", lg: "1fr 1fr" }}
+        gridTemplateColumns={{ base: "1fr", lg: "1fr 1fr" }}
         alignItems="center"
+        width={"100%"}
       >
         <Box
+          width={"100%"}
+          mx="auto"
           border={`1px groove ${colors.boxBorder}`}
           py={4}
-          borderLeft={0}
-          borderRight={0}
-          px={8}
+          px={{ base: 4, lg: 8 }}
         >
           {tokenomicsData.map((t, i) => (
             <Box key={i}>
@@ -42,24 +43,7 @@ function TokenComponent() {
             <TokenomicsCardComponent keyv="BUY TAX" value="3%" />
           </Box>
         </Box>
-        <Box h="60vh">
-          <Canvas
-            style={{
-              height: "100%",
-            }}
-            frameloop="demand"
-            shadows
-          >
-            <OrbitControls
-              enableZoom={false}
-              enableRotate={true}
-              enableDamping={false}
-              enablePan={false}
-            />
-            <pointLight position={[10, 10, 10]} />
-            <ambientLight intensity={0.1} />
-          </Canvas>
-        </Box>
+        <Box h="60vh"></Box>
       </Box>
     </Box>
   );

@@ -11,7 +11,7 @@ function EcoSystemComponent() {
   return (
     <Box pos="relative">
       <Grid gridTemplateColumns={"1fr"} p={12}>
-        <HeadLines desc="UTILITIES" subTitle="TKN" title="ECO-SYSTEM" />
+        <HeadLines desc="UTILITIES" subTitle="OPAI" title="ECO-SYSTEM" />
       </Grid>
       <motion.div
         initial="hidden"
@@ -28,15 +28,19 @@ function EcoSystemComponent() {
         }}
       >
         <Image src={EcoSystem} />
-        <Grid mx="auto" width="80%" py={24}>
+        <Grid mx="auto" width={{ base: "100%", lg: "90%" }} py={24}>
           {ecoSystemData.map((e, i) => (
             <Grid
               border={`1px groove ${colors.boxBorder}`}
-              borderTop={i === 0 ? `1px groove ${colors.boxBorder}` : 0}
-              borderTopRightRadius={i === 0 ? "xl" : "none"}
-              borderBottomRadius={
-                i === ecoSystemData.length - 1 ? "xl" : "none"
-              }
+              borderTop={{
+                base: `1px groove ${colors.boxBorder}`,
+                lg: i === 0 ? `1px groove ${colors.boxBorder}` : 0,
+              }}
+              borderTopRightRadius={{ base: 0, lg: i === 0 ? "xl" : "none" }}
+              borderBottomRadius={{
+                base: 0,
+                lg: i === ecoSystemData.length - 1 ? "xl" : "none",
+              }}
               gridTemplateColumns={{ base: "1fr", lg: "1fr 1fr" }}
               key={i}
             >

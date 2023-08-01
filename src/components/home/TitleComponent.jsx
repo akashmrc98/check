@@ -1,27 +1,34 @@
 import { Box, Grid, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { useState } from "react";
+// import { useState } from "react";
 import { colors } from "../../theme/colors";
 import { fonts } from "../../theme/fonts";
 
-import { Canvas } from "@react-three/fiber";
-import { Model } from "../../animations/Robot/Robot";
+// import { Canvas } from "@react-three/fiber";
+// import { Model } from "../../animations/Robot/Robot";
 import BG from "/public/bg/6.jpg";
 
 function TitleComponent() {
-  const [look, setLook] = useState({
-    x: 0,
-    y: 0,
-  });
+  // const [look, setLook] = useState({
+  //   x: 0,
+  //   y: 0,
+  // });
   return (
     <Box
-      minH="100vh"
+      minH={{ base: "60vh", md: "80vh", lg: "100vh" }}
       backgroundRepeat={"no-repeat"}
       backgroundSize="cover"
       backgroundImage={BG}
     >
-      <Box mx="auto" zIndex={1} width="90%">
-        <Grid templateColumns={{ base: "1fr", lg: "1fr 1fr" }}>
+      <Box
+        minH={{ base: "60vh", md: "80vh", lg: "100vh" }}
+        display="flex"
+        alignItems="center"
+        mx="auto"
+        zIndex={1}
+        width={{ base: "90%", lg: "80%" }}
+      >
+        <Grid templateColumns={{ base: "1fr" }}>
           <Box
             display={"flex"}
             justifyContent="center"
@@ -43,24 +50,64 @@ function TitleComponent() {
                 duration: 2,
               }}
             >
-              <Text
+              <Box
                 cursor={"none"}
                 fontWeight={"bold"}
                 fontFamily={fonts.headingFont}
-                fontSize={{ base: "3xl", lg: "6xl", xl: "8xl" }}
+                fontSize={{ base: "5xl", lg: "6xl", xl: "8xl" }}
                 fontStyle="italic"
                 color={colors.fontLightColor}
               >
-                Pushing The
-              </Text>
+                {[
+                  "P",
+                  "u",
+                  "s",
+                  "h",
+                  "i",
+                  "n",
+                  "g",
+                  "\u00A0",
+                  "T",
+                  "h",
+                  "e",
+                ].map((b, k) => (
+                  <motion.div
+                    style={{
+                      display: "inline-block",
+                      fontWeight: "bolder",
+                    }}
+                    key={k}
+                    initial={{
+                      scale: 0,
+                      opacity: 0,
+                      y: 3,
+                    }}
+                    animate={{
+                      scale: 1,
+                      opacity: 1,
+                      y: 0,
+                    }}
+                    transition={{
+                      type: "tween",
+                      stiffness: 260,
+                      damping: 20,
+                      delay: k * 0.2,
+                      repeat: Infinity,
+                      repeatDelay: 1,
+                    }}
+                  >
+                    {b}
+                  </motion.div>
+                ))}
+              </Box>{" "}
               <Text
                 cursor={"none"}
                 fontWeight={"bold"}
-                fontSize={{ base: "3xl", lg: "5xl", xl: "7xl" }}
+                fontSize={{ base: "4xl", lg: "5xl", xl: "7xl" }}
                 fontFamily={fonts.parafont}
                 color={colors.highLightColor}
               >
-                AI & AGI
+                Over Powered AI
               </Text>
               <Text
                 cursor={"none"}
@@ -69,9 +116,43 @@ function TitleComponent() {
                 fontStyle="italic"
                 fontFamily={fonts.headingFont}
                 color={colors.fontLightColor}
+              ></Text>
+              <Box
+                cursor={"none"}
+                fontWeight={"bold"}
+                fontFamily={fonts.headingFont}
+                fontSize={{ base: "5xl", lg: "6xl", xl: "8xl" }}
+                fontStyle="italic"
+                color={colors.fontLightColor}
               >
-                Frontier
-              </Text>
+                {["F", "r", "o", "n", "t", "i", "e", "r"].map((b, k) => (
+                  <motion.div
+                    style={{
+                      display: "inline-block",
+                      fontWeight: "bolder",
+                    }}
+                    key={k}
+                    initial={{
+                      scale: 1.5,
+                      y: 3,
+                    }}
+                    animate={{
+                      scale: 1,
+                      y: 0,
+                    }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 260,
+                      damping: 20,
+                      delay: k * 0.1,
+                      repeat: Infinity,
+                      repeatDelay: 1,
+                    }}
+                  >
+                    {b}
+                  </motion.div>
+                ))}
+              </Box>{" "}
             </motion.div>
             <motion.div
               initial="hidden"
@@ -99,7 +180,7 @@ function TitleComponent() {
               </Text>
             </motion.div>
           </Box>
-          <motion.div
+          {/* <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -132,7 +213,7 @@ function TitleComponent() {
               <directionalLight />
               <ambientLight />
             </Canvas>
-          </motion.div>
+          </motion.div> */}
         </Grid>
       </Box>
     </Box>

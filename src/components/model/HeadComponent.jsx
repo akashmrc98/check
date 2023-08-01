@@ -205,7 +205,7 @@ function ModelHeadComponent({
                 fontWeight="bold"
                 fontFamily={fonts.parafont}
               >
-                TKN TOKENS
+                OPAI TOKENS
               </Text>
               <Text
                 color={colors.fontLightColor}

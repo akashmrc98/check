@@ -8,12 +8,20 @@ import HeadLines from "../../common/HeadLine";
 
 function OurSolutionContentComponent() {
   return (
-    <Box width="92.5%" mx="auto">
-      <HeadLines px={24} title="Our Mission" />
+    <Box
+      my={32}
+      border={`2px solid ${colors.boxBorder}`}
+      width="92.5%"
+      p={2}
+      mx="auto"
+    >
+      <Box px={8} py={16}>
+        <HeadLines px={24} title="Our Mission" />
+      </Box>
       <Grid borderRadius={"xl"}>
         {ourSolutionsData.map((sol, i) => (
           <Box
-            borderTop={i === 0 ? `none` : `1px groove ${colors.boxBorder}`}
+            borderTop={`1px groove ${colors.boxBorder}`}
             borderBottom={"0"}
             borderBottomRadius={
               i === ourSolutionsData.length - 1 ? "xl" : "none"

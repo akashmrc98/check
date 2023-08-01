@@ -20,7 +20,7 @@ const AIComponent = () => {
         <GridItem p={12}>
           <HeadLines
             desc="UNLEASH THE POWER OF"
-            subTitle="TKN"
+            subTitle="OPAI"
             title="PRODUCTS"
           />
         </GridItem>
@@ -51,7 +51,7 @@ const AIComponent = () => {
             autoplay={{ delay: 2500, disableOnInteraction: false }}
             loop={true}
             modules={[Autoplay, Navigation]}
-            slidesPerView={is990Px ? 4 : 1}
+            slidesPerView={is990Px ? 2 : 1}
             onSlideChange={(e) => console.log(e)}
           >
             {aiSectionData.map((s, i) => (

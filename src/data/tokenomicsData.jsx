@@ -1,11 +1,11 @@
 export const tokenomicsData = [
   {
     key: "Name",
-    value: "TKN",
+    value: "OPAI",
   },
   {
     key: "Ticker",
-    value: "$TKN",
+    value: "$OPAI",
   },
   {
     key: "Total Supply",

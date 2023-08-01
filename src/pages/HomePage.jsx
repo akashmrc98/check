@@ -14,7 +14,7 @@ import TitleComponent from "../components/home/TitleComponent";
 import RoadmapComponent from "../components/home/RoadmapComponent";
 import TokenComponent from "../components/home/Token/TokenComponent";
 import TeamComponent from "../components/home/TeamComponent";
-import OurSolutionComponent from "../components/home/OurSolution/OurSolutionsComponent";
+// import OurSolutionComponent from "../components/home/OurSolution/OurSolutionsComponent";
 
 function HomePage() {
   const ref = useRef();
@@ -28,7 +28,7 @@ function HomePage() {
       bg={colors.bgColor}
     >
       <TitleComponent />
-      <Box width="90%" mx="auto">
+      <Box>
         <Box
           display={"flex"}
           flexDirection="column"
@@ -51,7 +51,7 @@ function HomePage() {
           <TeamComponent />
         </Box>
       </Box>
-      <OurSolutionComponent />
+      {/* <OurSolutionComponent /> */}
     </Box>
   );
 }

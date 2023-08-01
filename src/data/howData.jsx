@@ -11,13 +11,13 @@ export const howData = [
           {
             plan: "FREE PLAN",
             type: "Limited Access",
-            key: "0 TKN",
+            key: "0 OPAI",
             value: "PER REQUEST",
           },
           {
             plan: "PPP PLAN",
             type: "Premium Access",
-            key: "0.1 TKN",
+            key: "0.1 OPAI",
             value: "PER REQUEST",
           },
         ],

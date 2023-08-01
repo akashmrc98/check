@@ -36,7 +36,6 @@ function MarketingComponent() {
           border={`1px solid ${colors.boxBorder}`}
           borderStyle="groove"
           p={4}
-          borderLeft={0}
         >
           <Marquee>
             <Flex justifyContent={"space-evenly"} columnGap="1rem">

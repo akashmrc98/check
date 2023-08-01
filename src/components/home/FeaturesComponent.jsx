@@ -13,7 +13,7 @@ function FeaturesComponent() {
   return (
     <Box pos="relative">
       <Grid gridTemplateColumns={"1fr"} p={12}>
-        <HeadLines desc="UTILITIES" subTitle="TKN" title="Features" />
+        <HeadLines desc="UTILITIES" subTitle="OPAI" title="Features" />
       </Grid>
       <motion.div
         initial="hidden"
@@ -79,6 +79,7 @@ function FeaturesComponent() {
                       px={4}
                       fontFamily={fonts.parafont}
                       color={colors.highLightColor}
+                      fontSize={{ base: "xs", md: "md" }}
                       pb={2}
                     >
                       {d.subTitle}

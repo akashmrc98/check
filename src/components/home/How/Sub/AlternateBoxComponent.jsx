@@ -43,6 +43,7 @@ function AlternateBoxComponent(props) {
         fontSize={{ base: "md" }}
         borderTop={0}
         borderLeft={0}
+        px={2}
       >
         {props.sub}
       </Text>

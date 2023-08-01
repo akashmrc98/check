@@ -9,8 +9,8 @@ import {
   useMotionValueEvent,
 } from "framer-motion";
 
-import { Canvas } from "@react-three/fiber";
-import { Model as Bot } from "../../../animations/Bot/Bot";
+// import { Canvas } from "@react-three/fiber";
+// import { Model as Bot } from "../../../animations/Bot/Bot";
 
 import OurSolutionContentComponent from "./OurSolutionContentComponent";
 
@@ -76,7 +76,7 @@ function OurSolutionComponent() {
           position: !sceneYProgress.current ? "relative" : "fixed",
         }}
       >
-        <Canvas
+        {/* <Canvas
           camera={{
             position: [0, 2, -5],
           }}
@@ -88,7 +88,7 @@ function OurSolutionComponent() {
           <pointLight />
           <ambientLight />
           <directionalLight />
-        </Canvas>
+        </Canvas> */}
       </motion.div>
 
       <motion.div

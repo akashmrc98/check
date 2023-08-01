@@ -19,7 +19,7 @@ const TeamComponent = () => {
     <Box pos="relative">
       <Grid gridTemplateColumns={"1fr 1fr"}>
         <GridItem p={12}>
-          <HeadLines desc="TEAM" subTitle="TKN" title="Faces behind" />
+          <HeadLines desc="TEAM" subTitle="OPAI" title="Faces behind" />
         </GridItem>
         <GridItem></GridItem>
       </Grid>
@@ -55,7 +55,7 @@ const TeamComponent = () => {
           >
             {teamData.map((s, i) => (
               <SwiperSlide key={i}>
-                <Box borderTop={`1px groove ${colors.boxBorder}`}>
+                <Box border={`1px groove ${colors.boxBorder}`} borderBottom={0}>
                   <Text
                     mt={4}
                     textAlign={"center"}
@@ -68,11 +68,12 @@ const TeamComponent = () => {
                   </Text>
                 </Box>
                 <Box
-                  borderLeft={0}
-                  borderRight={0}
                   display="flex"
                   justifyContent={"center"}
-                  borderRadius="2vh 1vw"
+                  border="1px"
+                  borderTop={0}
+                  borderBottom={0}
+                  borderColor={colors.boxBorder}
                   p={8}
                 >
                   <Image
@@ -82,7 +83,7 @@ const TeamComponent = () => {
                     src={s.img}
                   />
                 </Box>
-                <Box borderBottom="1px" borderColor={colors.boxBorder} p={4}>
+                <Box border="1px" borderColor={colors.boxBorder} p={4}>
                   <Text
                     fontFamily={fonts.parafont}
                     fontSize={{ base: "2xl" }}

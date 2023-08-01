@@ -25,7 +25,7 @@ function RoadmapComponent() {
     <Box maxW="100%">
       <Grid gridTemplateColumns={"1fr 1fr"}>
         <GridItem p={12}>
-          <HeadLines desc="" subTitle="TKN" title="ROADMAP" />
+          <HeadLines desc="" subTitle="OPAI" title="ROADMAP" />
         </GridItem>
         <GridItem></GridItem>
       </Grid>
@@ -60,21 +60,11 @@ function RoadmapComponent() {
                 damping: 20,
               }}
             >
-              <Box
-                border={`1px groove ${colors.boxBorder}`}
-                borderLeft={0}
-                borderRight={0}
-                key={i}
-              >
-                <Box
-                  borderLeft={0}
-                  borderRight={0}
-                  borderBottom={`1px groove ${colors.boxBorder}`}
-                  p={4}
-                >
+              <Box border={`1px groove ${colors.boxBorder}`} key={i}>
+                <Box borderBottom={`1px groove ${colors.boxBorder}`} p={4}>
                   <Text
                     color={colors.fontLightColorV2}
-                    fontSize={{ base: "sm" }}
+                    fontSize={{ base: "xl" }}
                     fontWeight="bold"
                     fontFamily={fonts.headingFont}
                   >
@@ -83,7 +73,7 @@ function RoadmapComponent() {
                   <Text
                     fontFamily={fonts.headingFont}
                     color={colors.highLightColor}
-                    fontSize={{ base: "3xl" }}
+                    fontSize={{ base: "5xl" }}
                   >
                     {d.title}
                   </Text>
@@ -112,7 +102,7 @@ function RoadmapComponent() {
                         </Text>
                       </Box>
 
-                      <Box display={"grid"}>
+                      <Box my={8} rowGap=".4rem" display={"grid"}>
                         {p.milestones.map((m, k) => (
                           <Box
                             display={"flex"}
@@ -122,7 +112,12 @@ function RoadmapComponent() {
                             <Text
                               fontFamily={fonts.parafont}
                               color={colors.fontLightColor}
-                              fontSize={{ base: "md" }}
+                              fontSize={{
+                                base: "sm",
+                                md: "md",
+                                lg: "lg",
+                                xl: "xl",
+                              }}
                             >
                               {m}
                             </Text>

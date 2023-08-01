@@ -4,6 +4,8 @@ import {
   Flex,
   Grid,
   GridItem,
+  Icon,
+  Image,
   Stack,
   Text,
 } from "@chakra-ui/react";
@@ -11,6 +13,9 @@ import { useState } from "react";
 import { colors } from "../../theme/colors";
 import { fonts } from "../../theme/fonts";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import { FiMenu } from "react-icons/fi";
+import Logo from "/public/logo.png";
+import NavLogo from "/public/nav_logo_2.png";
 
 function NavItem(props) {
   return (
@@ -19,7 +24,7 @@ function NavItem(props) {
       color={colors.fontLightColorV2}
       fontFamily={fonts.headingFont}
       fontWeight="bold"
-      fontSize={{ base: "2xl" }}
+      fontSize={{ base: "lg", lg: "2xl" }}
       _hover={{
         color: colors.highLightColor,
       }}
@@ -61,25 +66,15 @@ function Navbar() {
     {
       title: "Who We Are",
       items: [
-        "SingularityNET Foundation",
+        "Overpowered AI Foundation",
         "Team",
         "Roadmap",
-        "Jobs",
-        "Contact",
         "Press Media Kit",
       ],
     },
     {
       title: "What We Do",
-      items: [
-        "Official Blog",
-        "Telegram",
-        "Discord",
-        "News & Events",
-        "Ambassador Program",
-        "Github",
-        "Forum",
-      ],
+      items: ["Telegram", "Twitter", "Github"],
     },
   ];
 
@@ -100,33 +95,39 @@ function Navbar() {
         width="100%"
         opacity={0.9}
         bg={colors.bgColor}
+        overflowY={{ base: "scroll", lg: "hidden" }}
       >
-        <Flex cursor={"pointer"} px={8} pt={4} justifyContent={"flex-end"}>
-          <AiOutlineCloseCircle
-            size={56}
+        <Flex
+          cursor={"pointer"}
+          px={8}
+          pt={4}
+          justifyContent={{ base: "center" }}
+          pos="relative"
+        >
+          <Image display={{ base: "none", lg: "block" }} maxW="72" src={Logo} />
+          <Icon
+            pos="absolute"
+            right="3%"
+            top="3%"
+            cursor={"pointer"}
+            height={{ base: 10 }}
+            width={{ base: 10 }}
             color={colors.highLightColor}
             onClick={() => toggleMenu()}
-          />
+            as={AiOutlineCloseCircle}
+          ></Icon>
         </Flex>
         <Box minH="10vh">
-          <Text
-            color={colors.highLightColor}
-            fontFamily={fonts.headingFont}
-            fontWeight={"bold"}
-            fontSize={{ base: "8xl" }}
-            textAlign={"center"}
-            borderBottom="2px"
+          <Grid
+            templateColumns={{ base: "1fr", lg: "1fr 1fr", xl: "1fr 1fr 1fr" }}
           >
-            OPNET
-          </Text>
-          <Grid templateColumns={"1fr 1fr 1fr"}>
             {headers.map((h, i) => (
               <GridItem mt={8} display={"grid"} justifyContent="center" key={i}>
                 <Text
                   color={colors.highLightColor}
                   fontFamily={fonts.headingFont}
                   fontWeight={"bold"}
-                  fontSize={{ base: "5xl" }}
+                  fontSize={{ base: "2xl", lg: "5xl" }}
                   textAlign={"center"}
                 >
                   {h.title}
@@ -140,7 +141,13 @@ function Navbar() {
             ))}
           </Grid>
 
-          <Box mt={8} width="100%" borderTop={"2px"} p={8}>
+          <Box
+            display={{ base: "none", lg: "block" }}
+            mt={8}
+            width="100%"
+            borderTop={"2px"}
+            p={8}
+          >
             <Text
               color={colors.fontLightColor}
               fontFamily={fonts.headingFont}
@@ -170,17 +177,36 @@ function Navbar() {
         zIndex={8}
         width="100%"
       >
+        <Flex
+          width={"100%"}
+          height="10vh"
+          bg={colors.bgColor}
+          justifyContent={"space-between"}
+          px={8}
+          py={3}
+          display={{ base: "flex", lg: "none" }}
+        >
+          <Image src={Logo} />
+          <FiMenu
+            onClick={() => toggleMenu()}
+            cursor={"pointer"}
+            size={48}
+            color={colors.boxBorder}
+          />
+        </Flex>
         <Box
           columnGap=".5rem"
           maxW={"70%"}
           gridTemplateColumns={`1fr 1fr 2fr 1fr 1fr`}
           alignItems={"center"}
-          display={"grid"}
+          display={{ base: "none", lg: "grid" }}
           justifyContent="center"
         >
           <NavItem title={"Technology"} />
           <NavItem title={"EcoSystem"} />
-          <NavItem title={"TKNNET"} />
+          <Flex py={2} justifyContent={"center"}>
+            <Image p={2} maxW="32" src={Logo} />
+          </Flex>
           <NavItem title={"About"} />
           <NavItem onClick={() => toggleMenu()} title={"Menu"} />
         </Box>
