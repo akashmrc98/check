@@ -1,7 +1,7 @@
 import { Box, Divider, Grid, GridItem } from "@chakra-ui/react";
 
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+// import { Canvas } from "@react-three/fiber";
+// import { OrbitControls } from "@react-three/drei";
 
 import HeadLines from "../../common/HeadLine";
 
@@ -13,10 +13,20 @@ import TokenomicsCardComponent from "./TokenomicCardComponent";
 function TokenComponent() {
   return (
     <Box width="100%">
-      <Grid gridTemplateColumns={{ base: "1fr", lg: "1fr 1fr" }}>
+      <Grid
+        justifyContent={"flex-end"}
+        gridTemplateColumns={{ base: "1fr", lg: "1fr 1fr" }}
+      >
         <GridItem></GridItem>
-        <GridItem p={12}>
-          <HeadLines desc="" subTitle="OPAI" title="TOKENOMICS" />
+        <GridItem display={"flex"} justifyContent="flex-end" p={12}>
+          <HeadLines
+            x={"80px"}
+            y="30px"
+            s={1.1}
+            desc=""
+            subTitle="OPAI"
+            title="TOKENOMICS"
+          />
         </GridItem>
       </Grid>
       <Box

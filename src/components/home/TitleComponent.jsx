@@ -3,10 +3,11 @@ import { motion } from "framer-motion";
 // import { useState } from "react";
 import { colors } from "../../theme/colors";
 import { fonts } from "../../theme/fonts";
+import Line from "../common/Line";
 
 // import { Canvas } from "@react-three/fiber";
 // import { Model } from "../../animations/Robot/Robot";
-import BG from "/public/bg/6.jpg";
+// import BG from "/public/bg/6.jpg";
 
 function TitleComponent() {
   // const [look, setLook] = useState({
@@ -16,9 +17,9 @@ function TitleComponent() {
   return (
     <Box
       minH={{ base: "60vh", md: "80vh", lg: "100vh" }}
-      backgroundRepeat={"no-repeat"}
-      backgroundSize="cover"
-      backgroundImage={BG}
+      // backgroundRepeat={"no-repeat"}
+      // backgroundSize="cover"
+      // backgroundImage={BG}
     >
       <Box
         minH={{ base: "60vh", md: "80vh", lg: "100vh" }}
@@ -28,6 +29,8 @@ function TitleComponent() {
         zIndex={1}
         width={{ base: "90%", lg: "80%" }}
       >
+        <Line left={"6%"} />
+        <Line left={"94%"} />
         <Grid templateColumns={{ base: "1fr" }}>
           <Box
             display={"flex"}

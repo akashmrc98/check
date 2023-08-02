@@ -6,10 +6,10 @@ function SimpleBoxComponent(props) {
   return (
     <GridItem
       border={`1px groove ${colors.boxBorder}`}
-      borderRight={0}
       minH="180px"
       pos="relative"
       display="flex"
+      borderRight={0}
       flexDir={"column"}
       rowGap="1rem"
     >

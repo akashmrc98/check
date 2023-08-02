@@ -10,16 +10,9 @@ import {
 
 import { colors } from "../../theme/colors";
 import { fonts } from "../../theme/fonts";
+import Logo from "/public/logo_6.png";
 
-function ModelHeadComponent({
-  url,
-  org_id,
-  service_id,
-  organization_name,
-  display_name,
-  media,
-  org_assets_url,
-}) {
+function ModelHeadComponent({ url, service_id, display_name, media }) {
   return (
     <Grid
       border={`2px`}
@@ -57,7 +50,7 @@ function ModelHeadComponent({
                   borderRadius={"80%"}
                   maxH="16"
                   maxW="20"
-                  src={org_assets_url.hero_image}
+                  src={Logo}
                 />
                 <Box>
                   <Text
@@ -67,14 +60,14 @@ function ModelHeadComponent({
                     lineHeight=".8"
                     fontSize={{ base: "sm", lg: "md" }}
                   >
-                    {organization_name}
+                    Overpowered AI
                   </Text>
                   <Text
                     color={colors.fontLightColorV2}
                     fontFamily={fonts.parafont}
                     fontSize={{ base: "lg", lg: "xl" }}
                   >
-                    {organization_name}
+                    Overpowered AI
                   </Text>
                 </Box>
               </Flex>
@@ -166,7 +159,7 @@ function ModelHeadComponent({
                   fontFamily={fonts.parafont}
                   color={colors.fontLightColorV2}
                 >
-                  {org_id}
+                  Overpowered AI
                 </Text>
               </Flex>
               <Flex

@@ -19,9 +19,12 @@ const AIComponent = () => {
       <Grid gridTemplateColumns={"1fr 1fr"}>
         <GridItem p={12}>
           <HeadLines
+            x="-40px"
+            y={"-40px"}
+            s={1.2}
             desc="UNLEASH THE POWER OF"
-            subTitle="OPAI"
-            title="PRODUCTS"
+            subTitle="AI"
+            title="Blockchain"
           />
         </GridItem>
         <GridItem></GridItem>

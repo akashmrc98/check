@@ -7,16 +7,17 @@ import {
   Tabs,
   TabList,
   Tab,
-  TabPanels,
   Button,
-  TabPanel,
 } from "@chakra-ui/react";
 
 import { dappData } from "../../data/dappData";
 import { colors } from "../../theme/colors.js";
 import { fonts } from "../../theme/fonts";
 
-function TabTwo() {
+function TabTwo(props) {
+  let p = props.url.split("/");
+  p = p[p.length - 1];
+
   return (
     <Grid templateColumns={{ base: "1fr" }} pb={{ base: 0, lg: 0 }}>
       <GridItem>
@@ -30,91 +31,21 @@ function TabTwo() {
           </Text>
           <Tabs borderBottom={"none"} variant={"enclosed"} bg={colors.bgColor}>
             <TabList>
-              {dappData.integration.map((i, e) => (
-                <Tab
-                  key={e}
-                  fontSize="xl"
-                  fontFamily={fonts.headingFont}
-                  fontWeight="bold"
-                  color={colors.fontLightColor}
-                  _selected={{
-                    color: colors.highLightColor,
-                    borderBottom: `1px soild ${colors.highLightColor}`,
-                  }}
-                >
-                  {i.lang}
-                </Tab>
-              ))}
+              <Tab
+                fontSize="xl"
+                fontFamily={fonts.headingFont}
+                fontWeight="bold"
+                color={colors.fontLightColor}
+                _selected={{
+                  color: colors.highLightColor,
+                  borderBottom: `1px soild ${colors.highLightColor}`,
+                }}
+              >
+                {dappData.integration[1].lang}
+              </Tab>
             </TabList>
           </Tabs>
-          <TabPanels>
-            {dappData.integration.map((i, e) => (
-              <TabPanel key={e}>
-                <Text
-                  pb={4}
-                  fontSize={{ base: "xs", lg: "sm" }}
-                  fontFamily={fonts.parafont}
-                  color={colors.fontLightColorV2}
-                >
-                  {i.desc}
-                </Text>
-                <Flex
-                  flexDirection={{ base: "column", lg: "row" }}
-                  pb={4}
-                  columnGap={"1rem"}
-                  rowGap="1rem"
-                >
-                  <Button
-                    bg={colors.bgColor}
-                    boxShadow={`0 0 4px ${colors.highLightColor}`}
-                    color={colors.highLightColor}
-                    _hover={{
-                      color: colors.bgColor,
-                      bg: colors.highLightColor,
-                    }}
-                    fontFamily={fonts.headingFont}
-                  >
-                    DOWNLOAD INTEGRATION FILES
-                  </Button>
-                </Flex>
-                <Text
-                  pb={4}
-                  fontFamily={fonts.headingFont}
-                  fontSize={"2xl"}
-                  color={colors.highLightColor}
-                >
-                  Setting Up Files
-                </Text>
-                <Box>
-                  {i.steps.map((step, f) => (
-                    <Box key={f}>
-                      <Text
-                        fontFamily={fonts.parafont}
-                        fontSize={"sm"}
-                        fontWeight="bold"
-                        color={colors.fontLightColor}
-                      >
-                        {step.title}
-                      </Text>
-                      <Box my={2} p={2} bg={"gray.900"}>
-                        {step.code.map((s, k) => (
-                          <Text
-                            key={k}
-                            fontFamily={fonts.parafont}
-                            fontSize={{ base: "xs", lg: "md" }}
-                            fontWeight="bold"
-                            color={colors.fontLightColorV2}
-                          >
-                            {s}
-                          </Text>
-                        ))}
-                      </Box>
-                    </Box>
-                  ))}
-                </Box>
-              </TabPanel>
-            ))}
-          </TabPanels>
+          <TabContent dappData={dappData.integration[1]} p={p} />
         </Box>
       </GridItem>
       <GridItem></GridItem>
@@ -122,3 +53,72 @@ function TabTwo() {
   );
 }
 export default TabTwo;
+
+function TabContent({ dappData, p }) {
+  return (
+    <Box>
+      <Text
+        pb={4}
+        fontSize={{ base: "xs", lg: "sm" }}
+        fontFamily={fonts.parafont}
+        color={colors.fontLightColorV2}
+      >
+        {dappData.desc}
+      </Text>
+      <Flex
+        flexDirection={{ base: "column", lg: "row" }}
+        pb={4}
+        columnGap={"1rem"}
+        rowGap="1rem"
+      >
+        <Button
+          bg={colors.bgColor}
+          boxShadow={`0 0 4px ${colors.highLightColor}`}
+          color={colors.highLightColor}
+          _hover={{
+            color: colors.bgColor,
+            bg: colors.highLightColor,
+          }}
+          fontFamily={fonts.headingFont}
+        >
+          DOWNLOAD INTEGRATION FILES
+        </Button>
+      </Flex>
+      <Text
+        pb={4}
+        fontFamily={fonts.headingFont}
+        fontSize={"2xl"}
+        color={colors.highLightColor}
+      >
+        Setting Up Files
+      </Text>
+      <Box>
+        {dappData.steps.map((step, f) => (
+          <Box key={f}>
+            <Text
+              fontFamily={fonts.parafont}
+              fontSize={"sm"}
+              fontWeight="bold"
+              color={colors.fontLightColor}
+            >
+              {step.title}
+            </Text>
+            <Box my={2} p={2} bg={"gray.900"}>
+              {step.code.map((s, k) => (
+                <Text
+                  key={k}
+                  fontFamily={fonts.parafont}
+                  fontSize={{ base: "xs", lg: "md" }}
+                  fontWeight="bold"
+                  color={colors.fontLightColorV2}
+                >
+                  {s} {k === 0 ? `${p}` : ""}
+                </Text>
+              ))}
+            </Box>
+          </Box>
+        ))}
+      </Box>
+    </Box>
+  );
+}

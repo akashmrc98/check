@@ -8,10 +8,10 @@ function AlternateBoxComponent(props) {
       border={`1px groove ${colors.boxBorder}`}
       minH="180px"
       pos="relative"
-      borderRight={0}
       display="flex"
       flexDir={"column"}
       rowGap="1rem"
+      borderRight={0}
       pb={8}
     >
       <Text

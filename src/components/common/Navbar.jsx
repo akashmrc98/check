@@ -1,6 +1,7 @@
 import {
   Box,
   Button,
+  Divider,
   Flex,
   Grid,
   GridItem,
@@ -14,8 +15,8 @@ import { colors } from "../../theme/colors";
 import { fonts } from "../../theme/fonts";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { FiMenu } from "react-icons/fi";
-import Logo from "/public/logo.png";
-import Logo2 from "/public/logo_2.png";
+import Logo from "/public/logo_6.png";
+import Logo2 from "/public/logo_6.png";
 
 function NavItem(props) {
   return (
@@ -37,14 +38,14 @@ function NavItem(props) {
 }
 
 function Navbar() {
-  const [colorChange, setColorchange] = useState(false);
+  const [colorChange, setColorchange] = useState(true);
   const [open, setOpen] = useState(false);
   const changeNavbarColor = () => {
-    if (window.scrollY >= 80) {
-      setColorchange(true);
-    } else {
-      setColorchange(false);
-    }
+    // if (window.scrollY >= 80) {
+    //   setColorchange(true);
+    // } else {
+    //   setColorchange(false);
+    // }
   };
   window.addEventListener("scroll", changeNavbarColor);
 
@@ -87,9 +88,9 @@ function Navbar() {
   ];
 
   return (
-    <Box>
+    <Box zIndex={499}>
       <Box
-        zIndex={open ? 9 : -1}
+        zIndex={open ? 500 : -1}
         pos={"fixed"}
         minH="100vh"
         width="100%"
@@ -140,32 +141,10 @@ function Navbar() {
               </GridItem>
             ))}
           </Grid>
-
-          <Box
-            display={{ base: "none", lg: "block" }}
-            mt={8}
-            width="100%"
-            borderTop={"2px"}
-            p={8}
-          >
-            <Text
-              color={colors.fontLightColor}
-              fontFamily={fonts.headingFont}
-              fontWeight={"bold"}
-              fontSize={{ base: "2xl" }}
-              textAlign={"left"}
-            >
-              Featured Products
-            </Text>
-            <Stack mt={4} columnGap={"2rem"} direction={"row"}>
-              {items.map((p, o) => (
-                <NavItem key={o} title={p} />
-              ))}
-            </Stack>
-          </Box>
         </Box>
       </Box>
       <Box
+        borderBottom={`1px solid ${colors.boxBorder}`}
         alignItems={"center"}
         columnGap={"5rem"}
         display={"flex"}
@@ -174,7 +153,7 @@ function Navbar() {
         position={"fixed"}
         bg={colorChange ? colors.bgColor : "transparent"}
         transition="all 200ms ease-in-out"
-        zIndex={8}
+        zIndex={499}
         width="100%"
       >
         <Flex
@@ -201,6 +180,7 @@ function Navbar() {
           alignItems={"center"}
           display={{ base: "none", lg: "grid" }}
           justifyContent="center"
+          pos="relative"
         >
           <NavItem title={"Technology"} />
           <NavItem title={"EcoSystem"} />
@@ -209,6 +189,23 @@ function Navbar() {
           </Flex>
           <NavItem title={"About"} />
           <NavItem onClick={() => toggleMenu()} title={"Menu"} />
+        </Box>
+
+        <Box pos="absolute" right="4%">
+          <Button
+            fontFamily={fonts.parafont}
+            fontWeight={"bold"}
+            color={colors.highLightColor}
+            bg={colors.bgColor}
+            fontSize={{ base: "3xl" }}
+            boxShadow={`0px 0px 3px ${colors.highLightColor}`}
+            _hover={{
+              bg: colors.highLightColor,
+              color: colors.bgColor,
+            }}
+          >
+            TRY DAPP
+          </Button>
         </Box>
       </Box>
     </Box>

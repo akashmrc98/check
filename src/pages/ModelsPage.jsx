@@ -10,12 +10,28 @@ import {
 import { colors } from "../theme/colors";
 import { fonts } from "../theme/fonts";
 import { emojis, gradientData, modelsData } from "../data/modelsData";
+import { slice } from "lodash";
 
 import Star from "/public/dapp/star.png";
 import { useNavigate } from "react-router";
+import { useState } from "react";
 
 function ModelsPage() {
   const navigate = useNavigate();
+
+  const [isCompleted, setIsCompleted] = useState(false);
+  const [index, setIndex] = useState(7);
+  const initialModels = slice(modelsData, 0, index);
+  const loadMore = () => {
+    setIndex(index + 4);
+    console.log(index);
+    if (index >= modelsData.length) {
+      setIsCompleted(true);
+    } else {
+      setIsCompleted(false);
+    }
+  };
+
   return (
     <Box bg={colors.bgColor}>
       <Box mx="auto" width={{ base: "100%", lg: "88%" }} pos="relative">
@@ -56,7 +72,7 @@ function ModelsPage() {
             xl: "1fr 1fr 1fr 1fr",
           }}
         >
-          {modelsData.map((d, i) => (
+          {initialModels.map((d, i) => (
             <GridItem
               onClick={() => navigate("/dapp/models/" + d.service_id)}
               cursor={"pointer"}
@@ -104,7 +120,7 @@ function ModelsPage() {
                     mx="auto"
                     width="80%"
                     borderRadius={"xl"}
-                    bg={`rgba(0, 0, 0, 0.3)`}
+                    bg={`rgba(0, 0, 0, 0.6)`}
                     fontSize={{ base: "xl" }}
                     p={2}
                     zIndex={8}
@@ -164,6 +180,36 @@ function ModelsPage() {
               </Flex>
             </GridItem>
           ))}
+          {!isCompleted ? (
+            <GridItem
+              borderRadius={"xl"}
+              backgroundImage={gradientData[8].gradient}
+              pos="relative"
+              minH="200px"
+              maxH="200px"
+              cursor={"pointer"}
+              onClick={loadMore}
+            >
+              <Box w="100%" pos="absolute" top={"33%"}>
+                <Text
+                  textAlign={"center"}
+                  fontWeight={"bold"}
+                  fontFamily={fonts.headingFont}
+                  textTransform="uppercase"
+                  color={colors.fontLightColorV2}
+                  mx="auto"
+                  width="80%"
+                  borderRadius={"xl"}
+                  bg={`rgba(0, 0, 0, 0.6)`}
+                  fontSize={{ base: "xl" }}
+                  p={2}
+                  zIndex={8}
+                >
+                  Load more...
+                </Text>{" "}
+              </Box>
+            </GridItem>
+          ) : null}
         </Grid>
       </Box>
     </Box>

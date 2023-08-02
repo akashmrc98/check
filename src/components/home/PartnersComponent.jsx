@@ -47,7 +47,14 @@ function PartnersComponent() {
         </Box>
       </motion.div>
       <Box py={8} px={8}>
-        <HeadLines desc="" subTitle="" title="PARTNERS" />
+        <HeadLines
+          x="80px"
+          y="40px"
+          s={1.1}
+          desc=""
+          subTitle=""
+          title="PARTNERS"
+        />
       </Box>
     </Box>
   );

@@ -25,7 +25,14 @@ function RoadmapComponent() {
     <Box maxW="100%">
       <Grid gridTemplateColumns={"1fr 1fr"}>
         <GridItem p={12}>
-          <HeadLines desc="" subTitle="OPAI" title="ROADMAP" />
+          <HeadLines
+            x="-40px"
+            y="-40px"
+            s={1.2}
+            desc=""
+            subTitle="OPAI"
+            title="ROADMAP"
+          />
         </GridItem>
         <GridItem></GridItem>
       </Grid>

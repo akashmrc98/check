@@ -15,7 +15,14 @@ function HowComponent() {
   return (
     <Box pos="relative">
       <Grid gridTemplateColumns={"1fr 1fr"} p={12}>
-        <HeadLines desc="UTILITIES" subTitle="OPAI" title="HOW" />
+        <HeadLines
+          x="-24px"
+          y="-40px"
+          s={1.2}
+          desc="UTILITIES"
+          subTitle="OPAI"
+          title="HOW"
+        />
       </Grid>
       <motion.div
         initial="hidden"
@@ -31,12 +38,9 @@ function HowComponent() {
           damping: 20,
         }}
       >
-        <Grid mx="auto" width="100%" px={2} py={12}>
-          <Grid
-            border={`1px groove ${colors.boxBorder}`}
-            gridTemplateColumns={{ base: "1fr", lg: "1fr 1fr" }}
-          >
-            <Box border={`1px groove ${colors.boxBorder}`} minH="180px">
+        <Grid mx="auto" width="100%" px={0} py={12}>
+          <Grid gridTemplateColumns={{ base: "1fr", lg: "1fr 1fr" }}>
+            <Box minH="180px">
               <Box
                 display={"grid"}
                 justifyContent="center"
@@ -56,7 +60,7 @@ function HowComponent() {
               </Box>
               <HowTypeFactory l={0} {...howData[0]} />
             </Box>
-            <Box border={`1px groove ${colors.boxBorder}`} minH="180px">
+            <Box minH="180px">
               <Box
                 display={"grid"}
                 justifyContent="center"

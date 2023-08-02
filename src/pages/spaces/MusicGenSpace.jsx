@@ -288,13 +288,7 @@ function MusicGenSpace() {
           </GridItem>
         </Grid>
         <Box pb={24}>
-          <Table
-            border="2px"
-            colorScheme={"teal"}
-            variant={"striped"}
-            mt={24}
-            py={12}
-          >
+          <Table border="2px" variant={"simple"} mt={24} py={12}>
             <Thead>
               {headers.map((h, i) => (
                 <Th fontFamily={fonts.parafont} key={i}>
@@ -305,16 +299,10 @@ function MusicGenSpace() {
             <Tbody>
               {data.map((d, i) => (
                 <Tr key={i}>
-                  <Td
-                    color={i % 2 === 0 ? colors.bgColor : colors.highLightColor}
-                    fontFamily={fonts.parafont}
-                  >
+                  <Td color={colors.highLightColor} fontFamily={fonts.parafont}>
                     {d.title}
                   </Td>
-                  <Td
-                    color={i % 2 === 0 ? colors.bgColor : colors.highLightColor}
-                    fontFamily={fonts.parafont}
-                  >
+                  <Td color={colors.highLightColor} fontFamily={fonts.parafont}>
                     {d.file}
                   </Td>
                 </Tr>

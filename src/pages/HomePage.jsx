@@ -5,7 +5,6 @@ import { colors } from "../theme/colors";
 
 import AIComponent from "../components/home/AIComponent";
 import EcoSystemComponent from "../components/home/EcoSystemComponent";
-import FeaturesComponent from "../components/home/FeaturesComponent";
 import HomeComponent from "../components/home/HomeComponent";
 import HowComponent from "../components/home/How/HowComponent";
 import MarketingComponent from "../components/home/MarketingComponent";
@@ -14,7 +13,7 @@ import TitleComponent from "../components/home/TitleComponent";
 import RoadmapComponent from "../components/home/RoadmapComponent";
 import TokenComponent from "../components/home/Token/TokenComponent";
 import TeamComponent from "../components/home/TeamComponent";
-// import OurSolutionComponent from "../components/home/OurSolution/OurSolutionsComponent";
+import OurSolutionComponent from "../components/home/OurSolution/OurSolutionsComponent";
 
 function HomePage() {
   const ref = useRef();
@@ -34,6 +33,7 @@ function HomePage() {
           flexDirection="column"
           rowGap="8rem"
           zIndex={4}
+          width={{ base: "100%", lg: "88%" }}
           ref={ref}
           p={0}
           borderRadius="xl"
@@ -42,16 +42,16 @@ function HomePage() {
           <HomeComponent />
           <AIComponent />
           <MarketingComponent />
-          <FeaturesComponent />
+          <EcoSystemComponent />
+          {/* <FeaturesComponent /> */}
           <PartnersComponent />
           <RoadmapComponent />
           <TokenComponent />
-          <EcoSystemComponent />
           <HowComponent />
           <TeamComponent />
         </Box>
       </Box>
-      {/* <OurSolutionComponent /> */}
+      <OurSolutionComponent />
     </Box>
   );
 }

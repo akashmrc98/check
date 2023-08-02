@@ -11,7 +11,14 @@ function EcoSystemComponent() {
   return (
     <Box pos="relative">
       <Grid gridTemplateColumns={"1fr"} p={12}>
-        <HeadLines desc="UTILITIES" subTitle="OPAI" title="ECO-SYSTEM" />
+        <HeadLines
+          x="-40px"
+          y={"-40px"}
+          s={1.1}
+          desc="UTILITIES"
+          subTitle="OPAI"
+          title="ECO-SYSTEM"
+        />
       </Grid>
       <motion.div
         initial="hidden"

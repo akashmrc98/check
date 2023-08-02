@@ -8,7 +8,7 @@ function HowTypeFactory(props) {
   const { steps, l } = props;
 
   return (
-    <Box pt={8} pl={{ base: 0, lg: 8 }}>
+    <Box pt={8} pl={{ base: 0, lg: 0 }}>
       {steps.map((s, i) => {
         if (s.type === "SIMPLE")
           return <SimpleBoxComponent l={l} i={i + 1} key={i} {...s} />;

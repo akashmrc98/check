@@ -1,12 +1,15 @@
 import { fonts } from "../../theme/fonts";
 import { colors } from "../../theme/colors";
 
-import { Box, Grid, GridItem, Text } from "@chakra-ui/react";
+import { Box, Grid, GridItem, Image, Text } from "@chakra-ui/react";
 import { homeSummaryData, homeUtilsData } from "../../data/homeData";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
+
 import { motion } from "framer-motion";
+
+import Quote from "/public/eco_system/quote.svg";
 
 function HomeComponent() {
   return (
@@ -15,7 +18,40 @@ function HomeComponent() {
         rowGap={{ base: "2rem", lg: "0" }}
         templateColumns={{ base: "1fr", lg: "1fr 1fr" }}
       >
-        <GridItem>
+        <GridItem pos="relative">
+          <Box left={"-4%"} top="-30%" pos="absolute">
+            <Box
+              minH="18px"
+              minW="18px"
+              border={`1px solid ${colors.boxBorder}`}
+              borderRight={0}
+              borderBottom={0}
+            ></Box>
+          </Box>
+          <Box left={"-4%"} top="-0%" pos="absolute">
+            <Box
+              minH="18px"
+              minW="18px"
+              border={`1px solid ${colors.boxBorder}`}
+              borderRight={0}
+              borderTop={0}
+            ></Box>
+          </Box>
+
+          <Box top="-24%" pos="absolute">
+            <Box
+              border={`1px solid ${colors.boxBorder}`}
+              borderLeft={0}
+              borderBottom={0}
+              minH="60px"
+              minW="60px"
+              display={"flex"}
+              justifyContent="center"
+              alignItems={"center"}
+            >
+              <Image src={Quote} />
+            </Box>
+          </Box>
           <Swiper
             modules={[Autoplay, Navigation]}
             slidesPerView={2}
@@ -38,6 +74,7 @@ function HomeComponent() {
                     borderStyle="groove"
                     position="relative"
                     borderColor={colors.boxBorder}
+                    borderRight={0}
                   >
                     {isNext ? (
                       <Box
@@ -74,13 +111,26 @@ function HomeComponent() {
               key={j}
               p={4}
               display="flex"
-              justifyContent={"flex-end"}
+              justifyContent={"space-between"}
               border="1px"
               borderColor={colors.boxBorder}
               borderTop={j === 0 ? `1px groove ${colors.boxBorder}` : "none"}
+              borderRight={0}
             >
-              <Box>{`>`}</Box>
+              <Box
+                display={"flex"}
+                justifyContent="flex-end"
+                color={colors.highLightColor}
+                w="100%"
+              >
+                {`>`}
+              </Box>
               <motion.div
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "flex-end",
+                }}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}

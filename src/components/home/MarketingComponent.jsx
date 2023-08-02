@@ -52,7 +52,14 @@ function MarketingComponent() {
         py={8}
         px={8}
       >
-        <HeadLines desc="" subTitle="" title="MARKETING" />
+        <HeadLines
+          x="80px"
+          y="40px"
+          s={1.1}
+          desc=""
+          subTitle=""
+          title="MARKETING"
+        />
       </Box>
     </Box>
   );

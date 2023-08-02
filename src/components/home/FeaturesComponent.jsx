@@ -13,7 +13,7 @@ function FeaturesComponent() {
   return (
     <Box pos="relative">
       <Grid gridTemplateColumns={"1fr"} p={12}>
-        <HeadLines desc="UTILITIES" subTitle="OPAI" title="Features" />
+        <HeadLines desc="UTILITIES" subTitle="OPAI" title="Products" />
       </Grid>
       <motion.div
         initial="hidden"

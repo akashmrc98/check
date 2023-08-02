@@ -19,7 +19,14 @@ const TeamComponent = () => {
     <Box pos="relative">
       <Grid gridTemplateColumns={"1fr 1fr"}>
         <GridItem p={12}>
-          <HeadLines desc="TEAM" subTitle="OPAI" title="Faces behind" />
+          <HeadLines
+            x="-60px"
+            y="-40px"
+            s={1.1}
+            desc="TEAM"
+            subTitle="OPAI"
+            title="Faces behind"
+          />
         </GridItem>
         <GridItem></GridItem>
       </Grid>
@@ -50,74 +57,82 @@ const TeamComponent = () => {
             }}
             loop={true}
             modules={[Autoplay, Navigation]}
-            spaceBetween={10}
+            spaceBetween={0}
             slidesPerView={is990Px ? 2 : 1}
           >
             {teamData.map((s, i) => (
               <SwiperSlide key={i}>
-                <Box border={`1px groove ${colors.boxBorder}`} borderBottom={0}>
-                  <Text
-                    mt={4}
-                    textAlign={"center"}
-                    fontFamily={fonts.parafont}
-                    fontSize={{ base: "3xl" }}
-                    fontWeight={"bold"}
-                    color={colors.fontLightColorV2}
-                  >
-                    {s.name}
-                  </Text>
-                </Box>
-                <Box
-                  display="flex"
-                  justifyContent={"center"}
-                  border="1px"
-                  borderTop={0}
-                  borderBottom={0}
-                  borderColor={colors.boxBorder}
-                  p={8}
-                >
-                  <Image
-                    borderRadius={"xl"}
-                    border={`1px groove ${colors.boxBorder}`}
-                    maxW="72"
-                    src={s.img}
-                  />
-                </Box>
-                <Box border="1px" borderColor={colors.boxBorder} p={4}>
-                  <Text
-                    fontFamily={fonts.parafont}
-                    fontSize={{ base: "2xl" }}
-                    fontWeight={"bold"}
-                    color={colors.highLightColor}
-                    py={1}
-                  >
-                    {s.role}
-                  </Text>
-                  <Text
-                    py={1}
-                    fontFamily={fonts.parafont}
-                    fontSize={{ base: "md" }}
-                    fontWeight={"bold"}
-                    color={colors.fontLightColor}
-                  >
-                    {s.bio}
-                  </Text>
-                  <Divider my={4} mx="auto" width="40%" />
-                  <Box display={"flex"} justifyContent="space-evenly">
-                    {s.links.map((l, j) => (
-                      <Box key={j}>
-                        <Text
-                          fontFamily={fonts.parafont}
-                          fontSize={{ base: "xl" }}
-                          fontWeight={"bold"}
-                          color={colors.highLightColor}
-                        >
-                          {l.name}
-                        </Text>
+                {({ isActive, isNext }) => (
+                  <Box>
+                    <Box
+                      border={`1px groove ${colors.boxBorder}`}
+                      borderBottom={0}
+                      borderLeft={isActive ? 0 : 0}
+                      borderRight={isActive ? "0px" : 0}
+                    >
+                      <Text
+                        mt={4}
+                        textAlign={"center"}
+                        fontFamily={fonts.parafont}
+                        fontSize={{ base: "3xl" }}
+                        fontWeight={"bold"}
+                        color={colors.fontLightColorV2}
+                      >
+                        {s.name}
+                      </Text>
+                    </Box>
+                    <Box
+                      display="flex"
+                      justifyContent={"center"}
+                      borderTop={0}
+                      borderBottom={0}
+                      borderColor={colors.boxBorder}
+                      p={8}
+                    >
+                      <Image
+                        borderRadius={"xl"}
+                        border={`1px groove ${colors.boxBorder}`}
+                        maxW="72"
+                        src={s.img}
+                      />
+                    </Box>
+                    <Box p={4}>
+                      <Text
+                        fontFamily={fonts.parafont}
+                        fontSize={{ base: "2xl" }}
+                        fontWeight={"bold"}
+                        color={colors.highLightColor}
+                        py={1}
+                      >
+                        {s.role}
+                      </Text>
+                      <Text
+                        py={1}
+                        fontFamily={fonts.parafont}
+                        fontSize={{ base: "md" }}
+                        fontWeight={"bold"}
+                        color={colors.fontLightColor}
+                      >
+                        {s.bio}
+                      </Text>
+                      <Divider my={4} mx="auto" width="40%" />
+                      <Box display={"flex"} justifyContent="space-evenly">
+                        {s.links.map((l, j) => (
+                          <Box key={j}>
+                            <Text
+                              fontFamily={fonts.parafont}
+                              fontSize={{ base: "xl" }}
+                              fontWeight={"bold"}
+                              color={colors.highLightColor}
+                            >
+                              {l.name}
+                            </Text>
+                          </Box>
+                        ))}
                       </Box>
-                    ))}
+                    </Box>
                   </Box>
-                </Box>
+                )}
               </SwiperSlide>
             ))}
           </Swiper>

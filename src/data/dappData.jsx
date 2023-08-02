@@ -23,7 +23,7 @@ export const dappData = {
       steps: [
         {
           title: "Download and extract integration files",
-          code: ["cd semantic-similarity-binary-boilerplate"],
+          code: ["cd "],
         },
         {
           title: "Create and activate virtual environment",
@@ -78,7 +78,7 @@ export const dappData = {
       steps: [
         {
           title: "Download and extract integration files",
-          code: ["cd semantic-similarity-binary-boilerplate"],
+          code: ["cd "],
         },
         {
           title: "Create and activate virtual environment",

@@ -86,7 +86,7 @@ function ModelPage() {
               <TabOne {...model} />
             </TabPanel>
             <TabPanel>
-              <TabTwo />
+              <TabTwo {...model} />
             </TabPanel>
           </TabPanels>
         </Tabs>
