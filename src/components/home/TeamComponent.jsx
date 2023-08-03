@@ -24,7 +24,7 @@ const TeamComponent = () => {
             y="-40px"
             s={1.1}
             desc="TEAM"
-            subTitle="OPAI"
+            subTitle="$OPAI"
             title="Faces behind"
           />
         </GridItem>
@@ -62,16 +62,14 @@ const TeamComponent = () => {
           >
             {teamData.map((s, i) => (
               <SwiperSlide key={i}>
-                {({ isActive, isNext }) => (
+                {() => (
                   <Box>
                     <Box
                       border={`1px groove ${colors.boxBorder}`}
                       borderBottom={0}
-                      borderLeft={isActive ? 0 : 0}
-                      borderRight={isActive ? "0px" : 0}
                     >
                       <Text
-                        mt={4}
+                        py={4}
                         textAlign={"center"}
                         fontFamily={fonts.parafont}
                         fontSize={{ base: "3xl" }}
@@ -84,9 +82,7 @@ const TeamComponent = () => {
                     <Box
                       display="flex"
                       justifyContent={"center"}
-                      borderTop={0}
-                      borderBottom={0}
-                      borderColor={colors.boxBorder}
+                      border={`1px groove ${colors.boxBorder}`}
                       p={8}
                     >
                       <Image
@@ -96,7 +92,7 @@ const TeamComponent = () => {
                         src={s.img}
                       />
                     </Box>
-                    <Box p={4}>
+                    <Box border={`1px groove ${colors.boxBorder}`} p={4}>
                       <Text
                         fontFamily={fonts.parafont}
                         fontSize={{ base: "2xl" }}
@@ -111,7 +107,7 @@ const TeamComponent = () => {
                         fontFamily={fonts.parafont}
                         fontSize={{ base: "md" }}
                         fontWeight={"bold"}
-                        color={colors.fontLightColor}
+                        color={colors.boxBorder}
                       >
                         {s.bio}
                       </Text>

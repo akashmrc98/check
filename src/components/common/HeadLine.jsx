@@ -6,15 +6,7 @@ import { fonts } from "../../theme/fonts";
 
 function HeadLines(props) {
   return (
-    <Box
-      pos={"relative"}
-      zIndex={24}
-      transform={{
-        base: "",
-        xl: `translateX(${props.x}) translateY(${props.y}) scale(${props.s})`,
-      }}
-      display={"flex"}
-    >
+    <Box pos={"relative"} zIndex={24} display={"flex"}>
       <Box>
         <motion.div
           initial="hidden"
@@ -33,7 +25,7 @@ function HeadLines(props) {
           <Text
             color={colors.fontLightColorV2}
             fontFamily={fonts.headingFont}
-            fontSize={{ base: "sm", lg: "lg" }}
+            fontSize={{ base: "sm", lg: "xl" }}
             pb={4}
           >
             {props.desc}
@@ -151,7 +143,7 @@ function HeadLines(props) {
             border={`2px solid ${colors.boxBorder}`}
             color={colors.fontLightColorV2}
             fontFamily={fonts.headingFont}
-            fontSize={{ base: "2xl", lg: "3xl" }}
+            fontSize={{ base: "2xl", lg: "4xl" }}
             py={6}
             px={3}
             borderRadius="md"

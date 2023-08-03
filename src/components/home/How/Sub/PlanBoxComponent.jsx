@@ -33,7 +33,7 @@ function PlanBoxComponent(props) {
           textAlign={"center"}
           fontFamily={fonts.headingFont}
           color={colors.fontLightColor}
-          fontSize={{ base: "lg" }}
+          fontSize={{ base: "sm", lg: "md", xl: "lg" }}
           borderTop={0}
           borderLeft={0}
         >
@@ -53,13 +53,14 @@ function PlanBoxComponent(props) {
                 fontWeight={"bold"}
                 fontFamily={fonts.headingFont}
                 color={colors.fontLightColorV2}
+                fontSize={{ base: "sm", lg: "md", xl: "lg" }}
               >
                 {p.plan}
               </Text>
               <Text
-                fontSize={"xl"}
                 fontFamily={fonts.parafont}
                 color={colors.fontLightColor}
+                fontSize={{ base: "sm", lg: "md", xl: "lg" }}
               >
                 {p.type}
               </Text>

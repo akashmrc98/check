@@ -1,13 +1,11 @@
 import {
   Box,
   Button,
-  Divider,
   Flex,
   Grid,
   GridItem,
   Icon,
   Image,
-  Stack,
   Text,
 } from "@chakra-ui/react";
 import { useState } from "react";
@@ -17,6 +15,9 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 import { FiMenu } from "react-icons/fi";
 import Logo from "/public/logo_6.png";
 import Logo2 from "/public/logo_6.png";
+
+import HighLightButton from "../common/HighLightButton";
+import { Link } from "react-router-dom";
 
 function NavItem(props) {
   return (
@@ -79,14 +80,6 @@ function Navbar() {
     },
   ];
 
-  const items = [
-    "AI Marketplace",
-    "AGIX Staking",
-    "AI Publisher",
-    "Developer Portal",
-    "Bridge",
-  ];
-
   return (
     <Box zIndex={499}>
       <Box
@@ -144,7 +137,8 @@ function Navbar() {
         </Box>
       </Box>
       <Box
-        borderBottom={`1px solid ${colors.boxBorder}`}
+        borderBottom="1px"
+        borderColor={colors.boxBorder}
         alignItems={"center"}
         columnGap={"5rem"}
         display={"flex"}
@@ -184,28 +178,19 @@ function Navbar() {
         >
           <NavItem title={"Technology"} />
           <NavItem title={"EcoSystem"} />
-          <Flex py={2} justifyContent={"center"}>
-            <Image p={2} maxW="32" src={Logo2} />
-          </Flex>
+          <Link to="/">
+            <Flex py={2} justifyContent={"center"}>
+              <Image p={2} maxW="32" src={Logo2} />
+            </Flex>
+          </Link>
           <NavItem title={"About"} />
           <NavItem onClick={() => toggleMenu()} title={"Menu"} />
         </Box>
 
-        <Box pos="absolute" right="4%">
-          <Button
-            fontFamily={fonts.parafont}
-            fontWeight={"bold"}
-            color={colors.highLightColor}
-            bg={colors.bgColor}
-            fontSize={{ base: "3xl" }}
-            boxShadow={`0px 0px 3px ${colors.highLightColor}`}
-            _hover={{
-              bg: colors.highLightColor,
-              color: colors.bgColor,
-            }}
-          >
-            TRY DAPP
-          </Button>
+        <Box display={{ base: "none", xl: "flex" }} pos="absolute" right="4%">
+          <Link to="/dapp">
+            <HighLightButton title="TRY DAPP" />
+          </Link>
         </Box>
       </Box>
     </Box>

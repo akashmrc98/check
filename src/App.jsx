@@ -4,11 +4,11 @@ import HomePage from "./pages/HomePage";
 import ModelPage from "./pages/ModelPage";
 import Dapp from "./pages/DappPage";
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SpaceFactory from "./pages/spaces/SpacesFactory";
 import Navbar from "./components/common/Navbar";
 
-const router = createBrowserRouter([
+const router = [
   {
     path: "/",
     element: <HomePage />,
@@ -25,13 +25,19 @@ const router = createBrowserRouter([
     path: "/dapp/spaces/:space",
     element: <SpaceFactory />,
   },
-]);
+];
 
 function App() {
   return (
     <ChakraProvider>
-      <Navbar />
-      <RouterProvider router={router} />
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          {router.map((route, index) => (
+            <Route key={index} element={route.element} path={route.path} />
+          ))}
+        </Routes>
+      </BrowserRouter>
     </ChakraProvider>
   );
 }

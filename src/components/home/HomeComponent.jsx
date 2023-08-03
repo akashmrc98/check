@@ -121,7 +121,7 @@ function HomeComponent() {
                 display={"flex"}
                 justifyContent="flex-end"
                 color={colors.highLightColor}
-                w="100%"
+                w={{ base: "50%", lg: "100%" }}
               >
                 {`>`}
               </Box>

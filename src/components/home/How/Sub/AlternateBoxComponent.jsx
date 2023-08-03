@@ -19,10 +19,10 @@ function AlternateBoxComponent(props) {
         border={`1px solid ${colors.boxBorder}`}
         fontFamily={fonts.headingFont}
         color={colors.fontLightColor}
-        fontSize={{ base: "lg" }}
         borderTop={0}
         borderLeft={0}
         p={3}
+        fontSize={{ base: "sm", lg: "md", xl: "lg" }}
       >
         {props.quote}
       </Text>
@@ -30,7 +30,7 @@ function AlternateBoxComponent(props) {
         textAlign={"center"}
         fontFamily={fonts.headingFont}
         color={colors.fontLightColorV2}
-        fontSize={{ base: "2xl" }}
+        fontSize={{ base: "sm", lg: "md", xl: "lg" }}
         borderTop={0}
         borderLeft={0}
       >
@@ -40,7 +40,7 @@ function AlternateBoxComponent(props) {
         textAlign={"center"}
         fontFamily={fonts.headingFont}
         color={colors.fontLightColor}
-        fontSize={{ base: "md" }}
+        fontSize={{ base: "xs", lg: "md", xl: "lg" }}
         borderTop={0}
         borderLeft={0}
         px={2}

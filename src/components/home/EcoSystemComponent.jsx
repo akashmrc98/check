@@ -16,7 +16,7 @@ function EcoSystemComponent() {
           y={"-40px"}
           s={1.1}
           desc="UTILITIES"
-          subTitle="OPAI"
+          subTitle="$OPAI"
           title="ECO-SYSTEM"
         />
       </Grid>

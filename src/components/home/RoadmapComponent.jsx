@@ -30,7 +30,7 @@ function RoadmapComponent() {
             y="-40px"
             s={1.2}
             desc=""
-            subTitle="OPAI"
+            subTitle="$OPAI"
             title="ROADMAP"
           />
         </GridItem>
@@ -117,8 +117,8 @@ function RoadmapComponent() {
                             key={k}
                           >
                             <Text
-                              fontFamily={fonts.parafont}
-                              color={colors.fontLightColor}
+                              fontFamily={fonts.headingFont}
+                              color={colors.boxBorder}
                               fontSize={{
                                 base: "sm",
                                 md: "md",

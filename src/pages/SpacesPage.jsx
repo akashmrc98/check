@@ -4,6 +4,7 @@ import {
   Flex,
   Grid,
   GridItem,
+  Icon,
   Image,
   Text,
 } from "@chakra-ui/react";
@@ -13,6 +14,7 @@ import { emojisData, sGradientData, spacesData } from "../data/spacesData";
 
 import Star from "/public/dapp/star.png";
 import { useNavigate } from "react-router";
+import { BiSolidGrid } from "react-icons/bi";
 
 function SpacesPage() {
   const navigate = useNavigate();
@@ -20,33 +22,42 @@ function SpacesPage() {
   return (
     <Box bg={colors.bgColor}>
       <Box mx="auto" width={{ base: "100%", lg: "88%" }} pos="relative">
-        <Box px={2} pt={8}>
-          <Text
-            fontWeight={"bold"}
-            fontFamily={fonts.parafont}
-            width="auto"
-            color={colors.highLightColor}
-            mx="auto"
-            fontSize={{ base: "5xl" }}
+        <Box justifyContent={"flex-start"} alignItems="center" display={"flex"}>
+          <Icon h="48" w="48" color={colors.boxBorder} as={BiSolidGrid} />
+          <Box
+            display={"flex"}
+            flexDir="column"
+            justifyContent={"flex-start"}
+            px={2}
+            pt={4}
           >
-            Spaces
-          </Text>
-          <Text
-            fontWeight={"bold"}
-            fontFamily={fonts.parafont}
-            width="auto"
-            color={colors.fontLightColor}
-            mx="auto"
-            fontSize={{ base: "2xl" }}
-          >
-            Discover amazing ML apps made by the community!
-          </Text>
+            <Text
+              textAlign={"left"}
+              fontWeight={"bold"}
+              fontFamily={fonts.headingFont}
+              color={colors.highLightColor}
+              fontSize={{ base: "5xl" }}
+            >
+              Spaces
+            </Text>
+            <Text
+              textAlign={"left"}
+              fontWeight={"bold"}
+              fontFamily={fonts.parafont}
+              color={colors.fontLightColor}
+              fontSize={{ base: "2xl" }}
+            >
+              Discover amazing ML apps made by the community!
+            </Text>
+          </Box>
         </Box>
         <Box
-          my={8}
-          h={2}
+          mb={12}
+          h={4}
           width="100%"
-          border={`1px solid ${colors.boxBorder}`}
+          borderRadius={"xl"}
+          border={`1px solid ${colors.highLightColor}`}
+          backgroundImage={`linear-gradient(to right, #e63e6d, #f04760, #f85451, #fb6242, #fc7231, #fc7c28, #fb861d, #f9900e, #fb960a, #fc9c06, #fea303, #ffa900)`}
         ></Box>
         <Grid
           rowGap="1rem"

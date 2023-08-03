@@ -16,6 +16,7 @@ function ModelHeadComponent({ url, service_id, display_name, media }) {
   return (
     <Grid
       border={`2px`}
+      borderColor={colors.boxBorder}
       w={{ base: "100%", lg: "88%" }}
       borderTop={0}
       mx="auto"
@@ -29,7 +30,7 @@ function ModelHeadComponent({ url, service_id, display_name, media }) {
           columnGap={"2rem"}
         >
           <Image
-            boxShadow={`0px 0px 24px ${colors.highLightColor}`}
+            boxShadow={`0px 0px 4px ${colors.highLightColor}`}
             width="168"
             height={"168"}
             borderRadius="md"
@@ -46,8 +47,8 @@ function ModelHeadComponent({ url, service_id, display_name, media }) {
             >
               <Flex alignItems={"center"} columnGap="1rem">
                 <Image
-                  boxShadow={`0px 0px 6px ${colors.highLightColor}`}
-                  borderRadius={"80%"}
+                  boxShadow={`0px 0px 2px ${colors.highLightColor}`}
+                  p={2}
                   maxH="16"
                   maxW="20"
                   src={Logo}
@@ -104,7 +105,10 @@ function ModelHeadComponent({ url, service_id, display_name, media }) {
           </Button>
         </Box>
       </Grid>
-      <GridItem borderLeft="2px" pt={{ base: 0, lg: 6 }}>
+      <GridItem
+        borderLeft={`2px solid ${colors.boxBorder}`}
+        pt={{ base: 0, lg: 6 }}
+      >
         <Box px={{ base: 0, lg: 8 }} display="grid" rowGap="1rem">
           <Flex flexDirection={"column"} columnGap={"2rem"}>
             <Text
@@ -183,7 +187,7 @@ function ModelHeadComponent({ url, service_id, display_name, media }) {
             </Box>
           </Flex>
 
-          <Box border={"2px"}></Box>
+          <Box border={"2px"} borderColor={colors.boxBorder}></Box>
 
           <Flex
             textAlign={"center"}
@@ -198,7 +202,7 @@ function ModelHeadComponent({ url, service_id, display_name, media }) {
                 fontWeight="bold"
                 fontFamily={fonts.parafont}
               >
-                OPAI TOKENS
+                $OPAI TOKENS
               </Text>
               <Text
                 color={colors.fontLightColor}
@@ -208,7 +212,12 @@ function ModelHeadComponent({ url, service_id, display_name, media }) {
                 0.000001
               </Text>
             </Box>
-            <Box border="2px" height={"100%"} w={"2px"}></Box>
+            <Box
+              border="2px"
+              borderColor={colors.boxBorder}
+              height={"100%"}
+              w={"2px"}
+            ></Box>
             <Text
               color={colors.fontLightColorV2}
               fontWeight="bold"

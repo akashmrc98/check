@@ -29,14 +29,14 @@ function OurSolutionContentComponent() {
               <Text
                 color={colors.highLightColor}
                 fontFamily={fonts.headingFont}
-                fontSize={{ base: "6xl" }}
+                fontSize={{ base: "4xl", lg: "6xl" }}
               >
                 {sol.title}
               </Text>
               <Text
-                color={colors.fontLightColorV2}
+                color={colors.boxBorder}
                 fontFamily={fonts.parafont}
-                fontSize={{ base: "2xl" }}
+                fontSize={{ base: "xl", lg: "2xl" }}
               >
                 {sol.subTitle}
               </Text>
@@ -58,6 +58,10 @@ function OurSolutionContentComponent() {
                     j === 0 ? `1px groove ${colors.boxBorder}` : "none"
                   }
                   p={4}
+                  borderRight={{
+                    base: `1px groove ${colors.boxBorder}`,
+                    lg: "none",
+                  }}
                   key={j}
                 >
                   <Text

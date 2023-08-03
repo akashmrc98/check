@@ -24,7 +24,7 @@ function TokenComponent() {
             y="30px"
             s={1.1}
             desc=""
-            subTitle="OPAI"
+            subTitle="$OPAI"
             title="TOKENOMICS"
           />
         </GridItem>

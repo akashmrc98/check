@@ -29,7 +29,7 @@ function SimpleBoxComponent(props) {
         textAlign={"center"}
         fontFamily={fonts.headingFont}
         color={colors.fontLightColor}
-        fontSize={{ base: "lg" }}
+        fontSize={{ base: "sm", lg: "md", xl: "lg" }}
         borderTop={0}
         borderLeft={0}
       >

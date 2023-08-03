@@ -20,7 +20,7 @@ function HowComponent() {
           y="-40px"
           s={1.2}
           desc="UTILITIES"
-          subTitle="OPAI"
+          subTitle="$OPAI"
           title="HOW"
         />
       </Grid>
@@ -38,7 +38,7 @@ function HowComponent() {
           damping: 20,
         }}
       >
-        <Grid mx="auto" width="100%" px={0} py={12}>
+        <Grid mx="auto" width="100%" px={{ base: 2, lg: 0 }} py={12}>
           <Grid gridTemplateColumns={{ base: "1fr", lg: "1fr 1fr" }}>
             <Box minH="180px">
               <Box

@@ -48,13 +48,14 @@ const AIComponent = () => {
           justifyContent="center"
           alignItems={"center"}
           width="100%"
+          p={{ base: 4, lg: 0 }}
         >
           {" "}
           <Swiper
             autoplay={{ delay: 2500, disableOnInteraction: false }}
             loop={true}
             modules={[Autoplay, Navigation]}
-            slidesPerView={is990Px ? 2 : 1}
+            slidesPerView={is990Px ? 3 : 1}
             onSlideChange={(e) => console.log(e)}
           >
             {aiSectionData.map((s, i) => (

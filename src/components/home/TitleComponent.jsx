@@ -31,7 +31,7 @@ function TitleComponent() {
       >
         <Line left={"6%"} />
         <Line left={"94%"} />
-        <Grid templateColumns={{ base: "1fr" }}>
+        <Grid pt={{ base: 32, lg: 0 }} templateColumns={{ base: "1fr" }}>
           <Box
             display={"flex"}
             justifyContent="center"
