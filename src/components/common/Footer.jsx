@@ -1,7 +1,9 @@
-import { Box, Grid, GridItem, Input, Text } from "@chakra-ui/react";
+import { Box, Grid, GridItem, Image, Input, Text } from "@chakra-ui/react";
 import { colors } from "../../theme/colors";
 import { fonts } from "../../theme/fonts";
+
 import HighLightButton from "../common/HighLightButton";
+import L from "/public/eco_system/link.png";
 
 export default function Footer() {
   return (
@@ -28,7 +30,7 @@ export default function Footer() {
               fontFamily={fonts.headingFont}
               color={colors.highLightColor}
               fontWeight="bold"
-              fontSize={{ base: "3xl", lg: "5xl" }}
+              fontSize={{ base: "xl", md: "2xl", lg: "4xl" }}
             >
               Subscribe to be in touch*
             </Text>
@@ -38,7 +40,7 @@ export default function Footer() {
               fontFamily={fonts.parafont}
               color={colors.boxBorder}
               fontWeight="bold"
-              fontSize={{ base: "md", lg: "lg" }}
+              fontSize={{ base: "sm", lg: "md" }}
             >
               *Only valuable resources, no bullshit.
             </Text>
@@ -60,17 +62,19 @@ export default function Footer() {
                 fontWeight={"bold"}
                 color={colors.highLightColor}
                 bg={"gray.900"}
-                minH={{ base: "52px", lg: "80px" }}
+                minH={{ base: "52px", lg: "72px" }}
                 px={4}
-                fontSize={{ base: "md", lg: "xl" }}
+                fontSize={{ base: "md", lg: "lg" }}
               />
               <Box
                 pos={{ base: "relative", lg: "absolute" }}
-                mt={{ base: 0, lg: 2 }}
+                mt={{ base: 0, lg: 1 }}
                 mr={2}
                 right={0}
               >
-                <HighLightButton title={"Subscribe"} />
+                <Box transform={`scale(0.9)`}>
+                  <HighLightButton title={"Subscribe"} />
+                </Box>
               </Box>
             </Box>
           </GridItem>
@@ -94,7 +98,7 @@ export default function Footer() {
                       fontFamily={fonts.headingFont}
                       color={colors.highLightColor}
                       fontWeight="bold"
-                      fontSize={{ base: "xl", lg: "3xl" }}
+                      fontSize={{ base: "xl", lg: "2xl" }}
                     >
                       {d.title}
                     </Text>
@@ -105,7 +109,7 @@ export default function Footer() {
                         fontFamily={fonts.parafont}
                         color={colors.fontLightColorV2}
                         fontWeight="bold"
-                        fontSize={{ base: "md", lg: "lg" }}
+                        fontSize={{ base: "sm", lg: "md" }}
                         cursor={"pointer"}
                         _hover={{ color: colors.highLightColor }}
                       >
@@ -119,14 +123,20 @@ export default function Footer() {
             <GridItem>
               <Grid justifyContent={{ base: "", xl: "flex-end" }}>
                 {links.map((l, k) => (
-                  <GridItem key={k}>
+                  <GridItem
+                    columnGap={".2rem"}
+                    alignItems="center"
+                    display={"flex"}
+                    key={k}
+                  >
+                    <Image height={"24px"} width="24px" src={L} />
                     <Text
                       cursor={"pointer"}
                       _hover={{ color: colors.highLightColor }}
                       fontFamily={fonts.parafont}
                       color={colors.fontLightColorV2}
                       fontWeight="bold"
-                      fontSize={{ base: "md", lg: "lg" }}
+                      fontSize={{ base: "md", lg: "xl" }}
                     >
                       {l}
                     </Text>

@@ -4,7 +4,6 @@ import {
   Flex,
   Grid,
   GridItem,
-  Icon,
   Image,
   Text,
 } from "@chakra-ui/react";
@@ -14,7 +13,8 @@ import { emojisData, sGradientData, spacesData } from "../data/spacesData";
 
 import Star from "/public/dapp/star.png";
 import { useNavigate } from "react-router";
-import { BiSolidGrid } from "react-icons/bi";
+
+import G from "/public/eco_system/grid.png";
 
 function SpacesPage() {
   const navigate = useNavigate();
@@ -22,33 +22,61 @@ function SpacesPage() {
   return (
     <Box bg={colors.bgColor}>
       <Box mx="auto" width={{ base: "100%", lg: "88%" }} pos="relative">
-        <Box justifyContent={"flex-start"} alignItems="center" display={"flex"}>
-          <Icon h="48" w="48" color={colors.boxBorder} as={BiSolidGrid} />
-          <Box
-            display={"flex"}
-            flexDir="column"
-            justifyContent={"flex-start"}
-            px={2}
-            pt={4}
-          >
-            <Text
-              textAlign={"left"}
-              fontWeight={"bold"}
-              fontFamily={fonts.headingFont}
-              color={colors.highLightColor}
-              fontSize={{ base: "5xl" }}
+        <Box
+          alignItems={"center"}
+          display={"flex"}
+          justifyContent="space-between"
+        >
+          <Box>
+            <Box
+              justifyContent={"flex-start"}
+              alignItems="center"
+              display={"flex"}
             >
-              Spaces
-            </Text>
+              <Image src={G} />
+              <Box
+                display={"flex"}
+                flexDir="column"
+                justifyContent={"flex-start"}
+                px={2}
+                pt={4}
+              >
+                <Text
+                  textAlign={"left"}
+                  fontWeight={"bold"}
+                  fontFamily={fonts.headingFont}
+                  color={colors.highLightColor}
+                  fontSize={{ base: "5xl" }}
+                >
+                  Models
+                </Text>
+              </Box>
+            </Box>
             <Text
               textAlign={"left"}
               fontWeight={"bold"}
               fontFamily={fonts.parafont}
               color={colors.fontLightColor}
               fontSize={{ base: "2xl" }}
+              pb={4}
+              pl={4}
             >
               Discover amazing ML apps made by the community!
             </Text>
+          </Box>
+          <Box alignItems={"center"} display={"flex"} columnGap="1rem">
+            <Button
+              _hover={{
+                bg: colors.bgColor,
+                boxShadow: `0px 0px 4px ${colors.highLightColor}`,
+              }}
+              color={colors.highLightColor}
+              bg={colors.boxBorder}
+            >
+              Create New Space
+            </Button>
+            <Text color={colors.boxBorder}>or</Text>
+            <Button variant={"link"}>Learn more about spaces</Button>
           </Box>
         </Box>
         <Box
@@ -80,11 +108,17 @@ function SpacesPage() {
                 borderRadius={"xl"}
                 backgroundImage={sGradientData[i].gradient}
                 pos="relative"
+                transition={"all 200ms"}
+                _hover={{
+                  boxShadow: `0px 0px 12px ${colors.fontLightColorV2}`,
+                  filter: `contrast(150%)`,
+                }}
                 minH="200px"
               >
                 <Box
+                  borderTopLeftRadius={"xl"}
                   bg={`rgba(0, 0, 0, 0.5)`}
-                  borderBottomLeftRadius="xl"
+                  borderBottomRightRadius="xl"
                   left={0}
                   pos="absolute"
                   display={"flex"}

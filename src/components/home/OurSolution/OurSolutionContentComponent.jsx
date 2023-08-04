@@ -1,10 +1,11 @@
-import { Box, Grid, Text } from "@chakra-ui/react";
+import { Box, Grid, Image, Text } from "@chakra-ui/react";
 
 import { fonts } from "../../../theme/fonts";
 import { colors } from "../../../theme/colors";
 import { ourSolutionsData } from "../../../data/ourSolutionData";
 
 import HeadLines from "../../common/HeadLine";
+import L from "/public/eco_system/link.png";
 
 function OurSolutionContentComponent() {
   return (
@@ -52,6 +53,9 @@ function OurSolutionContentComponent() {
             >
               {sol.tags.map((tag, j) => (
                 <Box
+                  display={"flex"}
+                  justifyContent="flex-end"
+                  columnGap={".2rem"}
                   width="100%"
                   borderBottom={`1px groove ${colors.boxBorder}`}
                   borderTop={
@@ -64,6 +68,7 @@ function OurSolutionContentComponent() {
                   }}
                   key={j}
                 >
+                  <Image height={"24px"} width="24px" src={L} />
                   <Text
                     color={colors.fontLightColor}
                     fontFamily={fonts.parafont}

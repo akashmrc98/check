@@ -187,9 +187,11 @@ function Navbar() {
           <NavItem onClick={() => toggleMenu()} title={"Menu"} />
         </Box>
 
-        <Box display={{ base: "none", xl: "flex" }} pos="absolute" right="4%">
+        <Box display={{ base: "none", lg: "flex" }} pos="absolute" right="4%">
           <Link to="/dapp">
-            <HighLightButton title="TRY DAPP" />
+            <Box transform={{ lg: `scale(0.7)`, xl: `scale(0.8)` }}>
+              <HighLightButton title="TRY DAPP" />
+            </Box>
           </Link>
         </Box>
       </Box>

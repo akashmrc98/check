@@ -4,7 +4,6 @@ import {
   Flex,
   Grid,
   GridItem,
-  Icon,
   Image,
   Text,
 } from "@chakra-ui/react";
@@ -12,7 +11,7 @@ import { colors } from "../theme/colors";
 import { fonts } from "../theme/fonts";
 import { emojis, gradientData, modelsData } from "../data/modelsData";
 import { slice } from "lodash";
-import { BiSolidGrid } from "react-icons/bi";
+import G from "/public/eco_system/grid.png";
 
 import Star from "/public/dapp/star.png";
 import { useNavigate } from "react-router";
@@ -37,33 +36,61 @@ function ModelsPage() {
   return (
     <Box bg={colors.bgColor}>
       <Box mx="auto" width={{ base: "100%", lg: "88%" }} pos="relative">
-        <Box justifyContent={"flex-start"} alignItems="center" display={"flex"}>
-          <Icon h="48" w="48" color={colors.boxBorder} as={BiSolidGrid} />
-          <Box
-            display={"flex"}
-            flexDir="column"
-            justifyContent={"flex-start"}
-            px={2}
-            pt={4}
-          >
-            <Text
-              textAlign={"left"}
-              fontWeight={"bold"}
-              fontFamily={fonts.headingFont}
-              color={colors.highLightColor}
-              fontSize={{ base: "5xl" }}
+        <Box
+          alignItems={"center"}
+          display={"flex"}
+          justifyContent="space-between"
+        >
+          <Box>
+            <Box
+              justifyContent={"flex-start"}
+              alignItems="center"
+              display={"flex"}
             >
-              Models
-            </Text>
+              <Image src={G} />
+              <Box
+                display={"flex"}
+                flexDir="column"
+                justifyContent={"flex-start"}
+                px={2}
+                pt={4}
+              >
+                <Text
+                  textAlign={"left"}
+                  fontWeight={"bold"}
+                  fontFamily={fonts.headingFont}
+                  color={colors.highLightColor}
+                  fontSize={{ base: "5xl" }}
+                >
+                  Models
+                </Text>
+              </Box>
+            </Box>
             <Text
               textAlign={"left"}
               fontWeight={"bold"}
               fontFamily={fonts.parafont}
               color={colors.fontLightColor}
               fontSize={{ base: "2xl" }}
+              pb={4}
+              pl={4}
             >
               Discover amazing ML apps made by the community!
             </Text>
+          </Box>
+          <Box alignItems={"center"} display={"flex"} columnGap="1rem">
+            <Button
+              _hover={{
+                bg: colors.bgColor,
+                boxShadow: `0px 0px 4px ${colors.highLightColor}`,
+              }}
+              color={colors.highLightColor}
+              bg={colors.boxBorder}
+            >
+              Create New Space
+            </Button>
+            <Text color={colors.boxBorder}>or</Text>
+            <Button variant={"link"}>Learn more about spaces</Button>
           </Box>
         </Box>
         <Box
@@ -75,8 +102,8 @@ function ModelsPage() {
           backgroundImage={`linear-gradient(to right, #e63e6d, #f04760, #f85451, #fb6242, #fc7231, #fc7c28, #fb861d, #f9900e, #fb960a, #fc9c06, #fea303, #ffa900)`}
         ></Box>
         <Grid
-          rowGap="1rem"
-          columnGap={"1rem"}
+          rowGap="2rem"
+          columnGap={"2rem"}
           gridTemplateColumns={{
             base: "1fr",
             md: "1fr 1fr",
@@ -90,14 +117,21 @@ function ModelsPage() {
               borderRadius={"lg"}
               pos={"relative"}
               key={i}
+              transition={`all 100ms ease-in-out`}
             >
               <Box
                 borderRadius={"xl"}
                 backgroundImage={gradientData[i].gradient}
                 pos="relative"
                 minH="200px"
+                transition={"all 200ms"}
+                _hover={{
+                  boxShadow: `0px 0px 12px ${colors.fontLightColorV2}`,
+                  filter: `contrast(150%)`,
+                }}
               >
                 <Box
+                  borderTopLeftRadius={"xl"}
                   bg={`rgba(0, 0, 0, 0.5)`}
                   borderBottomRightRadius="xl"
                   left={0}
@@ -193,6 +227,10 @@ function ModelsPage() {
           ))}
           {!isCompleted ? (
             <GridItem
+              transition={`all 100ms ease-in-out`}
+              _hover={{
+                transform: `scale(1.04)`,
+              }}
               borderRadius={"xl"}
               backgroundImage={gradientData[8].gradient}
               pos="relative"
@@ -201,7 +239,7 @@ function ModelsPage() {
               cursor={"pointer"}
               onClick={loadMore}
             >
-              <Box w="100%" pos="absolute" top={"33%"}>
+              <Box w="100%" pos="absolute" top={"40%"}>
                 <Text
                   textAlign={"center"}
                   fontWeight={"bold"}
@@ -211,7 +249,6 @@ function ModelsPage() {
                   mx="auto"
                   width="80%"
                   borderRadius={"xl"}
-                  bg={`rgba(0, 0, 0, 0.6)`}
                   fontSize={{ base: "xl" }}
                   p={2}
                   zIndex={8}
