@@ -76,17 +76,6 @@ function HomeComponent() {
                     borderColor={colors.boxBorder}
                     borderRight={0}
                   >
-                    {isNext ? (
-                      <Box
-                        bg={colors.bgColor}
-                        height="62px"
-                        position={"absolute"}
-                        width="100%"
-                        bottom={0}
-                        opacity={0.7}
-                        filter={"blur(8px)"}
-                      ></Box>
-                    ) : null}
                     <Text
                       py={4}
                       px={8}

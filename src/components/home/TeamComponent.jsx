@@ -11,9 +11,22 @@ import { teamData } from "../../data/teamData";
 import { useMediaQuery } from "@chakra-ui/react";
 
 import HeadLines from "../../components/common/HeadLine";
+import Arrow from "/public/eco_system/link.png";
+
+import LinkedIn from "/public/socials/linkedin.png";
+import Twitter from "/public/socials/twitter.png";
+import Email from "/public/socials/email.png";
 
 const TeamComponent = () => {
   const [is990Px] = useMediaQuery("(min-width: 990px)");
+
+  function getSocial(link) {
+    console.log(link);
+    if (link === "Email") return Email;
+    if (link === "LinkedIn") return LinkedIn;
+    if (link === "Twitter") return Twitter;
+    return Email;
+  }
 
   return (
     <Box pos="relative">
@@ -58,7 +71,7 @@ const TeamComponent = () => {
             loop={true}
             modules={[Autoplay, Navigation]}
             spaceBetween={0}
-            slidesPerView={is990Px ? 2 : 1}
+            slidesPerView={is990Px ? 3 : 1}
           >
             {teamData.map((s, i) => (
               <SwiperSlide key={i}>
@@ -67,7 +80,13 @@ const TeamComponent = () => {
                     <Box
                       border={`1px groove ${colors.boxBorder}`}
                       borderBottom={0}
+                      display="flex"
+                      justifyContent={"flex-start"}
+                      alignItems="center"
+                      columnGap={"1rem"}
+                      px={2}
                     >
+                      <Image maxW="42px" maxH="42px" src={Arrow} />
                       <Text
                         py={4}
                         textAlign={"center"}
@@ -84,6 +103,8 @@ const TeamComponent = () => {
                       justifyContent={"center"}
                       border={`1px groove ${colors.boxBorder}`}
                       p={8}
+                      borderTop={0}
+                      borderBottom={0}
                     >
                       <Image
                         borderRadius={"xl"}
@@ -92,7 +113,11 @@ const TeamComponent = () => {
                         src={s.img}
                       />
                     </Box>
-                    <Box border={`1px groove ${colors.boxBorder}`} p={4}>
+                    <Box
+                      border={`1px groove ${colors.boxBorder}`}
+                      borderTop={0}
+                      p={4}
+                    >
                       <Text
                         fontFamily={fonts.parafont}
                         fontSize={{ base: "2xl" }}
@@ -112,17 +137,18 @@ const TeamComponent = () => {
                         {s.bio}
                       </Text>
                       <Divider my={4} mx="auto" width="40%" />
-                      <Box display={"flex"} justifyContent="space-evenly">
+                      <Box
+                        display={"flex"}
+                        justifyContent="center"
+                        columnGap={"1rem"}
+                      >
                         {s.links.map((l, j) => (
                           <Box key={j}>
-                            <Text
-                              fontFamily={fonts.parafont}
-                              fontSize={{ base: "xl" }}
-                              fontWeight={"bold"}
-                              color={colors.highLightColor}
-                            >
-                              {l.name}
-                            </Text>
+                            <Image
+                              maxH="32px"
+                              maxW="32px"
+                              src={getSocial(l.name)}
+                            />
                           </Box>
                         ))}
                       </Box>

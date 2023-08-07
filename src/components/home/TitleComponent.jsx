@@ -1,5 +1,7 @@
 import { Box, Grid, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
+import { useState } from "react";
 // import { useState } from "react";
 import { colors } from "../../theme/colors";
 import { fonts } from "../../theme/fonts";
@@ -14,6 +16,59 @@ function TitleComponent() {
   //   x: 0,
   //   y: 0,
   // });
+  const titlesMapSectionOne = [
+    [
+      "E",
+      "v",
+      "e",
+      "r",
+      "y",
+      "t",
+      "h",
+      "i",
+      "n",
+      "g",
+      "\u00A0",
+      "a",
+      "b",
+      "o",
+      "u",
+      "t",
+    ],
+    ["E", "x", "a", "p", "a", "n", "d", "i", "n", "g", "\u00A0", "t", "h", "e"],
+    ["H", "a", "r", "n", "e", "s", "s", "i", "n", "g", "\u00A0", "t", "h", "e"],
+    ["P", "i", "o", "n", "e", "e", "r", "i", "n", "g", "\u00A0", "t", "h", "e"],
+    ["P", "u", "s", "h", "i", "n", "g", "\u00A0", "t", "h", "e"],
+  ];
+  const titlesMapSectionTwo = [
+    ["w", "o", "r", "l", "d"],
+    ["e", "c", "o", "s", "y", "t", "e", "m"],
+    ["p", "o", "w", "e", "r"],
+    ["f", "u", "t", "u", "r", "e"],
+    ["f", "r", "o", "n", "t", "i", "e", "r"],
+  ];
+
+  const [index, setIndex] = useState(0);
+  const [isChanged, setIsChanged] = useState(false);
+
+  useEffect(() => {
+    setIsChanged(false);
+    setTimeout(() => {
+      try {
+        if (index === 4) {
+          setIndex(0);
+          setIsChanged(!isChanged);
+        } else {
+          setIndex(index + 1);
+          setIsChanged(!isChanged);
+        }
+      } catch (error) {
+        console.log(error);
+        setIndex(0);
+      }
+    }, 5000);
+  }, [index]);
+
   return (
     <Box
       minH={{ base: "60vh", md: "80vh", lg: "100vh" }}
@@ -40,17 +95,13 @@ function TitleComponent() {
           >
             <motion.div
               style={{ width: "100%" }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              initial={{
-                opacity: 0,
-                scale: 0,
-                y: -220,
-              }}
               transition={{
                 type: "spring",
                 stiffness: 260,
                 damping: 20,
-                duration: 2,
+                duration: 8,
+                repeat: isChanged ? Infinity : 1,
+                repeatDelay: 4.5,
               }}
             >
               <Box
@@ -61,47 +112,29 @@ function TitleComponent() {
                 fontStyle="italic"
                 color={colors.fontLightColor}
               >
-                {[
-                  "P",
-                  "u",
-                  "s",
-                  "h",
-                  "i",
-                  "n",
-                  "g",
-                  "\u00A0",
-                  "T",
-                  "h",
-                  "e",
-                ].map((b, k) => (
-                  <motion.div
-                    style={{
-                      display: "inline-block",
-                      fontWeight: "bolder",
-                    }}
-                    key={k}
-                    initial={{
-                      scale: 0,
-                      opacity: 0,
-                      y: 3,
-                    }}
-                    animate={{
-                      scale: 1,
-                      opacity: 1,
-                      y: 0,
-                    }}
-                    transition={{
-                      type: "tween",
-                      stiffness: 260,
-                      damping: 20,
-                      delay: k * 0.2,
-                      repeat: Infinity,
-                      repeatDelay: 1,
-                    }}
-                  >
-                    {b}
-                  </motion.div>
-                ))}
+                <motion.div>
+                  {[...titlesMapSectionOne][index].map((b, k) => (
+                    <motion.div
+                      style={{
+                        display: "inline-block",
+                        fontWeight: "bolder",
+                      }}
+                      key={k}
+                      initial={{ scale: 0, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 260,
+                        damping: 20,
+                        delay: k * 0.1,
+                        repeat: Infinity,
+                        repeatDelay: 1.4,
+                      }}
+                    >
+                      {b}
+                    </motion.div>
+                  ))}
+                </motion.div>
               </Box>{" "}
               <Text
                 cursor={"none"}
@@ -110,7 +143,7 @@ function TitleComponent() {
                 fontFamily={fonts.parafont}
                 color={colors.highLightColor}
               >
-                Over Powered AI
+                Blockchain AI
               </Text>
               <Text
                 cursor={"none"}
@@ -128,21 +161,15 @@ function TitleComponent() {
                 fontStyle="italic"
                 color={colors.fontLightColor}
               >
-                {["F", "r", "o", "n", "t", "i", "e", "r"].map((b, k) => (
+                {titlesMapSectionTwo[index].map((b, k) => (
                   <motion.div
                     style={{
                       display: "inline-block",
                       fontWeight: "bolder",
                     }}
                     key={k}
-                    initial={{
-                      scale: 1.5,
-                      y: 3,
-                    }}
-                    animate={{
-                      scale: 1,
-                      y: 0,
-                    }}
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
                     transition={{
                       type: "spring",
                       stiffness: 260,
@@ -179,7 +206,7 @@ function TitleComponent() {
                 fontFamily={fonts.headingFont}
                 color={colors.fontLightColorV2}
               >
-                Welcome to the Next Generation of Decentralized AI
+                {`"Explore the Realm of Next-Gen AI"`}
               </Text>
             </motion.div>
           </Box>

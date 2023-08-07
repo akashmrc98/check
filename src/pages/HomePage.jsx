@@ -25,7 +25,7 @@ function HomePage() {
       flexDir="column"
       justifyContent="space-between"
       position={"relative"}
-      bg={colors.bgColor}
+      className="bg_img"
     >
       <TitleComponent />
       <Box>
@@ -48,7 +48,7 @@ function HomePage() {
           <PartnersComponent />
           <RoadmapComponent />
           <TokenComponent />
-          <HowComponent />
+          {/* <HowComponent /> */}
           <TeamComponent />
         </Box>
       </Box>

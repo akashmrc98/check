@@ -34,7 +34,7 @@ function EcoSystemComponent() {
           damping: 20,
         }}
       >
-        <Image src={EcoSystem} />
+        {/* <Image src={EcoSystem} /> */}
         <Grid mx="auto" width={{ base: "100%", lg: "90%" }} py={24}>
           {ecoSystemData.map((e, i) => (
             <Grid

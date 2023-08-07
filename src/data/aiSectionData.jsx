@@ -1,14 +1,14 @@
 export const aiSectionData = [
-  "SMART CONTRACTS ",
-  "ADVANCED AI TRAINING",
-  "KNOWLEDGE AND GUIDANCE",
-  "RISK MANAGEMENT AND AML",
-  "MARKET ANALYSIS",
-  "AI TRADING",
-  "CODE AUDITOR",
-  "TECHINICAL ANALYSIS",
-  "CODE EXPLAINER",
-  "SOURCE OF NEWS",
+  "Live AI Spaces",
+  "Advanced Image/Text models",
+  "Auto AI Trading bots",
+  "Knowledge and guidance",
+  "Risk Management and AML",
+  "Enterprise hub",
+  "Acceleration program",
+  "Inference endpoints",
+  "AI AutoTrain",
+  "Hardware",
 ];
 
 import AI_1 from "/public/ai_section/1.jpg";

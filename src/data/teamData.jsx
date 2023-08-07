@@ -15,6 +15,10 @@ export const teamData = [
         link: "",
         name: "LinkedIn",
       },
+      {
+        link: "",
+        name: "Twitter",
+      },
     ],
   },
   {
@@ -23,6 +27,10 @@ export const teamData = [
     role: "CHIEF ADMINISTRATIONS OFFICER",
     bio: "Industrial and management engineer was previously a director of operations at a large-scale cardboard factory. Later was a development team lead at Judea. Today he is an executive at ChainGPT organization.",
     links: [
+      {
+        link: "",
+        name: "Twitter",
+      },
       {
         link: "",
         name: "Email",
@@ -41,16 +49,8 @@ export const teamData = [
     links: [
       {
         link: "",
-        name: "Email",
+        name: "Twitter",
       },
-    ],
-  },
-  {
-    name: "VLADI FILATOV",
-    img: Image,
-    role: "CHIEF ADMINISTRATIONS OFFICER",
-    bio: "Industrial and management engineer was previously a director of operations at a large-scale cardboard factory. Later was a development team lead at Judea. Today he is an executive at ChainGPT organization.",
-    links: [
       {
         link: "",
         name: "Email",
@@ -66,6 +66,28 @@ export const teamData = [
       {
         link: "",
         name: "Email",
+      },
+
+      {
+        link: "",
+        name: "Twitter",
+      },
+    ],
+  },
+  {
+    name: "VLADI FILATOV",
+    img: Image,
+    role: "CHIEF ADMINISTRATIONS OFFICER",
+    bio: "Industrial and management engineer was previously a director of operations at a large-scale cardboard factory. Later was a development team lead at Judea. Today he is an executive at ChainGPT organization.",
+    links: [
+      {
+        link: "",
+        name: "Email",
+      },
+
+      {
+        link: "",
+        name: "Twitter",
       },
     ],
   },

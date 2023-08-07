@@ -8,12 +8,12 @@ import L from "/public/eco_system/link.png";
 export default function Footer() {
   return (
     <Box
-      bg={colors.bgColor}
       zIndex={999}
       borderTopRadius="3xl"
       width={{ base: "95%" }}
       mx="auto"
       border={{ base: "none", md: `2px solid ${colors.boxBorder}` }}
+      className="bg_img"
     >
       <Box width={{ base: "90%", md: "75%" }} mx="auto">
         <Grid columnGap={"2rem"} rowGap={"4rem"}>
