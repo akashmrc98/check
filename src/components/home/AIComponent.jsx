@@ -56,7 +56,6 @@ const AIComponent = () => {
             loop={true}
             modules={[Autoplay, Navigation]}
             slidesPerView={is990Px ? 3 : 1}
-            onSlideChange={(e) => console.log(e)}
           >
             {aiSectionData.map((s, i) => (
               <SwiperSlide key={i}>

@@ -21,7 +21,6 @@ const TeamComponent = () => {
   const [is990Px] = useMediaQuery("(min-width: 990px)");
 
   function getSocial(link) {
-    console.log(link);
     if (link === "Email") return Email;
     if (link === "LinkedIn") return LinkedIn;
     if (link === "Twitter") return Twitter;

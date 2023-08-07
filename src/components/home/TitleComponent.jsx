@@ -52,15 +52,16 @@ function TitleComponent() {
   const [isChanged, setIsChanged] = useState(false);
 
   useEffect(() => {
-    setIsChanged(false);
     setTimeout(() => {
       try {
         if (index === 4) {
+          setIsChanged(true);
           setIndex(0);
-          setIsChanged(!isChanged);
+          setIsChanged(false);
         } else {
+          setIsChanged(true);
           setIndex(index + 1);
-          setIsChanged(!isChanged);
+          setIsChanged(false);
         }
       } catch (error) {
         console.log(error);
@@ -93,17 +94,7 @@ function TitleComponent() {
             flexDir={"column"}
             width="100%"
           >
-            <motion.div
-              style={{ width: "100%" }}
-              transition={{
-                type: "spring",
-                stiffness: 260,
-                damping: 20,
-                duration: 8,
-                repeat: isChanged ? Infinity : 1,
-                repeatDelay: 4.5,
-              }}
-            >
+            <motion.div style={{ width: "100%" }}>
               <Box
                 cursor={"none"}
                 fontWeight={"bold"}
@@ -112,29 +103,34 @@ function TitleComponent() {
                 fontStyle="italic"
                 color={colors.fontLightColor}
               >
-                <motion.div>
-                  {[...titlesMapSectionOne][index].map((b, k) => (
-                    <motion.div
-                      style={{
-                        display: "inline-block",
-                        fontWeight: "bolder",
-                      }}
-                      key={k}
-                      initial={{ scale: 0, opacity: 0 }}
-                      animate={{ scale: 1, opacity: 1 }}
-                      transition={{
-                        type: "spring",
-                        stiffness: 260,
-                        damping: 20,
-                        delay: k * 0.1,
-                        repeat: Infinity,
-                        repeatDelay: 1.4,
-                      }}
-                    >
-                      {b}
-                    </motion.div>
-                  ))}
-                </motion.div>
+                {!isChanged ? (
+                  <motion.div>
+                    {[...titlesMapSectionOne][index].map((b, k) => (
+                      <motion.div
+                        style={{
+                          display: "inline-block",
+                          fontWeight: "bolder",
+                        }}
+                        key={k}
+                        initial={{ scale: 0, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 260,
+                          damping: 20,
+                          delay: k * 0.1,
+                          repeat: Infinity,
+                          repeatDelay: 1.4,
+                        }}
+                        onAnimationComplete={() => {
+                          console.log("change");
+                        }}
+                      >
+                        {b}
+                      </motion.div>
+                    ))}
+                  </motion.div>
+                ) : null}
               </Box>{" "}
               <Text
                 cursor={"none"}
