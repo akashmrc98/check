@@ -1,5 +1,5 @@
 import { Box, Grid, Text } from "@chakra-ui/react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useEffect } from "react";
 import { useState } from "react";
 // import { useState } from "react";
@@ -49,25 +49,12 @@ function TitleComponent() {
   ];
 
   const [index, setIndex] = useState(0);
-  const [isChanged, setIsChanged] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
-      try {
-        if (index === 4) {
-          setIsChanged(true);
-          setIndex(0);
-          setIsChanged(false);
-        } else {
-          setIsChanged(true);
-          setIndex(index + 1);
-          setIsChanged(false);
-        }
-      } catch (error) {
-        console.log(error);
-        setIndex(0);
-      }
-    }, 5000);
+      if (index === 4) setIndex(0);
+      else setIndex(index + 1);
+    }, 4000);
   }, [index]);
 
   return (
@@ -103,7 +90,7 @@ function TitleComponent() {
                 fontStyle="italic"
                 color={colors.fontLightColor}
               >
-                {!isChanged ? (
+                <AnimatePresence>
                   <motion.div>
                     {[...titlesMapSectionOne][index].map((b, k) => (
                       <motion.div
@@ -112,25 +99,26 @@ function TitleComponent() {
                           fontWeight: "bolder",
                         }}
                         key={k}
-                        initial={{ scale: 0, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
                         transition={{
-                          type: "spring",
+                          type: "tween",
                           stiffness: 260,
                           damping: 20,
-                          delay: k * 0.1,
+                          delay: Math.random(
+                            0,
+                            titlesMapSectionTwo[index].length
+                          ),
+                          duration: 4,
                           repeat: Infinity,
-                          repeatDelay: 1.4,
-                        }}
-                        onAnimationComplete={() => {
-                          console.log("change");
+                          repeatType: "loop",
                         }}
                       >
                         {b}
                       </motion.div>
                     ))}
                   </motion.div>
-                ) : null}
+                </AnimatePresence>
               </Box>{" "}
               <Text
                 cursor={"none"}
@@ -164,15 +152,16 @@ function TitleComponent() {
                       fontWeight: "bolder",
                     }}
                     key={k}
-                    initial={{ scale: 0, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
                     transition={{
-                      type: "spring",
+                      type: "tween",
                       stiffness: 260,
                       damping: 20,
-                      delay: k * 0.1,
+                      delay: Math.random(0, titlesMapSectionTwo[index].length),
+                      duration: 4,
                       repeat: Infinity,
-                      repeatDelay: 1,
+                      repeatType: "loop",
                     }}
                   >
                     {b}
@@ -202,7 +191,7 @@ function TitleComponent() {
                 fontFamily={fonts.headingFont}
                 color={colors.fontLightColorV2}
               >
-                {`"Explore the Realm of Next-Gen AI"`}
+                {`Explore the Realm of Next-Gen AI`}
               </Text>
             </motion.div>
           </Box>

@@ -101,16 +101,26 @@ const TeamComponent = () => {
                       display="flex"
                       justifyContent={"center"}
                       border={`1px groove ${colors.boxBorder}`}
-                      p={8}
+                      p={4}
+                      px={12}
                       borderTop={0}
                       borderBottom={0}
                     >
-                      <Image
-                        borderRadius={"xl"}
-                        border={`1px groove ${colors.boxBorder}`}
-                        maxW="72"
-                        src={s.img}
-                      />
+                      <Box
+                        bg={colors.bgColor}
+                        borderRadius={"48vh 0vw 48vh 0vw"}
+                        border={`12px solid ${colors.bgColor}`}
+                        boxShadow={`0 0 4px 2px ${colors.highLightColor}`}
+                        p={4}
+                      >
+                        <Image
+                          borderRadius={"1vh 12vw 1vh 12vw"}
+                          border={`12px solid ${colors.bgColor}`}
+                          boxShadow={`0 0 4px 2px ${colors.highLightColor}`}
+                          src={s.img}
+                          className="corner"
+                        />
+                      </Box>
                     </Box>
                     <Box
                       border={`1px groove ${colors.boxBorder}`}
