@@ -13,8 +13,8 @@ import { colors } from "../../theme/colors";
 import { fonts } from "../../theme/fonts";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { FiMenu } from "react-icons/fi";
-import Logo from "/public/logo_8.png";
-import Logo2 from "/public/logo_8.png";
+import Logo from "/public/logo_6.png";
+import Logo2 from "/public/logo_6.png";
 
 import HighLightButton from "../common/HighLightButton";
 import { Link } from "react-router-dom";
