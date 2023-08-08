@@ -83,6 +83,10 @@ function Navbar() {
   return (
     <Box zIndex={499}>
       <Box
+        display={"flex"}
+        justifyContent="center"
+        alignItems={{ base: "center", lg: "center" }}
+        flexDir="column"
         zIndex={open ? 500 : -1}
         pos={"fixed"}
         minH="100vh"
@@ -95,7 +99,7 @@ function Navbar() {
           cursor={"pointer"}
           px={8}
           pt={4}
-          justifyContent={{ base: "center" }}
+          justifyContent={{ base: "flex-end", lg: "center" }}
           pos="relative"
         >
           <Image display={{ base: "none", lg: "block" }} maxW="72" src={Logo} />

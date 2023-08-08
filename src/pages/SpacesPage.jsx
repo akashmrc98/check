@@ -26,6 +26,9 @@ function SpacesPage() {
           alignItems={"center"}
           display={"flex"}
           justifyContent="space-between"
+          flexDir={{ base: "column", lg: "row" }}
+          rowGap={{ base: "2rem" }}
+          py={{ base: 8, lg: 0 }}
         >
           <Box>
             <Box
@@ -48,7 +51,7 @@ function SpacesPage() {
                   color={colors.highLightColor}
                   fontSize={{ base: "5xl" }}
                 >
-                  Models
+                  Spaces
                 </Text>
               </Box>
             </Box>

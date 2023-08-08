@@ -15,13 +15,9 @@ import BG from "/public/dapp/cs.svg";
 
 function TabOne({ description, tags }) {
   return (
-    <Grid
-      templateColumns={{ base: "1fr" }}
-      pb={{ base: 0, lg: 12 }}
-      rowGap={{ base: "2rem" }}
-    >
+    <Grid pb={{ base: 0, lg: 12 }} rowGap={{ base: "2rem" }}>
       <GridItem>
-        <Box display="grid" rowGap="2rem">
+        <Box width="100%" display="grid" rowGap="2rem">
           <Text
             fontFamily={fonts.headingFont}
             fontSize={"2xl"}
@@ -29,13 +25,24 @@ function TabOne({ description, tags }) {
           >
             Overview
           </Text>
-          <Text fontFamily={fonts.parafont} color={colors.fontLightColorV2}>
-            <span dangerouslySetInnerHTML={{ __html: description }}></span>
+          <Text
+            fontSize={{ base: "xx-small", sm: "sm", md: "md" }}
+            fontFamily={fonts.parafont}
+            color={colors.fontLightColorV2}
+          >
+            <span
+              style={{ display: "inline-block", lineBreak: "anywhere" }}
+              dangerouslySetInnerHTML={{ __html: description }}
+            ></span>
           </Text>
-          <Flex columnGap={"2rem"}>
+          <Flex
+            p={2}
+            flexDir={{ base: "column", lg: "row" }}
+            columnGap={"2rem"}
+          >
             <Text
               fontWeight={"bold"}
-              fontSize="xl"
+              fontSize={{ base: "xs", sm: "sm", md: "md" }}
               fontFamily={fonts.parafont}
               color={colors.fontLightColorV2}
             >
@@ -45,9 +52,9 @@ function TabOne({ description, tags }) {
               columnGap={"1rem"}
               display="grid"
               gridTemplateColumns={{
-                base: "1fr 1fr",
-                md: "1fr 1fr 1fr",
-                lg: "1fr 1fr 1fr 1fr 1fr",
+                base: "1fr",
+                lg: "1fr 1fr 1fr",
+                xl: "1fr 1fr 1fr 1fr 1fr",
               }}
               rowGap="1rem"
               justifyContent={"space-evenly"}
@@ -89,7 +96,7 @@ function TabOne({ description, tags }) {
             Comming Soon
           </Text>
         </Box>
-        <Grid mt={8} p={4} gridTemplateColumns={"1fr 1fr"}>
+        <Grid mt={8} p={4} gridTemplateColumns={{ base: "1fr", lg: "1fr 1fr" }}>
           <Flex rowGap=".5rem" flexDir={"column"}>
             <Text
               fontFamily={fonts.parafont}

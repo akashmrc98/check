@@ -49,6 +49,7 @@ function HeadLines(props) {
             display={"grid"}
             justifyContent="center"
             alignItems={"center"}
+            bg={colors.bgColor}
             pos={"relative"}
           >
             <Box
@@ -146,7 +147,6 @@ function HeadLines(props) {
             fontSize={{ base: "2xl", lg: "4xl" }}
             py={6}
             px={3}
-            borderRadius="md"
             borderRight={0}
             borderTop={0}
             borderLeftColor={colors.highLightColor}

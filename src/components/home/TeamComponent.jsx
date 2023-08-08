@@ -77,6 +77,7 @@ const TeamComponent = () => {
                 {() => (
                   <Box>
                     <Box
+                      bg={colors.bgColor}
                       border={`1px groove ${colors.boxBorder}`}
                       borderBottom={0}
                       display="flex"
@@ -107,10 +108,10 @@ const TeamComponent = () => {
                       borderBottom={0}
                     >
                       <Box
-                        bg={colors.bgColor}
-                        borderRadius={"48vh 0vw 48vh 0vw"}
-                        border={`12px solid ${colors.bgColor}`}
-                        boxShadow={`0 0 4px 2px ${colors.highLightColor}`}
+                        // bg={colors.bgColor}
+                        // borderRadius={"48vh 0vw 48vh 0vw"}
+                        // border={`12px solid ${colors.bgColor}`}
+                        // boxShadow={`0 0 4px 2px ${colors.highLightColor}`}
                         p={4}
                       >
                         <Image
@@ -126,6 +127,7 @@ const TeamComponent = () => {
                       border={`1px groove ${colors.boxBorder}`}
                       borderTop={0}
                       p={4}
+                      bg={colors.bgColor}
                     >
                       <Text
                         fontFamily={fonts.parafont}

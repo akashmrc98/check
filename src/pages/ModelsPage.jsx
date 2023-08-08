@@ -34,12 +34,15 @@ function ModelsPage() {
   };
 
   return (
-    <Box bg={colors.bgColor}>
+    <Box>
       <Box mx="auto" width={{ base: "100%", lg: "88%" }} pos="relative">
         <Box
           alignItems={"center"}
           display={"flex"}
           justifyContent="space-between"
+          flexDir={{ base: "column", lg: "row" }}
+          rowGap={{ base: "2rem" }}
+          py={{ base: 8, lg: 0 }}
         >
           <Box>
             <Box

@@ -67,7 +67,11 @@ function RoadmapComponent() {
                 damping: 20,
               }}
             >
-              <Box border={`1px groove ${colors.boxBorder}`} key={i}>
+              <Box
+                bg={colors.bgColor}
+                border={`1px groove ${colors.boxBorder}`}
+                key={i}
+              >
                 <Box borderBottom={`1px groove ${colors.boxBorder}`} p={4}>
                   <Text
                     color={colors.fontLightColorV2}

@@ -15,12 +15,13 @@ import Logo from "/public/logo_6.png";
 function ModelHeadComponent({ url, service_id, display_name, media }) {
   return (
     <Grid
-      border={`2px`}
+      border={{ base: 0, xl: `2px` }}
       borderColor={colors.boxBorder}
       w={{ base: "100%", lg: "88%" }}
       borderTop={0}
       mx="auto"
-      templateColumns={{ base: "1fr", lg: "1fr 1fr" }}
+      templateColumns={{ base: "1fr", xl: "1fr 1fr" }}
+      p={{ base: 2 }}
     >
       <Grid pt={{ base: 0, lg: 6 }}>
         <Flex
@@ -100,14 +101,16 @@ function ModelHeadComponent({ url, service_id, display_name, media }) {
               bg: colors.highLightColor,
             }}
             fontFamily={fonts.headingFont}
+            mb={{ base: 8, lg: 0 }}
           >
             View Demo
           </Button>
         </Box>
       </Grid>
       <GridItem
-        borderLeft={`2px solid ${colors.boxBorder}`}
-        pt={{ base: 0, lg: 6 }}
+        borderLeft={{ base: 0, xl: `2px solid ${colors.boxBorder}` }}
+        p={{ base: 4, lg: 0 }}
+        pt={{ base: 4, lg: 6 }}
       >
         <Box px={{ base: 0, lg: 8 }} display="grid" rowGap="1rem">
           <Flex flexDirection={"column"} columnGap={"2rem"}>
@@ -148,7 +151,6 @@ function ModelHeadComponent({ url, service_id, display_name, media }) {
                 flexDirection={{ base: "column", lg: "row" }}
                 justifyContent={"space-between"}
                 borderBottom={{
-                  base: `1px solid ${colors.boxBorder}`,
                   lg: "none",
                 }}
               >
@@ -187,7 +189,7 @@ function ModelHeadComponent({ url, service_id, display_name, media }) {
             </Box>
           </Flex>
 
-          <Box border={"2px"} borderColor={colors.boxBorder}></Box>
+          <Box border={"1px"} borderColor={colors.boxBorder}></Box>
 
           <Flex
             textAlign={"center"}

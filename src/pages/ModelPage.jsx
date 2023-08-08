@@ -1,4 +1,12 @@
-import { Box, Tabs, TabList, Tab, TabPanel, TabPanels } from "@chakra-ui/react";
+import {
+  Box,
+  Tabs,
+  TabList,
+  Tab,
+  TabPanel,
+  TabPanels,
+  ModalHeader,
+} from "@chakra-ui/react";
 
 import { fonts } from "../theme/fonts.js";
 import { colors } from "../theme/colors.js";

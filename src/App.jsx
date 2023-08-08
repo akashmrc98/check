@@ -7,6 +7,7 @@ import Dapp from "./pages/DappPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SpaceFactory from "./pages/spaces/SpacesFactory";
 import Navbar from "./components/common/Navbar";
+import SalePage from "./pages/SalePage";
 
 const router = [
   {
@@ -24,6 +25,10 @@ const router = [
   {
     path: "/dapp/spaces/:space",
     element: <SpaceFactory />,
+  },
+  {
+    path: "/sale",
+    element: <SalePage />,
   },
 ];
 

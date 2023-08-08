@@ -38,6 +38,7 @@ function EcoSystemComponent() {
         <Grid mx="auto" width={{ base: "100%", lg: "90%" }} py={24}>
           {ecoSystemData.map((e, i) => (
             <Grid
+              bg={colors.bgColor}
               border={`1px groove ${colors.boxBorder}`}
               borderTop={{
                 base: `1px groove ${colors.boxBorder}`,

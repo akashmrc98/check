@@ -52,7 +52,7 @@ function HomePage() {
           <TeamComponent />
         </Box>
       </Box>
-      <OurSolutionComponent />
+      {/* <OurSolutionComponent /> */}
       <Footer />
     </Box>
   );

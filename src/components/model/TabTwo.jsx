@@ -54,7 +54,7 @@ function TabTwo(props) {
 }
 export default TabTwo;
 
-function TabContent({ dappData, p }) {
+function TabContent({ dappData, p, url }) {
   return (
     <Box>
       <Text
@@ -75,6 +75,29 @@ function TabContent({ dappData, p }) {
           bg={colors.bgColor}
           boxShadow={`0 0 4px ${colors.highLightColor}`}
           color={colors.highLightColor}
+          onClick={() => {
+            fetch(url, {
+              mode: "no-cors",
+              /*
+        * ALTERNATIVE MODE {
+        mode: 'cors'
+        }
+        *
+        */
+            })
+              .then((transfer) => {
+                return transfer.blob(); // RETURN DATA TRANSFERED AS BLOB
+              })
+              .then((bytes) => {
+                let elm = document.createElement("a"); // CREATE A LINK ELEMENT IN DOM
+                elm.href = URL.createObjectURL(bytes); // SET LINK ELEMENTS CONTENTS
+                elm.setAttribute("download", "test.zip"); // SET ELEMENT CREATED 'ATTRIBUTE' TO DOWNLOAD, FILENAME PARAM AUTOMATICALLY
+                elm.click(); // TRIGGER ELEMENT TO DOWNLOAD
+              })
+              .catch((error) => {
+                console.log(error); // OUTPUT ERRORS, SUCH AS CORS WHEN TESTING NON LOCALLY
+              });
+          }}
           _hover={{
             color: colors.bgColor,
             bg: colors.highLightColor,

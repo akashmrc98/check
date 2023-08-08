@@ -75,6 +75,7 @@ function HomeComponent() {
                     position="relative"
                     borderColor={colors.boxBorder}
                     borderRight={0}
+                    bg={isActive ? colors.bgColor : "transparent"}
                   >
                     <Text
                       py={4}
@@ -102,6 +103,7 @@ function HomeComponent() {
               display="flex"
               justifyContent={"space-between"}
               border="1px"
+              bg={colors.bgColor}
               borderColor={colors.boxBorder}
               borderTop={j === 0 ? `1px groove ${colors.boxBorder}` : "none"}
               borderRight={0}
