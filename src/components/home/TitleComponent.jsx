@@ -126,6 +126,7 @@ function TitleComponent() {
                 fontSize={{ base: "4xl", lg: "5xl", xl: "7xl" }}
                 fontFamily={fonts.parafont}
                 color={colors.highLightColor}
+                className="grad_txt"
               >
                 Blockchain AI
               </Text>
@@ -185,6 +186,7 @@ function TitleComponent() {
               }}
             >
               <Text
+                className="grad_txt"
                 cursor={"none"}
                 fontWeight={"bold"}
                 fontSize={{ base: "xl", lg: "2xl", xl: "3xl" }}

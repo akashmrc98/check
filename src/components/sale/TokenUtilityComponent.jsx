@@ -44,6 +44,7 @@ export default function TokenUtilityComponent() {
         {utils.map((u, i) => (
           <Box
             border={`2px dashed ${colors.boxBorder}`}
+            boxShadow={`-4px -4px 8px -2px ${colors.highLightColor}, 4px 4px 8px -2px ${colors.fontLightColor}, -4px 4px 8px -2px ${colors.highLightColor}, 4px -4px 8px -2px ${colors.fontLightColor}`}
             borderRadius={"xl"}
             p={4}
             bg={colors.bgColor}

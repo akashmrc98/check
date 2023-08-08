@@ -46,6 +46,7 @@ function RoadmapComponent() {
         modules={[Autoplay, Navigation]}
         spaceBetween={0}
         slidesPerView={is990Px ? 2 : 1}
+        style={{ padding: ".2rem" }}
       >
         {roadmapData.map((d, i) => (
           <SwiperSlide key={i}>
@@ -70,9 +71,14 @@ function RoadmapComponent() {
               <Box
                 bg={colors.bgColor}
                 border={`1px groove ${colors.boxBorder}`}
+                boxShadow={`-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`}
                 key={i}
               >
-                <Box borderBottom={`1px groove ${colors.boxBorder}`} p={4}>
+                <Box
+                  boxShadow={`-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`}
+                  borderBottom={`1px groove ${colors.boxBorder}`}
+                  p={4}
+                >
                   <Text
                     color={colors.fontLightColorV2}
                     fontSize={{ base: "xl" }}
@@ -146,6 +152,7 @@ function RoadmapComponent() {
                           bg={colors.highLightColor}
                           height="4px"
                           borderRadius={"3xl"}
+                          boxShadow={`-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`}
                           mt={6}
                           mb={2}
                         ></Box>

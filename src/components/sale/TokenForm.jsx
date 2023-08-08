@@ -10,6 +10,8 @@ export default function TokenForm() {
       p={4}
       pb={6}
       bg={colors.bgColor}
+      minW={{ base: "100%", lg: "70%", xl: "50%" }}
+      boxShadow={`-4px -4px 8px -2px ${colors.highLightColor}, 4px 4px 8px -2px ${colors.fontLightColor}, -4px 4px 8px -2px ${colors.highLightColor}, 4px -4px 8px -2px ${colors.fontLightColor}`}
     >
       <Box display="grid" rowGap={".2rem"}>
         <Text

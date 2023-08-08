@@ -78,7 +78,8 @@ export default function TokenInfoComponent() {
                 border={`2px dashed ${colors.boxBorder}`}
                 borderTopLeftRadius="1vh"
                 borderBottomRightRadius="1vh"
-                my={3}
+                boxShadow={`-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`}
+                my={4}
                 alignItems="center"
                 justifyContent={"space-between"}
               >
@@ -124,7 +125,8 @@ export default function TokenInfoComponent() {
                 border={`2px dashed ${colors.boxBorder}`}
                 borderTopLeftRadius="1vh"
                 borderBottomRightRadius="1vh"
-                my={3}
+                boxShadow={`-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`}
+                my={4}
                 alignItems="center"
                 justifyContent={"space-between"}
               >

@@ -13,6 +13,7 @@ export default function Footer() {
       width={{ base: "95%" }}
       mx="auto"
       border={{ base: "none", md: `2px solid ${colors.boxBorder}` }}
+      boxShadow={`-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`}
       className="bg_img"
     >
       <Box width={{ base: "90%", md: "75%" }} mx="auto">

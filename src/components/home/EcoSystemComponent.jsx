@@ -9,7 +9,7 @@ import { ecoSystemData } from "../../data/ecoSystemData";
 
 function EcoSystemComponent() {
   return (
-    <Box pos="relative">
+    <Box px={{ base: 0, lg: 12 }} pos="relative">
       <Grid gridTemplateColumns={"1fr"} p={12}>
         <HeadLines
           x="-40px"
@@ -50,6 +50,7 @@ function EcoSystemComponent() {
                 lg: i === ecoSystemData.length - 1 ? "xl" : "none",
               }}
               gridTemplateColumns={{ base: "1fr", lg: "1fr 1fr" }}
+              boxShadow={`-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`}
               key={i}
             >
               <GridItem pos="relative">
@@ -66,6 +67,7 @@ function EcoSystemComponent() {
                   alignItems={"center"}
                   borderTopLeftRadius="xl"
                   borderBottomLeftRadius={"xl"}
+                  boxShadow={`-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`}
                 >
                   <Text
                     fontFamily={fonts.parafont}

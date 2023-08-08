@@ -1,21 +1,21 @@
-import { Box, Container, Grid } from "@chakra-ui/react";
-import SaleEndSection from "../components/sale/SaleEndSection";
+import { Box, Container } from "@chakra-ui/react";
+
 import TokenForm from "../components/sale/TokenForm";
 import TokenInfoComponent from "../components/sale/TokenInfoComponent";
 import TokenUtilityComponent from "../components/sale/TokenUtilityComponent";
+import Footer from "../components/common/Footer";
 
 export default function SalePage() {
   return (
     <Box minH="100vh" className="bg_img">
       <Container minW="80%" pt={32}>
-        <Grid py={24} templateColumns={{ base: "1fr", lg: "1fr 1fr" }}>
-          <Box></Box>
+        <Box justifyContent={"center"} display={"flex"} py={24}>
           <TokenForm />
-        </Grid>
+        </Box>
         <TokenInfoComponent />
         <TokenUtilityComponent />
-        <SaleEndSection />
       </Container>
+      <Footer />
     </Box>
   );
 }

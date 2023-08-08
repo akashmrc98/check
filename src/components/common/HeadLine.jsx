@@ -151,6 +151,7 @@ function HeadLines(props) {
             borderTop={0}
             borderLeftColor={colors.highLightColor}
             lineHeight={0.2}
+            className="grad_txt"
           >
             {props.subTitle}
           </Text>

@@ -62,7 +62,7 @@ function HomeComponent() {
               delay: 2500,
               disableOnInteraction: false,
             }}
-            style={{ height: "250px" }}
+            style={{ height: "250px", padding: ".2rem" }}
           >
             {homeSummaryData.map((d, i) => (
               <SwiperSlide key={i}>
@@ -71,6 +71,11 @@ function HomeComponent() {
                     color={colors.fontLightColorV2}
                     pos={"relative"}
                     border={isActive ? "1px" : "none"}
+                    boxShadow={
+                      isActive
+                        ? `-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`
+                        : 0
+                    }
                     borderStyle="groove"
                     position="relative"
                     borderColor={colors.boxBorder}
@@ -96,7 +101,7 @@ function HomeComponent() {
         <GridItem>
           {homeUtilsData.map((h, j) => (
             <Box
-              zIndex={3}
+              zIndex={300}
               fontFamily={fonts.parafont}
               key={j}
               p={4}
@@ -106,6 +111,7 @@ function HomeComponent() {
               bg={colors.bgColor}
               borderColor={colors.boxBorder}
               borderTop={j === 0 ? `1px groove ${colors.boxBorder}` : "none"}
+              boxShadow={`-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`}
               borderRight={0}
             >
               <Box

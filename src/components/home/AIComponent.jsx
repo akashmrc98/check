@@ -49,6 +49,7 @@ const AIComponent = () => {
           alignItems={"center"}
           width="100%"
           p={{ base: 4, lg: 0 }}
+          boxShadow={`-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`}
         >
           {" "}
           <Swiper
@@ -61,6 +62,7 @@ const AIComponent = () => {
               <SwiperSlide key={i}>
                 <GridItem
                   zIndex={4}
+                  boxShadow={`-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`}
                   pos={"relative"}
                   borderColor={colors.boxBorder}
                   display="grid"
@@ -71,6 +73,7 @@ const AIComponent = () => {
                     border="1px"
                     borderStyle={"groove"}
                     borderColor={colors.boxBorder}
+                    boxShadow={`-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`}
                     bg={colors.bgColor}
 
                     // borderLeft={0}
@@ -95,6 +98,8 @@ const AIComponent = () => {
                     bg={colors.bgColor}
                     // borderLeft={0}
                     // borderRight={0}
+
+                    boxShadow={`-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`}
                   >
                     <Text
                       fontFamily={fonts.parafont}
@@ -109,6 +114,7 @@ const AIComponent = () => {
                 <Box
                   border={`1px groove ${colors.boxBorder}`}
                   bg={colors.boxBorder}
+                  boxShadow={`-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`}
                   // borderLeft={0}
                   // borderRight={0}
                 >

@@ -9,8 +9,9 @@ function Line(props) {
       right={props.right}
       position={"fixed"}
       height={"100vh"}
-      width={{ base: 0, lg: ".5px" }}
+      width={{ base: 0, lg: "2px" }}
       bg={colors.boxBorder}
+      boxShadow={`-1px -1px 2px ${colors.highLightColor}, 1px 1px 2px ${colors.fontLightColor}`}
     ></Box>
   );
 }
