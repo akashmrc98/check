@@ -186,7 +186,6 @@ function TitleComponent() {
               }}
             >
               <Text
-                className="grad_txt"
                 cursor={"none"}
                 fontWeight={"bold"}
                 fontSize={{ base: "xl", lg: "2xl", xl: "3xl" }}

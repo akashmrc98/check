@@ -7,6 +7,7 @@ import "./index.css";
 import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/navigation";
+import "swiper/css/effect-cards";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

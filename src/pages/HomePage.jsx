@@ -25,7 +25,8 @@ function HomePage() {
       flexDir="column"
       justifyContent="space-between"
       position={"relative"}
-      className="bg_img"
+      // className="bg_img"
+      bg={colors.bgColor}
     >
       <TitleComponent />
       <Box>

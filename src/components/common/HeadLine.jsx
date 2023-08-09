@@ -111,6 +111,7 @@ function HeadLines(props) {
                 stiffness: 260,
                 damping: 20,
               }}
+              className="bg_img"
             >
               <Text
                 color={colors.fontLightColor}

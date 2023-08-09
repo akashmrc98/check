@@ -35,8 +35,8 @@ function PartnersComponent() {
           border={`1px solid ${colors.boxBorder}`}
           borderStyle="groove"
           boxShadow={`-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`}
-          bg={colors.bgColor}
           p={4}
+          className="bg_img"
         >
           <Marquee>
             <Flex justifyContent={"space-evenly"} columnGap="1rem">

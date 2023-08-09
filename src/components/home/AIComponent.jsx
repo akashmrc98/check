@@ -3,7 +3,7 @@ import { aiSectionData, aiImages } from "../../data/aiSectionData";
 
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation } from "swiper/modules";
+import { Autoplay, Navigation, EffectCoverflow } from "swiper/modules";
 
 import { useMediaQuery } from "@chakra-ui/react";
 
@@ -49,14 +49,27 @@ const AIComponent = () => {
           alignItems={"center"}
           width="100%"
           p={{ base: 4, lg: 0 }}
-          boxShadow={`-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`}
         >
           {" "}
           <Swiper
-            autoplay={{ delay: 2500, disableOnInteraction: false }}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
             loop={true}
-            modules={[Autoplay, Navigation]}
+            modules={[Autoplay, Navigation, EffectCoverflow]}
+            spaceBetween={0}
             slidesPerView={is990Px ? 3 : 1}
+            effect={"coverflow"}
+            grabCursor={true}
+            centeredSlides={true}
+            coverflowEffect={{
+              rotate: -10,
+              stretch: 0,
+              depth: 50,
+              modifier: 1,
+              slideShadows: true,
+            }}
           >
             {aiSectionData.map((s, i) => (
               <SwiperSlide key={i}>

@@ -5,7 +5,7 @@ import { Box, Divider, Grid, GridItem, Image, Text } from "@chakra-ui/react";
 
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation } from "swiper/modules";
+import { Autoplay, EffectCoverflow, Navigation } from "swiper/modules";
 import { teamData } from "../../data/teamData";
 
 import { useMediaQuery } from "@chakra-ui/react";
@@ -28,7 +28,7 @@ const TeamComponent = () => {
   }
 
   return (
-    <Box pos="relative">
+    <Box py={24} pos="relative">
       <Grid gridTemplateColumns={"1fr 1fr"}>
         <GridItem p={12}>
           <HeadLines
@@ -63,22 +63,31 @@ const TeamComponent = () => {
           width="100%"
         >
           <Swiper
-            style={{ padding: ".2rem" }}
             autoplay={{
               delay: 2500,
               disableOnInteraction: false,
             }}
             loop={true}
-            modules={[Autoplay, Navigation]}
+            modules={[Autoplay, Navigation, EffectCoverflow]}
             spaceBetween={0}
             slidesPerView={is990Px ? 3 : 1}
+            effect={"coverflow"}
+            grabCursor={true}
+            centeredSlides={true}
+            coverflowEffect={{
+              rotate: -10,
+              stretch: 0,
+              depth: 50,
+              modifier: 1,
+              slideShadows: true,
+            }}
           >
             {teamData.map((s, i) => (
               <SwiperSlide key={i}>
-                {() => (
-                  <Box>
+                {({ isActive }) => (
+                  <Box opacity={isActive ? 1 : 0.5}>
                     <Box
-                      bg={colors.bgColor}
+                      className="bg_img"
                       border={`1px groove ${colors.boxBorder}`}
                       borderBottom={0}
                       display="flex"
@@ -95,7 +104,7 @@ const TeamComponent = () => {
                         fontFamily={fonts.parafont}
                         fontSize={{ base: "3xl" }}
                         fontWeight={"bold"}
-                        color={colors.fontLightColorV2}
+                        color={colors.highLightColor}
                       >
                         {s.name}
                       </Text>
@@ -131,13 +140,13 @@ const TeamComponent = () => {
                       borderTop={0}
                       boxShadow={`-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`}
                       p={4}
-                      bg={colors.bgColor}
+                      className="bg_img"
                     >
                       <Text
                         fontFamily={fonts.parafont}
                         fontSize={{ base: "2xl" }}
                         fontWeight={"bold"}
-                        color={colors.highLightColor}
+                        color={colors.fontLightColor}
                         py={1}
                       >
                         {s.role}
@@ -147,7 +156,7 @@ const TeamComponent = () => {
                         fontFamily={fonts.parafont}
                         fontSize={{ base: "md" }}
                         fontWeight={"bold"}
-                        color={colors.boxBorder}
+                        color={colors.fontLightColorV2}
                       >
                         {s.bio}
                       </Text>

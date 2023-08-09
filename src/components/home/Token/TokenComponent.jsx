@@ -36,7 +36,7 @@ function TokenComponent() {
         width={"100%"}
       >
         <Box
-          bg={colors.bgColor}
+          className="bg_img"
           width={"100%"}
           mx="auto"
           border={`1px groove ${colors.boxBorder}`}
