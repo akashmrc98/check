@@ -5,10 +5,15 @@ import { Box, Divider, Grid, GridItem, Image, Text } from "@chakra-ui/react";
 
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectCoverflow, Navigation } from "swiper/modules";
+import {
+  A11y,
+  Autoplay,
+  EffectCoverflow,
+  Navigation,
+  Pagination,
+  Scrollbar,
+} from "swiper/modules";
 import { teamData } from "../../data/teamData";
-
-import { useMediaQuery } from "@chakra-ui/react";
 
 import HeadLines from "../../components/common/HeadLine";
 import Arrow from "/public/eco_system/link.png";
@@ -18,8 +23,6 @@ import Twitter from "/public/socials/twitter.png";
 import Email from "/public/socials/email.png";
 
 const TeamComponent = () => {
-  const [is990Px] = useMediaQuery("(min-width: 990px)");
-
   function getSocial(link) {
     if (link === "Email") return Email;
     if (link === "LinkedIn") return LinkedIn;
@@ -63,24 +66,39 @@ const TeamComponent = () => {
           width="100%"
         >
           <Swiper
-            autoplay={{
-              delay: 2500,
-              disableOnInteraction: false,
-            }}
             loop={true}
-            modules={[Autoplay, Navigation, EffectCoverflow]}
-            spaceBetween={0}
-            slidesPerView={is990Px ? 3 : 1}
+            modules={[
+              Autoplay,
+              Navigation,
+              EffectCoverflow,
+              Pagination,
+              Scrollbar,
+              A11y,
+            ]}
+            spaceBetween={-60}
+            breakpoints={{
+              420: {
+                slidesPerView: 1,
+              },
+              990: {
+                slidesPerView: 2,
+              },
+              1366: {
+                slidesPerView: 3,
+              },
+            }}
             effect={"coverflow"}
             grabCursor={true}
             centeredSlides={true}
             coverflowEffect={{
               rotate: -10,
-              stretch: 0,
-              depth: 50,
-              modifier: 1,
+              stretch: -60,
+              depth: 100,
+              modifier: 2,
               slideShadows: true,
             }}
+            navigation
+            scrollbar={{ draggable: true }}
           >
             {teamData.map((s, i) => (
               <SwiperSlide key={i}>

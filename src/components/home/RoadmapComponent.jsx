@@ -13,13 +13,21 @@ import {
 
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation } from "swiper/modules";
+import {
+  A11y,
+  Autoplay,
+  Navigation,
+  Pagination,
+  Scrollbar,
+  Thumbs,
+} from "swiper/modules";
 import { EffectCoverflow } from "swiper/modules";
 
 import Verify from "/public/icons/verify.png";
 import Pending from "/public/icons/signal.png";
 
 import HeadLines from "../../components/common/HeadLine";
+import { useState } from "react";
 
 function RoadmapComponent() {
   const [is990Px] = useMediaQuery("(min-width: 990px)");
@@ -31,8 +39,10 @@ function RoadmapComponent() {
     return 1;
   }
 
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+
   return (
-    <Box minW="100%">
+    <Box>
       <Grid gridTemplateColumns={"1fr 1fr"}>
         <GridItem p={12}>
           <HeadLines
@@ -48,24 +58,41 @@ function RoadmapComponent() {
       </Grid>
 
       <Swiper
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
         loop={true}
-        modules={[Autoplay, Navigation, EffectCoverflow]}
-        spaceBetween={0}
-        slidesPerView={getSlides()}
+        modules={[
+          Autoplay,
+          Navigation,
+          EffectCoverflow,
+          Thumbs,
+          Pagination,
+          Scrollbar,
+          A11y,
+        ]}
+        spaceBetween={-60}
+        breakpoints={{
+          420: {
+            slidesPerView: 1,
+          },
+          990: {
+            slidesPerView: 2,
+          },
+          1366: {
+            slidesPerView: 3,
+          },
+        }}
         effect={"coverflow"}
         grabCursor={true}
         centeredSlides={true}
         coverflowEffect={{
-          rotate: 30,
-          stretch: 0,
+          rotate: -10,
+          stretch: -60,
           depth: 100,
-          modifier: 1,
+          modifier: 2,
           slideShadows: true,
         }}
+        thumbs={{ swiper: thumbsSwiper }}
+        navigation
+        scrollbar={{ draggable: true }}
       >
         {roadmapData.map((d, i) => (
           <SwiperSlide key={i}>

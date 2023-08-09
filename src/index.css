@@ -36,3 +36,21 @@ body {
   text-fill-color: transparent;
   -webkit-text-fill-color: transparent;
 }
+.swiper-button-next,
+.swiper-button-prev {
+  background-color: transparent;
+  padding: 30px;
+  color: #5ce1e6 !important;
+  fill: #5ce1e6 !important;
+  stroke: #5ce1e6 !important;
+  transition: all 200ms ease-in-out;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: #ffe6c7 !important;
+  fill: #ffe6c7 !important;
+  stroke: #ffe6c7 !important;
+  transition: all 200ms ease;
+  transform: scale(0.8) rotate(180deg);
+}
