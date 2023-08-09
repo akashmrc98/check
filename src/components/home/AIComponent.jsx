@@ -64,10 +64,10 @@ const AIComponent = () => {
             grabCursor={true}
             centeredSlides={true}
             coverflowEffect={{
-              rotate: -10,
+              rotate: 0,
               stretch: 0,
-              depth: 50,
-              modifier: 1,
+              depth: 100,
+              modifier: 3,
               slideShadows: true,
             }}
           >

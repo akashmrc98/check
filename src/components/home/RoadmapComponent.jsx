@@ -3,6 +3,7 @@ import { colors } from "../../theme/colors";
 import { roadmapData } from "../../data/roadmapData";
 import {
   Box,
+  getSlideTransition,
   Grid,
   GridItem,
   Image,
@@ -22,6 +23,14 @@ import HeadLines from "../../components/common/HeadLine";
 
 function RoadmapComponent() {
   const [is990Px] = useMediaQuery("(min-width: 990px)");
+  const [is1290Px] = useMediaQuery("(min-width: 1290px)");
+
+  function getSlides() {
+    if (is990Px) return 2;
+    if (is1290Px) return 3;
+    return 1;
+  }
+
   return (
     <Box minW="100%">
       <Grid gridTemplateColumns={"1fr 1fr"}>
@@ -46,12 +55,12 @@ function RoadmapComponent() {
         loop={true}
         modules={[Autoplay, Navigation, EffectCoverflow]}
         spaceBetween={0}
-        slidesPerView={is990Px ? 3 : 1}
+        slidesPerView={getSlides()}
         effect={"coverflow"}
         grabCursor={true}
         centeredSlides={true}
         coverflowEffect={{
-          rotate: -30,
+          rotate: 30,
           stretch: 0,
           depth: 100,
           modifier: 1,
@@ -85,7 +94,6 @@ function RoadmapComponent() {
                 style={{
                   opacity: isActive ? 1 : 0.5,
                   minWidth: isActive ? "120vw%" : "100%",
-                  overflowX: "hidden",
                 }}
               >
                 <Box
