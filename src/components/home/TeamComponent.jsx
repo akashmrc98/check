@@ -102,7 +102,7 @@ const TeamComponent = () => {
                         py={4}
                         textAlign={"center"}
                         fontFamily={fonts.parafont}
-                        fontSize={{ base: "3xl" }}
+                        fontSize={{ base: "xl", lg: "2xl", xl: "3xl" }}
                         fontWeight={"bold"}
                         color={colors.highLightColor}
                       >
@@ -144,7 +144,7 @@ const TeamComponent = () => {
                     >
                       <Text
                         fontFamily={fonts.parafont}
-                        fontSize={{ base: "2xl" }}
+                        fontSize={{ base: "lg", lg: "xl", xl: "2xl" }}
                         fontWeight={"bold"}
                         color={colors.fontLightColor}
                         py={1}
@@ -154,7 +154,7 @@ const TeamComponent = () => {
                       <Text
                         py={1}
                         fontFamily={fonts.parafont}
-                        fontSize={{ base: "md" }}
+                        fontSize={{ base: "sm", lg: "md" }}
                         fontWeight={"bold"}
                         color={colors.fontLightColorV2}
                       >

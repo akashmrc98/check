@@ -19,7 +19,12 @@ function HomeComponent() {
         templateColumns={{ base: "1fr", lg: "1fr 1fr" }}
       >
         <GridItem pos="relative">
-          <Box left={"-4%"} top="-30%" pos="absolute">
+          <Box
+            display={{ base: "none", lg: "block" }}
+            left={"-4%"}
+            top="-30%"
+            pos="absolute"
+          >
             <Box
               minH="18px"
               minW="18px"
@@ -28,7 +33,12 @@ function HomeComponent() {
               borderBottom={0}
             ></Box>
           </Box>
-          <Box left={"-4%"} top="-0%" pos="absolute">
+          <Box
+            display={{ base: "none", lg: "block" }}
+            left={"-4%"}
+            top="-0%"
+            pos="absolute"
+          >
             <Box
               minH="18px"
               minW="18px"
@@ -38,7 +48,11 @@ function HomeComponent() {
             ></Box>
           </Box>
 
-          <Box top="-24%" pos="absolute">
+          <Box
+            display={{ base: "none", lg: "block" }}
+            top="-24%"
+            pos="absolute"
+          >
             <Box
               border={`1px solid ${colors.boxBorder}`}
               borderLeft={0}
@@ -87,7 +101,7 @@ function HomeComponent() {
                       px={8}
                       color={colors.fontLightColor}
                       fontFamily={fonts.parafont}
-                      fontSize={"lg"}
+                      fontSize={{ base: "sm", lg: "md" }}
                       maxW={{ base: "100%", lg: "60%" }}
                     >
                       {d}
@@ -144,7 +158,7 @@ function HomeComponent() {
               >
                 <Text
                   fontFamily={fonts.parafont}
-                  fontSize={"md"}
+                  fontSize={{ base: "sm", lg: "md" }}
                   fontWeight="bold"
                   color={colors.fontLightColorV2}
                   px={4}

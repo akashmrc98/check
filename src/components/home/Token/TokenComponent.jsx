@@ -44,6 +44,7 @@ function TokenComponent() {
           py={4}
           px={{ base: 4, lg: 8 }}
           borderRightRadius="xl"
+          borderLeftRadius={{ base: "xl", lg: 0 }}
         >
           {tokenomicsData.map((t, i) => (
             <Box key={i}>

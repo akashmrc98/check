@@ -66,10 +66,14 @@ function RoadmapComponent() {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={{
-                  visible: { visibility: "visible", scale: 1, x: 0 },
+                  visible: {
+                    visibility: "visible",
+                    scale: 1,
+                    x: 0,
+                  },
                   hidden: {
                     visibility: "hidden",
-                    scale: 1.2,
+                    scale: 0.9,
                     x: i % 2 == 0 ? -320 : 320,
                   },
                 }}

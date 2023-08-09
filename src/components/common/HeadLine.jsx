@@ -116,7 +116,7 @@ function HeadLines(props) {
               <Text
                 color={colors.fontLightColor}
                 fontFamily={fonts.headingFont}
-                fontSize={{ base: "3xl", lg: "8xl" }}
+                fontSize={{ base: "4xl", lg: "8xl" }}
                 py={2}
                 px={3}
                 lineHeight={1}

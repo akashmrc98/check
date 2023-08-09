@@ -86,7 +86,7 @@ function TitleComponent() {
                 cursor={"none"}
                 fontWeight={"bold"}
                 fontFamily={fonts.headingFont}
-                fontSize={{ base: "5xl", lg: "6xl", xl: "8xl" }}
+                fontSize={{ base: "4xl", lg: "6xl", xl: "8xl" }}
                 fontStyle="italic"
                 color={colors.fontLightColor}
               >
@@ -123,26 +123,18 @@ function TitleComponent() {
               <Text
                 cursor={"none"}
                 fontWeight={"bold"}
-                fontSize={{ base: "4xl", lg: "5xl", xl: "7xl" }}
+                fontSize={{ base: "3xl", lg: "4xl", xl: "6xl" }}
                 fontFamily={fonts.parafont}
                 color={colors.highLightColor}
                 className="grad_txt"
               >
                 Blockchain AI
               </Text>
-              <Text
-                cursor={"none"}
-                fontWeight={"bold"}
-                fontSize={{ base: "3xl", lg: "6xl", xl: "8xl" }}
-                fontStyle="italic"
-                fontFamily={fonts.headingFont}
-                color={colors.fontLightColor}
-              ></Text>
               <Box
                 cursor={"none"}
                 fontWeight={"bold"}
                 fontFamily={fonts.headingFont}
-                fontSize={{ base: "5xl", lg: "6xl", xl: "8xl" }}
+                fontSize={{ base: "4xl", lg: "6xl", xl: "8xl" }}
                 fontStyle="italic"
                 color={colors.fontLightColor}
               >
@@ -188,7 +180,7 @@ function TitleComponent() {
               <Text
                 cursor={"none"}
                 fontWeight={"bold"}
-                fontSize={{ base: "xl", lg: "2xl", xl: "3xl" }}
+                fontSize={{ base: "md", lg: "lg", xl: "2xl" }}
                 fontFamily={fonts.headingFont}
                 color={colors.fontLightColorV2}
               >

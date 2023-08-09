@@ -153,6 +153,7 @@ export default function Footer() {
           fontWeight={"bold"}
           fontFamily={fonts.parafont}
           color={colors.boxBorder}
+          textAlign="center"
         >
           © 2023 ALL RIGHTS RESERVED BY OVERPOWEREDAI
         </Text>

@@ -1,7 +1,7 @@
 import { fonts } from "../../theme/fonts";
 import { motion } from "framer-motion";
 import { colors } from "../../theme/colors";
-import { Box, Grid, GridItem, Image, Text } from "@chakra-ui/react";
+import { Box, Grid, GridItem, Text } from "@chakra-ui/react";
 
 import HeadLines from "../common/HeadLine";
 import EcoSystem from "/public/eco_system/main.webp";
@@ -62,7 +62,7 @@ function EcoSystemComponent() {
                   left={"-52px"}
                   top={"-2px"}
                   pos="absolute"
-                  display={"flex"}
+                  display={{ base: "none", lg: "flex" }}
                   justifyContent="center"
                   alignItems={"center"}
                   borderTopLeftRadius="xl"
@@ -82,7 +82,7 @@ function EcoSystemComponent() {
                   fontFamily={fonts.headingFont}
                   color={colors.fontLightColor}
                   fontWeight="bold"
-                  fontSize={{ base: "3xl" }}
+                  fontSize={{ base: "xl", lg: "3xl" }}
                   p={6}
                 >
                   {e.title}
@@ -93,7 +93,7 @@ function EcoSystemComponent() {
                 fontFamily={fonts.parafont}
                 color={colors.fontLightColorV2}
                 fontWeight="bold"
-                fontSize={{ base: "md" }}
+                fontSize={{ base: "xs", md: "sm" }}
               >
                 {e.sub}
               </Text>

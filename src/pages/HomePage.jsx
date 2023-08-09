@@ -27,6 +27,7 @@ function HomePage() {
       position={"relative"}
       // className="bg_img"
       bg={colors.bgColor}
+      px={{ base: 4, lg: 0 }}
     >
       <TitleComponent />
       <Box>

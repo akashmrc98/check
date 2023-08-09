@@ -116,9 +116,10 @@ const AIComponent = () => {
                   >
                     <Text
                       fontFamily={fonts.parafont}
-                      fontSize={{ base: "md" }}
+                      fontSize={{ base: "sm", md: "md", xl: "lg" }}
                       fontWeight={"bold"}
                       color={colors.fontLightColorV2}
+                      px={2}
                     >
                       {s}
                     </Text>
