@@ -54,3 +54,37 @@ body {
   transition: all 200ms ease;
   transform: scale(0.8) rotate(180deg);
 }
+
+.gbox {
+  --border-size: 3px;
+  --border-angle: 0turn;
+  padding: 0 2rem;
+  background-image: conic-gradient(
+      from var(--border-angle),
+      #1f2b33,
+      #153f51 50%,
+      #1f2b33
+    ),
+    conic-gradient(from var(--border-angle), transparent 20%, #2e86ab, #f24236);
+  background-size: calc(100% - (var(--border-size) * 2))
+      calc(100% - (var(--border-size) * 2)),
+    cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  animation: bg-spin 3s linear infinite;
+}
+@keyframes bg-spin {
+  to {
+    --border-angle: 1turn;
+  }
+}
+
+.gbox:hover {
+  animation-play-state: paused;
+}
+
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0turn;
+}

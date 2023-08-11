@@ -1,11 +1,13 @@
 import { fonts } from "../../theme/fonts";
 import { motion } from "framer-motion";
 import { colors } from "../../theme/colors";
-import { Box, Grid, GridItem, Text } from "@chakra-ui/react";
+import { Box, Flex, Grid, GridItem, Image, Text } from "@chakra-ui/react";
 
 import HeadLines from "../common/HeadLine";
 import EcoSystem from "/public/eco_system/main.webp";
 import { ecoSystemData } from "../../data/ecoSystemData";
+
+import Ico from "/public/icons/arrow.png";
 
 function EcoSystemComponent() {
   return (
@@ -78,15 +80,18 @@ function EcoSystemComponent() {
                     {i + 1}
                   </Text>
                 </Box>
-                <Text
-                  fontFamily={fonts.headingFont}
-                  color={colors.fontLightColor}
-                  fontWeight="bold"
-                  fontSize={{ base: "xl", lg: "3xl" }}
-                  p={6}
-                >
-                  {e.title}
-                </Text>
+                <Flex px={4} columnGap={"1rem"} alignItems={"center"}>
+                  <Image maxH="32px" maxW="32px" src={Ico} />
+                  <Text
+                    fontFamily={fonts.headingFont}
+                    color={colors.fontLightColor}
+                    fontWeight="bold"
+                    fontSize={{ base: "xl", lg: "3xl" }}
+                    py={6}
+                  >
+                    {e.title}
+                  </Text>
+                </Flex>
               </GridItem>
               <Text
                 p={6}

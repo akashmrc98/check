@@ -9,6 +9,16 @@ export const sGradientData = [
       "radial-gradient( circle farthest-corner at 10% 20%,  rgba(176,229,208,1) 42%, rgba(92,202,238,0.41) 93.6% )",
     likes: "42",
   },
+  {
+    gradient:
+      "radial-gradient( circle farthest-corner at 10% 20%,  rgba(176,229,208,1) 42%, rgba(92,202,238,0.41) 93.6% )",
+    likes: "42",
+  },
+  {
+    gradient:
+      "radial-gradient( circle farthest-corner at 10% 20%,  rgba(176,229,208,1) 42%, rgba(92,202,238,0.41) 93.6% )",
+    likes: "42",
+  },
 ];
 
 export const spacesData = [
@@ -23,6 +33,18 @@ export const spacesData = [
     rating: 5,
     tags: ["video", "generation", "text2text"],
     link: "zero-scope-space",
+  },
+  {
+    display_name: "👨🏻‍🎤 ChatGPT Prompt Generator",
+    rating: 5,
+    tags: ["text", "generation", "text2text"],
+    link: "textgen-space",
+  },
+  {
+    display_name: "👨🏻‍🎤 Image Generation",
+    rating: 5,
+    tags: ["text", "generation", "text2text"],
+    link: "imggen-space",
   },
 ];
 

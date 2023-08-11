@@ -1,15 +1,10 @@
 import { fonts } from "../../theme/fonts";
 import { colors } from "../../theme/colors";
 import { roadmapData } from "../../data/roadmapData";
-import {
-  Box,
-  getSlideTransition,
-  Grid,
-  GridItem,
-  Image,
-  Text,
-  useMediaQuery,
-} from "@chakra-ui/react";
+import { Box, Flex, Grid, GridItem, Image, Text } from "@chakra-ui/react";
+
+import Link from "/public/icons/road.png";
+import Arrow from "/public/icons/arrow_2.png";
 
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -19,28 +14,15 @@ import {
   Navigation,
   Pagination,
   Scrollbar,
-  Thumbs,
 } from "swiper/modules";
 import { EffectCoverflow } from "swiper/modules";
 
-import Verify from "/public/icons/verify.png";
-import Pending from "/public/icons/signal.png";
+import Verify from "/public/icons/light.png";
+import Pending from "/public/icons/loading.png";
 
 import HeadLines from "../../components/common/HeadLine";
-import { useState } from "react";
 
 function RoadmapComponent() {
-  const [is990Px] = useMediaQuery("(min-width: 990px)");
-  const [is1290Px] = useMediaQuery("(min-width: 1290px)");
-
-  function getSlides() {
-    if (is990Px) return 2;
-    if (is1290Px) return 3;
-    return 1;
-  }
-
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
-
   return (
     <Box>
       <Grid gridTemplateColumns={"1fr 1fr"}>
@@ -58,12 +40,15 @@ function RoadmapComponent() {
       </Grid>
 
       <Swiper
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
         loop={true}
         modules={[
           Autoplay,
           Navigation,
           EffectCoverflow,
-          Thumbs,
           Pagination,
           Scrollbar,
           A11y,
@@ -90,13 +75,12 @@ function RoadmapComponent() {
           modifier: 2,
           slideShadows: true,
         }}
-        thumbs={{ swiper: thumbsSwiper }}
         navigation
         scrollbar={{ draggable: true }}
       >
         {roadmapData.map((d, i) => (
           <SwiperSlide key={i}>
-            {({ isActive, isNext, isPrev, isVisible }) => (
+            {({ isActive }) => (
               <motion.div
                 initial="hidden"
                 whileInView="visible"
@@ -134,18 +118,21 @@ function RoadmapComponent() {
                     borderBottom={`1px groove ${colors.boxBorder}`}
                     p={4}
                   >
-                    <Text
-                      color={colors.fontLightColorV2}
-                      fontSize={{ base: "xl" }}
-                      fontWeight="bold"
-                      fontFamily={fonts.headingFont}
-                    >
-                      {`>`} RDMP {i + 1}
-                    </Text>
+                    <Flex alignItems={"center"} columnGap="1rem">
+                      <Image maxW="48px" src={Link} />
+                      <Text
+                        color={colors.fontLightColorV2}
+                        fontSize={{ base: "xl", lg: "2xl", xl: "3xl" }}
+                        fontWeight="bold"
+                        fontFamily={fonts.headingFont}
+                      >
+                        RDMP {i + 1}
+                      </Text>
+                    </Flex>
                     <Text
                       fontFamily={fonts.headingFont}
                       color={colors.highLightColor}
-                      fontSize={{ base: "5xl" }}
+                      fontSize={{ base: "xl", lg: "3xl", xl: "4xl" }}
                     >
                       {d.title}
                     </Text>
@@ -173,34 +160,6 @@ function RoadmapComponent() {
                             ({p.year})
                           </Text>
                         </Box>
-
-                        <Box my={8} rowGap=".4rem" display={"grid"}>
-                          {p.milestones.map((m, k) => (
-                            <Box
-                              display={"flex"}
-                              justifyContent="space-between"
-                              key={k}
-                            >
-                              <Text
-                                fontFamily={fonts.parafont}
-                                color={colors.fontLightColorV2}
-                                fontSize={{
-                                  base: "sm",
-                                  md: "md",
-                                  lg: "lg",
-                                  xl: "xl",
-                                }}
-                              >
-                                {m}
-                              </Text>
-                              <Image
-                                maxH="18px"
-                                maxW="18px"
-                                src={p.isCompleted[k] ? Verify : Pending}
-                              />
-                            </Box>
-                          ))}
-                        </Box>
                         {j === 0 ? (
                           <Box
                             width="100%"
@@ -212,6 +171,35 @@ function RoadmapComponent() {
                             mb={2}
                           ></Box>
                         ) : null}
+
+                        <Box my={8} rowGap=".4rem" display={"grid"}>
+                          {p.milestones.map((m, k) => (
+                            <Box
+                              display={"flex"}
+                              justifyContent="space-between"
+                              key={k}
+                            >
+                              <Flex alignItems={"center"} columnGap=".2rem">
+                                <Image maxW="24px" src={Arrow} />
+                                <Text
+                                  fontFamily={fonts.parafont}
+                                  color={colors.fontLightColorV2}
+                                  fontSize={{
+                                    base: "sm",
+                                    "2xl": "md",
+                                  }}
+                                >
+                                  {m}
+                                </Text>
+                              </Flex>
+                              <Image
+                                maxH="24px"
+                                maxW="24px"
+                                src={p.isCompleted[k] ? Verify : Pending}
+                              />
+                            </Box>
+                          ))}
+                        </Box>
                       </Box>
                     ))}
                   </Box>

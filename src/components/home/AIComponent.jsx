@@ -12,15 +12,11 @@ import {
   A11y,
 } from "swiper/modules";
 
-import { useMediaQuery } from "@chakra-ui/react";
-
 import { fonts } from "../../theme/fonts";
 import { colors } from "../../theme/colors";
 import HeadLines from "../common/HeadLine";
 
 const AIComponent = () => {
-  const [is990Px] = useMediaQuery("(min-width: 990px)");
-
   return (
     <Box pos="relative">
       <Grid gridTemplateColumns={"1fr 1fr"}>

@@ -16,7 +16,7 @@ import {
 import { teamData } from "../../data/teamData";
 
 import HeadLines from "../../components/common/HeadLine";
-import Arrow from "/public/eco_system/link.png";
+import Arrow from "/public/icons/arrow_2.png";
 
 import LinkedIn from "/public/socials/linkedin.png";
 import Twitter from "/public/socials/twitter.png";
@@ -31,7 +31,7 @@ const TeamComponent = () => {
   }
 
   return (
-    <Box py={24} pos="relative">
+    <Box pos="relative">
       <Grid gridTemplateColumns={"1fr 1fr"}>
         <GridItem p={12}>
           <HeadLines

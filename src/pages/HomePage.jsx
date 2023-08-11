@@ -15,6 +15,7 @@ import TokenComponent from "../components/home/Token/TokenComponent";
 import TeamComponent from "../components/home/TeamComponent";
 import OurSolutionComponent from "../components/home/OurSolution/OurSolutionsComponent";
 import Footer from "../components/common/Footer";
+import FaqComponent from "../components/home/Faq";
 
 function HomePage() {
   const ref = useRef();
@@ -34,7 +35,7 @@ function HomePage() {
         <Box
           display={"flex"}
           flexDirection="column"
-          rowGap={{ base: "4rem", lg: "8rem" }}
+          rowGap={{ base: "2rem", lg: "3rem" }}
           zIndex={4}
           width={{ base: "100%", lg: "88%" }}
           ref={ref}
@@ -49,9 +50,10 @@ function HomePage() {
           {/* <FeaturesComponent /> */}
           <PartnersComponent />
           <RoadmapComponent />
-          <TokenComponent />
+
           {/* <HowComponent /> */}
           <TeamComponent />
+          <FaqComponent />
         </Box>
       </Box>
       {/* <OurSolutionComponent /> */}

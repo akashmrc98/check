@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Image, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { colors } from "../../theme/colors";
 import { fonts } from "../../theme/fonts";
@@ -127,7 +127,7 @@ function HeadLines(props) {
           </Box>
         </motion.div>
         <motion.div
-          style={{ display: "flex" }}
+          style={{ display: "flex", alignItems: "center", columnGap: ".2rem" }}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
