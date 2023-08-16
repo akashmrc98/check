@@ -223,7 +223,7 @@ function ModelsPage() {
                   fontFamily={fonts.parafont}
                   width="100%"
                 >
-                  OverpoweredAI-project
+                  renderverse-project
                 </Text>
               </Flex>
             </GridItem>

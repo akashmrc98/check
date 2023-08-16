@@ -62,14 +62,14 @@ function ModelHeadComponent({ url, service_id, display_name, media }) {
                     lineHeight=".8"
                     fontSize={{ base: "sm", lg: "md" }}
                   >
-                    Overpowered AI
+                    Renderverse AI
                   </Text>
                   <Text
                     color={colors.fontLightColorV2}
                     fontFamily={fonts.parafont}
                     fontSize={{ base: "lg", lg: "xl" }}
                   >
-                    Overpowered AI
+                    Renderverse AI
                   </Text>
                 </Box>
               </Flex>

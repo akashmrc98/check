@@ -218,7 +218,7 @@ function SpacesPage() {
                   fontFamily={fonts.parafont}
                   width="100%"
                 >
-                  Overpoweredai-project
+                  renderverse-project
                 </Text>
               </Flex>
             </GridItem>
