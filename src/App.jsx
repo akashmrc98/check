@@ -6,7 +6,7 @@ import Dapp from "./pages/DappPage";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SpaceFactory from "./pages/spaces/SpacesFactory";
-import Navbar from "./components/common/Navbar";
+// import Navbar from "./components/common/Navbar";
 import SalePage from "./pages/SalePage";
 
 const router = [
@@ -36,7 +36,7 @@ function App() {
   return (
     <ChakraProvider>
       <BrowserRouter>
-        <Navbar />
+        {/* <Navbar /> */}
         <Routes>
           {router.map((route, index) => (
             <Route key={index} element={route.element} path={route.path} />
