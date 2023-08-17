@@ -43,7 +43,7 @@ function MusicGenSpace() {
     setLoaded(true);
     axios
       .post(
-        "http://127.0.0.1:5000/music-gen",
+        "https://opai.renderverse.io/music-gen",
         {
           model: model,
           duration: duration,

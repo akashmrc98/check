@@ -26,7 +26,7 @@ function TextGenSpace() {
   function generateMusic() {
     setLoaded(true);
     axios
-      .post("http://127.0.0.1:5003/prompt-gen", {
+      .post("https://opai.renderverse.io/prompt-gen", {
         prompt: input,
       })
 

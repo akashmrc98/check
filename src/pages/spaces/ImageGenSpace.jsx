@@ -30,7 +30,7 @@ function ImageGenSpace() {
     setLoaded(true);
     axios
       .post(
-        "http://127.0.0.1:5003/image-gen",
+        "https://opai.renderverse.io/image-gen",
         {
           prompt: input,
         },
