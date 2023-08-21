@@ -4,6 +4,7 @@ import {
   FormControl,
   Grid,
   GridItem,
+  Image,
   Input,
   Tag,
   Text,
@@ -16,22 +17,66 @@ import axios from "axios";
 
 import { FaBoxes, FaForward, FaRobot, FaUser } from "react-icons/fa";
 import { Audio } from "react-loader-spinner";
+import { useRef } from "react";
+import { useEffect } from "react";
+
+import EM from "/public/chat/Elon Musk.webp";
+import VB from "/public/chat/Vitalik Buterin.webp";
+import CZ from "/public/chat/Changpeng Zhao.webp";
+import JD from "/public/chat/Jack Dorsey.webp";
+import JS from "/public/chat/Justin Sun.webp";
+import BA from "/public/chat/Brian Armstrong.webp";
+import MJS from "/public/chat/Michael J. Saylor.webp";
+import EV from "/public/chat/Erik Voorhees.jpeg";
+import TD from "/public/chat/Tim Draper.webp";
+import RV from "/public/chat/Roger Ver.webp";
+import TW from "/public/chat/Tyler Winklevoss.webp";
+import CW from "/public/chat/Cameron Winklevoss.webp";
+import NB from "/public/chat/Nayib Bukele.webp";
+
+let imgs = [EM, VB, CZ, JD, JS, BA, MJS, EV, TD, RV, TW, CW, NB];
+
+const options = [
+  "Elon Musk",
+  "Vitalik Buterin",
+  "Changpeng Zhao",
+  "Jack Dorsey",
+  "Justin Sun",
+  "Brian Armstrong",
+  "Michael J. Saylor",
+  "Erik Voorhees",
+  "Tim Draper",
+  "Roger Ver",
+  "Tyler Winklevoss",
+  "Cameron Winklevoss",
+  "Nayib Bukele",
+];
 
 function ChatGenSpace() {
   const [input, setInput] = useState("");
   const [loaded, setLoaded] = useState(false);
   const [promp, setPromp] = useState([]);
+  const [person, setPerson] = useState("Elon Musk");
+  const [isSelected, setIsSelected] = useState(false);
+  const ref = useRef();
+
+  useEffect(() => {
+    ref.current.scrollIntoView({ behavior: "smooth", block: "end" });
+  }, [promp, input, isSelected]);
 
   function generateMusic() {
     if (!loaded) {
       setLoaded(true);
       setPromp([...promp, input]);
       axios
-        .post("https://opai.renderverse.io/chat-gen", {
+        // .post("https://opai.renderverse.io/chat-gen", {
+        .post("http://localhost:5000/chat-gen", {
           question: input,
+          person: person,
         })
         .then((res) => {
           setPromp([...promp, input, res.data.ans]);
+
           setInput("");
         })
         .then(() => {
@@ -67,16 +112,43 @@ function ChatGenSpace() {
             fontSize={{ base: "md" }}
             my={4}
           >
-            AI Assistant powered By Elon Musk
+            AI Assistant powered By {person}
           </Text>
         </Box>
 
-        <Grid
-          mx="auto"
-          gridTemplateColumns={{
-            base: "1fr",
-          }}
-        >
+        {!isSelected ? (
+          <FormControl border="2px" px={4} py={2} bg={"gray.900"}>
+            {options.map((o, i) => (
+              <Flex
+                onClick={() => {
+                  setPerson(o);
+                  setIsSelected(true);
+                }}
+                cursor={"pointer"}
+                alignItems={"center"}
+                columnGap={"1rem"}
+                my={4}
+                key={i}
+              >
+                <Image
+                  maxW="36px"
+                  maxH="36px"
+                  objectFit={"contain"}
+                  src={imgs[i]}
+                ></Image>
+                <Text
+                  fontFamily={fonts.headingFont}
+                  color={colors.highLightColor}
+                  fontWeight="bold"
+                >
+                  {o}
+                </Text>
+              </Flex>
+            ))}
+          </FormControl>
+        ) : null}
+
+        <Grid>
           <GridItem
             overflowY={"scroll"}
             minH="25vw"
@@ -84,7 +156,14 @@ function ChatGenSpace() {
             pos="relative"
             bg={"gray.900"}
           >
-            <Box my={5} px={4} pt={4} display={"flex"} flexDirection="column">
+            <Box
+              ref={ref}
+              my={5}
+              px={4}
+              pt={4}
+              display={"flex"}
+              flexDirection="column"
+            >
               {promp.map((p, i) => (
                 <Box columnGap={"2rem"} key={i} display="flex">
                   {i % 2 === 0 ? (
@@ -171,6 +250,7 @@ function ChatGenSpace() {
             </FormControl>
           </GridItem>
         </Grid>
+
         <Box pb={24}>
           <Flex py={4} columnGap=".4rem" alignItems={"center"}>
             <FaBoxes color={colors.fontLightColor} size={18} />
