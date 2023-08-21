@@ -69,8 +69,7 @@ function ChatGenSpace() {
       setLoaded(true);
       setPromp([...promp, input]);
       axios
-        // .post("https://opai.renderverse.io/chat-gen", {
-        .post("http://localhost:5000/chat-gen", {
+        .post("https://opai.renderverse.io/chat-gen", {
           question: input,
           person: person,
         })
