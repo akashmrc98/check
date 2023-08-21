@@ -43,8 +43,8 @@ function HomePage() {
           borderRadius="xl"
           mx="auto"
         >
-          <AIComponent />
           <HomeComponent />
+          <AIComponent />
           <MarketingComponent />
           <EcoSystemComponent />
           {/* <FeaturesComponent /> */}

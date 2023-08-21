@@ -4,15 +4,15 @@ import { useParams } from "react-router";
 
 import TextGenSpace from "./TextGenSpace";
 import MusicGenSpace from "./MusicGenSpace";
-import ZeroScopeSpace from "./ZeroScopeSpace";
+import ChatGenSpace from "./ChatGenSpace";
 import ImageGenSpace from "./ImageGenSpace";
 
 function SpaceFactory() {
   const params = useParams();
-  if (params.space === "zero-scope-space")
+  if (params.space === "chatgen-space")
     return (
       <Box bg={colors.bgColor} pt={24}>
-        <ZeroScopeSpace />
+        <ChatGenSpace />
       </Box>
     );
   if (params.space === "musicgen-space")

@@ -19,12 +19,12 @@ import { fonts } from "../../theme/fonts";
 import { FaBoxes } from "react-icons/fa";
 
 import axios from "axios";
+import { Audio } from "react-loader-spinner";
 
 function ImageGenSpace() {
   const [input, setInput] = useState("");
   const [loaded, setLoaded] = useState(false);
   const [src, setSrc] = useState("");
-  console.log(loaded);
 
   function generateMusic() {
     setLoaded(true);
@@ -54,6 +54,7 @@ function ImageGenSpace() {
 
   function blobToBase64(blob) {
     return new Promise((resolve, _) => {
+      console.log(_);
       const reader = new FileReader();
       reader.onloadend = () => resolve(reader.result);
       reader.readAsDataURL(blob);
@@ -160,6 +161,19 @@ function ImageGenSpace() {
                 Image Output
               </Text>
             </Box>
+            <Flex justifyContent={"center"}>
+              {loaded ? (
+                <Audio
+                  height="80"
+                  width="80"
+                  radius="9"
+                  color="green"
+                  ariaLabel="loading"
+                  wrapperStyle
+                  wrapperClass
+                />
+              ) : null}
+            </Flex>
             <Box
               pt={4}
               display={"flex"}

@@ -6,6 +6,8 @@ import { useState } from "react";
 import { colors } from "../../theme/colors";
 import { fonts } from "../../theme/fonts";
 import Line from "../common/Line";
+import Spline from "@splinetool/react-spline";
+import HeadLines from "../common/HeadLine";
 
 // import { Canvas } from "@react-three/fiber";
 // import { Model } from "../../animations/Robot/Robot";
@@ -59,11 +61,22 @@ function TitleComponent() {
 
   return (
     <Box
+      pos="relative"
       minH={{ base: "60vh", md: "80vh", lg: "100vh" }}
       // backgroundRepeat={"no-repeat"}
       // backgroundSize="cover"
       // backgroundImage={BG}
     >
+      <Box
+        top="10%"
+        mx="auto"
+        zIndex={999}
+        pos="absolute"
+        height={"100vh"}
+        width="100vw"
+      >
+        <Spline scene="https://prod.spline.design/elhD9V7FEHnblHz0/scene.splinecode" />
+      </Box>
       <Box
         minH={{ base: "60vh", md: "80vh", lg: "100vh" }}
         display="flex"
@@ -74,14 +87,33 @@ function TitleComponent() {
       >
         <Line left={"6%"} />
         <Line left={"94%"} />
-        <Grid pt={{ base: 32, lg: 0 }} templateColumns={{ base: "1fr" }}>
-          <Box
+        <Grid
+          justifyContent={"space-between"}
+          width="100%"
+          pt={{ base: 32, lg: 0 }}
+          templateColumns={{ base: "1fr 1fr" }}
+        >
+          <Box display={"flex"} justifyContent="flex-start">
+            <HeadLines
+              desc="UNLEASH THE POWER OF"
+              subTitle="AI"
+              title="Blockchain"
+            />
+          </Box>
+          <Box display={"flex"} justifyContent="flex-end">
+            <HeadLines
+              desc="UNLEASH THE POWER OF"
+              subTitle="AI"
+              title="Blockchain"
+            />
+          </Box>
+          {/* <Box
             display={"flex"}
             justifyContent="center"
             flexDir={"column"}
             width="100%"
-          >
-            <motion.div style={{ width: "100%" }}>
+          > */}
+          {/* <motion.div style={{ width: "100%" }}>
               <Box
                 cursor={"none"}
                 fontWeight={"bold"}
@@ -161,8 +193,8 @@ function TitleComponent() {
                   </motion.div>
                 ))}
               </Box>{" "}
-            </motion.div>
-            <motion.div
+            </motion.div> */}
+          {/* <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -186,8 +218,8 @@ function TitleComponent() {
               >
                 {`Explore the Realm of Next-Gen AI`}
               </Text>
-            </motion.div>
-          </Box>
+            </motion.div> */}
+          {/* </Box> */}
           {/* <motion.div
             initial="hidden"
             whileInView="visible"
