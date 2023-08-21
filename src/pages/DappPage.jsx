@@ -24,10 +24,10 @@ function DappPage() {
               color={colors.fontLightColor}
               _selected={{
                 color: colors.highLightColor,
-                borderBottom: `1px soild ${colors.highLightColor}`,
+                border: `1px soild ${colors.highLightColor}`,
               }}
             >
-              Models
+              Spaces
             </Tab>
             <Tab
               fontSize="xl"
@@ -36,18 +36,18 @@ function DappPage() {
               color={colors.fontLightColor}
               _selected={{
                 color: colors.highLightColor,
-                border: `1px soild ${colors.highLightColor}`,
+                borderBottom: `1px soild ${colors.highLightColor}`,
               }}
             >
-              Spaces
+              Models
             </Tab>
           </TabList>
           <TabPanels>
             <TabPanel>
-              <ModelsPage />
+              <SpacesPage />
             </TabPanel>
             <TabPanel>
-              <SpacesPage />
+              <ModelsPage />
             </TabPanel>
           </TabPanels>
         </Tabs>

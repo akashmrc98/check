@@ -16,6 +16,7 @@ import TeamComponent from "../components/home/TeamComponent";
 import OurSolutionComponent from "../components/home/OurSolution/OurSolutionsComponent";
 import Footer from "../components/common/Footer";
 import FaqComponent from "../components/home/Faq";
+import Navbar from "../components/common/Navbar";
 
 function HomePage() {
   const ref = useRef();
@@ -30,6 +31,7 @@ function HomePage() {
       bg={colors.bgColor}
       px={{ base: 4, lg: 0 }}
     >
+      <Navbar />
       <TitleComponent />
       <Box>
         <Box

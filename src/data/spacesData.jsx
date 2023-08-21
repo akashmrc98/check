@@ -43,7 +43,7 @@ export const spacesData = [
   {
     display_name: "👨🏻‍🎤 Image Generation",
     rating: 5,
-    tags: ["text", "generation", "text2text"],
+    tags: ["image generation", "generation", "text2text"],
     link: "imggen-space",
   },
 ];

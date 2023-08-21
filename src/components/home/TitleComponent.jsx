@@ -70,7 +70,7 @@ function TitleComponent() {
       <Box
         top="10%"
         mx="auto"
-        zIndex={999}
+        zIndex={400}
         pos="absolute"
         height={"100vh"}
         width="100vw"

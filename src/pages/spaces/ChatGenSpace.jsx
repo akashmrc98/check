@@ -8,7 +8,6 @@ import {
   GridItem,
   Image,
   Input,
-  Tag,
   Text,
 } from "@chakra-ui/react";
 
@@ -17,41 +16,30 @@ import { colors } from "../../theme/colors";
 import { fonts } from "../../theme/fonts";
 import axios from "axios";
 
-import { FaBoxes, FaForward, FaRobot, FaUser } from "react-icons/fa";
-import { Audio } from "react-loader-spinner";
+import { FaForward, FaUser } from "react-icons/fa";
 import { useRef } from "react";
 import { useEffect } from "react";
 
-import EM from "/public/chat/Elon Musk.webp";
-import VB from "/public/chat/Vitalik Buterin.webp";
+import EM from "/public/chat/Elon Musk.png";
+import VB from "/public/chat/Vitalik Buterin.png";
 import CZ from "/public/chat/Changpeng Zhao.webp";
-import JD from "/public/chat/Jack Dorsey.webp";
 import JS from "/public/chat/Justin Sun.webp";
 import BA from "/public/chat/Brian Armstrong.webp";
 import MJS from "/public/chat/Michael J. Saylor.webp";
-import EV from "/public/chat/Erik Voorhees.jpeg";
-import TD from "/public/chat/Tim Draper.webp";
-import RV from "/public/chat/Roger Ver.webp";
+import TD from "/public/chat/Tim Draper.png";
 import TW from "/public/chat/Tyler Winklevoss.webp";
-import CW from "/public/chat/Cameron Winklevoss.webp";
-import NB from "/public/chat/Nayib Bukele.webp";
 
-let imgs = [EM, VB, CZ, JD, JS, BA, MJS, EV, TD, RV, TW, CW, NB];
+let imgs = [EM, VB, CZ, JS, BA, MJS, TD, TW];
 
 const options = [
   "Elon Musk",
   "Vitalik Buterin",
   "Changpeng Zhao",
-  "Jack Dorsey",
   "Justin Sun",
   "Brian Armstrong",
   "Michael J. Saylor",
-  "Erik Voorhees",
   "Tim Draper",
-  "Roger Ver",
   "Tyler Winklevoss",
-  "Cameron Winklevoss",
-  "Nayib Bukele",
 ];
 
 function ChatGenSpace() {
@@ -60,6 +48,7 @@ function ChatGenSpace() {
   const [promp, setPromp] = useState([]);
   const [person, setPerson] = useState("Elon Musk");
   const [isSelected, setIsSelected] = useState(false);
+  const [index, setIndex] = useState(0);
   const ref = useRef();
 
   useEffect(() => {
@@ -88,13 +77,13 @@ function ChatGenSpace() {
   }
 
   return (
-    <Box minH="100vh" bg={colors.bgColor}>
+    <Box pb={12} ref={ref} minH="100vh" bg={colors.bgColor}>
       <Box
         mx="auto"
         width={{ base: "100%", lg: "88%", xl: "75%" }}
         pos="relative"
       >
-        <Box display={"grid"} px={2} pt={8}>
+        <Box display={"grid"} px={2} pt={2}>
           <Text
             textAlign={"left"}
             fontWeight={"bold"}
@@ -130,7 +119,13 @@ function ChatGenSpace() {
         ) : null}
 
         {!isSelected ? (
-          <FormControl border="2px" px={4} py={2} bg={"gray.900"}>
+          <FormControl
+            boxShadow={`0px 0px 4px 0px ${colors.highLightColor}`}
+            border="2px"
+            px={4}
+            py={2}
+            bg={"gray.900"}
+          >
             <FormLabel
               variant={"unstyled"}
               border={`2px groove ${colors.boxBorder}`}
@@ -142,53 +137,54 @@ function ChatGenSpace() {
             >
               Choose your AI assitance
             </FormLabel>
-
-            {options.map((o, i) => (
-              <Flex
-                onClick={() => {
-                  setPerson(o);
-                  setIsSelected(true);
-                }}
-                cursor={"pointer"}
-                alignItems={"center"}
-                columnGap={"1rem"}
-                my={4}
-                key={i}
-              >
-                <Image
-                  maxW="36px"
-                  maxH="36px"
-                  objectFit={"contain"}
-                  src={imgs[i]}
-                ></Image>
-                <Text
-                  fontFamily={fonts.headingFont}
-                  color={colors.highLightColor}
-                  fontWeight="bold"
+            <Grid
+              rowGap={"2rem"}
+              columnGap="2rem"
+              gridTemplateColumns={"1fr 1fr 1fr 1fr"}
+              p={5}
+            >
+              {options.map((o, i) => (
+                <Flex
+                  p={0}
+                  m={0}
+                  bg={colors.bgColor}
+                  onClick={() => {
+                    setPerson(o);
+                    setIndex(i);
+                    setIsSelected(true);
+                  }}
+                  cursor={"pointer"}
+                  alignItems={"center"}
+                  columnGap={"1rem"}
+                  key={i}
+                  borderRadius="md"
                 >
-                  {o}
-                </Text>
-              </Flex>
-            ))}
+                  <Image
+                    borderRadius="md"
+                    borderRightRadius={"none"}
+                    minW="64px"
+                    minH="64px"
+                    maxW="64px"
+                    maxH="64px"
+                    objectFit={"cover"}
+                    src={imgs[i]}
+                  ></Image>
+                  <Text
+                    fontFamily={fonts.headingFont}
+                    color={colors.highLightColor}
+                    fontWeight="bold"
+                  >
+                    {o}
+                  </Text>
+                </Flex>
+              ))}
+            </Grid>
           </FormControl>
         ) : null}
 
-        <Grid>
-          <GridItem
-            overflowY={"scroll"}
-            minH="25vw"
-            maxH="25vw"
-            pos="relative"
-            bg={"gray.900"}
-          >
-            <Box
-              ref={ref}
-              my={5}
-              px={4}
-              pt={4}
-              display={"flex"}
-              flexDirection="column"
-            >
+        <Grid boxShadow={`0px 0px 4px 0px ${colors.highLightColor}`}>
+          <GridItem pos="relative" bg={"gray.900"}>
+            <Box my={5} px={4} pt={4} display={"flex"} flexDirection="column">
               {promp.map((p, i) => (
                 <Box columnGap={"2rem"} key={i} display="flex">
                   {i % 2 === 0 ? (
@@ -197,7 +193,7 @@ function ChatGenSpace() {
                       alignItems="center"
                       justifyContent={"flex-end"}
                     >
-                      <FaUser size={42} color={colors.highLightColor} />
+                      <FaUser size={32} color={colors.highLightColor} />
                     </Box>
                   ) : null}
 
@@ -222,25 +218,45 @@ function ChatGenSpace() {
                       alignItems="center"
                       justifyContent={"flex-end"}
                     >
-                      <FaRobot size={42} color={colors.highLightColor} />
+                      <Image
+                        borderRadius={"md"}
+                        maxW="48px"
+                        maxH="48px"
+                        objectFit={"contain"}
+                        src={imgs[index]}
+                      ></Image>
                     </Box>
                   )}
                 </Box>
               ))}
-              <Flex justifyContent={"center"}>
-                {loaded ? (
-                  <Audio
-                    height="80"
-                    width="80"
-                    radius="9"
-                    color="green"
-                    ariaLabel="loading"
-                    wrapperStyle
-                    wrapperClass
-                  />
-                ) : null}
-              </Flex>
             </Box>
+          </GridItem>
+          <GridItem>
+            {loaded ? (
+              <Flex
+                pb={8}
+                fontSize={{ base: "sm", lg: "lg" }}
+                pr={12}
+                bg={"gray.900"}
+                justifyContent={"flex-end"}
+                alignItems="center"
+                columnGap={".5rem"}
+              >
+                <Text
+                  fontFamily={fonts.parafont}
+                  fontSize={{ base: "md" }}
+                  fontWeight="bold"
+                  color={colors.highLightColor}
+                >
+                  {person} is typing
+                </Text>
+                <div className="typing">
+                  <div className="dot"></div>
+                  <div className="dot"></div>
+                  <div className="dot"></div>
+                </div>
+              </Flex>
+            ) : null}
           </GridItem>
           <GridItem>
             <FormControl border="2px" px={4} py={2} bg={"gray.900"}>
@@ -275,41 +291,9 @@ function ChatGenSpace() {
             </FormControl>
           </GridItem>
         </Grid>
-
-        <Box pb={24}>
-          <Flex py={4} columnGap=".4rem" alignItems={"center"}>
-            <FaBoxes color={colors.fontLightColor} size={18} />
-            <Text
-              size={"lg"}
-              bg={colors.bgColor}
-              fontFamily={fonts.parafont}
-              color={colors.highLightColor}
-              fontWeight="bold"
-            >
-              Examples
-            </Text>
-          </Flex>
-
-          {headers.map((h, i) => (
-            <Tag
-              size={"lg"}
-              bg={colors.bgColor}
-              fontFamily={fonts.headingFont}
-              color={colors.highLightColor}
-              boxShadow={`0 0 4px ${colors.highLightColor}`}
-              fontWeight="bold"
-              mx={2}
-              key={i}
-            >
-              {h}
-            </Tag>
-          ))}
-        </Box>
       </Box>
     </Box>
   );
 }
-
-const headers = ["Who is founder of tesla", "When was bitcoin invented"];
 
 export default ChatGenSpace;

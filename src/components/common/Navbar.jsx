@@ -81,7 +81,7 @@ function Navbar() {
   ];
 
   return (
-    <Box zIndex={499}>
+    <Box>
       <Box
         display={"flex"}
         justifyContent="center"
