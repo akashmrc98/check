@@ -1,7 +1,9 @@
 import {
   Box,
+  Button,
   Flex,
   FormControl,
+  FormLabel,
   Grid,
   GridItem,
   Image,
@@ -114,9 +116,33 @@ function ChatGenSpace() {
             AI Assistant powered By {person}
           </Text>
         </Box>
+        {isSelected ? (
+          <Flex justifyContent={"center"} mb={8}>
+            <Button
+              onClick={() => {
+                setIsSelected(false);
+                setPromp([]);
+              }}
+            >
+              Change AI Assitant
+            </Button>
+          </Flex>
+        ) : null}
 
         {!isSelected ? (
           <FormControl border="2px" px={4} py={2} bg={"gray.900"}>
+            <FormLabel
+              variant={"unstyled"}
+              border={`2px groove ${colors.boxBorder}`}
+              p={4}
+              fontFamily={fonts.parafont}
+              fontSize={{ base: "md" }}
+              fontWeight="bold"
+              color={colors.fontLightColor}
+            >
+              Choose your AI assitance
+            </FormLabel>
+
             {options.map((o, i) => (
               <Flex
                 onClick={() => {
