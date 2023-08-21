@@ -12,8 +12,8 @@ export default function SpaceNavbar() {
       alignItems="center"
       mb={2}
       minH="5vh"
-      bg={colors.bgColor}
       p={2}
+      className="bg_img"
     >
       <Flex
         cursor={"pointer"}

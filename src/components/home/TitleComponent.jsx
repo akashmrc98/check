@@ -75,7 +75,7 @@ function TitleComponent() {
         height={"100vh"}
         width="100vw"
       >
-        <Spline scene="https://prod.spline.design/elhD9V7FEHnblHz0/scene.splinecode" />
+        <Spline scene="https://prod.spline.design/1DglKtaHKqrB0uWn/scene.splinecode" />
       </Box>
       <Box
         minH={{ base: "60vh", md: "80vh", lg: "100vh" }}

@@ -8,7 +8,7 @@ import SpacesPage from "./SpacesPage.jsx";
 
 function DappPage() {
   return (
-    <Box pt={32} pos="relative" bg={colors.bgColor}>
+    <Box pos="relative" bg={colors.bgColor}>
       <Box width={{ base: "100%", lg: "100%" }} mx="auto">
         <Tabs
           align="center"

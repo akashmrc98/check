@@ -67,6 +67,10 @@ function ImageGenSpace() {
         mx="auto"
         width={{ base: "100%", lg: "88%", xl: "75%" }}
         pos="relative"
+        mt={12}
+        className="bg_img"
+        p={12}
+        border="2px"
       >
         <Box display={"grid"} px={2} pt={8}>
           <Text

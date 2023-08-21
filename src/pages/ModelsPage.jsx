@@ -133,31 +133,6 @@ function ModelsPage() {
                   filter: `contrast(150%)`,
                 }}
               >
-                <Box
-                  borderTopLeftRadius={"xl"}
-                  bg={`rgba(0, 0, 0, 0.5)`}
-                  borderBottomRightRadius="xl"
-                  left={0}
-                  pos="absolute"
-                  display={"flex"}
-                  alignItems="center"
-                  px={4}
-                >
-                  <Image height={"20px"} src={Star} />
-                  <Text
-                    textAlign={"center"}
-                    zIndex={2}
-                    fontWeight={"bold"}
-                    fontFamily={fonts.headingFont}
-                    textTransform="uppercase"
-                    color={colors.fontLightColor}
-                    mx="auto"
-                    fontSize={{ base: "xl" }}
-                    p={2}
-                  >
-                    {gradientData[i].likes}
-                  </Text>{" "}
-                </Box>
                 <Box zIndex={2} width="100%" top={"33%"} pos="absolute">
                   <Text
                     textAlign={"center"}

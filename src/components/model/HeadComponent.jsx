@@ -23,7 +23,7 @@ function ModelHeadComponent({ url, service_id, display_name, media }) {
       templateColumns={{ base: "1fr", xl: "1fr 1fr" }}
       p={{ base: 2 }}
     >
-      <Grid pt={{ base: 0, lg: 6 }}>
+      <Grid px={4} rowGap="1rem" pt={{ base: 0, lg: 6 }}>
         <Flex
           flexDirection={{ base: "column", lg: "row" }}
           rowGap="1rem"
@@ -32,81 +32,63 @@ function ModelHeadComponent({ url, service_id, display_name, media }) {
         >
           <Image
             boxShadow={`0px 0px 4px ${colors.highLightColor}`}
-            width="168"
-            height={"168"}
+            minW="168"
+            minH={"168"}
+            maxW="168"
+            maxH={"168"}
+            objectFit="cover"
             borderRadius="md"
-            ml={{ base: 0, lg: 6 }}
             src={media.url}
           ></Image>
-          <Grid>
-            <Flex
-              rowGap={"1rem"}
-              columnGap="2rem"
-              alignItems={"start"}
-              flexDirection="column"
-              justifyContent={"center"}
-            >
-              <Flex alignItems={"center"} columnGap="1rem">
-                <Image
-                  boxShadow={`0px 0px 2px ${colors.highLightColor}`}
-                  p={2}
-                  maxH="16"
-                  maxW="20"
-                  src={Logo}
-                />
-                <Box>
-                  <Text
-                    color={colors.highLightColor}
-                    fontWeight="bold"
-                    fontFamily={fonts.headingFont}
-                    lineHeight=".8"
-                    fontSize={{ base: "sm", lg: "md" }}
-                  >
-                    Renderverse AI
-                  </Text>
-                  <Text
-                    color={colors.fontLightColorV2}
-                    fontFamily={fonts.parafont}
-                    fontSize={{ base: "lg", lg: "xl" }}
-                  >
-                    Renderverse AI
-                  </Text>
-                </Box>
-              </Flex>
-            </Flex>
-
-            <Text
-              color={colors.fontLightColor}
-              textAlign={"left"}
-              fontFamily={fonts.parafont}
-              fontSize={{ base: "xl", lg: "3xl" }}
-              fontWeight={{ base: "bold", lg: "normal" }}
-              px={8}
-            >
-              {display_name}
-            </Text>
-          </Grid>
         </Flex>
-
-        <Box px={8} display={"flex"} justifyContent="flex-start">
-          <Button
-            size="lg"
-            fontSize={{ base: "4xl" }}
-            p={8}
-            bg={colors.bgColor}
-            boxShadow={`0 0 4px ${colors.highLightColor}`}
-            color={colors.highLightColor}
-            _hover={{
-              color: colors.bgColor,
-              bg: colors.highLightColor,
-            }}
-            fontFamily={fonts.headingFont}
-            mb={{ base: 8, lg: 0 }}
+        <Grid>
+          <Flex
+            rowGap={"1rem"}
+            columnGap="2rem"
+            alignItems={"start"}
+            flexDirection="column"
+            justifyContent={"center"}
           >
-            View Demo
-          </Button>
-        </Box>
+            <Flex alignItems={"center"} columnGap="1rem">
+              <Image
+                boxShadow={`0px 0px 2px ${colors.highLightColor}`}
+                p={2}
+                maxH="16"
+                maxW="20"
+                src={Logo}
+              />
+              <Box>
+                <Text
+                  color={colors.highLightColor}
+                  fontWeight="bold"
+                  fontFamily={fonts.headingFont}
+                  lineHeight=".8"
+                  fontSize={{ base: "sm", lg: "md" }}
+                >
+                  Renderverse AI
+                </Text>
+                <Text
+                  color={colors.fontLightColorV2}
+                  fontFamily={fonts.parafont}
+                  fontSize={{ base: "lg", lg: "xl" }}
+                >
+                  Renderverse AI
+                </Text>
+              </Box>
+            </Flex>
+          </Flex>
+        </Grid>
+        <Text
+          color={colors.fontLightColor}
+          textAlign={"left"}
+          fontFamily={fonts.parafont}
+          fontSize={{ base: "xl", lg: "3xl" }}
+          fontWeight={{ base: "bold", lg: "normal" }}
+        >
+          {display_name}
+        </Text>
       </Grid>
+
       <GridItem
         borderLeft={{ base: 0, xl: `2px solid ${colors.boxBorder}` }}
         p={{ base: 4, lg: 0 }}

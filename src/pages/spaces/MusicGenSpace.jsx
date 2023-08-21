@@ -100,6 +100,10 @@ function MusicGenSpace() {
         mx="auto"
         width={{ base: "100%", lg: "88%", xl: "75%" }}
         pos="relative"
+        border={"2px"}
+        mt={12}
+        className="bg_img"
+        p={12}
       >
         <Box display={"grid"} px={2} pt={8}>
           <Text
@@ -109,7 +113,7 @@ function MusicGenSpace() {
             color={colors.highLightColor}
             fontSize={{ base: "3xl" }}
           >
-            MusicGen
+            🎵 MusicGen 🎵
           </Text>
           <Text
             fontWeight={"bold"}

@@ -82,6 +82,10 @@ function ChatGenSpace() {
         mx="auto"
         width={{ base: "100%", lg: "88%", xl: "75%" }}
         pos="relative"
+        mt={12}
+        className="bg_img"
+        p={12}
+        border="2px"
       >
         <Box display={"grid"} px={2} pt={2}>
           <Text
@@ -124,7 +128,7 @@ function ChatGenSpace() {
             border="2px"
             px={4}
             py={2}
-            bg={"gray.900"}
+            className="bg_img"
           >
             <FormLabel
               variant={"unstyled"}
@@ -183,7 +187,7 @@ function ChatGenSpace() {
         ) : null}
 
         <Grid boxShadow={`0px 0px 4px 0px ${colors.highLightColor}`}>
-          <GridItem pos="relative" bg={"gray.900"}>
+          <GridItem pos="relative" className="bg_img">
             <Box my={5} px={4} pt={4} display={"flex"} flexDirection="column">
               {promp.map((p, i) => (
                 <Box columnGap={"2rem"} key={i} display="flex">
@@ -237,7 +241,7 @@ function ChatGenSpace() {
                 pb={8}
                 fontSize={{ base: "sm", lg: "lg" }}
                 pr={12}
-                bg={"gray.900"}
+                className="bg_img"
                 justifyContent={"flex-end"}
                 alignItems="center"
                 columnGap={".5rem"}
