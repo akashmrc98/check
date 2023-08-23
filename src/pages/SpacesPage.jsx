@@ -153,7 +153,7 @@ function SpacesPage() {
                     </Box>
                   </Text>{" "}
                 </Box>
-                <Box zIndex={2} width="100%" top={"33%"} pos="absolute">
+                <Box zIndex={2} width="100%" top={"40%"} pos="absolute">
                   <Text
                     textAlign={"center"}
                     fontWeight={"bold"}
@@ -164,11 +164,11 @@ function SpacesPage() {
                     width="80%"
                     borderRadius={"xl"}
                     bg={`rgba(0, 0, 0, 0.3)`}
-                    fontSize={{ base: "xl" }}
+                    fontSize={{ base: "md" }}
                     p={2}
                     zIndex={8}
                   >
-                    {d.display_name}
+                    renderverse-project
                   </Text>{" "}
                 </Box>
 
@@ -215,10 +215,12 @@ function SpacesPage() {
                   zIndex={2}
                   pl={2}
                   color={colors.fontLightColorV2}
-                  fontFamily={fonts.parafont}
                   width="100%"
+                  fontFamily={fonts.parafont}
+                  fontSize={{ base: "sm", lg: "md", xl: "xl" }}
+                  fontWeight="bold"
                 >
-                  renderverse-project
+                  {d.display_name}
                 </Text>
               </Flex>
             </GridItem>

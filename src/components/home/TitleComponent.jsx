@@ -8,6 +8,7 @@ import { fonts } from "../../theme/fonts";
 import Line from "../common/Line";
 import Spline from "@splinetool/react-spline";
 import HeadLines from "../common/HeadLine";
+import HeadLines2 from "../common/HeadLine_2";
 
 // import { Canvas } from "@react-three/fiber";
 // import { Model } from "../../animations/Robot/Robot";
@@ -101,7 +102,7 @@ function TitleComponent() {
             />
           </Box>
           <Box display={"flex"} justifyContent="flex-end">
-            <HeadLines
+            <HeadLines2
               desc="UNLEASH THE POWER OF"
               subTitle="AI"
               title="Blockchain"

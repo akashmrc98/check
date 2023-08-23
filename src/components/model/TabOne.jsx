@@ -15,7 +15,13 @@ import BG from "/public/dapp/cs.svg";
 
 function TabOne({ description, tags }) {
   return (
-    <Grid pb={{ base: 0, lg: 12 }} rowGap={{ base: "2rem" }}>
+    <Grid
+      p={4}
+      boxShadow={`0px 0px 4px ${colors.highLightColor}`}
+      className="bg_img"
+      pb={{ base: 0, lg: 12 }}
+      rowGap={{ base: "2rem" }}
+    >
       <GridItem>
         <Box width="100%" display="grid" rowGap="2rem">
           <Text

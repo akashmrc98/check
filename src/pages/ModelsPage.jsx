@@ -144,11 +144,11 @@ function ModelsPage() {
                     width="80%"
                     borderRadius={"xl"}
                     bg={`rgba(0, 0, 0, 0.6)`}
-                    fontSize={{ base: "xl" }}
+                    fontSize={{ base: "md" }}
                     p={2}
                     zIndex={8}
                   >
-                    {d.display_name}
+                    renderverse-project
                   </Text>{" "}
                 </Box>
 
@@ -195,10 +195,12 @@ function ModelsPage() {
                   zIndex={2}
                   pl={2}
                   color={colors.fontLightColorV2}
-                  fontFamily={fonts.parafont}
                   width="100%"
+                  fontFamily={fonts.parafont}
+                  fontSize={{ base: "sm", lg: "md", xl: "xl" }}
+                  fontWeight="bold"
                 >
-                  renderverse-project
+                  {d.display_name}
                 </Text>
               </Flex>
             </GridItem>

@@ -49,8 +49,8 @@ function TextGenSpace() {
         pos="relative"
         mt={12}
         className="bg_img"
+        boxShadow={`0 0 2px ${colors.highLightColor}`}
         p={12}
-        border="2px"
       >
         <Box display={"grid"} px={2} pt={8}>
           <Text

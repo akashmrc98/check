@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { colors } from "../../theme/colors";
 import { fonts } from "../../theme/fonts";
 
-function HeadLines(props) {
+function HeadLines2(props) {
   return (
     <Box pos={"relative"} zIndex={24} display={"flex"}>
       <Box>
@@ -25,6 +25,7 @@ function HeadLines(props) {
           <Text
             color={colors.fontLightColorV2}
             fontFamily={fonts.headingFont}
+            textAlign="right"
             fontSize={{ base: "sm", lg: "xl" }}
             pb={4}
           >
@@ -58,8 +59,8 @@ function HeadLines(props) {
               }
               width={"3px"}
               right={0}
-              bottom={0}
-              height="100%"
+              top={0}
+              height="50%"
               pos="absolute"
               transform={"rotate(180deg)"}
               borderRadius={"2rem"}
@@ -71,7 +72,7 @@ function HeadLines(props) {
               width={"3px"}
               left={0}
               top={0}
-              height="50%"
+              height="100%"
               pos="absolute"
               transform={"rotate(180deg)"}
               borderRadius={"2rem"}
@@ -92,7 +93,7 @@ function HeadLines(props) {
                 "linear-gradient(to right, #5ce1e6, #5ce1e6, #5ce1e6, #5ce1e6, #5ce1e6, #6de3dc, #7fe5d3, #90e6ca, #b4e7bc, #d4e6b7, #ede6bb, #ffe6c7)"
               }
               width={"75%"}
-              right={0}
+              left={0}
               height="3px"
               pos="absolute"
               borderRadius={"2rem"}
@@ -127,7 +128,12 @@ function HeadLines(props) {
           </Box>
         </motion.div>
         <motion.div
-          style={{ display: "flex", alignItems: "center", columnGap: ".2rem" }}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            columnGap: ".2rem",
+            justifyContent: "flex-end",
+          }}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -148,7 +154,7 @@ function HeadLines(props) {
             fontSize={{ base: "2xl", lg: "4xl" }}
             py={6}
             px={3}
-            borderRight={0}
+            borderLeft={0}
             borderTop={0}
             borderLeftColor={colors.highLightColor}
             lineHeight={0.2}
@@ -162,4 +168,4 @@ function HeadLines(props) {
   );
 }
 
-export default HeadLines;
+export default HeadLines2;

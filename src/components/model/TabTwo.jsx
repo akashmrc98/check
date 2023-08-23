@@ -19,7 +19,13 @@ function TabTwo(props) {
   p = p[p.length - 1];
 
   return (
-    <Grid templateColumns={{ base: "1fr" }} pb={{ base: 0, lg: 0 }}>
+    <Grid
+      p={4}
+      boxShadow={`0px 0px 4px ${colors.highLightColor}`}
+      className="bg_img"
+      templateColumns={{ base: "1fr" }}
+      pb={{ base: 0, lg: 0 }}
+    >
       <GridItem>
         <Box display="grid" rowGap="2rem">
           <Text

@@ -11,9 +11,10 @@ export default function SpaceNavbar() {
       display={"flex"}
       alignItems="center"
       mb={2}
-      minH="5vh"
+      minH="7vh"
       p={2}
       className="bg_img"
+      boxShadow={`0px 0px 4px ${colors.highLightColor}`}
     >
       <Flex
         cursor={"pointer"}

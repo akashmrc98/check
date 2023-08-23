@@ -84,6 +84,7 @@ function ChatGenSpace() {
         pos="relative"
         mt={12}
         className="bg_img"
+        boxShadow={`0px 0px 4px ${colors.highLightColor}`}
         p={12}
         border="2px"
       >

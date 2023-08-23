@@ -16,12 +16,14 @@ function ModelHeadComponent({ url, service_id, display_name, media }) {
   return (
     <Grid
       border={{ base: 0, xl: `2px` }}
+      boxShadow={`0px 0px 4px ${colors.highLightColor}`}
       borderColor={colors.boxBorder}
       w={{ base: "100%", lg: "88%" }}
       borderTop={0}
       mx="auto"
       templateColumns={{ base: "1fr", xl: "1fr 1fr" }}
       p={{ base: 2 }}
+      className="bg_img"
     >
       <Grid px={4} rowGap="1rem" pt={{ base: 0, lg: 6 }}>
         <Flex

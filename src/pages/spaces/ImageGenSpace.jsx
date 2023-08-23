@@ -71,6 +71,7 @@ function ImageGenSpace() {
         className="bg_img"
         p={12}
         border="2px"
+        boxShadow={`0 0 2px ${colors.highLightColor}`}
       >
         <Box display={"grid"} px={2} pt={8}>
           <Text

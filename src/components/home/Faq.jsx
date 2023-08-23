@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Text } from "@chakra-ui/react";
+import { Box, Button, Divider, Flex, Text } from "@chakra-ui/react";
 import {
   Accordion,
   AccordionItem,
@@ -20,11 +20,7 @@ import Question from "/public/icons/question.png";
 export default function FaqComponent() {
   const [index, setIndex] = useState(0);
   return (
-    <Box
-      maxW={{ base: "100%", lg: "80%" }}
-      minW={{ base: "100%", lg: "80%" }}
-      mx="auto"
-    >
+    <Box borderBottom={`2px solid white`}>
       <Grid
         justifyContent={"flex-end"}
         gridTemplateColumns={{ base: "1fr", lg: "1fr 1fr" }}
@@ -44,12 +40,13 @@ export default function FaqComponent() {
       <Grid
         py={8}
         px={4}
-        maxW={{ base: "100%", lg: "80%", xl: "70%" }}
-        mx="auto"
         columnGap="4rem"
         templateColumns={{ base: "1fr ", lg: "1fr 1fr 1fr" }}
         justifyContent="center"
         alignItems={"center"}
+        maxW={{ base: "100%", lg: "80%", xl: "70%" }}
+        minW={{ base: "100%", lg: "80%", xl: "70%" }}
+        mx="auto"
       >
         {faqs.map((f, i) => (
           <Box position={"relative"} textAlign={"center"} key={i}>
@@ -140,12 +137,21 @@ export default function FaqComponent() {
         ))}
       </Grid>
       <Accordion
-        border={`2px solid ${colors.highLightColor}`}
+        maxW={{ base: "100%", lg: "80%", xl: "70%" }}
+        minW={{ base: "100%", lg: "80%", xl: "70%" }}
+        mx="auto"
         borderTopRadius="3xl"
         allowMultiple
       >
         {faqs[index].faqs.map((f, i) => (
-          <AccordionItem borderTopRadius="3xl" p={3} key={i}>
+          <AccordionItem
+            border={"2px"}
+            borderBottom={0}
+            borderColor={colors.highLightColor}
+            borderTopRadius="3xl"
+            p={3}
+            key={i}
+          >
             {({ isExpanded }) => (
               <>
                 <AccordionButton>
@@ -187,14 +193,9 @@ export default function FaqComponent() {
           </AccordionItem>
         ))}
       </Accordion>
+      <Box borderBottom={`2px solid ${colors.highLightColor}`}></Box>
 
-      <Box
-        mt={24}
-        py={24}
-        border={`2px solid ${colors.highLightColor}`}
-        borderBottom={0}
-        borderTopRadius="2xl"
-      >
+      <Box mt={24} py={24} borderBottom={0} borderTopRadius="2xl">
         <Grid justifyContent={"center"} flexDir={"column"}>
           <Text
             cursor={"pointer"}

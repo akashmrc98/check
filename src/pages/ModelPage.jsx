@@ -12,6 +12,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { modelsData } from "../data/modelsData.jsx";
 import { useParams } from "react-router";
+import SpaceNavbar from "./spaces/SpaceNavbar.jsx";
 
 function ModelPage() {
   const params = useParams();
@@ -46,7 +47,10 @@ function ModelPage() {
   console.log(model);
 
   return (
-    <Box pt={32} pos="relative" bg={colors.bgColor}>
+    <Box pos="relative" bg={colors.bgColor}>
+      <Box mb={12}>
+        <SpaceNavbar />
+      </Box>
       <ModelHeadComponent {...model} />
       <Box width={{ base: "100%", lg: "88%" }} mx="auto">
         <Tabs
