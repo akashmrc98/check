@@ -110,7 +110,7 @@ const TeamComponent = () => {
                       borderBottom={0}
                       display="flex"
                       justifyContent={"flex-start"}
-                      boxShadow={`-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`}
+                      boxShadow={`0px 0px 2px ${colors.boxBorder}`}
                       alignItems="center"
                       columnGap={"1rem"}
                       px={2}
@@ -131,7 +131,7 @@ const TeamComponent = () => {
                       display="flex"
                       justifyContent={"center"}
                       border={`1px groove ${colors.boxBorder}`}
-                      boxShadow={`-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`}
+                      boxShadow={`0px 0px 2px ${colors.boxBorder}`}
                       p={4}
                       px={12}
                       borderTop={0}
@@ -146,7 +146,7 @@ const TeamComponent = () => {
                       >
                         <Image
                           borderRadius={"1vh 12vw 1vh 12vw"}
-                          boxShadow={`-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`}
+                          boxShadow={`0px 0px 2px ${colors.boxBorder}`}
                           border={`12px solid ${colors.bgColor}`}
                           src={s.img}
                           className="corner"
@@ -156,7 +156,7 @@ const TeamComponent = () => {
                     <Box
                       border={`1px groove ${colors.boxBorder}`}
                       borderTop={0}
-                      boxShadow={`-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`}
+                      boxShadow={`0px 0px 2px ${colors.boxBorder}`}
                       p={4}
                       className="bg_img"
                     >

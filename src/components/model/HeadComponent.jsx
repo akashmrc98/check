@@ -23,14 +23,15 @@ function ModelHeadComponent({ url, service_id, display_name, media }) {
       mx="auto"
       templateColumns={{ base: "1fr", xl: "1fr 1fr" }}
       p={{ base: 2 }}
-      className="bg_img"
+      bg={colors.bgColor}
     >
-      <Grid px={4} rowGap="1rem" pt={{ base: 0, lg: 6 }}>
+      <Grid px={4} pb={6} rowGap="1rem" pt={{ base: 0, lg: 6 }}>
         <Flex
-          flexDirection={{ base: "column", lg: "row" }}
-          rowGap="1rem"
-          p={{ base: 4, lg: 0 }}
-          columnGap={"2rem"}
+          rowGap={"1rem"}
+          columnGap="2rem"
+          alignItems={"start"}
+          flexDirection="row"
+          justifyContent={"start"}
         >
           <Image
             boxShadow={`0px 0px 4px ${colors.highLightColor}`}
@@ -42,15 +43,7 @@ function ModelHeadComponent({ url, service_id, display_name, media }) {
             borderRadius="md"
             src={media.url}
           ></Image>
-        </Flex>
-        <Grid>
-          <Flex
-            rowGap={"1rem"}
-            columnGap="2rem"
-            alignItems={"start"}
-            flexDirection="column"
-            justifyContent={"center"}
-          >
+          <Box>
             <Flex alignItems={"center"} columnGap="1rem">
               <Image
                 boxShadow={`0px 0px 2px ${colors.highLightColor}`}
@@ -78,17 +71,30 @@ function ModelHeadComponent({ url, service_id, display_name, media }) {
                 </Text>
               </Box>
             </Flex>
-          </Flex>
-        </Grid>
-        <Text
-          color={colors.fontLightColor}
-          textAlign={"left"}
-          fontFamily={fonts.parafont}
-          fontSize={{ base: "xl", lg: "3xl" }}
-          fontWeight={{ base: "bold", lg: "normal" }}
-        >
-          {display_name}
-        </Text>
+            <Text
+              color={colors.fontLightColor}
+              textAlign={"left"}
+              fontFamily={fonts.parafont}
+              fontSize={{ base: "xl", lg: "3xl" }}
+              fontWeight={{ base: "bold", lg: "normal" }}
+            >
+              {display_name}
+            </Text>
+            <Button
+              color={colors.bgColor}
+              textAlign={"left"}
+              fontFamily={fonts.headingFont}
+              mt={2}
+              fontSize={{ base: "xl", lg: "3xl" }}
+              fontWeight={{ base: "bold", lg: "normal" }}
+              bg={colors.highLightColor}
+              boxShadow={`0px 0px 9px ${colors.highLightColor}`}
+              _hover={{ bg: colors.boxBorder, color: colors.highLightColor }}
+            >
+              Buy Now
+            </Button>
+          </Box>
+        </Flex>
       </Grid>
 
       <GridItem
@@ -171,47 +177,6 @@ function ModelHeadComponent({ url, service_id, display_name, media }) {
                 </Text>
               </Flex>
             </Box>
-          </Flex>
-
-          <Box border={"1px"} borderColor={colors.boxBorder}></Box>
-
-          <Flex
-            textAlign={"center"}
-            justifyContent={"flex-start"}
-            alignItems="center"
-            columnGap="2rem"
-            py={4}
-          >
-            <Box>
-              <Text
-                color={colors.highLightColor}
-                fontWeight="bold"
-                fontFamily={fonts.parafont}
-              >
-                $OPAI TOKENS
-              </Text>
-              <Text
-                color={colors.fontLightColor}
-                fontFamily={fonts.headingFont}
-                fontSize="3xl"
-              >
-                0.000001
-              </Text>
-            </Box>
-            <Box
-              border="2px"
-              borderColor={colors.boxBorder}
-              height={"100%"}
-              w={"2px"}
-            ></Box>
-            <Text
-              color={colors.fontLightColorV2}
-              fontWeight="bold"
-              fontFamily={fonts.parafont}
-              fontSize="md"
-            >
-              Fixed Price
-            </Text>
           </Flex>
         </Box>
       </GridItem>

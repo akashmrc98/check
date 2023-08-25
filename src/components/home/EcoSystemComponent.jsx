@@ -4,7 +4,6 @@ import { colors } from "../../theme/colors";
 import { Box, Flex, Grid, GridItem, Image, Text } from "@chakra-ui/react";
 
 import HeadLines from "../common/HeadLine";
-import EcoSystem from "/public/eco_system/main.webp";
 import { ecoSystemData } from "../../data/ecoSystemData";
 
 import Ico from "/public/icons/arrow.png";
@@ -70,6 +69,7 @@ function EcoSystemComponent() {
                   borderTopLeftRadius="xl"
                   borderBottomLeftRadius={"xl"}
                   boxShadow={`-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`}
+                  className="bg_img"
                 >
                   <Text
                     fontFamily={fonts.parafont}

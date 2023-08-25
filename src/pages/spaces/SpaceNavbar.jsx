@@ -10,7 +10,6 @@ export default function SpaceNavbar() {
     <Box
       display={"flex"}
       alignItems="center"
-      mb={2}
       minH="7vh"
       p={2}
       className="bg_img"

@@ -1,27 +1,20 @@
-import {
-  Box,
-  Button,
-  Flex,
-  Grid,
-  GridItem,
-  Image,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Button, Grid, GridItem, Image, Text } from "@chakra-ui/react";
 import { colors } from "../theme/colors";
 import { fonts } from "../theme/fonts";
 import { emojisData, sGradientData, spacesData } from "../data/spacesData";
 
-import Star from "/public/dapp/star.png";
 import { useNavigate } from "react-router";
 
 import G from "/public/eco_system/grid.png";
+import ModelSpaceNavbar from "../components/common/ModelSpaceNavbar";
 
 function SpacesPage() {
   const navigate = useNavigate();
 
   return (
-    <Box bg={colors.bgColor}>
-      <Box mx="auto" width={{ base: "100%", lg: "88%" }} pos="relative">
+    <Box pos="relative" className="bg_img" minH="100vh">
+      <ModelSpaceNavbar />
+      <Box mt={4} mx="auto" width={{ base: "100%", lg: "88%" }} pos="relative">
         <Box
           alignItems={"center"}
           display={"flex"}
@@ -71,7 +64,7 @@ function SpacesPage() {
             <Button
               _hover={{
                 bg: colors.bgColor,
-                boxShadow: `0px 0px 4px ${colors.highLightColor}`,
+                boxShadow: `0px 0px 4px ${colors.bgColor}`,
               }}
               color={colors.highLightColor}
               bg={colors.boxBorder}
@@ -113,47 +106,13 @@ function SpacesPage() {
                 pos="relative"
                 transition={"all 200ms"}
                 _hover={{
-                  boxShadow: `0px 0px 12px ${colors.fontLightColorV2}`,
+                  boxShadow: `0px 0px 12px ${colors.bgColor}`,
                   filter: `contrast(150%)`,
+                  transform: `scale(1.04)`,
                 }}
                 minH="200px"
               >
-                <Box
-                  borderTopLeftRadius={"xl"}
-                  bg={`rgba(0, 0, 0, 0.5)`}
-                  borderBottomRightRadius="xl"
-                  left={0}
-                  pos="absolute"
-                  display={"flex"}
-                  alignItems="center"
-                  px={4}
-                >
-                  <Image w={"20px"} height="20px" src={Star} />
-                  <Text
-                    textAlign={"center"}
-                    zIndex={2}
-                    fontWeight={"bold"}
-                    fontFamily={fonts.headingFont}
-                    textTransform="uppercase"
-                    color={colors.fontLightColor}
-                    mx="auto"
-                    fontSize={{ base: "sm" }}
-                    p={2}
-                  >
-                    Running on{" "}
-                    <Box
-                      fontStyle={"italic"}
-                      color={colors.highLightColor}
-                      fontWeight="bold"
-                      fontFamily={fonts.parafont}
-                      display={"inline"}
-                      fontSize={{ base: "xl" }}
-                    >
-                      CPU
-                    </Box>
-                  </Text>{" "}
-                </Box>
-                <Box zIndex={2} width="100%" top={"40%"} pos="absolute">
+                <Box zIndex={2} width="100%" top={"0%"} pos="absolute">
                   <Text
                     textAlign={"center"}
                     fontWeight={"bold"}
@@ -161,19 +120,22 @@ function SpacesPage() {
                     textTransform="uppercase"
                     color={colors.fontLightColorV2}
                     mx="auto"
-                    width="80%"
+                    width="100%"
                     borderRadius={"xl"}
                     bg={`rgba(0, 0, 0, 0.3)`}
-                    fontSize={{ base: "md" }}
+                    fontSize={{ base: "md", lg: "xl" }}
+                    borderBottomRadius={0}
                     p={2}
                     zIndex={8}
                   >
-                    renderverse-project
+                    {/* renderverse-project */}
+
+                    {d.display_name}
                   </Text>{" "}
                 </Box>
 
                 <Box
-                  top={"10%"}
+                  top={"16%"}
                   display={"flex"}
                   justifyContent="center"
                   alignItems={"center"}
@@ -210,19 +172,6 @@ function SpacesPage() {
                   </Button>
                 </Box>
               </Box>
-              <Flex py={2} justifyContent={"space-between"}>
-                <Text
-                  zIndex={2}
-                  pl={2}
-                  color={colors.fontLightColorV2}
-                  width="100%"
-                  fontFamily={fonts.parafont}
-                  fontSize={{ base: "sm", lg: "md", xl: "xl" }}
-                  fontWeight="bold"
-                >
-                  {d.display_name}
-                </Text>
-              </Flex>
             </GridItem>
           ))}
         </Grid>

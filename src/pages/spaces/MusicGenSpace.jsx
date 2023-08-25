@@ -31,6 +31,8 @@ import axios from "axios";
 
 import { Audio } from "react-loader-spinner";
 
+import Img from "/public/doodle.jpg";
+
 function MusicGenSpace() {
   const ref = useRef();
   const [input, setInput] = useState("");
@@ -95,13 +97,12 @@ function MusicGenSpace() {
   }
 
   return (
-    <Box bg={colors.bgColor}>
+    <Box className="bg_img" pt={12}>
       <Box
         mx="auto"
         width={{ base: "100%", lg: "88%", xl: "75%" }}
         pos="relative"
         border={"2px"}
-        mt={12}
         className="bg_img"
         boxShadow={`0px 0px 4px ${colors.highLightColor}`}
         p={12}
@@ -145,7 +146,7 @@ function MusicGenSpace() {
           }}
         >
           <GridItem>
-            <FormControl border="2px" px={8} py={8} bg={"gray.900"}>
+            <FormControl border="2px" px={8} py={8} bg={colors.bgColor}>
               <FormLabel
                 fontFamily={fonts.headingFont}
                 fontSize={{ base: "lg" }}
@@ -167,7 +168,7 @@ function MusicGenSpace() {
                 color={colors.fontLightColor}
               />
             </FormControl>
-            <FormControl border="2px" px={8} py={8} bg={"gray.900"}>
+            <FormControl border="2px" px={8} py={8} bg={colors.bgColor}>
               <FormLabel
                 fontFamily={fonts.headingFont}
                 fontSize={{ base: "lg" }}
@@ -195,7 +196,7 @@ function MusicGenSpace() {
               </RadioGroup>
             </FormControl>
 
-            <FormControl border="2px" px={8} py={8} bg={"gray.900"}>
+            <FormControl border="2px" px={8} py={8} bg={colors.bgColor}>
               <FormLabel
                 fontFamily={fonts.headingFont}
                 fontSize={{ base: "lg" }}
@@ -211,9 +212,6 @@ function MusicGenSpace() {
                 max={120}
                 step={2}
               >
-                <SliderMark value={0}>0%</SliderMark>
-                <SliderMark value={60}>50%</SliderMark>
-                <SliderMark value={120}>100%</SliderMark>
                 <SliderMark
                   value={duration}
                   textAlign="center"
@@ -259,7 +257,7 @@ function MusicGenSpace() {
             </Box>
           </GridItem>
 
-          <GridItem pos="relative" minH="240px" bg={"gray.900"}>
+          <GridItem pos="relative" minH="240px" bg={colors.bgColor}>
             <Box px={2} py={1} pos="absolute" border="2px">
               <Text
                 fontFamily={fonts.parafont}
@@ -293,7 +291,13 @@ function MusicGenSpace() {
           </GridItem>
         </Grid>
         <Box pb={24}>
-          <Table border="2px" variant={"simple"} mt={24} py={12}>
+          <Table
+            bg={colors.bgColor}
+            border={`2px solid ${colors.bgColor}`}
+            variant={"simple"}
+            mt={24}
+            py={12}
+          >
             <Thead>
               {headers.map((h, i) => (
                 <Th fontFamily={fonts.parafont} key={i}>

@@ -1,1 +1,8 @@
-harnessing the power of AI => jesus glb
+changes 
+gradient colors similar
+
+done 
+remove about and integrate overview with install & run 
+3 - 1 grid
+load more fix in models
+scroll to top in home

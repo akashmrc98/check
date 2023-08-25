@@ -87,7 +87,7 @@ function Navbar() {
         justifyContent="center"
         alignItems={{ base: "center", lg: "center" }}
         flexDir="column"
-        zIndex={open ? 500 : -1}
+        zIndex={open ? 9900 : -1}
         pos={"fixed"}
         minH="100vh"
         width="100%"
@@ -141,7 +141,7 @@ function Navbar() {
         </Box>
       </Box>
       <Box
-        borderBottom="1px"
+        // borderBottom="1px"
         borderColor={colors.boxBorder}
         alignItems={"center"}
         columnGap={"5rem"}
@@ -151,7 +151,7 @@ function Navbar() {
         position={"fixed"}
         bg={colorChange ? colors.bgColor : "transparent"}
         transition="all 200ms ease-in-out"
-        zIndex={499}
+        zIndex={9499}
         width="100%"
       >
         <Flex

@@ -62,7 +62,7 @@ export default function Footer() {
                 fontFamily={fonts.parafont}
                 fontWeight={"bold"}
                 color={colors.highLightColor}
-                bg={"gray.900"}
+                bg={colors.bgColor}
                 minH={{ base: "52px", lg: "72px" }}
                 px={4}
                 fontSize={{ base: "md", lg: "lg" }}

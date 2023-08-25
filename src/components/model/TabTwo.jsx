@@ -8,6 +8,7 @@ import {
   TabList,
   Tab,
   Button,
+  Tag,
 } from "@chakra-ui/react";
 
 import { dappData } from "../../data/dappData";
@@ -22,10 +23,78 @@ function TabTwo(props) {
     <Grid
       p={4}
       boxShadow={`0px 0px 4px ${colors.highLightColor}`}
-      className="bg_img"
+      bg={colors.bgColor}
       templateColumns={{ base: "1fr" }}
       pb={{ base: 0, lg: 0 }}
     >
+      <Grid
+        p={4}
+        columnGap="2rem"
+        bg={colors.bgColor}
+        pb={{ base: 0, lg: 12 }}
+        rowGap={{ base: "2rem" }}
+        gridTemplateColumns={{ base: "1fr", lg: "2fr 1fr" }}
+      >
+        <GridItem>
+          <Box width="100%" display="grid" rowGap="2rem">
+            <Text
+              fontFamily={fonts.headingFont}
+              fontSize={"2xl"}
+              color={colors.highLightColor}
+            >
+              Overview
+            </Text>
+            <Text
+              fontSize={{ base: "xx-small", sm: "sm", md: "md" }}
+              fontFamily={fonts.parafont}
+              color={colors.fontLightColorV2}
+            >
+              <span
+                style={{ display: "inline-block", lineBreak: "anywhere" }}
+                dangerouslySetInnerHTML={{ __html: props.description }}
+              ></span>
+            </Text>
+          </Box>
+        </GridItem>
+        <Grid p={2} gridTemplateColumns={{ base: "1fr" }}>
+          <Text
+            fontFamily={fonts.headingFont}
+            fontSize={"2xl"}
+            color={colors.highLightColor}
+          >
+            Tags
+          </Text>
+          <Box
+            height={"100%"}
+            columnGap={"1rem"}
+            display="grid"
+            rowGap="1rem"
+            justifyContent={"space-evenly"}
+            gridTemplateColumns={{
+              base: "1fr",
+              lg: "1fr 1fr",
+            }}
+            width="100%"
+          >
+            {props.tags.map((tag, i) => (
+              <Flex justifyContent={"center"} width="100%" key={i}>
+                <Tag
+                  maxH="42px"
+                  textAlign={"center"}
+                  width={"100%"}
+                  bg={colors.highLightColor}
+                  fontWeight={"bold"}
+                  fontFamily={fonts.parafont}
+                  color={colors.bgColor}
+                >
+                  {tag}
+                </Tag>
+              </Flex>
+            ))}
+          </Box>
+        </Grid>
+      </Grid>
+
       <GridItem>
         <Box display="grid" rowGap="2rem">
           <Text

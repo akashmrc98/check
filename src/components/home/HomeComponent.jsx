@@ -13,7 +13,7 @@ import Quote from "/public/eco_system/quote.svg";
 
 function HomeComponent() {
   return (
-    <Box pos="relative">
+    <Box pt={24} pos="relative">
       <Grid
         rowGap={{ base: "2rem", lg: "0" }}
         templateColumns={{ base: "1fr", lg: "1fr 1fr" }}
@@ -55,8 +55,6 @@ function HomeComponent() {
           >
             <Box
               border={`1px solid ${colors.boxBorder}`}
-              borderLeft={0}
-              borderBottom={0}
               minH="60px"
               minW="60px"
               display={"flex"}
@@ -80,16 +78,11 @@ function HomeComponent() {
           >
             {homeSummaryData.map((d, i) => (
               <SwiperSlide key={i}>
-                {({ isActive, isNext }) => (
+                {({ isActive }) => (
                   <Box
                     color={colors.fontLightColorV2}
                     pos={"relative"}
-                    border={isActive ? "1px" : "none"}
-                    boxShadow={
-                      isActive
-                        ? `-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`
-                        : 0
-                    }
+                    boxShadow={isActive ? `0px 0px 2px ${colors.boxBorder}` : 0}
                     borderStyle="groove"
                     position="relative"
                     borderColor={colors.boxBorder}
@@ -121,12 +114,9 @@ function HomeComponent() {
               p={4}
               display="flex"
               justifyContent={"space-between"}
-              border="1px"
               bg={colors.bgColor}
               borderColor={colors.boxBorder}
-              borderTop={j === 0 ? `1px groove ${colors.boxBorder}` : "none"}
-              boxShadow={`-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`}
-              borderRight={0}
+              boxShadow={`0px 0px 2px ${colors.boxBorder}`}
             >
               <Box
                 display={"flex"}

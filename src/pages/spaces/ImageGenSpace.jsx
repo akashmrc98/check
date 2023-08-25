@@ -21,6 +21,8 @@ import { FaBoxes } from "react-icons/fa";
 import axios from "axios";
 import { Audio } from "react-loader-spinner";
 
+import Img from "/public/doodle.jpg";
+
 function ImageGenSpace() {
   const [input, setInput] = useState("");
   const [loaded, setLoaded] = useState(false);
@@ -62,12 +64,11 @@ function ImageGenSpace() {
   }
 
   return (
-    <Box minH="100vh" bg={colors.bgColor}>
+    <Box minH="100vh" className="bg_img" pt={12}>
       <Box
         mx="auto"
         width={{ base: "100%", lg: "88%", xl: "75%" }}
         pos="relative"
-        mt={12}
         className="bg_img"
         p={12}
         border="2px"
@@ -110,7 +111,7 @@ function ImageGenSpace() {
           }}
         >
           <GridItem>
-            <FormControl border="2px" px={8} py={8} bg={"gray.900"}>
+            <FormControl border="2px" px={8} py={8} bg={colors.bgColor}>
               <FormLabel
                 fontFamily={fonts.headingFont}
                 fontSize={{ base: "lg" }}
@@ -155,7 +156,7 @@ function ImageGenSpace() {
             </Box>
           </GridItem>
 
-          <GridItem pos="relative" minH="240px" bg={"gray.900"}>
+          <GridItem pos="relative" minH="240px" bg={colors.bgColor}>
             <Box px={2} py={1} pos="absolute" border="2px">
               <Text
                 fontFamily={fonts.parafont}

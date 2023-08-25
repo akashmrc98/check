@@ -42,12 +42,11 @@ function TextGenSpace() {
   }
 
   return (
-    <Box minH="100vh" bg={colors.bgColor}>
+    <Box minH="100vh" className="bg_img" pt={12}>
       <Box
         mx="auto"
         width={{ base: "100%", lg: "88%", xl: "75%" }}
         pos="relative"
-        mt={12}
         className="bg_img"
         boxShadow={`0 0 2px ${colors.highLightColor}`}
         p={12}
@@ -90,7 +89,7 @@ function TextGenSpace() {
           }}
         >
           <GridItem>
-            <FormControl border="2px" px={8} py={8} bg={"gray.900"}>
+            <FormControl border="2px" px={8} py={8} bg={colors.bgColor}>
               <FormLabel
                 fontFamily={fonts.headingFont}
                 fontSize={{ base: "lg" }}
@@ -135,7 +134,7 @@ function TextGenSpace() {
             </Box>
           </GridItem>
 
-          <GridItem pos="relative" bg={"gray.900"}>
+          <GridItem pos="relative" bg={colors.bgColor}>
             <Box px={2} py={1} pos="absolute" border="2px">
               <Text
                 fontFamily={fonts.parafont}

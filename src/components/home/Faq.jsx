@@ -1,4 +1,4 @@
-import { Box, Button, Divider, Flex, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Text } from "@chakra-ui/react";
 import {
   Accordion,
   AccordionItem,
@@ -150,6 +150,7 @@ export default function FaqComponent() {
             borderColor={colors.highLightColor}
             borderTopRadius="3xl"
             p={3}
+            className="bg_img"
             key={i}
           >
             {({ isExpanded }) => (

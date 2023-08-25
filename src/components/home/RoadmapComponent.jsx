@@ -110,11 +110,11 @@ function RoadmapComponent() {
                 <Box
                   className="bg_img"
                   border={`1px groove ${colors.boxBorder}`}
-                  boxShadow={`-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`}
+                  boxShadow={`0px 0px 2px ${colors.boxBorder}`}
                   key={i}
                 >
                   <Box
-                    boxShadow={`-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`}
+                    boxShadow={`0px 0px 2px ${colors.boxBorder}`}
                     borderBottom={`1px groove ${colors.boxBorder}`}
                     p={4}
                   >
@@ -166,7 +166,7 @@ function RoadmapComponent() {
                             bg={colors.highLightColor}
                             height="4px"
                             borderRadius={"3xl"}
-                            boxShadow={`-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`}
+                            boxShadow={`0px 0px 2px ${colors.boxBorder}`}
                             mt={6}
                             mb={2}
                           ></Box>

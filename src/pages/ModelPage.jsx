@@ -12,7 +12,8 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { modelsData } from "../data/modelsData.jsx";
 import { useParams } from "react-router";
-import SpaceNavbar from "./spaces/SpaceNavbar.jsx";
+
+import SpaceNavbar from "../components/common/ModelSpaceNavbar.jsx";
 
 function ModelPage() {
   const params = useParams();
@@ -47,31 +48,14 @@ function ModelPage() {
   console.log(model);
 
   return (
-    <Box pos="relative" bg={colors.bgColor}>
+    <Box className="bg_img" pos="relative">
       <Box mb={12}>
         <SpaceNavbar />
       </Box>
       <ModelHeadComponent {...model} />
       <Box width={{ base: "100%", lg: "88%" }} mx="auto">
-        <Tabs
-          py={4}
-          borderBottom={"none"}
-          variant={"enclosed"}
-          bg={colors.bgColor}
-        >
+        <Tabs py={4} borderBottom={"none"} variant={"enclosed"}>
           <TabList>
-            <Tab
-              fontSize="xl"
-              fontFamily={fonts.headingFont}
-              fontWeight="bold"
-              color={colors.fontLightColor}
-              _selected={{
-                color: colors.highLightColor,
-                borderBottom: `1px soild ${colors.highLightColor}`,
-              }}
-            >
-              About
-            </Tab>
             <Tab
               fontSize="xl"
               fontFamily={fonts.headingFont}
@@ -85,10 +69,7 @@ function ModelPage() {
               Install & Run
             </Tab>
           </TabList>
-          <TabPanels py={4}>
-            <TabPanel>
-              <TabOne {...model} />
-            </TabPanel>
+          <TabPanels>
             <TabPanel>
               <TabTwo {...model} />
             </TabPanel>

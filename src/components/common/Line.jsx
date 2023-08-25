@@ -11,7 +11,6 @@ function Line(props) {
       height={"100vh"}
       width={{ base: 0, lg: "2px" }}
       bg={colors.boxBorder}
-      // boxShadow={`-1px -1px 1px ${colors.highLightColor}, 1px 1px 1px ${colors.fontLightColor}`}
     ></Box>
   );
 }

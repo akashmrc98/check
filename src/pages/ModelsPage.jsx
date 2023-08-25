@@ -1,21 +1,13 @@
-import {
-  Box,
-  Button,
-  Flex,
-  Grid,
-  GridItem,
-  Image,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Button, Grid, GridItem, Image, Text } from "@chakra-ui/react";
 import { colors } from "../theme/colors";
 import { fonts } from "../theme/fonts";
 import { emojis, gradientData, modelsData } from "../data/modelsData";
 import { slice } from "lodash";
 import G from "/public/eco_system/grid.png";
 
-import Star from "/public/dapp/star.png";
 import { useNavigate } from "react-router";
 import { useState } from "react";
+import ModelSpaceNavbar from "../components/common/ModelSpaceNavbar";
 
 function ModelsPage() {
   const navigate = useNavigate();
@@ -26,7 +18,7 @@ function ModelsPage() {
   const loadMore = () => {
     setIndex(index + 4);
     console.log(index);
-    if (index >= modelsData.length) {
+    if (index >= modelsData.length - 1) {
       setIsCompleted(true);
     } else {
       setIsCompleted(false);
@@ -34,8 +26,16 @@ function ModelsPage() {
   };
 
   return (
-    <Box>
-      <Box mx="auto" width={{ base: "100%", lg: "88%" }} pos="relative">
+    <Box
+      // backgroundImage={Img}
+      // backgroundSize="cover"
+      // backgroundRepeat={"no-repeat"}
+      className="bg_img"
+      pos="relative"
+      minH="100vh"
+    >
+      <ModelSpaceNavbar />
+      <Box mt={4} mx="auto" width={{ base: "100%", lg: "88%" }} pos="relative">
         <Box
           alignItems={"center"}
           display={"flex"}
@@ -129,11 +129,12 @@ function ModelsPage() {
                 minH="200px"
                 transition={"all 200ms"}
                 _hover={{
-                  boxShadow: `0px 0px 12px ${colors.fontLightColorV2}`,
+                  boxShadow: `0px 0px 12px ${colors.bgColor}`,
                   filter: `contrast(150%)`,
+                  transform: `scale(1.04)`,
                 }}
               >
-                <Box zIndex={2} width="100%" top={"33%"} pos="absolute">
+                <Box zIndex={2} width="100%" top={"0%"} pos="absolute">
                   <Text
                     textAlign={"center"}
                     fontWeight={"bold"}
@@ -141,19 +142,21 @@ function ModelsPage() {
                     textTransform="uppercase"
                     color={colors.fontLightColorV2}
                     mx="auto"
-                    width="80%"
+                    width="100%"
                     borderRadius={"xl"}
                     bg={`rgba(0, 0, 0, 0.6)`}
-                    fontSize={{ base: "md" }}
+                    fontSize={{ base: "sm", xl: "md", "2xl": "lg" }}
                     p={2}
                     zIndex={8}
+                    borderBottomRadius={0}
                   >
-                    renderverse-project
+                    {emojis[i]} {` `}
+                    {d.display_name}
                   </Text>{" "}
                 </Box>
 
                 <Box
-                  top={"10%"}
+                  top={"16%"}
                   display={"flex"}
                   justifyContent="center"
                   alignItems={"center"}
@@ -190,19 +193,6 @@ function ModelsPage() {
                   </Button>
                 </Box>
               </Box>
-              <Flex py={2} justifyContent={"space-between"}>
-                <Text
-                  zIndex={2}
-                  pl={2}
-                  color={colors.fontLightColorV2}
-                  width="100%"
-                  fontFamily={fonts.parafont}
-                  fontSize={{ base: "sm", lg: "md", xl: "xl" }}
-                  fontWeight="bold"
-                >
-                  {d.display_name}
-                </Text>
-              </Flex>
             </GridItem>
           ))}
           {!isCompleted ? (

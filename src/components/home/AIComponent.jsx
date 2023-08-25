@@ -18,7 +18,7 @@ import HeadLines from "../common/HeadLine";
 
 const AIComponent = () => {
   return (
-    <Box pos="relative">
+    <Box borderTop={`2px solid ${colors.boxBorder}`} pos="relative">
       <Grid gridTemplateColumns={"1fr 1fr"}>
         <GridItem p={12}>
           <HeadLines
@@ -97,7 +97,7 @@ const AIComponent = () => {
               <SwiperSlide key={i}>
                 <GridItem
                   zIndex={4}
-                  boxShadow={`-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`}
+                  boxShadow={`0px 0px 2px ${colors.boxBorder}`}
                   pos={"relative"}
                   borderColor={colors.boxBorder}
                   display="grid"
@@ -108,7 +108,7 @@ const AIComponent = () => {
                     border="1px"
                     borderStyle={"groove"}
                     borderColor={colors.boxBorder}
-                    boxShadow={`-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`}
+                    boxShadow={`0px 0px 2px ${colors.boxBorder}`}
                     bg={colors.bgColor}
 
                     // borderLeft={0}
@@ -131,10 +131,7 @@ const AIComponent = () => {
                     borderStyle={"groove"}
                     borderColor={colors.boxBorder}
                     bg={colors.bgColor}
-                    // borderLeft={0}
-                    // borderRight={0}
-
-                    boxShadow={`-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`}
+                    boxShadow={`0px 0px 2px ${colors.boxBorder}`}
                   >
                     <Text
                       fontFamily={fonts.parafont}
@@ -150,9 +147,7 @@ const AIComponent = () => {
                 <Box
                   border={`1px groove ${colors.boxBorder}`}
                   bg={colors.boxBorder}
-                  boxShadow={`-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`}
-                  // borderLeft={0}
-                  // borderRight={0}
+                  boxShadow={`0px 0px 2px ${colors.boxBorder}`}
                 >
                   <Image src={aiImages[i]} />
                 </Box>

@@ -6,46 +6,46 @@ export const sGradientData = [
   },
   {
     gradient:
-      "radial-gradient( circle farthest-corner at 10% 20%,  rgba(176,229,208,1) 42%, rgba(92,202,238,0.41) 93.6% )",
-    likes: "42",
+      "linear-gradient( 270.3deg,  rgba(84,212,228,1) 0.2%, rgba(68,36,164,1) 100% )",
+    likes: "20",
   },
   {
     gradient:
-      "radial-gradient( circle farthest-corner at 10% 20%,  rgba(176,229,208,1) 42%, rgba(92,202,238,0.41) 93.6% )",
-    likes: "42",
+      "linear-gradient( 109.6deg,  rgba(103,30,117,1) 11.2%, rgba(252,76,2,1) 91.1% )",
+    likes: "10",
   },
   {
     gradient:
-      "radial-gradient( circle farthest-corner at 10% 20%,  rgba(176,229,208,1) 42%, rgba(92,202,238,0.41) 93.6% )",
-    likes: "42",
+      "linear-gradient( 86.3deg,  rgba(0,119,182,1) 3.6%, rgba(8,24,68,1) 87.6% )",
+    likes: "13",
   },
 ];
 
 export const spacesData = [
   {
-    display_name: "Music Gen Space",
+    display_name: "🎵 Music Gen Space",
     rating: 5,
     tags: ["music", "named-entities", "english", "text", "recognition"],
     link: "musicgen-space",
   },
   {
-    display_name: "Chat Assistant",
+    display_name: "👋🏻 Chat Assistant",
     rating: 5,
     tags: ["chat", "ai", "elon musk"],
     link: "chatgen-space",
   },
   {
-    display_name: "👨🏻‍🎤 ChatGPT Prompt Generator",
+    display_name: "💬 ChatGPT Prompt Generator",
     rating: 5,
     tags: ["text", "generation", "text2text"],
     link: "textgen-space",
   },
   {
-    display_name: "👨🏻‍🎤 Image Generation",
+    display_name: "📷 Image Generation",
     rating: 5,
     tags: ["image generation", "generation", "text2text"],
     link: "imggen-space",
   },
 ];
 
-export const emojisData = ["✨", "🎖"];
+export const emojisData = ["🎵", "👋🏻", "💬", "📷"];

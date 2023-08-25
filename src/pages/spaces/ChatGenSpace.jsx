@@ -77,12 +77,11 @@ function ChatGenSpace() {
   }
 
   return (
-    <Box pb={12} ref={ref} minH="100vh" bg={colors.bgColor}>
+    <Box className="bg_img" py={12} ref={ref} minH="100vh">
       <Box
         mx="auto"
         width={{ base: "100%", lg: "88%", xl: "75%" }}
         pos="relative"
-        mt={12}
         className="bg_img"
         boxShadow={`0px 0px 4px ${colors.highLightColor}`}
         p={12}
@@ -126,10 +125,10 @@ function ChatGenSpace() {
         {!isSelected ? (
           <FormControl
             boxShadow={`0px 0px 4px 0px ${colors.highLightColor}`}
+            bg={colors.bgColor}
             border="2px"
             px={4}
             py={2}
-            className="bg_img"
           >
             <FormLabel
               variant={"unstyled"}
@@ -138,6 +137,7 @@ function ChatGenSpace() {
               fontFamily={fonts.parafont}
               fontSize={{ base: "md" }}
               fontWeight="bold"
+              bg={colors.bgColor}
               color={colors.fontLightColor}
             >
               Choose your AI assitance
@@ -150,9 +150,9 @@ function ChatGenSpace() {
             >
               {options.map((o, i) => (
                 <Flex
+                  className="bg_img"
                   p={0}
                   m={0}
-                  bg={colors.bgColor}
                   onClick={() => {
                     setPerson(o);
                     setIndex(i);
@@ -264,7 +264,7 @@ function ChatGenSpace() {
             ) : null}
           </GridItem>
           <GridItem>
-            <FormControl border="2px" px={4} py={2} bg={"gray.900"}>
+            <FormControl border="2px" px={4} py={2} bg={colors.bgColor}>
               <Input
                 value={input}
                 onChange={(i) => setInput(i.target.value)}
