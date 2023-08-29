@@ -33,7 +33,7 @@ const TeamComponent = () => {
   return (
     <Box pos="relative">
       <Grid gridTemplateColumns={"1fr 1fr"}>
-        <GridItem p={12}>
+        <GridItem>
           <HeadLines
             x="-60px"
             y="-40px"

@@ -1,6 +1,7 @@
 import {
   Box,
   Button,
+  Flex,
   FormControl,
   FormLabel,
   Grid,
@@ -68,32 +69,6 @@ function MusicGenSpace() {
         setLoaded(false);
       })
       .catch((e) => console.log(e));
-
-    // fetch("http://127.0.0.1:5000/music-gen", {
-    //   method: "POST",
-    //   body: {
-    //     model: model,
-    //     duration: duration,
-    //     input: input,
-    //   },
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //     "Content-Length": 600,
-    //   },
-    // })
-    //   .then((res) => res.blob())
-    //   .then((blob) => {
-    //     const fileReader = new FileReader();
-    //     fileReader.readAsDataURL(blob);
-    //     fileReader.onload = () => {
-    //       console.log(fileReader.result);
-    //       console.log(ref);
-    //       ref.current.src = fileReader.result;
-    //       ref.current.play();
-    //       setLoaded(true);
-    //     };
-    //   })
-    //   .catch((e) => console.log(e));
   }
 
   return (
@@ -257,7 +232,7 @@ function MusicGenSpace() {
             </Box>
           </GridItem>
 
-          <GridItem pos="relative" minH="240px" bg={colors.bgColor}>
+          <GridItem pos="relative" bg={colors.bgColor}>
             <Box px={2} py={1} pos="absolute" border="2px">
               <Text
                 fontFamily={fonts.parafont}
@@ -274,19 +249,23 @@ function MusicGenSpace() {
               alignItems="center"
               justifyContent={"center"}
               flexDirection="column"
+              h="100%"
+              w="100%"
             >
-              <video minW="100%" ref={ref} controls />
-              {!loaded ? null : (
-                <Audio
-                  height="80"
-                  width="80"
-                  radius="9"
-                  color="green"
-                  ariaLabel="loading"
-                  wrapperStyle
-                  wrapperClass
-                />
-              )}
+              <Flex p={4} justifyContent="center">
+                <video minW="100%" ref={ref} controls />
+                {!loaded ? null : (
+                  <Audio
+                    height="80"
+                    width="80"
+                    radius="9"
+                    color="green"
+                    ariaLabel="loading"
+                    wrapperStyle
+                    wrapperClass
+                  />
+                )}
+              </Flex>
             </Box>
           </GridItem>
         </Grid>

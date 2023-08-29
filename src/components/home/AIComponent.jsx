@@ -20,7 +20,7 @@ const AIComponent = () => {
   return (
     <Box borderTop={`2px solid ${colors.boxBorder}`} pos="relative">
       <Grid gridTemplateColumns={"1fr 1fr"}>
-        <GridItem p={12}>
+        <GridItem display={"grid"} pt={12}>
           <HeadLines
             x="-40px"
             y={"-40px"}
@@ -51,7 +51,8 @@ const AIComponent = () => {
           justifyContent="center"
           alignItems={"center"}
           width="100%"
-          p={{ base: 4, lg: 0 }}
+          px={{ base: 4, lg: 0 }}
+          py={{ base: 0, lg: 4 }}
         >
           {" "}
           <Swiper

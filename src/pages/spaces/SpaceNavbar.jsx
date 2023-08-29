@@ -13,6 +13,7 @@ export default function SpaceNavbar() {
       minH="7vh"
       p={2}
       className="bg_img"
+      bg={colors.bgColor}
       boxShadow={`0px 0px 4px ${colors.highLightColor}`}
     >
       <Flex
@@ -27,9 +28,7 @@ export default function SpaceNavbar() {
           fontWeight={"bold"}
           fontFamily={fonts.headingFont}
           color={colors.highLightColor}
-        >
-          Back to Spaces
-        </Text>
+        ></Text>
       </Flex>
     </Box>
   );

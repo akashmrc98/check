@@ -26,7 +26,7 @@ function RoadmapComponent() {
   return (
     <Box>
       <Grid gridTemplateColumns={"1fr 1fr"}>
-        <GridItem p={12}>
+        <GridItem>
           <HeadLines
             x="-40px"
             y="-40px"

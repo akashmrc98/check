@@ -27,6 +27,7 @@ function HeadLines(props) {
             fontFamily={fonts.headingFont}
             fontSize={{ base: "sm", lg: "xl" }}
             pb={4}
+            pl={4}
           >
             {props.desc}
           </Text>

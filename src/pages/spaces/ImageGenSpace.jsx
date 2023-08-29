@@ -19,9 +19,7 @@ import { fonts } from "../../theme/fonts";
 import { FaBoxes } from "react-icons/fa";
 
 import axios from "axios";
-import { Audio } from "react-loader-spinner";
-
-import Img from "/public/doodle.jpg";
+import { ThreeDots } from "react-loader-spinner";
 
 function ImageGenSpace() {
   const [input, setInput] = useState("");
@@ -123,7 +121,7 @@ function ImageGenSpace() {
               <Input
                 value={input}
                 onChange={(i) => setInput(i.target.value)}
-                placeholder="Classic, Pop, Blues, Phonk, Rock..."
+                placeholder="Muskmelon"
                 variant={"unstyled"}
                 border={`2px groove ${colors.boxBorder}`}
                 p={4}
@@ -132,6 +130,38 @@ function ImageGenSpace() {
                 fontWeight="bold"
                 color={colors.fontLightColor}
               />
+              <Box pb={24}>
+                <Flex py={4} columnGap=".4rem" alignItems={"center"}>
+                  <FaBoxes color={colors.fontLightColor} size={18} />
+                  <Text
+                    size={"lg"}
+                    bg={colors.bgColor}
+                    fontFamily={fonts.parafont}
+                    color={colors.highLightColor}
+                    fontWeight="bold"
+                  >
+                    Examples
+                  </Text>
+                </Flex>
+
+                {headers.map((h, i) => (
+                  <Tag
+                    size={"lg"}
+                    bg={colors.bgColor}
+                    fontFamily={fonts.headingFont}
+                    color={colors.highLightColor}
+                    boxShadow={`0 0 4px ${colors.highLightColor}`}
+                    fontWeight="bold"
+                    mx={2}
+                    my={2}
+                    cursor="pointer"
+                    onClick={() => setInput(h)}
+                    key={i}
+                  >
+                    {h}
+                  </Tag>
+                ))}
+              </Box>
             </FormControl>
 
             <Box py={4}>
@@ -157,7 +187,7 @@ function ImageGenSpace() {
           </GridItem>
 
           <GridItem pos="relative" minH="240px" bg={colors.bgColor}>
-            <Box px={2} py={1} pos="absolute" border="2px">
+            <Box bg={colors.bgColor} px={2} py={1} pos="absolute" border="2px">
               <Text
                 fontFamily={fonts.parafont}
                 fontWeight="bold"
@@ -167,64 +197,41 @@ function ImageGenSpace() {
                 Image Output
               </Text>
             </Box>
-            <Flex justifyContent={"center"}>
+            <Flex
+              pos={"absolute"}
+              zIndex={8}
+              alignItems={"center"}
+              height="100%"
+              width="100%"
+              justifyContent={"center"}
+            >
               {loaded ? (
-                <Audio
+                <ThreeDots
                   height="80"
                   width="80"
                   radius="9"
-                  color="green"
+                  color={colors.highLightColor}
                   ariaLabel="loading"
                   wrapperStyle
                   wrapperClass
                 />
               ) : null}
             </Flex>
-            <Box
-              pt={4}
-              display={"flex"}
-              alignItems="center"
-              justifyContent={"center"}
-              flexDirection="column"
-            >
-              <Image src={src} />
-            </Box>
+            <Image width="100%" objectFit={"contain"} src={src} />
           </GridItem>
         </Grid>
-        <Box pb={24}>
-          <Flex py={4} columnGap=".4rem" alignItems={"center"}>
-            <FaBoxes color={colors.fontLightColor} size={18} />
-            <Text
-              size={"lg"}
-              bg={colors.bgColor}
-              fontFamily={fonts.parafont}
-              color={colors.highLightColor}
-              fontWeight="bold"
-            >
-              Examples
-            </Text>
-          </Flex>
-
-          {headers.map((h, i) => (
-            <Tag
-              size={"lg"}
-              bg={colors.bgColor}
-              fontFamily={fonts.headingFont}
-              color={colors.highLightColor}
-              boxShadow={`0 0 4px ${colors.highLightColor}`}
-              fontWeight="bold"
-              mx={2}
-              key={i}
-            >
-              {h}
-            </Tag>
-          ))}
-        </Box>
       </Box>
     </Box>
   );
 }
 
-const headers = ["Elon Musk with tesla", "Monkey with banana"];
+const headers = [
+  "Elon Musk with tesla",
+  "Monkey with banana",
+  "Tiger with Hat",
+  "Apple Tree",
+  "Andriod",
+  "AI",
+];
 
 export default ImageGenSpace;

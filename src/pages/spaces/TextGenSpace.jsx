@@ -17,7 +17,7 @@ import { fonts } from "../../theme/fonts";
 import axios from "axios";
 
 import { FaBoxes } from "react-icons/fa";
-import { Audio } from "react-loader-spinner";
+import { ThreeDots } from "react-loader-spinner";
 
 function TextGenSpace() {
   const [input, setInput] = useState("");
@@ -101,7 +101,7 @@ function TextGenSpace() {
               <Input
                 value={input}
                 onChange={(i) => setInput(i.target.value)}
-                placeholder="Classic, Pop, Blues, Phonk, Rock..."
+                placeholder="Enter a persona"
                 variant={"unstyled"}
                 border={`2px groove ${colors.boxBorder}`}
                 p={4}
@@ -110,6 +110,36 @@ function TextGenSpace() {
                 fontWeight="bold"
                 color={colors.fontLightColor}
               />
+              <Box pb={24}>
+                <Flex py={4} columnGap=".4rem" alignItems={"center"}>
+                  <FaBoxes color={colors.fontLightColor} size={18} />
+                  <Text
+                    size={"lg"}
+                    bg={colors.bgColor}
+                    fontFamily={fonts.parafont}
+                    color={colors.highLightColor}
+                    fontWeight="bold"
+                  >
+                    Examples
+                  </Text>
+                </Flex>
+
+                {headers.map((h, i) => (
+                  <Tag
+                    size={"lg"}
+                    bg={colors.bgColor}
+                    fontFamily={fonts.headingFont}
+                    color={colors.highLightColor}
+                    boxShadow={`0 0 4px ${colors.highLightColor}`}
+                    fontWeight="bold"
+                    mx={2}
+                    key={i}
+                    onClick={() => setInput(h)}
+                  >
+                    {h}
+                  </Tag>
+                ))}
+              </Box>
             </FormControl>
 
             <Box py={4}>
@@ -145,13 +175,20 @@ function TextGenSpace() {
                 Prompt output
               </Text>
             </Box>
-            <Flex justifyContent={"center"}>
+            <Flex
+              pos={"absolute"}
+              zIndex={8}
+              alignItems={"center"}
+              height="100%"
+              width="100%"
+              justifyContent={"center"}
+            >
               {loaded ? (
-                <Audio
+                <ThreeDots
                   height="80"
                   width="80"
                   radius="9"
-                  color="green"
+                  color={colors.highLightColor}
                   ariaLabel="loading"
                   wrapperStyle
                   wrapperClass
@@ -180,40 +217,11 @@ function TextGenSpace() {
             </Box>
           </GridItem>
         </Grid>
-        <Box pb={24}>
-          <Flex py={4} columnGap=".4rem" alignItems={"center"}>
-            <FaBoxes color={colors.fontLightColor} size={18} />
-            <Text
-              size={"lg"}
-              bg={colors.bgColor}
-              fontFamily={fonts.parafont}
-              color={colors.highLightColor}
-              fontWeight="bold"
-            >
-              Examples
-            </Text>
-          </Flex>
-
-          {headers.map((h, i) => (
-            <Tag
-              size={"lg"}
-              bg={colors.bgColor}
-              fontFamily={fonts.headingFont}
-              color={colors.highLightColor}
-              boxShadow={`0 0 4px ${colors.highLightColor}`}
-              fontWeight="bold"
-              mx={2}
-              key={i}
-            >
-              {h}
-            </Tag>
-          ))}
-        </Box>
       </Box>
     </Box>
   );
 }
 
-const headers = ["Describe your music", "File"];
+const headers = ["Painter", "Actor", "Engineer"];
 
 export default TextGenSpace;

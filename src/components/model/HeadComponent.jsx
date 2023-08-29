@@ -12,7 +12,7 @@ import { colors } from "../../theme/colors";
 import { fonts } from "../../theme/fonts";
 import Logo from "/public/logo_6.png";
 
-function ModelHeadComponent({ url, service_id, display_name, media }) {
+function ModelHeadComponent({ service_id, display_name, media }) {
   return (
     <Grid
       border={{ base: 0, xl: `2px` }}
@@ -123,7 +123,7 @@ function ModelHeadComponent({ url, service_id, display_name, media }) {
                 flexDirection={{ base: "column", lg: "row" }}
                 justifyContent={"space-between"}
               >
-                <Text
+                {/* <Text
                   fontFamily={fonts.headingFont}
                   fontWeight="bold"
                   color={colors.fontLightColor}
@@ -135,7 +135,7 @@ function ModelHeadComponent({ url, service_id, display_name, media }) {
                   color={colors.fontLightColorV2}
                 >
                   {url}
-                </Text>
+                </Text> */}
               </Flex>
               <Flex
                 flexDirection={{ base: "column", lg: "row" }}

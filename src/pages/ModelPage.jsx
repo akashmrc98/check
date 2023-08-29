@@ -3,7 +3,6 @@ import { Box, Tabs, TabList, Tab, TabPanel, TabPanels } from "@chakra-ui/react";
 import { fonts } from "../theme/fonts.js";
 import { colors } from "../theme/colors.js";
 
-import TabOne from "../components/model/TabOne";
 import TabTwo from "../components/model/TabTwo";
 
 import ModelHeadComponent from "../components/model/HeadComponent.jsx";
@@ -13,7 +12,7 @@ import { useState } from "react";
 import { modelsData } from "../data/modelsData.jsx";
 import { useParams } from "react-router";
 
-import SpaceNavbar from "../components/common/ModelSpaceNavbar.jsx";
+import SpaceNavbar from "./spaces/SpaceNavbar.jsx";
 
 function ModelPage() {
   const params = useParams();

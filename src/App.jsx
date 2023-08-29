@@ -2,7 +2,6 @@ import { ChakraProvider } from "@chakra-ui/react";
 
 import HomePage from "./pages/HomePage";
 import ModelPage from "./pages/ModelPage";
-import Dapp from "./pages/DappPage";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SpaceFactory from "./pages/spaces/SpacesFactory";

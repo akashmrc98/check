@@ -20,13 +20,12 @@ import Question from "/public/icons/question.png";
 export default function FaqComponent() {
   const [index, setIndex] = useState(0);
   return (
-    <Box borderBottom={`2px solid white`}>
+    <Box borderBottom={{ base: 0, xl: `2px solid white` }}>
       <Grid
         justifyContent={"flex-end"}
         gridTemplateColumns={{ base: "1fr", lg: "1fr 1fr" }}
       >
-        <GridItem></GridItem>
-        <GridItem display={"flex"} justifyContent="flex-end" p={12}>
+        <GridItem display={"flex"}>
           <HeadLines
             x={"80px"}
             y="30px"
@@ -36,6 +35,7 @@ export default function FaqComponent() {
             title="FAQ's"
           />
         </GridItem>
+        <GridItem></GridItem>
       </Grid>
       <Grid
         py={8}
@@ -116,13 +116,18 @@ export default function FaqComponent() {
               ></Box>
             </Box>
 
-            <Flex px={4} alignItems={"center"} columnGap=".2rem">
+            <Flex
+              justifyContent={"center"}
+              px={4}
+              alignItems={"center"}
+              columnGap=".2rem"
+            >
               <Image maxW="24px" maxH="24px" src={Faq} />
               <Button
                 my={4}
                 mx={2}
                 fontFamily={fonts.headingFont}
-                fontSize={{ base: "2xl" }}
+                fontSize={{ base: "xl", xl: "2xl" }}
                 color={i === index ? colors.fontLightColorV2 : colors.boxBorder}
                 variant={"unstyled"}
                 textAlign="center"
@@ -165,7 +170,7 @@ export default function FaqComponent() {
                         fontFamily={fonts.headingFont}
                         color={colors.fontLightColor}
                         fontWeight="bold"
-                        fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
+                        fontSize={{ base: "md", md: "lg", lg: "xl", xl: "2xl" }}
                       >
                         {f.title}
                       </Text>
@@ -180,9 +185,8 @@ export default function FaqComponent() {
                 <AccordionPanel pb={4}>
                   <Text
                     cursor={"pointer"}
-                    _hover={{ color: colors.fontLightColorV2 }}
+                    color={colors.fontLightColorV2}
                     fontFamily={fonts.parafont}
-                    color={colors.boxBorder}
                     fontWeight="bold"
                     fontSize={{ base: "sm", md: "md" }}
                   >

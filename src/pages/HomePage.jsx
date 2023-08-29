@@ -5,7 +5,7 @@ import { colors } from "../theme/colors";
 
 import AIComponent from "../components/home/AIComponent";
 import EcoSystemComponent from "../components/home/EcoSystemComponent";
-import HomeComponent from "../components/home/HomeComponent";
+// import HomeComponent from "../components/home/HomeComponent";
 // import HowComponent from "../components/home/How/HowComponent";
 import MarketingComponent from "../components/home/MarketingComponent";
 import PartnersComponent from "../components/home/PartnersComponent";
@@ -36,9 +36,10 @@ function HomePage() {
         cursor={"pointer"}
         onClick={() => window.scrollTo(0, 0)}
         position={"fixed"}
-        bottom={"10%"}
-        right="0%"
+        bottom={"2%"}
+        right="1%"
         zIndex={999999}
+        display={{ base: "none", xl: "block" }}
       >
         <LiaArrowCircleUpSolid size={54} color={colors.highLightColor} />
       </Box>
@@ -50,7 +51,7 @@ function HomePage() {
         <Box
           display={"flex"}
           flexDirection="column"
-          rowGap={{ base: "2rem", lg: "3rem" }}
+          rowGap={{ base: "4rem", lg: "4rem" }}
           zIndex={4}
           width={{ base: "100%", lg: "88%" }}
           ref={ref}
@@ -59,7 +60,7 @@ function HomePage() {
           mx="auto"
         >
           <AIComponent />
-          <HomeComponent />
+          {/* <HomeComponent /> */}
           <MarketingComponent />
           <EcoSystemComponent />
           {/* <FeaturesComponent /> */}

@@ -10,8 +10,8 @@ import Ico from "/public/icons/arrow.png";
 
 function EcoSystemComponent() {
   return (
-    <Box px={{ base: 0, lg: 12 }} pos="relative">
-      <Grid gridTemplateColumns={"1fr"} p={12}>
+    <Box pos="relative">
+      <Grid gridTemplateColumns={"1fr"} p={0}>
         <HeadLines
           x="-40px"
           y={"-40px"}
@@ -36,7 +36,12 @@ function EcoSystemComponent() {
         }}
       >
         {/* <Image src={EcoSystem} /> */}
-        <Grid mx="auto" width={{ base: "100%", lg: "90%" }} py={24}>
+        <Grid
+          mx="auto"
+          width={{ base: "100%", lg: "90%" }}
+          px={{ base: 0, lg: 12 }}
+          py={{ base: 12 }}
+        >
           {ecoSystemData.map((e, i) => (
             <Grid
               bg={colors.bgColor}
@@ -87,14 +92,14 @@ function EcoSystemComponent() {
                     color={colors.fontLightColor}
                     fontWeight="bold"
                     fontSize={{ base: "xl", lg: "3xl" }}
-                    py={6}
+                    p={{ base: 2, xl: 4 }}
                   >
                     {e.title}
                   </Text>
                 </Flex>
               </GridItem>
               <Text
-                p={6}
+                p={{ base: 2, xl: 4 }}
                 fontFamily={fonts.parafont}
                 color={colors.fontLightColorV2}
                 fontWeight="bold"

@@ -41,7 +41,7 @@ export default function ModelSpaceNavbar() {
 
   return (
     <Box
-      pt={24}
+      pt={4}
       // bg={colors.bgColor}
       className="bg_img"
       display={"flex"}

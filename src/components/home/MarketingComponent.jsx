@@ -10,10 +10,11 @@ function MarketingComponent() {
   return (
     <Box
       zIndex={4}
-      flexDir={{ base: "column", lg: "row" }}
+      flexDirection={{ base: "column-reverse", lg: "row" }}
       display={"flex"}
       justifyContent={{ md: "flex-start" }}
-      alignItems={"center"}
+      alignItems={{ base: "", xl: "center" }}
+      columnGap="3rem"
     >
       <motion.div
         zIndex={4}
@@ -51,8 +52,6 @@ function MarketingComponent() {
       <Box
         display={"flex"}
         justifyContent={{ base: "flex-start", md: "flex-end" }}
-        py={8}
-        px={8}
       >
         <HeadLines
           x="80px"

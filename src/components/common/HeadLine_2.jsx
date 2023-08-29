@@ -1,13 +1,23 @@
 /* eslint-disable react/prop-types */
 import { Box, Text } from "@chakra-ui/react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import { colors } from "../../theme/colors";
 import { fonts } from "../../theme/fonts";
 
-function HeadLines2(props) {
+function HeadLines2() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (index === 4) setIndex(0);
+      else setIndex(index + 1);
+    }, 4000);
+  }, [index]);
+
   return (
     <Box pos={"relative"} zIndex={24} display={"flex"}>
-      <Box>
+      <Box width="100%">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -22,15 +32,45 @@ function HeadLines2(props) {
             damping: 20,
           }}
         >
-          <Text
-            color={colors.fontLightColorV2}
-            fontFamily={fonts.headingFont}
-            textAlign="right"
-            fontSize={{ base: "sm", lg: "xl" }}
-            pb={4}
-          >
-            {props.desc}
-          </Text>
+          <AnimatePresence>
+            <motion.div>
+              {[...titlesMapSectionOne][index].map((b, k) => (
+                <motion.div
+                  style={{
+                    display: "inline-block",
+                    fontWeight: "bolder",
+                  }}
+                  key={k}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{
+                    type: "tween",
+                    stiffness: 260,
+                    damping: 20,
+                    delay: Math.random(0, titlesMapSectionTwo[index].length),
+                    duration: 4,
+                    repeat: Infinity,
+                    repeatType: "loop",
+                  }}
+                >
+                  <Text
+                    color={colors.fontLightColorV2}
+                    fontFamily={fonts.headingFont}
+                    textAlign="right"
+                    fontSize={{
+                      base: "xl",
+                      lg: "2xl",
+                      xl: "3xl",
+                      "2xl": "5xl",
+                    }}
+                    pb={4}
+                  >
+                    {b}
+                  </Text>
+                </motion.div>
+              ))}
+            </motion.div>
+          </AnimatePresence>
         </motion.div>
         <motion.div
           initial="hidden"
@@ -112,18 +152,30 @@ function HeadLines2(props) {
                 stiffness: 260,
                 damping: 20,
               }}
-              className="bg_img"
             >
-              <Text
-                color={colors.fontLightColor}
-                fontFamily={fonts.headingFont}
-                fontSize={{ base: "4xl", lg: "8xl" }}
-                py={2}
-                px={3}
-                lineHeight={1}
+              <Box
+                display={"flex"}
+                justifyContent="center"
+                flexDir={"column"}
+                width="100%"
               >
-                {props.title}
-              </Text>
+                <motion.div className="bg_img" style={{ width: "100%" }}>
+                  <Box
+                    color={colors.fontLightColor}
+                    fontFamily={fonts.headingFont}
+                    fontSize={{
+                      base: "3xl",
+                      lg: "5xl",
+                      xl: "7xl",
+                    }}
+                    py={2}
+                    px={3}
+                    lineHeight={1}
+                  >
+                    {"BLOCKCHAIN AI"}
+                  </Box>{" "}
+                </motion.div>
+              </Box>
             </motion.div>
           </Box>
         </motion.div>
@@ -147,21 +199,43 @@ function HeadLines2(props) {
             damping: 20,
           }}
         >
-          <Text
+          <Box
             border={`2px solid ${colors.boxBorder}`}
-            color={colors.fontLightColorV2}
-            fontFamily={fonts.headingFont}
-            fontSize={{ base: "2xl", lg: "4xl" }}
-            py={6}
-            px={3}
             borderLeft={0}
             borderTop={0}
             borderLeftColor={colors.highLightColor}
-            lineHeight={0.2}
-            className="grad_txt"
           >
-            {props.subTitle}
-          </Text>
+            {titlesMapSectionTwo[index].map((b, k) => (
+              <motion.div
+                style={{
+                  display: "inline-block",
+                  fontWeight: "bolder",
+                }}
+                key={k}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{
+                  type: "tween",
+                  stiffness: 260,
+                  damping: 20,
+                  delay: Math.random(0, titlesMapSectionTwo[index].length),
+                  duration: 4,
+                  repeat: Infinity,
+                  repeatType: "loop",
+                }}
+              >
+                <Text
+                  px={0}
+                  color={colors.fontLightColorV2}
+                  fontFamily={fonts.headingFont}
+                  fontSize={{ base: "2xl", lg: "4xl", xl: "5xl" }}
+                  className="grad_txt"
+                >
+                  {b}
+                </Text>
+              </motion.div>
+            ))}
+          </Box>
         </motion.div>
       </Box>
     </Box>
@@ -169,3 +243,36 @@ function HeadLines2(props) {
 }
 
 export default HeadLines2;
+
+const titlesMapSectionTwo = [
+  ["w", "o", "r", "l", "d"],
+  ["e", "c", "o", "s", "y", "t", "e", "m"],
+  ["p", "o", "w", "e", "r"],
+  ["f", "u", "t", "u", "r", "e"],
+  ["f", "r", "o", "n", "t", "i", "e", "r"],
+];
+
+const titlesMapSectionOne = [
+  [
+    "E",
+    "v",
+    "e",
+    "r",
+    "y",
+    "t",
+    "h",
+    "i",
+    "n",
+    "g",
+    "\u00A0",
+    "a",
+    "b",
+    "o",
+    "u",
+    "t",
+  ],
+  ["E", "x", "a", "p", "a", "n", "d", "i", "n", "g", "\u00A0", "t", "h", "e"],
+  ["H", "a", "r", "n", "e", "s", "s", "i", "n", "g", "\u00A0", "t", "h", "e"],
+  ["P", "i", "o", "n", "e", "e", "r", "i", "n", "g", "\u00A0", "t", "h", "e"],
+  ["P", "u", "s", "h", "i", "n", "g", "\u00A0", "t", "h", "e"],
+];

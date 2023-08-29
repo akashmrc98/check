@@ -9,11 +9,12 @@ import HeadLines from "../../components/common/HeadLine";
 function PartnersComponent() {
   return (
     <Box
-      flexDirection={{ base: "column", lg: "row" }}
+      flexDirection={{ base: "column-reverse", lg: "row" }}
       display={"flex"}
       justifyContent="flex-start"
-      alignItems={"center"}
       zIndex={1}
+      alignItems={{ base: "", xl: "center" }}
+      columnGap="3rem"
     >
       <motion.div
         style={{ width: "100%" }}
@@ -47,7 +48,7 @@ function PartnersComponent() {
           </Marquee>
         </Box>
       </motion.div>
-      <Box py={8} px={8}>
+      <Box>
         <HeadLines
           x="80px"
           y="40px"

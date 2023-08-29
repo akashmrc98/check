@@ -6,7 +6,7 @@ import TextGenSpace from "./TextGenSpace";
 import MusicGenSpace from "./MusicGenSpace";
 import ChatGenSpace from "./ChatGenSpace";
 import ImageGenSpace from "./ImageGenSpace";
-import SpaceNavbar from "../../components/common/ModelSpaceNavbar";
+import SpaceNavbar from "./SpaceNavbar";
 
 function SpaceFactory() {
   const params = useParams();
