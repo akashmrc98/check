@@ -18,7 +18,7 @@ import HeadLines from "../common/HeadLine";
 
 const AIComponent = () => {
   return (
-    <Box borderTop={`2px solid ${colors.boxBorder}`} pos="relative">
+    <Box pos="relative">
       <Grid gridTemplateColumns={"1fr 1fr"}>
         <GridItem display={"grid"} pt={12}>
           <HeadLines

@@ -45,10 +45,11 @@ function HomePage() {
       </Box>
       <Line left={"6%"} />
       <Line left={"94%"} />
-      <Navbar />
+      {/* <Navbar /> */}
       <TitleComponent />
-      <Box>
+      <Box className="bg_img">
         <Box
+          bg={colors.bgColor}
           display={"flex"}
           flexDirection="column"
           rowGap={{ base: "4rem", lg: "4rem" }}
@@ -73,7 +74,9 @@ function HomePage() {
         </Box>
       </Box>
       {/* <OurSolutionComponent /> */}
-      <Footer />
+      <Box zIndex={9999999} className="bg_img">
+        <Footer />
+      </Box>
     </Box>
   );
 }

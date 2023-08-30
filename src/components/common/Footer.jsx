@@ -14,9 +14,9 @@ export default function Footer() {
       mx="auto"
       border={{ base: "none", md: `2px solid ${colors.boxBorder}` }}
       boxShadow={`-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`}
-      className="bg_img"
+      bg={colors.bgColor}
     >
-      <Box width={{ base: "90%", md: "75%" }} mx="auto">
+      <Box bg={colors.bgColor} width={{ base: "90%", md: "75%" }} mx="auto">
         <Grid columnGap={"2rem"} rowGap={"4rem"}>
           <GridItem
             alignItems={"center"}
@@ -46,7 +46,7 @@ export default function Footer() {
               *Only valuable resources, no bullshit.
             </Text>
           </GridItem>
-          <GridItem>
+          <GridItem className="bg_img">
             <Box
               display={"flex"}
               alignItems="self-start"
@@ -62,7 +62,6 @@ export default function Footer() {
                 fontFamily={fonts.parafont}
                 fontWeight={"bold"}
                 color={colors.highLightColor}
-                bg={colors.bgColor}
                 minH={{ base: "52px", lg: "72px" }}
                 px={4}
                 fontSize={{ base: "md", lg: "lg" }}

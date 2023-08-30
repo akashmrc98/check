@@ -204,6 +204,8 @@ function HeadLines2() {
             borderLeft={0}
             borderTop={0}
             borderLeftColor={colors.highLightColor}
+            bg={colors.bgColor}
+            px={4}
           >
             {titlesMapSectionTwo[index].map((b, k) => (
               <motion.div

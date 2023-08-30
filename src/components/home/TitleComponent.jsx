@@ -1,4 +1,4 @@
-import { Box, Flex, Grid, GridItem, Text } from "@chakra-ui/react";
+import { Box, Flex, Grid, GridItem, Image, Text } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { useState } from "react";
 import Spline from "@splinetool/react-spline";
@@ -12,6 +12,8 @@ import { motion } from "framer-motion";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { AiOutlineDownCircle } from "react-icons/ai";
+import { aiImages } from "../../data/aiSectionData";
+import BG from "/public/bg/7.jpg";
 
 function TitleComponent() {
   const [index, setIndex] = useState(0);
@@ -25,12 +27,16 @@ function TitleComponent() {
 
   return (
     <Box
-      bg={colors.bgColor}
       py={{ base: 0, xl: 24 }}
       width="100%"
       minH={{ base: "90vh", xl: "100vh" }}
       pos="relative"
       pt={{ base: 32 }}
+      w="100vw"
+      backgroundImage={BG}
+      backgroundRepeat="no-repeat"
+      backgroundSize={"cover"}
+      backgroundBlendMode="color"
     >
       <ScrollDown />
       <Grid
@@ -52,14 +58,9 @@ function TitleComponent() {
           mx="auto"
         >
           <GridItem width={{ base: "90vw", xl: "auto" }} mx="auto">
-            {/* <HeadLines
-              desc="UNLEASH THE POWER OF"
-              subTitle="AI"
-              title="Blockchain"
-            /> */}
             <Swiper
               modules={[Autoplay, Navigation]}
-              slidesPerView={2}
+              slidesPerView={1}
               spaceBetween={0}
               direction={"vertical"}
               loop={true}
@@ -67,27 +68,21 @@ function TitleComponent() {
                 delay: 2500,
                 disableOnInteraction: false,
               }}
-              style={{ height: "170px", padding: ".1rem" }}
+              style={{ height: "512px", padding: ".1rem" }}
             >
               {homeSummaryData.map((d, i) => (
                 <SwiperSlide key={i}>
                   {({ isActive }) => (
-                    <Box
-                      borderColor={colors.boxBorder}
-                      className={isActive ? "bg_img" : ""}
-                      height={"100%"}
-                      m={0}
-                      p={0}
-                      h="auto"
-                      w="auto"
-                    >
+                    <Box>
+                      <Image maxW="612px" src={aiImages[i]} />
                       <Text
                         py={4}
                         px={4}
                         color={colors.fontLightColor}
                         fontFamily={fonts.parafont}
-                        fontSize={{ base: "sm", lg: "md" }}
-                        maxW={{ base: "100%", lg: "80%" }}
+                        fontSize={{ base: "xl", lg: "2xl" }}
+                        fontWeight="bold"
+                        w={{ base: "100%", lg: "80%" }}
                       >
                         {d}
                       </Text>
