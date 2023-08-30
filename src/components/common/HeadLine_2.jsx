@@ -164,9 +164,10 @@ function HeadLines2() {
                     color={colors.fontLightColor}
                     fontFamily={fonts.headingFont}
                     fontSize={{
-                      base: "3xl",
-                      lg: "5xl",
-                      xl: "7xl",
+                      base: "2xl",
+                      lg: "3xl",
+                      xl: "4xl",
+                      "2xl": "6xl",
                     }}
                     py={2}
                     px={3}

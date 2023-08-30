@@ -9,6 +9,8 @@ import { useNavigate } from "react-router";
 import { useState } from "react";
 import ModelSpaceNavbar from "../components/common/ModelSpaceNavbar";
 
+import BG from "/public/bg/7.jpg";
+
 function ModelsPage() {
   const navigate = useNavigate();
 
@@ -27,10 +29,10 @@ function ModelsPage() {
 
   return (
     <Box
-      // backgroundImage={Img}
-      // backgroundSize="cover"
-      // backgroundRepeat={"no-repeat"}
-      className="bg_img"
+      backgroundImage={BG}
+      backgroundRepeat="no-repeat"
+      backgroundSize={"cover"}
+      backgroundBlendMode="color"
       pos="relative"
       minH="100vh"
     >
@@ -101,7 +103,8 @@ function ModelsPage() {
           h={4}
           width="100%"
           borderRadius={"xl"}
-          border={`1px solid ${colors.highLightColor}`}
+          border={`1px solid ${colors.bgColor}`}
+          opacity={0.8}
           backgroundImage={`linear-gradient(to right, #e63e6d, #f04760, #f85451, #fb6242, #fc7231, #fc7c28, #fb861d, #f9900e, #fb960a, #fc9c06, #fea303, #ffa900)`}
         ></Box>
         <Grid
@@ -112,12 +115,14 @@ function ModelsPage() {
             md: "1fr 1fr",
             xl: "1fr 1fr 1fr 1fr",
           }}
+          pb={24}
         >
           {initialModels.map((d, i) => (
             <GridItem
               onClick={() => navigate("/dapp/models/" + d.service_id)}
               cursor={"pointer"}
               borderRadius={"lg"}
+              opacity={0.75}
               pos={"relative"}
               key={i}
               transition={`all 100ms ease-in-out`}

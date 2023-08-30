@@ -22,9 +22,6 @@ const AIComponent = () => {
       <Grid gridTemplateColumns={"1fr 1fr"}>
         <GridItem display={"grid"} pt={12}>
           <HeadLines
-            x="-40px"
-            y={"-40px"}
-            s={1.2}
             desc="UNLEASH THE POWER OF"
             subTitle="AI"
             title="Blockchain"
@@ -51,7 +48,6 @@ const AIComponent = () => {
           justifyContent="center"
           alignItems={"center"}
           width="100%"
-          px={{ base: 4, lg: 0 }}
           py={{ base: 0, lg: 4 }}
         >
           {" "}
@@ -111,9 +107,6 @@ const AIComponent = () => {
                     borderColor={colors.boxBorder}
                     boxShadow={`0px 0px 2px ${colors.boxBorder}`}
                     bg={colors.bgColor}
-
-                    // borderLeft={0}
-                    // borderRight={0}
                   >
                     <Text
                       fontFamily={fonts.parafont}

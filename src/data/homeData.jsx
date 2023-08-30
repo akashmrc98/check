@@ -7,8 +7,10 @@ export const homeSummaryData = [
 ];
 
 export const homeUtilsData = [
-  "DEVELOPMENT",
-  "MARKET ANALYSIS",
-  "AI TRADING",
-  "AND MUCH MORE",
+  "PRODUCTS",
+  "MARKETING",
+  "ECO-SYSTEM",
+  "PARTNETS",
+  "TOKENOMICS",
+  "TEAM",
 ];

@@ -16,7 +16,6 @@ import TeamComponent from "../components/home/TeamComponent";
 // import OurSolutionComponent from "../components/home/OurSolution/OurSolutionsComponent";
 import Footer from "../components/common/Footer";
 import FaqComponent from "../components/home/Faq";
-import Navbar from "../components/common/Navbar";
 import Line from "../components/common/Line";
 import { LiaArrowCircleUpSolid } from "react-icons/lia";
 
@@ -74,7 +73,7 @@ function HomePage() {
         </Box>
       </Box>
       {/* <OurSolutionComponent /> */}
-      <Box zIndex={9999999} className="bg_img">
+      <Box zIndex={9999999} className={{ base: "none", xl: "bg_img" }}>
         <Footer />
       </Box>
     </Box>

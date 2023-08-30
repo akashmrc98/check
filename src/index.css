@@ -141,7 +141,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #5ce1e6; /* color of the scroll thumb */
+  background-color: #526d82; /* color of the scroll thumb */
 }
 
 body,
@@ -201,4 +201,15 @@ html {
   50% {
     transform: translateY(-30px) scale(1.1);
   }
+}
+
+.c_line {
+  width: 77vh;
+  height: 100px;
+  border: solid 4px #5ce1e6;
+  border-color: #5ce1e6 transparent transparent transparent;
+  border-radius: 50%/100px 100px 0 0;
+  transform: rotate(90deg) translateX(25vh);
+  position: absolute;
+  left: "80%";
 }

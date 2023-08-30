@@ -40,7 +40,8 @@ function EcoSystemComponent() {
           mx="auto"
           width={{ base: "100%", lg: "90%" }}
           px={{ base: 0, lg: 12 }}
-          py={{ base: 12 }}
+          pb={{ base: 12 }}
+          pt={{ base: 0, xl: 12 }}
         >
           {ecoSystemData.map((e, i) => (
             <Grid

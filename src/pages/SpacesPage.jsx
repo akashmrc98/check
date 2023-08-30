@@ -8,11 +8,21 @@ import { useNavigate } from "react-router";
 import G from "/public/eco_system/grid.png";
 import ModelSpaceNavbar from "../components/common/ModelSpaceNavbar";
 
+import BG from "/public/bg/7.jpg";
+
 function SpacesPage() {
   const navigate = useNavigate();
 
   return (
-    <Box pos="relative" className="bg_img" minH="100vh">
+    <Box
+      backgroundImage={BG}
+      backgroundRepeat="no-repeat"
+      backgroundSize={"cover"}
+      backgroundBlendMode="color"
+      pos="relative"
+      // className="bg_img"
+      minH="100vh"
+    >
       <ModelSpaceNavbar />
       <Box mt={4} mx="auto" width={{ base: "100%", lg: "88%" }} pos="relative">
         <Box
@@ -80,7 +90,8 @@ function SpacesPage() {
           h={4}
           width="100%"
           borderRadius={"xl"}
-          border={`1px solid ${colors.highLightColor}`}
+          border={`1px solid ${colors.bgColor}`}
+          opacity={0.8}
           backgroundImage={`linear-gradient(to right, #e63e6d, #f04760, #f85451, #fb6242, #fc7231, #fc7c28, #fb861d, #f9900e, #fb960a, #fc9c06, #fea303, #ffa900)`}
         ></Box>
         <Grid
@@ -94,6 +105,7 @@ function SpacesPage() {
         >
           {spacesData.map((d, i) => (
             <GridItem
+              opacity={0.8}
               onClick={() => navigate(`/dapp/spaces/${d.link}`)}
               cursor={"pointer"}
               borderRadius={"lg"}

@@ -43,7 +43,7 @@ export default function ModelSpaceNavbar() {
     <Box
       pt={4}
       // bg={colors.bgColor}
-      className="bg_img"
+      // className="bg_img"
       display={"flex"}
       alignItems="center"
       minH="7vh"
