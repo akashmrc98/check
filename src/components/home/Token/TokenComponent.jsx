@@ -13,12 +13,8 @@ import TokenomicsCardComponent from "./TokenomicCardComponent";
 function TokenComponent() {
   return (
     <Box width="100%">
-      <Grid
-        justifyContent={"flex-end"}
-        gridTemplateColumns={{ base: "1fr", lg: "1fr 1fr" }}
-      >
-        <GridItem></GridItem>
-        <GridItem display={"flex"} justifyContent="flex-end" p={12}>
+      <Grid gridTemplateColumns={{ base: "1fr" }}>
+        <GridItem>
           <HeadLines
             x={"80px"}
             y="30px"
@@ -28,6 +24,7 @@ function TokenComponent() {
             title="TOKENOMICS"
           />
         </GridItem>
+        <GridItem></GridItem>
       </Grid>
       <Box
         display={{ base: "grid" }}

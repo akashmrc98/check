@@ -12,8 +12,7 @@ export default function SpaceNavbar() {
       alignItems="center"
       minH="7vh"
       p={2}
-      className="bg_img"
-      bg={colors.bgColor}
+      bg={`rgba(0,0,0,.4)`}
       boxShadow={`0px 0px 4px ${colors.highLightColor}`}
     >
       <Flex

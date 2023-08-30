@@ -21,6 +21,8 @@ import { FaBoxes } from "react-icons/fa";
 import axios from "axios";
 import { ThreeDots } from "react-loader-spinner";
 
+import BG from "/public/bg/7.jpg";
+
 function ImageGenSpace() {
   const [input, setInput] = useState("");
   const [loaded, setLoaded] = useState(false);
@@ -62,17 +64,31 @@ function ImageGenSpace() {
   }
 
   return (
-    <Box minH="100vh" className="bg_img" pt={12}>
+    <Box
+      backgroundImage={BG}
+      backgroundRepeat="no-repeat"
+      backgroundSize={"cover"}
+      backgroundBlendMode="color"
+      minH={{ base: "auto", xl: "100vh" }}
+      backgroundPosition="center"
+      pt={12}
+    >
       <Box
         mx="auto"
         width={{ base: "100%", lg: "88%", xl: "75%" }}
         pos="relative"
-        className="bg_img"
         p={12}
+        bg={`rgba(0,0,0,0.7)`}
         border="2px"
         boxShadow={`0 0 2px ${colors.highLightColor}`}
       >
-        <Box display={"grid"} px={2} pt={8}>
+        <Box
+          display={"grid"}
+          px={2}
+          pt={8}
+          bg={`rgba(0,0,0,.7)`}
+          borderRadius="md"
+        >
           <Text
             textAlign={"left"}
             fontWeight={"bold"}
@@ -109,7 +125,13 @@ function ImageGenSpace() {
           }}
         >
           <GridItem>
-            <FormControl border="2px" px={8} py={8} bg={colors.bgColor}>
+            <FormControl
+              border="2px"
+              px={8}
+              py={8}
+              bg={`rgba(0,0,0,.7)`}
+              borderRadius="md"
+            >
               <FormLabel
                 fontFamily={fonts.headingFont}
                 fontSize={{ base: "lg" }}
@@ -135,7 +157,8 @@ function ImageGenSpace() {
                   <FaBoxes color={colors.fontLightColor} size={18} />
                   <Text
                     size={"lg"}
-                    bg={colors.bgColor}
+                    bg={`rgba(0,0,0,.7)`}
+                    borderRadius="md"
                     fontFamily={fonts.parafont}
                     color={colors.highLightColor}
                     fontWeight="bold"
@@ -186,7 +209,12 @@ function ImageGenSpace() {
             </Box>
           </GridItem>
 
-          <GridItem pos="relative" minH="240px" bg={colors.bgColor}>
+          <GridItem
+            pos="relative"
+            minH="240px"
+            bg={`rgba(0,0,0,.7)`}
+            borderRadius="md"
+          >
             <Box bg={colors.bgColor} px={2} py={1} pos="absolute" border="2px">
               <Text
                 fontFamily={fonts.parafont}

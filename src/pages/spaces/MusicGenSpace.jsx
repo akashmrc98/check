@@ -32,7 +32,7 @@ import axios from "axios";
 
 import { Audio } from "react-loader-spinner";
 
-import Img from "/public/doodle.jpg";
+import BG from "/public/bg/7.jpg";
 
 function MusicGenSpace() {
   const ref = useRef();
@@ -72,17 +72,31 @@ function MusicGenSpace() {
   }
 
   return (
-    <Box className="bg_img" pt={12}>
+    <Box
+      backgroundImage={BG}
+      backgroundRepeat="no-repeat"
+      backgroundSize={"cover"}
+      backgroundBlendMode="color"
+      minH={{ base: "auto", xl: "100vh" }}
+      backgroundPosition="center"
+      pt={12}
+    >
       <Box
         mx="auto"
         width={{ base: "100%", lg: "88%", xl: "75%" }}
         pos="relative"
         border={"2px"}
-        className="bg_img"
         boxShadow={`0px 0px 4px ${colors.highLightColor}`}
+        borderRadius="md"
         p={12}
       >
-        <Box display={"grid"} px={2} pt={8}>
+        <Box
+          py={5}
+          borderRadius={"md"}
+          bg={`rgba(0,0,0,.7)`}
+          display={"grid"}
+          px={2}
+        >
           <Text
             textAlign={"left"}
             fontWeight={"bold"}
@@ -121,7 +135,13 @@ function MusicGenSpace() {
           }}
         >
           <GridItem>
-            <FormControl border="2px" px={8} py={8} bg={colors.bgColor}>
+            <FormControl
+              border="2px"
+              px={8}
+              py={8}
+              borderRadius={"md"}
+              bg={`rgba(0,0,0,.7)`}
+            >
               <FormLabel
                 fontFamily={fonts.headingFont}
                 fontSize={{ base: "lg" }}
@@ -143,7 +163,13 @@ function MusicGenSpace() {
                 color={colors.fontLightColor}
               />
             </FormControl>
-            <FormControl border="2px" px={8} py={8} bg={colors.bgColor}>
+            <FormControl
+              border="2px"
+              px={8}
+              py={8}
+              borderRadius={"md"}
+              bg={`rgba(0,0,0,.7)`}
+            >
               <FormLabel
                 fontFamily={fonts.headingFont}
                 fontSize={{ base: "lg" }}
@@ -171,7 +197,13 @@ function MusicGenSpace() {
               </RadioGroup>
             </FormControl>
 
-            <FormControl border="2px" px={8} py={8} bg={colors.bgColor}>
+            <FormControl
+              borderRadius={"md"}
+              bg={`rgba(0,0,0,.7)`}
+              border="2px"
+              px={8}
+              py={8}
+            >
               <FormLabel
                 fontFamily={fonts.headingFont}
                 fontSize={{ base: "lg" }}
@@ -232,7 +264,7 @@ function MusicGenSpace() {
             </Box>
           </GridItem>
 
-          <GridItem pos="relative" bg={colors.bgColor}>
+          <GridItem pos="relative" borderRadius={"md"} bg={`rgba(0,0,0,.7)`}>
             <Box px={2} py={1} pos="absolute" border="2px">
               <Text
                 fontFamily={fonts.parafont}
@@ -271,7 +303,8 @@ function MusicGenSpace() {
         </Grid>
         <Box pb={24}>
           <Table
-            bg={colors.bgColor}
+            bg={`rgba(0,0,0,.7)`}
+            borderRadius="md"
             border={`2px solid ${colors.bgColor}`}
             variant={"simple"}
             mt={24}

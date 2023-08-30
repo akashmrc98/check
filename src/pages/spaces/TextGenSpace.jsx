@@ -18,6 +18,7 @@ import axios from "axios";
 
 import { FaBoxes } from "react-icons/fa";
 import { ThreeDots } from "react-loader-spinner";
+import BG from "/public/bg/7.jpg";
 
 function TextGenSpace() {
   const [input, setInput] = useState("");
@@ -42,12 +43,21 @@ function TextGenSpace() {
   }
 
   return (
-    <Box minH="100vh" className="bg_img" pt={12}>
+    <Box
+      backgroundImage={BG}
+      backgroundRepeat="no-repeat"
+      backgroundSize={"cover"}
+      backgroundBlendMode="color"
+      minH={{ base: "auto", xl: "100vh" }}
+      backgroundPosition="center"
+      pt={12}
+    >
       <Box
         mx="auto"
         width={{ base: "100%", lg: "88%", xl: "75%" }}
         pos="relative"
-        className="bg_img"
+        bg={`rgba(0,0,0,.7)`}
+        borderRadius="md"
         boxShadow={`0 0 2px ${colors.highLightColor}`}
         p={12}
       >
@@ -89,7 +99,13 @@ function TextGenSpace() {
           }}
         >
           <GridItem>
-            <FormControl border="2px" px={8} py={8} bg={colors.bgColor}>
+            <FormControl
+              border="2px"
+              px={8}
+              py={8}
+              bg={`rgba(0,0,0,.7)`}
+              borderRadius="md"
+            >
               <FormLabel
                 fontFamily={fonts.headingFont}
                 fontSize={{ base: "lg" }}
@@ -164,7 +180,7 @@ function TextGenSpace() {
             </Box>
           </GridItem>
 
-          <GridItem pos="relative" bg={colors.bgColor}>
+          <GridItem pos="relative" bg={`rgba(0,0,0,.7)`} borderRadius="md">
             <Box px={2} py={1} pos="absolute" border="2px">
               <Text
                 fontFamily={fonts.parafont}

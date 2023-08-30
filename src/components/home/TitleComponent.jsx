@@ -9,19 +9,11 @@ import { homeUtilsData } from "../../data/homeData";
 import { motion } from "framer-motion";
 
 import { AiOutlineDownCircle } from "react-icons/ai";
-import BG from "/public/bg/11.jpg";
+import BG from "/public/bg/10.jpg";
 import { FaAddressBook } from "react-icons/fa";
 
 function TitleComponent() {
   const [index, setIndex] = useState(0);
-  const [hover, setHover] = useState([
-    "hidden",
-    "hidden",
-    "hidden",
-    "hidden",
-    "hidden",
-    "hidden",
-  ]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -46,6 +38,7 @@ function TitleComponent() {
     >
       <Model visible={true} />
       <ScrollDown />
+      <SideBar />
       <Grid
         justifyContent={"space-between"}
         width={{ base: "100%", xl: "100%", "2xl": "92%" }}
@@ -123,100 +116,6 @@ function TitleComponent() {
               </Box>
             ))}
           </GridItem>
-        </Grid>
-        <Grid
-          display={{ base: "none", xl: "grid" }}
-          alignItems={{ base: "center", xl: "flex-start" }}
-          justifyContent={{ base: "center", xl: "flex-end" }}
-          templateColumns={{ base: "1fr 0fr", xl: "1fr" }}
-          width="40%"
-          ml="auto"
-          mr={{ xl: 12, "2xl": 6 }}
-          zIndex={9999999999}
-          position="relative"
-        >
-          <Box className="c_line"></Box>
-          <GridItem pos="relative" width={{ base: "90vw", xl: "30vw" }}>
-            {homeUtilsData.map((h, j) => (
-              <Box
-                columnGap={"1rem"}
-                display={"flex"}
-                alignItems={"center"}
-                justifyContent="flex-end"
-                my={8}
-                key={j}
-              >
-                <motion.div
-                  style={{
-                    textAlign: "center",
-                    visibility: hover[j],
-                    transition: `all 200ms ease-in-out`,
-                  }}
-                >
-                  <Box
-                    cursor="pointer"
-                    padding="1rem"
-                    borderRadius={"100rem"}
-                    boxShadow={"dark-lg"}
-                    className="bg_img"
-                  >
-                    <Text
-                      fontFamily={fonts.headingFont}
-                      fontSize={{ base: "lg", lg: "xl" }}
-                      fontWeight="bold"
-                      color={colors.fontLightColorV2}
-                      px={2}
-                    >
-                      {h}
-                    </Text>
-                  </Box>
-                </motion.div>
-                <Box
-                  display={"flex"}
-                  alignItems="center"
-                  justifyContent={"center"}
-                  maxW={"16"}
-                  maxH="16"
-                  minW={"16"}
-                  minH="16"
-                  p={4}
-                  cursor="pointer"
-                  borderRadius="100rem"
-                  borderColor={colors.boxBorder}
-                  transition={"all 200ms ease-in-out"}
-                  backgroundImage={`radial-gradient(circle, #40f8ff, #00e4ff, #00cfff, #00b7ff, #279eff);`}
-                  boxShadow={`0px 0px 2px ${colors.bgColor}`}
-                  _hover={{
-                    padding: "3",
-                    bg: colors.highLightColor,
-                    cursor: "pointer",
-                    outline: `7px solid ${colors.highLightColor}`,
-                    outlineColor: `rgba(92, 225, 230, .5)`,
-                    transition: `all 200ms ease-in-out`,
-                  }}
-                  onMouseEnter={() => {
-                    let h = hover;
-                    h[j] = "visible";
-                    setHover([...h]);
-                    console.log(h, hover);
-                  }}
-                  onMouseLeave={() => {
-                    setHover([
-                      "hidden",
-                      "hidden",
-                      "hidden",
-                      "hidden",
-                      "hidden",
-                      "hidden",
-                    ]);
-                  }}
-                >
-                  <FaAddressBook size={32} color={colors.bgColor} />
-                </Box>
-              </Box>
-            ))}
-          </GridItem>
-          <Box display={"flex"} justifyContent="flex-start"></Box>
         </Grid>
       </Grid>
       <Model />
@@ -302,5 +201,123 @@ function Model(props) {
         <Spline scene="https://prod.spline.design/1DglKtaHKqrB0uWn/scene.splinecode" />
       </Box>
     </Box>
+  );
+}
+
+function SideBar() {
+  const [hover, setHover] = useState([
+    "visible",
+    "hidden",
+    "hidden",
+    "hidden",
+    "hidden",
+    "hidden",
+  ]);
+  return (
+    <Grid
+      zIndex={9999999999}
+      pos="absolute"
+      right="5%"
+      top={0}
+      bottom={0}
+      m={"auto 0"}
+    >
+      <GridItem
+        display={"flex"}
+        alignItems="center"
+        flexDir={"column"}
+        justifyContent="center"
+      >
+        <Box
+          py={6}
+          px={2}
+          // boxShadow={`0px 0px 8px ${colors.highLightColor}`}
+          // bg={`rgba(0,0,0,.5)`}
+          borderRadius="3xl"
+        >
+          {homeUtilsData.map((h, j) => (
+            <Box
+              columnGap={"1rem"}
+              display={"flex"}
+              alignItems={"center"}
+              justifyContent="flex-end"
+              mb={j === homeUtilsData.length - 1 ? 0 : 3}
+              key={j}
+              pos="relative"
+            >
+              <Box
+                pos="absolute"
+                width="250px"
+                right={"130%"}
+                style={{
+                  textAlign: "center",
+                  visibility: hover[j],
+                  transition: `all 200ms ease-in-out`,
+                }}
+              >
+                <Box
+                  boxShadow={`0px 0px 8px ${colors.highLightColor}`}
+                  cursor="pointer"
+                  padding="1rem"
+                  borderRadius={"100rem"}
+                  className="bg_img"
+                >
+                  <Text
+                    fontFamily={fonts.headingFont}
+                    fontSize={{ base: "lg", lg: "xl" }}
+                    fontWeight="bold"
+                    color={colors.fontLightColorV2}
+                    px={2}
+                  >
+                    {h}
+                  </Text>
+                </Box>
+              </Box>
+              <Box
+                display={"flex"}
+                alignItems="center"
+                justifyContent={"center"}
+                maxW={16}
+                maxH={16}
+                minW={16}
+                minH={16}
+                my={2}
+                cursor="pointer"
+                borderRadius={j % 2 === 0 ? "200rem" : "md"}
+                borderColor={colors.boxBorder}
+                transition={"all 200ms ease-in-out"}
+                backgroundImage={`radial-gradient(circle, #40f8ff, #00e4ff, #00cfff, #00b7ff, #279eff);`}
+                boxShadow={`0px 0px 2px ${colors.bgColor}`}
+                _hover={{
+                  bg: colors.highLightColor,
+                  cursor: "pointer",
+                  outline: `7px solid ${colors.highLightColor}`,
+                  outlineColor: `rgba(92, 225, 230, .5)`,
+                  transition: `all 200ms ease-in-out`,
+                }}
+                onMouseEnter={() => {
+                  let h = hover;
+                  h[j] = "visible";
+                  setHover([...h]);
+                  console.log(h, hover);
+                }}
+                onMouseLeave={() => {
+                  setHover([
+                    "hidden",
+                    "hidden",
+                    "hidden",
+                    "hidden",
+                    "hidden",
+                    "hidden",
+                  ]);
+                }}
+              >
+                <FaAddressBook size={32} color={colors.bgColor} />
+              </Box>
+            </Box>
+          ))}
+        </Box>
+      </GridItem>
+    </Grid>
   );
 }

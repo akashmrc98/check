@@ -18,6 +18,8 @@ import Footer from "../components/common/Footer";
 import FaqComponent from "../components/home/Faq";
 import Line from "../components/common/Line";
 import { LiaArrowCircleUpSolid } from "react-icons/lia";
+import TokenComponent from "../components/home/Token/TokenComponent";
+import BG from "/public/bg/1.jpg";
 
 function HomePage() {
   const ref = useRef();
@@ -48,7 +50,6 @@ function HomePage() {
       <TitleComponent />
       <Box className="bg_img">
         <Box
-          bg={colors.bgColor}
           display={"flex"}
           flexDirection="column"
           rowGap={{ base: "4rem", lg: "4rem" }}
@@ -58,6 +59,11 @@ function HomePage() {
           p={0}
           borderRadius="xl"
           mx="auto"
+          backgroundImage={BG}
+          backgroundRepeat="no-repeat"
+          backgroundSize={"cover"}
+          backgroundBlendMode="color"
+          backgroundPosition="center"
         >
           <AIComponent />
           {/* <HomeComponent /> */}
@@ -66,6 +72,7 @@ function HomePage() {
           {/* <FeaturesComponent /> */}
           <PartnersComponent />
           <RoadmapComponent />
+          <TokenComponent />
 
           {/* <HowComponent /> */}
           <TeamComponent />
@@ -73,7 +80,7 @@ function HomePage() {
         </Box>
       </Box>
       {/* <OurSolutionComponent /> */}
-      <Box zIndex={9999999} className={{ base: "none", xl: "bg_img" }}>
+      <Box zIndex={9999999} className="bg_img">
         <Footer />
       </Box>
     </Box>

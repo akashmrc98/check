@@ -28,6 +28,7 @@ import BA from "/public/chat/Brian Armstrong.webp";
 import MJS from "/public/chat/Michael J. Saylor.webp";
 import TD from "/public/chat/Tim Draper.png";
 import TW from "/public/chat/Tyler Winklevoss.webp";
+import BG from "/public/bg/10.jpg";
 
 let imgs = [EM, VB, CZ, JS, BA, MJS, TD, TW];
 
@@ -77,13 +78,23 @@ function ChatGenSpace() {
   }
 
   return (
-    <Box className="bg_img" py={12} ref={ref} minH="100vh">
+    <Box
+      backgroundImage={BG}
+      backgroundRepeat="no-repeat"
+      backgroundSize={"cover"}
+      backgroundBlendMode="color"
+      minH={{ base: "auto", xl: "100vh" }}
+      backgroundPosition="center"
+      pt={12}
+      py={12}
+      ref={ref}
+    >
       <Box
         mx="auto"
         width={{ base: "100%", lg: "88%", xl: "75%" }}
         pos="relative"
-        className="bg_img"
         boxShadow={`0px 0px 4px ${colors.highLightColor}`}
+        bg={`rgba(0,0,0,.7)`}
         p={12}
         border="2px"
       >
@@ -125,7 +136,8 @@ function ChatGenSpace() {
         {!isSelected ? (
           <FormControl
             boxShadow={`0px 0px 4px 0px ${colors.highLightColor}`}
-            bg={colors.bgColor}
+            bg={`rgba(0,0,0,.7)`}
+            borderRadius="md"
             border="2px"
             px={4}
             py={2}
@@ -137,7 +149,8 @@ function ChatGenSpace() {
               fontFamily={fonts.parafont}
               fontSize={{ base: "md" }}
               fontWeight="bold"
-              bg={colors.bgColor}
+              bg={`rgba(0,0,0,.7)`}
+              borderRadius="md"
               color={colors.fontLightColor}
             >
               Choose your AI assitance
@@ -188,7 +201,7 @@ function ChatGenSpace() {
         ) : null}
 
         <Grid boxShadow={`0px 0px 4px 0px ${colors.highLightColor}`}>
-          <GridItem pos="relative" className="bg_img">
+          <GridItem pos="relative">
             <Box my={5} px={4} pt={4} display={"flex"} flexDirection="column">
               {promp.map((p, i) => (
                 <Box columnGap={"2rem"} key={i} display="flex">
@@ -205,14 +218,14 @@ function ChatGenSpace() {
                   <Text
                     my={4}
                     p={3}
-                    bg={colors.bgColor}
+                    bg={`rgba(0,0,0,.7)`}
+                    borderRadius="md"
                     fontWeight={"bold"}
                     fontFamily={fonts.parafont}
                     width="100%"
                     color={colors.fontLightColor}
                     mx="auto"
                     fontSize={{ base: "sm" }}
-                    borderRadius="sm"
                   >
                     {p}
                   </Text>
@@ -242,7 +255,6 @@ function ChatGenSpace() {
                 pb={8}
                 fontSize={{ base: "sm", lg: "lg" }}
                 pr={12}
-                className="bg_img"
                 justifyContent={"flex-end"}
                 alignItems="center"
                 columnGap={".5rem"}
@@ -264,7 +276,7 @@ function ChatGenSpace() {
             ) : null}
           </GridItem>
           <GridItem>
-            <FormControl border="2px" px={4} py={2} bg={colors.bgColor}>
+            <FormControl border="2px" px={4} py={2} bg={`rgba(0,0,0,.7)`}>
               <Input
                 value={input}
                 onChange={(i) => setInput(i.target.value)}

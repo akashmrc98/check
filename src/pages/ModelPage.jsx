@@ -13,6 +13,7 @@ import { modelsData } from "../data/modelsData.jsx";
 import { useParams } from "react-router";
 
 import SpaceNavbar from "./spaces/SpaceNavbar.jsx";
+import BG from "/public/bg/7.jpg";
 
 function ModelPage() {
   const params = useParams();
@@ -47,7 +48,15 @@ function ModelPage() {
   console.log(model);
 
   return (
-    <Box className="bg_img" pos="relative">
+    <Box
+      backgroundImage={BG}
+      backgroundRepeat="no-repeat"
+      backgroundSize={"cover"}
+      backgroundBlendMode="color"
+      minH={{ base: "auto", xl: "100vh" }}
+      backgroundPosition="center"
+      pos="relative"
+    >
       <Box mb={12}>
         <SpaceNavbar />
       </Box>

@@ -8,9 +8,8 @@ export const homeSummaryData = [
 
 export const homeUtilsData = [
   "PRODUCTS",
-  "MARKETING",
   "ECO-SYSTEM",
-  "PARTNETS",
+  "ROADMAP",
   "TOKENOMICS",
   "TEAM",
 ];

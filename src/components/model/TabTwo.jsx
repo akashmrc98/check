@@ -23,14 +23,15 @@ function TabTwo(props) {
     <Grid
       p={4}
       boxShadow={`0px 0px 4px ${colors.highLightColor}`}
-      bg={colors.bgColor}
+      bg={`rgba(0,0,0, 0.7)`}
+      borderRadius="md"
       templateColumns={{ base: "1fr" }}
       pb={{ base: 0, lg: 0 }}
     >
       <Grid
         p={4}
         columnGap="2rem"
-        bg={colors.bgColor}
+        bg={`rgba(0,0,0, 0.7)`}
         pb={{ base: 0, lg: 12 }}
         rowGap={{ base: "2rem" }}
         gridTemplateColumns={{ base: "1fr", lg: "2fr 1fr" }}
@@ -104,7 +105,11 @@ function TabTwo(props) {
           >
             Integration Setup
           </Text>
-          <Tabs borderBottom={"none"} variant={"enclosed"} bg={colors.bgColor}>
+          <Tabs
+            borderBottom={"none"}
+            variant={"enclosed"}
+            bg={`rgba(0,0,0, 0.7)`}
+          >
             <TabList>
               <Tab
                 fontSize="xl"
@@ -147,7 +152,7 @@ function TabContent({ dappData, p, url }) {
         rowGap="1rem"
       >
         <Button
-          bg={colors.bgColor}
+          bg={`rgba(0,0,0, 0.7)`}
           boxShadow={`0 0 4px ${colors.highLightColor}`}
           color={colors.highLightColor}
           onClick={() => {
@@ -201,7 +206,7 @@ function TabContent({ dappData, p, url }) {
             >
               {step.title}
             </Text>
-            <Box my={2} p={2} bg={"gray.900"}>
+            <Box my={2} p={2} bg={`rgba(23, 25, 35, .8)`} borderRadius="md">
               {step.code.map((s, k) => (
                 <Text
                   key={k}
