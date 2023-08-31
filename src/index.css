@@ -23,7 +23,6 @@ body {
 }
 
 .grad_txt {
-  /** TEXT GRADIENT */
   color: #526d82;
   background-image: -webkit-linear-gradient(
     0deg,
@@ -212,4 +211,44 @@ html {
   transform: rotate(90deg) translateX(25vh);
   position: absolute;
   left: "80%";
+}
+
+.neu_button_text {
+  color: #ff9b50;
+  background-image: -webkit-radial-gradient(
+    circle,
+    #ff9b50 29%,
+    #e25e3e 80%,
+    #c63d2f 86%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.fade_effect {
+  animation: fade infinite 4s;
+}
+
+.normal_effect {
+  animation: fade0 infinite 4s;
+}
+
+@keyframes fade0 {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
 }

@@ -3,14 +3,7 @@ import { aiSectionData, aiImages } from "../../data/aiSectionData";
 
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
-import {
-  Autoplay,
-  Navigation,
-  EffectCoverflow,
-  Pagination,
-  Scrollbar,
-  A11y,
-} from "swiper/modules";
+import { Autoplay, EffectCoverflow, Navigation } from "swiper/modules";
 
 import { fonts } from "../../theme/fonts";
 import { colors } from "../../theme/colors";
@@ -57,14 +50,8 @@ const AIComponent = () => {
               disableOnInteraction: false,
             }}
             loop={true}
-            modules={[
-              Autoplay,
-              Navigation,
-              EffectCoverflow,
-              Pagination,
-              Scrollbar,
-              A11y,
-            ]}
+            modules={[Autoplay, EffectCoverflow, Navigation]}
+            navigation
             spaceBetween={-60}
             breakpoints={{
               420: {
@@ -87,14 +74,12 @@ const AIComponent = () => {
               modifier: 2,
               slideShadows: true,
             }}
-            navigation
             scrollbar={{ draggable: true }}
           >
             {aiSectionData.map((s, i) => (
               <SwiperSlide key={i}>
                 <GridItem
                   zIndex={4}
-                  boxShadow={`0px 0px 2px ${colors.boxBorder}`}
                   pos={"relative"}
                   borderColor={colors.boxBorder}
                   display="grid"

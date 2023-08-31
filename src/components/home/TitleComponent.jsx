@@ -1,4 +1,12 @@
-import { Box, Flex, Grid, GridItem, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  Grid,
+  GridItem,
+  Image,
+  Text,
+} from "@chakra-ui/react";
 import { useEffect } from "react";
 import { useState } from "react";
 import Spline from "@splinetool/react-spline";
@@ -6,11 +14,11 @@ import HeadLines2 from "../common/HeadLine_2";
 import { colors } from "../../theme/colors";
 import { fonts } from "../../theme/fonts";
 import { homeUtilsData } from "../../data/homeData";
-import { motion } from "framer-motion";
 
 import { AiOutlineDownCircle } from "react-icons/ai";
-import BG from "/public/bg/10.jpg";
+import BG from "/public/bg/11.jpg";
 import { FaAddressBook } from "react-icons/fa";
+import Logo from "/public/logo_main.png";
 
 function TitleComponent() {
   const [index, setIndex] = useState(0);
@@ -24,10 +32,9 @@ function TitleComponent() {
 
   return (
     <Box
-      py={{ base: 0, xl: 24 }}
+      pt={{ base: 32, xl: 24 }}
       width="100%"
       pos="relative"
-      pt={{ base: 32 }}
       w="100vw"
       backgroundImage={BG}
       backgroundRepeat="no-repeat"
@@ -36,88 +43,58 @@ function TitleComponent() {
       minH={{ base: "auto", xl: "100vh" }}
       backgroundPosition="center"
     >
+      <Box zIndex={9999999999} pos="absolute" top="4%" right="5%">
+        <Flex cursor={"pointer"}>
+          <Button
+            cursor={"pointer"}
+            fontFamily={fonts.headingFont}
+            fontWeight="bold"
+            fontSize={{ base: "5xl" }}
+            p={8}
+            bg={"transparent"}
+            color={colors.fontLightColor}
+            boxShadow={`2px 2px 4px ${colors.bgColor}, -2px -2px 4px ${colors.fontLightColor}`}
+            textShadow={`2px 2px 4px ${colors.bgColor}`}
+            _hover={{
+              boxShadow: `inset 2px 2px 4px ${colors.bgColor}, inset -2px -2px 4px ${colors.fontLightColor}`,
+              textShadow: `-2px -2px 4px ${colors.bgColor}`,
+            }}
+            _active={{
+              boxShadow: `inset 2px 2px 4px #292929, inset -2px -2px 4px ${colors.fontLightColor}`,
+              textShadow: `-2px -2px 4px ${colors.bgColor}`,
+            }}
+            transition={`all 200ms ease-in-out`}
+          >
+            PRIVATE SALE
+          </Button>
+        </Flex>
+      </Box>
+
+      <Box pos="absolute" top="2%" left="5%">
+        <Flex
+          display={{ base: "none", xl: "flex" }}
+          justifyContent={"flex-end"}
+        >
+          <Image maxW="180px" src={Logo} />
+        </Flex>
+      </Box>
       <Model visible={true} />
       <ScrollDown />
       <SideBar />
-      <Grid
-        justifyContent={"space-between"}
-        width={{ base: "100%", xl: "100%", "2xl": "92%" }}
-        mx="auto"
-        p={{ base: 6, xl: 0 }}
-        pt={{ base: 0, xl: 12 }}
-        templateColumns={{ base: "1fr", xl: "1fr 1fr" }}
-        rowGap={{ base: "2rem" }}
-        columnGap={{ base: 0, xl: "3rem" }}
-        px={{ base: 0, xl: 8 }}
+      <Flex
+        py={{ base: 24, xl: 0 }}
+        height={{ base: "auto", xl: "80vh" }}
+        zIndex={9999999999}
+        flexDirection="column"
+        justifyContent={"space-evenly"}
+        width={{ base: "100%", xl: "90%" }}
+        rowGap={{ base: 0, xl: "5rem" }}
+        mx={{ base: 0, xl: "auto" }}
       >
-        <Grid
-          gridTemplateRows={{ base: "1fr 0fr", xl: "0fr 3fr" }}
-          alignItems={{ base: "center", xl: "flex-start" }}
-          justifyContent={{ base: "center", xl: "flex-start" }}
-          width={{ base: "100%", xl: "80%" }}
-          mr="auto"
-          maxH={{ base: "50vh", xl: "auto" }}
-        >
-          <Box></Box>
-          <GridItem width={{ base: "90vw", xl: "auto" }} mx="auto">
-            <Flex justifyContent={{ base: "flex-end", xl: "flex-end" }}>
-              <HeadLines2 />
-            </Flex>
-            {homeUtilsData.map((h, j) => (
-              <Box
-                zIndex={300}
-                fontFamily={fonts.parafont}
-                key={j}
-                p={4}
-                display="flex"
-                justifyContent={"space-between"}
-                borderColor={colors.boxBorder}
-                boxShadow={`0px 0px 2px ${colors.boxBorder}`}
-                className="bg_img"
-              >
-                <Box
-                  display={"flex"}
-                  justifyContent="flex-end"
-                  color={colors.highLightColor}
-                  w={{ base: "50%", lg: "20%" }}
-                >
-                  {`>`}
-                </Box>
-                <motion.div
-                  style={{
-                    width: "100%",
-                    display: "flex",
-                    justifyContent: "flex-end",
-                  }}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={{
-                    visible: { opacity: 1, scale: 1, x: 0 },
-                    hidden: { opacity: 0, scale: 0, x: -220 },
-                  }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 260,
-                    damping: 20,
-                    delay: j * 0.3,
-                  }}
-                >
-                  <Text
-                    fontFamily={fonts.parafont}
-                    fontSize={{ base: "sm", lg: "md" }}
-                    fontWeight="bold"
-                    color={colors.fontLightColorV2}
-                    px={4}
-                  >
-                    {h}
-                  </Text>
-                </motion.div>
-              </Box>
-            ))}
-          </GridItem>
-        </Grid>
-      </Grid>
+        <Flex>
+          <HeadLines2 />{" "}
+        </Flex>
+      </Flex>
       <Model />
     </Box>
   );
@@ -215,6 +192,7 @@ function SideBar() {
   ]);
   return (
     <Grid
+      display={{ base: "none", xl: "grid" }}
       zIndex={9999999999}
       pos="absolute"
       right="5%"

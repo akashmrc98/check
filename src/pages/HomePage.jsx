@@ -16,10 +16,10 @@ import TeamComponent from "../components/home/TeamComponent";
 // import OurSolutionComponent from "../components/home/OurSolution/OurSolutionsComponent";
 import Footer from "../components/common/Footer";
 import FaqComponent from "../components/home/Faq";
-import Line from "../components/common/Line";
 import { LiaArrowCircleUpSolid } from "react-icons/lia";
 import TokenComponent from "../components/home/Token/TokenComponent";
-import BG from "/public/bg/1.jpg";
+import BG from "/public/bg/16.jpg";
+import Navbar from "../components/common/Navbar";
 
 function HomePage() {
   const ref = useRef();
@@ -30,7 +30,6 @@ function HomePage() {
       flexDir="column"
       justifyContent="space-between"
       position={"relative"}
-      px={{ base: 4, lg: 0 }}
       bg={colors.bgColor}
     >
       <Box
@@ -39,16 +38,23 @@ function HomePage() {
         position={"fixed"}
         bottom={"2%"}
         right="1%"
-        zIndex={999999}
+        zIndex={999999999999}
         display={{ base: "none", xl: "block" }}
       >
         <LiaArrowCircleUpSolid size={54} color={colors.highLightColor} />
       </Box>
-      <Line left={"6%"} />
-      <Line left={"94%"} />
-      {/* <Navbar /> */}
+      {/* <Line left={"6%"} />
+      <Line left={"94%"} /> */}
+      <Navbar />
       <TitleComponent />
-      <Box className="bg_img">
+      <Box
+        backgroundImage={BG}
+        backgroundRepeat="no-repeat"
+        backgroundSize={"cover"}
+        backgroundBlendMode="color"
+        backgroundPosition="center"
+        backgroundClip={"border-box"}
+      >
         <Box
           display={"flex"}
           flexDirection="column"
@@ -56,14 +62,9 @@ function HomePage() {
           zIndex={4}
           width={{ base: "100%", lg: "88%" }}
           ref={ref}
-          p={0}
-          borderRadius="xl"
           mx="auto"
-          backgroundImage={BG}
-          backgroundRepeat="no-repeat"
-          backgroundSize={"cover"}
-          backgroundBlendMode="color"
-          backgroundPosition="center"
+          border={0}
+          outline={0}
         >
           <AIComponent />
           {/* <HomeComponent /> */}
@@ -80,7 +81,7 @@ function HomePage() {
         </Box>
       </Box>
       {/* <OurSolutionComponent /> */}
-      <Box zIndex={9999999} className="bg_img">
+      <Box zIndex={9999999}>
         <Footer />
       </Box>
     </Box>

@@ -8,13 +8,7 @@ import Arrow from "/public/icons/arrow_2.png";
 
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
-import {
-  A11y,
-  Autoplay,
-  Navigation,
-  Pagination,
-  Scrollbar,
-} from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 import { EffectCoverflow } from "swiper/modules";
 
 import Verify from "/public/icons/light.png";
@@ -45,14 +39,7 @@ function RoadmapComponent() {
           disableOnInteraction: false,
         }}
         loop={true}
-        modules={[
-          Autoplay,
-          Navigation,
-          EffectCoverflow,
-          Pagination,
-          Scrollbar,
-          A11y,
-        ]}
+        modules={[Autoplay, EffectCoverflow]}
         spaceBetween={-60}
         breakpoints={{
           420: {
@@ -66,8 +53,8 @@ function RoadmapComponent() {
           },
         }}
         effect={"coverflow"}
-        grabCursor={true}
         centeredSlides={true}
+        navigation
         coverflowEffect={{
           rotate: -10,
           stretch: -60,
@@ -75,7 +62,6 @@ function RoadmapComponent() {
           modifier: 2,
           slideShadows: true,
         }}
-        navigation
         scrollbar={{ draggable: true }}
       >
         {roadmapData.map((d, i) => (

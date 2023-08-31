@@ -20,7 +20,7 @@ import Question from "/public/icons/question.png";
 export default function FaqComponent() {
   const [index, setIndex] = useState(0);
   return (
-    <Box borderBottom={{ base: 0, xl: `2px solid white` }}>
+    <Box>
       <Grid
         justifyContent={"flex-end"}
         gridTemplateColumns={{ base: "1fr", lg: "1fr 1fr" }}
@@ -145,15 +145,14 @@ export default function FaqComponent() {
         maxW={{ base: "100%", lg: "80%", xl: "70%" }}
         minW={{ base: "100%", lg: "80%", xl: "70%" }}
         mx="auto"
-        borderTopRadius="3xl"
         allowMultiple
       >
         {faqs[index].faqs.map((f, i) => (
           <AccordionItem
             border={"2px"}
-            borderBottom={0}
+            borderTopRadius={i === 0 ? "3xl" : ""}
+            borderBottom={i === faqs[index].faqs.length - 1 ? "2px" : "0"}
             borderColor={colors.highLightColor}
-            borderTopRadius="3xl"
             p={3}
             className="bg_img"
             key={i}
@@ -198,9 +197,12 @@ export default function FaqComponent() {
           </AccordionItem>
         ))}
       </Accordion>
-      <Box borderBottom={`2px solid ${colors.highLightColor}`}></Box>
 
-      <Box mt={24} py={24} borderBottom={0} borderTopRadius="2xl">
+      <Box
+        border={`2px solid ${colors.highLightColor}`}
+        py={24}
+        borderTopRadius="2xl"
+      >
         <Grid justifyContent={"center"} flexDir={"column"}>
           <Text
             cursor={"pointer"}

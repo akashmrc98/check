@@ -5,14 +5,7 @@ import { Box, Divider, Grid, GridItem, Image, Text } from "@chakra-ui/react";
 
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
-import {
-  A11y,
-  Autoplay,
-  EffectCoverflow,
-  Navigation,
-  Pagination,
-  Scrollbar,
-} from "swiper/modules";
+import { Autoplay, EffectCoverflow, Navigation } from "swiper/modules";
 import { teamData } from "../../data/teamData";
 
 import HeadLines from "../../components/common/HeadLine";
@@ -67,14 +60,7 @@ const TeamComponent = () => {
         >
           <Swiper
             loop={true}
-            modules={[
-              Autoplay,
-              Navigation,
-              EffectCoverflow,
-              Pagination,
-              Scrollbar,
-              A11y,
-            ]}
+            modules={[Autoplay, Navigation, EffectCoverflow]}
             spaceBetween={-60}
             breakpoints={{
               420: {

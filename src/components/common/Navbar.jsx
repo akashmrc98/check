@@ -13,11 +13,7 @@ import { colors } from "../../theme/colors";
 import { fonts } from "../../theme/fonts";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { FiMenu } from "react-icons/fi";
-import Logo from "/public/logo_7.png";
-import Logo2 from "/public/logo_7.png";
-
-import HighLightButton from "../common/HighLightButton";
-import { Link } from "react-router-dom";
+import Logo from "/public/logo_main.png";
 
 function NavItem(props) {
   return (
@@ -39,7 +35,6 @@ function NavItem(props) {
 }
 
 function Navbar() {
-  const [colorChange, setColorchange] = useState(true);
   const [open, setOpen] = useState(false);
   const changeNavbarColor = () => {
     // if (window.scrollY >= 80) {
@@ -87,22 +82,23 @@ function Navbar() {
         justifyContent="center"
         alignItems={{ base: "center", lg: "center" }}
         flexDir="column"
-        zIndex={open ? 9900 : -1}
+        zIndex={open ? 9900999999 : -1}
         pos={"fixed"}
         minH="100vh"
         width="100%"
         opacity={0.9}
         bg={colors.bgColor}
-        overflowY={{ base: "scroll", lg: "hidden" }}
+        overflowY={{ base: "scroll", xl: "hidden" }}
       >
         <Flex
           cursor={"pointer"}
           px={8}
           pt={4}
-          justifyContent={{ base: "flex-end", lg: "center" }}
+          justifyContent={{ base: "flex-end", xl: "center" }}
           pos="relative"
+          alignItems={"center"}
         >
-          <Image display={{ base: "none", lg: "block" }} maxW="72" src={Logo} />
+          <Image display={{ base: "none", xl: "block" }} maxW="72" src={Logo} />
           <Icon
             pos="absolute"
             right="3%"
@@ -115,7 +111,7 @@ function Navbar() {
             as={AiOutlineCloseCircle}
           ></Icon>
         </Flex>
-        <Box minH="10vh">
+        <Box display={{ base: "block", xl: "none" }} minH="10vh">
           <Grid
             templateColumns={{ base: "1fr", lg: "1fr 1fr", xl: "1fr 1fr 1fr" }}
           >
@@ -141,7 +137,6 @@ function Navbar() {
         </Box>
       </Box>
       <Box
-        // borderBottom="1px"
         borderColor={colors.boxBorder}
         alignItems={"center"}
         columnGap={"5rem"}
@@ -149,7 +144,6 @@ function Navbar() {
         justifyContent="center"
         minH="10vh"
         position={"fixed"}
-        bg={colorChange ? colors.bgColor : "transparent"}
         transition="all 200ms ease-in-out"
         zIndex={9499}
         width="100%"
@@ -161,7 +155,7 @@ function Navbar() {
           justifyContent={"space-between"}
           px={8}
           py={3}
-          display={{ base: "flex", lg: "none" }}
+          display={{ base: "flex", xl: "none" }}
         >
           <Image src={Logo} />
           <FiMenu
@@ -171,33 +165,6 @@ function Navbar() {
             color={colors.boxBorder}
           />
         </Flex>
-        <Box
-          columnGap=".5rem"
-          maxW={"70%"}
-          gridTemplateColumns={`1fr 1fr 2fr 1fr 1fr`}
-          alignItems={"center"}
-          display={{ base: "none", lg: "grid" }}
-          justifyContent="center"
-          pos="relative"
-        >
-          <NavItem title={"Technology"} />
-          <NavItem title={"EcoSystem"} />
-          <Link to="/">
-            <Flex py={2} justifyContent={"center"}>
-              <Image p={2} maxW="32" src={Logo2} />
-            </Flex>
-          </Link>
-          <NavItem title={"About"} />
-          <NavItem onClick={() => toggleMenu()} title={"Menu"} />
-        </Box>
-
-        <Box display={{ base: "none", lg: "flex" }} pos="absolute" right="4%">
-          <Link to="/dapp">
-            <Box transform={{ lg: `scale(0.7)`, xl: `scale(0.8)` }}>
-              <HighLightButton title="TRY DAPP" />
-            </Box>
-          </Link>
-        </Box>
       </Box>
     </Box>
   );

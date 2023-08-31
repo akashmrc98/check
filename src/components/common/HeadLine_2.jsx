@@ -1,17 +1,20 @@
 /* eslint-disable react/prop-types */
 import { Box, Text } from "@chakra-ui/react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { colors } from "../../theme/colors";
 import { fonts } from "../../theme/fonts";
 
 function HeadLines2() {
   const [index, setIndex] = useState(0);
+  const [changed, setChanged] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
+      setChanged(false);
       if (index === 4) setIndex(0);
       else setIndex(index + 1);
+      setChanged(true);
     }, 4000);
   }, [index]);
 
@@ -32,45 +35,22 @@ function HeadLines2() {
             damping: 20,
           }}
         >
-          <AnimatePresence>
-            <motion.div>
-              {[...titlesMapSectionOne][index].map((b, k) => (
-                <motion.div
-                  style={{
-                    display: "inline-block",
-                    fontWeight: "bolder",
-                  }}
-                  key={k}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{
-                    type: "tween",
-                    stiffness: 260,
-                    damping: 20,
-                    delay: Math.random(0, titlesMapSectionTwo[index].length),
-                    duration: 4,
-                    repeat: Infinity,
-                    repeatType: "loop",
-                  }}
-                >
-                  <Text
-                    color={colors.fontLightColorV2}
-                    fontFamily={fonts.headingFont}
-                    textAlign="right"
-                    fontSize={{
-                      base: "xl",
-                      lg: "2xl",
-                      xl: "3xl",
-                      "2xl": "5xl",
-                    }}
-                    pb={4}
-                  >
-                    {b}
-                  </Text>
-                </motion.div>
-              ))}
-            </motion.div>
-          </AnimatePresence>
+          <Text
+            className={!changed ? "fade_effect" : "normal_effect"}
+            display={"inline"}
+            color={colors.fontLightColorV2}
+            fontFamily={fonts.headingFont}
+            textAlign="right"
+            fontSize={{
+              base: "xl",
+              lg: "2xl",
+              xl: "4xl",
+              "2xl": "6xl",
+            }}
+            pb={4}
+          >
+            {titlesMapSectionOne[index]}
+          </Text>
         </motion.div>
         <motion.div
           initial="hidden"
@@ -166,8 +146,8 @@ function HeadLines2() {
                     fontSize={{
                       base: "2xl",
                       lg: "3xl",
-                      xl: "4xl",
-                      "2xl": "6xl",
+                      xl: "5xl",
+                      "2xl": "7xl",
                     }}
                     py={2}
                     px={3}
@@ -201,43 +181,23 @@ function HeadLines2() {
           }}
         >
           <Box
-            border={`2px solid ${colors.boxBorder}`}
             borderLeft={0}
             borderTop={0}
             borderLeftColor={colors.highLightColor}
-            bg={colors.bgColor}
             px={4}
           >
-            {titlesMapSectionTwo[index].map((b, k) => (
-              <motion.div
-                style={{
-                  display: "inline-block",
-                  fontWeight: "bolder",
-                }}
-                key={k}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{
-                  type: "tween",
-                  stiffness: 260,
-                  damping: 20,
-                  delay: Math.random(0, titlesMapSectionTwo[index].length),
-                  duration: 4,
-                  repeat: Infinity,
-                  repeatType: "loop",
-                }}
-              >
-                <Text
-                  px={0}
-                  color={colors.fontLightColorV2}
-                  fontFamily={fonts.headingFont}
-                  fontSize={{ base: "2xl", lg: "4xl", xl: "5xl" }}
-                  className="grad_txt"
-                >
-                  {b}
-                </Text>
-              </motion.div>
-            ))}
+            <Text
+              px={0}
+              className={
+                !changed ? "fade_effect grad_txt" : "normal_effect grad_txt"
+              }
+              display={"inline"}
+              color={colors.fontLightColorV2}
+              fontFamily={fonts.headingFont}
+              fontSize={{ base: "2xl", lg: "4xl", xl: "5xl" }}
+            >
+              {titlesMapSectionTwo[index]}
+            </Text>
           </Box>
         </motion.div>
       </Box>
@@ -248,34 +208,17 @@ function HeadLines2() {
 export default HeadLines2;
 
 const titlesMapSectionTwo = [
-  ["w", "o", "r", "l", "d"],
-  ["e", "c", "o", "s", "y", "t", "e", "m"],
-  ["p", "o", "w", "e", "r"],
-  ["f", "u", "t", "u", "r", "e"],
-  ["f", "r", "o", "n", "t", "i", "e", "r"],
+  "world",
+  "ecosytem",
+  "power",
+  "future",
+  "frontier",
 ];
 
 const titlesMapSectionOne = [
-  [
-    "E",
-    "v",
-    "e",
-    "r",
-    "y",
-    "t",
-    "h",
-    "i",
-    "n",
-    "g",
-    "\u00A0",
-    "a",
-    "b",
-    "o",
-    "u",
-    "t",
-  ],
-  ["E", "x", "a", "p", "a", "n", "d", "i", "n", "g", "\u00A0", "t", "h", "e"],
-  ["H", "a", "r", "n", "e", "s", "s", "i", "n", "g", "\u00A0", "t", "h", "e"],
-  ["P", "i", "o", "n", "e", "e", "r", "i", "n", "g", "\u00A0", "t", "h", "e"],
-  ["P", "u", "s", "h", "i", "n", "g", "\u00A0", "t", "h", "e"],
+  "Everything about",
+  "Exapanding the",
+  "Harnessing the",
+  "Pioneering the",
+  "Pushing the",
 ];
