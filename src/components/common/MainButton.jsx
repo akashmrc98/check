@@ -11,7 +11,7 @@ function Mainbutton() {
 
   return (
     <Box
-      minW="200px"
+      minW="220px"
       onMouseEnter={() => setChanged(false)}
       onMouseUp={() => setChanged(false)}
       onMouseMove={() => setChanged(false)}
@@ -27,11 +27,11 @@ function Mainbutton() {
       pos={"relative"}
       zIndex={24}
       display={"flex"}
-      borderRadius="3xl"
+      borderRadius="sm"
       boxShadow={
         !changed
-          ? `0px 0px 24px -12px ${colors.highLightColor}`
-          : `0px 0px 24px -12px ${colors.fontLightColor}`
+          ? `0px 0px 32px ${colors.highLightColor}`
+          : `0px 0px 2px ${colors.fontLightColor}`
       }
       transition={`all 200ms ease-in-out`}
     >
