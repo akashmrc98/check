@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Box, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { colors } from "../../theme/colors";
 import { fonts } from "../../theme/fonts";
 
@@ -9,14 +9,12 @@ function HeadLines2() {
   const [index, setIndex] = useState(0);
   const [changed, setChanged] = useState(false);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setChanged(false);
-      if (index === 4) setIndex(0);
-      else setIndex(index + 1);
-      setChanged(true);
-    }, 4000);
-  }, [index]);
+  setTimeout(() => {
+    setChanged(false);
+    if (index === 4) setIndex(0);
+    else setIndex(index + 1);
+    setChanged(true);
+  }, 4000);
 
   return (
     <Box pos={"relative"} zIndex={24} display={"flex"}>
@@ -74,7 +72,7 @@ function HeadLines2() {
             pos={"relative"}
           >
             <Box
-              backgroundImage={
+              backgroundimage={
                 "linear-gradient(to right, #ff914d, #ffa360, #feb476, #fec48d, #fed3a5, #f5daa9, #ede0b0, #e5e6b9, #cae7b8, #a9e6c0, #84e5d0, #5ce1e6)"
               }
               width={"3px"}

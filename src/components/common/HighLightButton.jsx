@@ -42,7 +42,7 @@ function HighLightButton(props) {
         height={"24%"}
       ></Box>
       <Box
-        backgroundImage={`linear-gradient(to bottom, #ffa900, #f0bb00, #ddcb00, #c6dc00, #a8eb12);`}
+        backgroundimage={`linear-gradient(to bottom, #ffa900, #f0bb00, #ddcb00, #c6dc00, #a8eb12);`}
         pos="absolute"
         width="2px"
         right={0}

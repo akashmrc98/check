@@ -12,8 +12,6 @@ export const aiSectionData = [
 ];
 
 import LIVE from "/public/ai_section/1.jpg";
-import AI_2 from "/public/ai_section/6.jpg";
-import AI_3 from "/public/ai_section/6.jpg";
 import KNOWLEDGE from "/public/ai_section/2.jpg";
 import AI from "/public/ai_section/4.jpg";
 import HUB from "/public/ai_section/5.jpg";

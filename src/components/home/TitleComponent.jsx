@@ -1,12 +1,4 @@
-import {
-  Box,
-  Button,
-  Flex,
-  Grid,
-  GridItem,
-  Image,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Flex, Grid, GridItem, Image, Text } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { useState } from "react";
 import Spline from "@splinetool/react-spline";
@@ -19,6 +11,7 @@ import { AiOutlineDownCircle } from "react-icons/ai";
 import BG from "/public/bg/11.jpg";
 import { FaAddressBook } from "react-icons/fa";
 import Logo from "/public/logo_main.png";
+import Mainbutton from "../common/MainButton";
 
 function TitleComponent() {
   const [index, setIndex] = useState(0);
@@ -45,28 +38,7 @@ function TitleComponent() {
     >
       <Box zIndex={9999999999} pos="absolute" top="4%" right="5%">
         <Flex cursor={"pointer"}>
-          <Button
-            cursor={"pointer"}
-            fontFamily={fonts.headingFont}
-            fontWeight="bold"
-            fontSize={{ base: "5xl" }}
-            p={8}
-            bg={"transparent"}
-            color={colors.fontLightColor}
-            boxShadow={`2px 2px 4px ${colors.bgColor}, -2px -2px 4px ${colors.fontLightColor}`}
-            textShadow={`2px 2px 4px ${colors.bgColor}`}
-            _hover={{
-              boxShadow: `inset 2px 2px 4px ${colors.bgColor}, inset -2px -2px 4px ${colors.fontLightColor}`,
-              textShadow: `-2px -2px 4px ${colors.bgColor}`,
-            }}
-            _active={{
-              boxShadow: `inset 2px 2px 4px #292929, inset -2px -2px 4px ${colors.fontLightColor}`,
-              textShadow: `-2px -2px 4px ${colors.bgColor}`,
-            }}
-            transition={`all 200ms ease-in-out`}
-          >
-            PRIVATE SALE
-          </Button>
+          <Mainbutton />
         </Flex>
       </Box>
 
@@ -163,7 +135,7 @@ function Model(props) {
         base: props.visible ? "block" : "none",
         xl: props.visible ? "none" : "block",
       }}
-      top={{ lg: "25%", xl: "8%", "2xl": "15%" }}
+      bottom={"-30%"}
       pos={{ base: "relative", xl: "absolute" }}
       zIndex={400}
       width="100%"
@@ -206,13 +178,7 @@ function SideBar() {
         flexDir={"column"}
         justifyContent="center"
       >
-        <Box
-          py={6}
-          px={2}
-          // boxShadow={`0px 0px 8px ${colors.highLightColor}`}
-          // bg={`rgba(0,0,0,.5)`}
-          borderRadius="3xl"
-        >
+        <Box py={6} px={2} borderRadius="3xl">
           {homeUtilsData.map((h, j) => (
             <Box
               columnGap={"1rem"}
@@ -234,10 +200,10 @@ function SideBar() {
                 }}
               >
                 <Box
-                  boxShadow={`0px 0px 8px ${colors.highLightColor}`}
+                  boxShadow={`0px 0px 12px ${colors.highLightColor}`}
                   cursor="pointer"
                   padding="1rem"
-                  borderRadius={"100rem"}
+                  borderRadius={"md"}
                   className="bg_img"
                 >
                   <Text
