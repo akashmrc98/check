@@ -19,16 +19,20 @@ import AI from "/public/ai_section/4.jpg";
 import HUB from "/public/ai_section/5.jpg";
 import ACC from "/public/ai_section/7.jpg";
 import IMG from "/public/ai_section/8.jpg";
+import AI_ from "/public/ai_section/9.jpg";
+import HARDWARE from "/public/ai_section/11.jpg";
+import END_POINTS from "/public/ai_section/10.jpg";
+import RISK from "/public/ai_section/12.jpg";
 
 export const aiImages = [
   LIVE,
   IMG,
   AI,
   KNOWLEDGE,
-  AI_3,
+  RISK,
   HUB,
   ACC,
-  AI_2,
-  AI_3,
-  AI_2,
+  END_POINTS,
+  AI_,
+  HARDWARE,
 ];
