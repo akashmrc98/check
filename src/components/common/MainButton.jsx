@@ -4,9 +4,8 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { colors } from "../../theme/colors";
 import { fonts } from "../../theme/fonts";
-import Typewriter from "typewriter-effect";
 
-function Mainbutton() {
+function Mainbutton(props) {
   const [changed, setChanged] = useState(true);
 
   return (
@@ -25,8 +24,8 @@ function Mainbutton() {
       onMouseOver={() => setChanged(true)}
       onMouseOut={() => setChanged(true)}
       pos={"relative"}
-      zIndex={24}
-      display={"flex"}
+      zIndex={999999999999999}
+      display={{ base: props.isMobile ? "flex" : "none", xl: "flex" }}
       borderRadius="sm"
       boxShadow={
         !changed

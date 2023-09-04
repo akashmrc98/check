@@ -9,6 +9,27 @@ import SalePage from "./pages/SalePage";
 import ModelsPage from "./pages/ModelsPage";
 import SpacesPage from "./pages/SpacesPage";
 
+import {
+  EthereumClient,
+  w3mConnectors,
+  w3mProvider,
+} from "@web3modal/ethereum";
+import { Web3Modal } from "@web3modal/react";
+import { configureChains, createConfig, WagmiConfig } from "wagmi";
+import { bsc, bscTestnet } from "wagmi/chains";
+
+const chains = [bsc, bscTestnet];
+const projectId = "f5dcf20eb66353538219a935685ad5fd";
+
+const { publicClient } = configureChains(chains, [w3mProvider({ projectId })]);
+const wagmiConfig = createConfig({
+  autoConnect: true,
+  connectors: w3mConnectors({ projectId, version: 1, chains }),
+  publicClient,
+});
+
+const ethereumClient = new EthereumClient(wagmiConfig, chains);
+
 const router = [
   {
     path: "/",
@@ -43,13 +64,16 @@ const router = [
 function App() {
   return (
     <ChakraProvider>
-      <BrowserRouter>
-        <Routes>
-          {router.map((route, index) => (
-            <Route key={index} element={route.element} path={route.path} />
-          ))}
-        </Routes>
-      </BrowserRouter>
+      <WagmiConfig config={wagmiConfig}>
+        <BrowserRouter>
+          <Routes>
+            {router.map((route, index) => (
+              <Route key={index} element={route.element} path={route.path} />
+            ))}
+          </Routes>
+        </BrowserRouter>
+      </WagmiConfig>
+      <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />
     </ChakraProvider>
   );
 }

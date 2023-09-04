@@ -48,7 +48,7 @@ function HomePage() {
       <Navbar />
       <TitleComponent />
       <Box
-        zIndex={999999999999999}
+        zIndex={9999999999999}
         backgroundImage={BG}
         backgroundRepeat="no-repeat"
         backgroundSize={"cover"}

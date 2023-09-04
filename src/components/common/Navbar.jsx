@@ -14,6 +14,7 @@ import { fonts } from "../../theme/fonts";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { FiMenu } from "react-icons/fi";
 import Logo from "/public/logo_main.png";
+import Mainbutton from "./MainButton";
 
 function NavItem(props) {
   return (
@@ -52,26 +53,15 @@ function Navbar() {
   const headers = [
     {
       title: "What We Do",
-      items: [
-        "Technology",
-        "Ecosystem",
-        "Loyalty Rewards",
-        "Deep Funding",
-        "Research",
-      ],
+      items: ["Technology", "Ecosystem", "Research"],
     },
     {
       title: "Who We Are",
-      items: [
-        "Overpowered AI Foundation",
-        "Team",
-        "Roadmap",
-        "Press Media Kit",
-      ],
+      items: ["Overpowered AI Foundation", "Team", "Roadmap"],
     },
     {
       title: "What We Do",
-      items: ["Telegram", "Twitter", "Github"],
+      items: ["Telegram", "Twitter"],
     },
   ];
 
@@ -82,7 +72,7 @@ function Navbar() {
         justifyContent="center"
         alignItems={{ base: "center", lg: "center" }}
         flexDir="column"
-        zIndex={open ? 9900999999 : -1}
+        zIndex={open ? 999999999999999 : -1}
         pos={"fixed"}
         minH="100vh"
         width="100%"
@@ -90,6 +80,17 @@ function Navbar() {
         bg={colors.bgColor}
         overflowY={{ base: "scroll", xl: "hidden" }}
       >
+        <Icon
+          pos="absolute"
+          right="0%"
+          top="3%"
+          cursor={"pointer"}
+          height={{ base: 10 }}
+          width={{ base: 10 }}
+          color={colors.highLightColor}
+          onClick={() => toggleMenu()}
+          as={AiOutlineCloseCircle}
+        ></Icon>
         <Flex
           cursor={"pointer"}
           px={8}
@@ -98,23 +99,13 @@ function Navbar() {
           pos="relative"
           alignItems={"center"}
         >
-          <Image display={{ base: "none", xl: "block" }} maxW="72" src={Logo} />
-          <Icon
-            pos="absolute"
-            right="3%"
-            top="3%"
-            cursor={"pointer"}
-            height={{ base: 10 }}
-            width={{ base: 10 }}
-            color={colors.highLightColor}
-            onClick={() => toggleMenu()}
-            as={AiOutlineCloseCircle}
-          ></Icon>
+          {/* <Image display={{ base: "none", xl: "block" }} maxW="72" src={Logo} /> */}
         </Flex>
         <Box display={{ base: "block", xl: "none" }} minH="10vh">
           <Grid
             templateColumns={{ base: "1fr", lg: "1fr 1fr", xl: "1fr 1fr 1fr" }}
           >
+            <Mainbutton isMobile={true} />
             {headers.map((h, i) => (
               <GridItem mt={8} display={"grid"} justifyContent="center" key={i}>
                 <Text

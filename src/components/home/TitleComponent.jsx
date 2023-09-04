@@ -7,7 +7,6 @@ import { colors } from "../../theme/colors";
 import { fonts } from "../../theme/fonts";
 import { homeUtilsData } from "../../data/homeData";
 
-import { AiOutlineDownCircle } from "react-icons/ai";
 import BG from "/public/bg/11.jpg";
 import { FaAddressBook } from "react-icons/fa";
 import Logo from "/public/logo_main.png";
@@ -32,7 +31,7 @@ function TitleComponent() {
       backgroundRepeat="no-repeat"
       backgroundSize={"cover"}
       backgroundBlendMode="color"
-      minH={{ base: "auto", xl: "100vh" }}
+      minH={{ base: "100vh", xl: "100vh" }}
       backgroundPosition="center"
     >
       <Box zIndex={9999999999} pos="absolute" top="4%" right="5%">
@@ -50,10 +49,9 @@ function TitleComponent() {
         </Flex>
       </Box>
       <Model visible={true} />
-      <ScrollDown />
       <SideBar />
       <Flex
-        py={{ base: 24, xl: 0 }}
+        pt={{ base: 52, xl: 0 }}
         height={{ base: "auto", xl: "80vh" }}
         zIndex={9999999999}
         flexDirection="column"
@@ -66,84 +64,30 @@ function TitleComponent() {
           <HeadLines2 />{" "}
         </Flex>
       </Flex>
-      <Model />
     </Box>
   );
 }
 
 export default TitleComponent;
 
-function ScrollDown() {
+function Model() {
   return (
     <Box
-      bottom={{ xl: "15%", "2xl": "5%" }}
-      pos={"absolute"}
-      zIndex={999}
+      display={"flex"}
       justifyContent="center"
-      cursor={"pointer"}
-      display={{ base: "none", xl: "flex" }}
-      left="50%"
-      right={"50%"}
-      mx="auto"
-    >
-      <Flex
-        flexDirection={"column"}
-        alignItems="center"
-        rowGap={"1rem"}
-        display="flex"
-        onClick={() => {
-          window.scrollBy(0, 800);
-        }}
-        justifyContent={"flex-end"}
-      >
-        <Box
-          cursor={"pointer"}
-          display={"flex"}
-          flexDirection="column"
-          justifyContent="center"
-          alignItems={"center"}
-          className="arrow_move"
-        >
-          <Text
-            fontFamily={fonts.headingFont}
-            fontWeight="bold"
-            textAlign={"center"}
-            bg={colors.bgColor}
-            color={colors.highLightColor}
-            my={2}
-            py={1}
-            px={4}
-            borderRadius="md"
-          >
-            EXPLORE RENDERVERSE
-          </Text>
-          <AiOutlineDownCircle
-            size={64}
-            color={colors.bgColor}
-            cursor="pointer"
-          />
-        </Box>
-      </Flex>
-    </Box>
-  );
-}
-
-function Model(props) {
-  return (
-    <Box
-      display={{
-        base: props.visible ? "block" : "none",
-        xl: props.visible ? "none" : "block",
+      alignItems={"center"}
+      cursor="pointer"
+      onClick={() => {
+        window.scrollBy(0, 800);
       }}
-      top="0"
-      pos={{ base: "relative", xl: "absolute" }}
-      zIndex={400}
-      width="100vw"
-      height={"100vh"}
+      pos="absolute"
+      zIndex={9999999999}
+      height={{ base: "75vh", xl: "100vh" }}
+      width={{ base: "100vw", xl: "100vw" }}
+      mx="auto"
+      bottom={0}
     >
-      <Box cursor="pointer" height={"100vh"} weight="100vw">
-        <Spline scene="https://prod.spline.design/1DglKtaHKqrB0uWn/scene.splinecode" />
-      </Box>
+      <Spline scene="https://prod.spline.design/1DglKtaHKqrB0uWn/scene.splinecode" />
     </Box>
   );
 }
