@@ -66,6 +66,7 @@ function HomePage() {
           mx="auto"
           border={0}
           outline={0}
+          p={4}
         >
           <AIComponent />
           {/* <HomeComponent /> */}

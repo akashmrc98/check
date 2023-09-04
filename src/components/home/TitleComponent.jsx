@@ -34,7 +34,7 @@ function TitleComponent() {
       minH={{ base: "100vh", xl: "100vh" }}
       backgroundPosition="center"
     >
-      <Box zIndex={9999999999} pos="absolute" top="4%" right="5%">
+      <Box zIndex={999999999999999} pos="absolute" top="4%" right="5%">
         <Flex cursor={"pointer"}>
           <Mainbutton />
         </Flex>
@@ -81,7 +81,7 @@ function Model() {
         window.scrollBy(0, 800);
       }}
       pos="absolute"
-      zIndex={9999999999}
+      zIndex={9999999}
       height={{ base: "75vh", xl: "100vh" }}
       width={{ base: "100vw", xl: "100vw" }}
       mx="auto"
