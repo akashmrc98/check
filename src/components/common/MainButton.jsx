@@ -156,18 +156,7 @@ function Mainbutton() {
                     px={3}
                     lineHeight={1}
                   >
-                    <Typewriter
-                      options={{
-                        loop: true,
-                      }}
-                      onInit={(typewriter) => {
-                        typewriter
-                          .typeString("TRY DAPP")
-                          .pauseFor(6000)
-                          .deleteAll()
-                          .start();
-                      }}
-                    />
+                    TRY DAPP
                   </Box>{" "}
                 </motion.div>
               </Box>

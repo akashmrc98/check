@@ -25,7 +25,6 @@ function TitleComponent() {
 
   return (
     <Box
-      pt={{ base: 32, xl: 24 }}
       width="100%"
       pos="relative"
       w="100vw"
@@ -78,13 +77,14 @@ function ScrollDown() {
   return (
     <Box
       bottom={{ xl: "15%", "2xl": "5%" }}
-      width="100vw"
       pos={"absolute"}
       zIndex={999}
-      minH="25vh"
       justifyContent="center"
       cursor={"pointer"}
       display={{ base: "none", xl: "flex" }}
+      left="50%"
+      right={"50%"}
+      mx="auto"
     >
       <Flex
         flexDirection={"column"}
@@ -135,18 +135,13 @@ function Model(props) {
         base: props.visible ? "block" : "none",
         xl: props.visible ? "none" : "block",
       }}
-      bottom={"-30%"}
+      top="0"
       pos={{ base: "relative", xl: "absolute" }}
       zIndex={400}
-      width="100%"
-      height={{ base: "auto", xl: "100vh" }}
+      width="100vw"
+      height={"100vh"}
     >
-      <Box
-        cursor="pointer"
-        mx="auto"
-        height={{ lg: "70vh", xl: "85vh", "2xl": "85vh" }}
-        width={{ lg: "70vw", xl: "85vw", "2xl": "85vw" }}
-      >
+      <Box cursor="pointer" height={"100vh"} weight="100vw">
         <Spline scene="https://prod.spline.design/1DglKtaHKqrB0uWn/scene.splinecode" />
       </Box>
     </Box>
