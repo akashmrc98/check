@@ -17,22 +17,9 @@ function HeadLines2() {
   }, 4000);
 
   return (
-    <Box pos={"relative"} zIndex={24} display={"flex"}>
+    <Box pos={"relative"} px={4} zIndex={24} display={"flex"}>
       <Box width="100%">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={{
-            visible: { visibility: "visible", opacity: 1, scale: 1, x: 0 },
-            hidden: { visibility: "hidden", opacity: 0.5, scale: 0.5, x: -220 },
-          }}
-          transition={{
-            type: "spring",
-            stiffness: 260,
-            damping: 20,
-          }}
-        >
+        <motion.div>
           <Text
             className={!changed ? "fade_effect" : "normal_effect"}
             display={"inline"}

@@ -8,8 +8,11 @@ import { Autoplay, EffectCoverflow, Navigation } from "swiper/modules";
 import { fonts } from "../../theme/fonts";
 import { colors } from "../../theme/colors";
 import HeadLines from "../common/HeadLine";
+import { useMediaQuery } from "@chakra-ui/react";
 
 const AIComponent = () => {
+  const [isLargerThan800] = useMediaQuery("(min-width: 800px)");
+
   return (
     <Box pos="relative">
       <Grid gridTemplateColumns={"1fr 1fr"}>
@@ -50,8 +53,8 @@ const AIComponent = () => {
               disableOnInteraction: false,
             }}
             loop={true}
+            // navigation={isLargerThan800 ? true : false}
             modules={[Autoplay, EffectCoverflow, Navigation]}
-            navigation
             spaceBetween={-60}
             breakpoints={{
               420: {
@@ -61,6 +64,7 @@ const AIComponent = () => {
                 slidesPerView: 2,
               },
               1366: {
+                navigation: true,
                 slidesPerView: 3,
               },
             }}

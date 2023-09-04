@@ -56,7 +56,6 @@ function Mainbutton(props) {
             pos={"relative"}
           >
             <Box
-              borde
               backgroundImage={
                 changed
                   ? `linear-gradient(to bottom, #ee4540, #ee4540, #ee4540, #ee4540, #ee4540, #f04d40, #f15440, #f35b41, #f66a43, #fa7745, #fc8448, #ff914d)`

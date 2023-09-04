@@ -1,7 +1,15 @@
 import { fonts } from "../../theme/fonts";
 import { colors } from "../../theme/colors";
 
-import { Box, Divider, Grid, GridItem, Image, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Divider,
+  Grid,
+  GridItem,
+  Image,
+  Text,
+  useMediaQuery,
+} from "@chakra-ui/react";
 
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -22,6 +30,8 @@ const TeamComponent = () => {
     if (link === "Twitter") return Twitter;
     return Email;
   }
+
+  const [isLargerThan800] = useMediaQuery("(min-width: 800px)");
 
   return (
     <Box pos="relative">
@@ -83,7 +93,7 @@ const TeamComponent = () => {
               modifier: 2,
               slideShadows: true,
             }}
-            navigation
+            // navigation={isLargerThan800 ? true : false}
             scrollbar={{ draggable: true }}
           >
             {teamData.map((s, i) => (

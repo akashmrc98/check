@@ -40,8 +40,6 @@ function TokenComponent() {
           boxShadow={`-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`}
           py={4}
           px={{ base: 4, lg: 8 }}
-          borderRightRadius="xl"
-          borderLeftRadius={{ base: "xl", lg: 0 }}
         >
           {tokenomicsData.map((t, i) => (
             <Box key={i}>

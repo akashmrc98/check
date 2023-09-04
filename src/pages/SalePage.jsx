@@ -73,8 +73,11 @@ export default function SalePage() {
 
       <Box pos="absolute" top="2%" left="5%">
         <Flex
-          display={{ base: "none", xl: "flex" }}
+          display={{ xl: "flex" }}
           justifyContent={"flex-end"}
+          onClick={() =>
+            window.open("https://chipper-yeot-d29d0d.netlify.app/", "_self")
+          }
         >
           <Image maxW="180px" src={Logo} />
         </Flex>

@@ -199,9 +199,10 @@ export default function FaqComponent() {
       </Accordion>
 
       <Box
-        border={`2px solid ${colors.highLightColor}`}
+        border={{ base: 0, xl: `2px solid ${colors.highLightColor}` }}
         py={24}
-        borderTopRadius="2xl"
+        borderTopRadius={{ base: 0, xl: "2xl" }}
+        px={4}
       >
         <Grid justifyContent={"center"} flexDir={"column"}>
           <Text
@@ -210,7 +211,7 @@ export default function FaqComponent() {
             color={colors.fontLightColorV2}
             textAlign="left"
             fontWeight="bold"
-            fontSize={{ base: "xl", xl: "2xl" }}
+            fontSize={{ base: "lg", xl: "2xl" }}
             mb={2}
           >
             .. Join The
@@ -220,7 +221,7 @@ export default function FaqComponent() {
               cursor={"pointer"}
               fontFamily={fonts.headingFont}
               fontWeight="bold"
-              fontSize={{ base: "4xl", xl: "6xl" }}
+              fontSize={{ base: "3xl", xl: "6xl" }}
               className="grad_txt"
               textShadow={`2px 2px 1px ${colors.bgColor}`}
             >

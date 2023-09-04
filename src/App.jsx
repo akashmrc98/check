@@ -63,18 +63,18 @@ const router = [
 
 function App() {
   return (
-    <ChakraProvider>
-      <WagmiConfig config={wagmiConfig}>
-        <BrowserRouter>
+    <BrowserRouter>
+      <ChakraProvider>
+        <WagmiConfig config={wagmiConfig}>
           <Routes>
             {router.map((route, index) => (
               <Route key={index} element={route.element} path={route.path} />
             ))}
           </Routes>
-        </BrowserRouter>
-      </WagmiConfig>
-      <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />
-    </ChakraProvider>
+        </WagmiConfig>
+        <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />
+      </ChakraProvider>
+    </BrowserRouter>
   );
 }
 

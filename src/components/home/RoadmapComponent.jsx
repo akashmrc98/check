@@ -1,7 +1,15 @@
 import { fonts } from "../../theme/fonts";
 import { colors } from "../../theme/colors";
 import { roadmapData } from "../../data/roadmapData";
-import { Box, Flex, Grid, GridItem, Image, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Grid,
+  GridItem,
+  Image,
+  Text,
+  useMediaQuery,
+} from "@chakra-ui/react";
 
 import Link from "/public/icons/road.png";
 import Arrow from "/public/icons/arrow_2.png";
@@ -17,6 +25,8 @@ import Pending from "/public/icons/loading.png";
 import HeadLines from "../../components/common/HeadLine";
 
 function RoadmapComponent() {
+  const [isLargerThan800] = useMediaQuery("(min-width: 800px)");
+
   return (
     <Box>
       <Grid gridTemplateColumns={"1fr 1fr"}>
@@ -41,6 +51,7 @@ function RoadmapComponent() {
         loop={true}
         modules={[Autoplay, EffectCoverflow]}
         spaceBetween={-60}
+        // navigation={isLargerThan800 ? true : false}
         breakpoints={{
           420: {
             slidesPerView: 1,
@@ -54,7 +65,6 @@ function RoadmapComponent() {
         }}
         effect={"coverflow"}
         centeredSlides={true}
-        navigation
         coverflowEffect={{
           rotate: -10,
           stretch: -60,
@@ -171,7 +181,8 @@ function RoadmapComponent() {
                                   fontFamily={fonts.parafont}
                                   color={colors.fontLightColorV2}
                                   fontSize={{
-                                    base: "sm",
+                                    base: "xs",
+                                    md: "sm",
                                     "2xl": "md",
                                   }}
                                 >

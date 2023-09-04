@@ -51,7 +51,7 @@ function TitleComponent() {
       <Model visible={true} />
       <SideBar />
       <Flex
-        pt={{ base: 52, xl: 0 }}
+        pt={{ base: 32, xl: 0 }}
         height={{ base: "auto", xl: "80vh" }}
         zIndex={9999999999}
         flexDirection="column"
