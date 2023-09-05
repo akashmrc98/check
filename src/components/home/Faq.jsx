@@ -126,7 +126,7 @@ export default function FaqComponent() {
               <Button
                 my={4}
                 mx={2}
-                fontFamily={fonts.headingFont}
+                fontFamily={fonts.specialFont}
                 fontSize={{ base: "xl", xl: "2xl" }}
                 color={i === index ? colors.fontLightColorV2 : colors.boxBorder}
                 variant={"unstyled"}
@@ -152,7 +152,7 @@ export default function FaqComponent() {
             border={"2px"}
             borderTopRadius={i === 0 ? "3xl" : ""}
             borderBottom={i === faqs[index].faqs.length - 1 ? "2px" : "0"}
-            borderColor={colors.highLightColor}
+            borderColor={colors.fontLightColor}
             p={3}
             className="bg_img"
             key={i}
@@ -198,16 +198,11 @@ export default function FaqComponent() {
         ))}
       </Accordion>
 
-      <Box
-        border={{ base: 0, xl: `2px solid ${colors.highLightColor}` }}
-        py={24}
-        borderTopRadius={{ base: 0, xl: "2xl" }}
-        px={4}
-      >
+      <Box py={24} borderTopRadius={{ base: 0, xl: "2xl" }} px={4}>
         <Grid justifyContent={"center"} flexDir={"column"}>
           <Text
             cursor={"pointer"}
-            fontFamily={fonts.parafont}
+            fontFamily={fonts.specialFont}
             color={colors.fontLightColorV2}
             textAlign="left"
             fontWeight="bold"
@@ -223,7 +218,6 @@ export default function FaqComponent() {
               fontWeight="bold"
               fontSize={{ base: "3xl", xl: "6xl" }}
               className="grad_txt"
-              textShadow={`2px 2px 1px ${colors.bgColor}`}
             >
               AI Revolution
             </Text>

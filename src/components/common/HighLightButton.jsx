@@ -7,17 +7,17 @@ import { fonts } from "../../theme/fonts";
 function HighLightButton(props) {
   const [isHover, setIsHover] = useState(false);
   return (
-    <Box cursor={"pointer"} pos={"relative"} p={2} px={8}>
+    <Box my={2} cursor={"pointer"} pos={"relative"} py={1} px={4}>
       <Box
         pos="absolute"
-        backgroundImage={`linear-gradient(to top, #63b7af, #00accf, #0098f5, #4872fb, #c400c6);`}
+        backgroundImage={`linear-gradient(to right, #e63e6d, #f04760, #f85451, #fb6242, #fc7231, #fc7c28, #fb861d, #f9900e, #fb960a, #fc9c06, #fea303, #ffa900);`}
         width="3px"
         left={0}
         bottom={0}
         height={"50%"}
       ></Box>
       <Box
-        backgroundImage={`linear-gradient(to left, #a8eb12, #00dc7f, #00c2c4, #00a0de, #0078c5, #0071bb, #006bb0, #0064a6, #007baf, #0091b1, #31a5b0, #63b7af)`}
+        backgroundImage={`linear-gradient(to top, #ff0844 0%, #ffb199 100%)`}
         pos="absolute"
         width="89%"
         bottom={0}
@@ -33,7 +33,7 @@ function HighLightButton(props) {
         height={"2px"}
       ></Box>
       <Box
-        backgroundImage={`linear-gradient(to top, #ff0844 0%, #ffb199 100%)`}
+        backgroundImage={`linear-gradient(to right, #e63e6d, #f04760, #f85451, #fb6242, #fc7231, #fc7c28, #fb861d, #f9900e, #fb960a, #fc9c06, #fea303, #ffa900);`}
         pos="absolute"
         width="2px"
         top={"-2%"}
@@ -41,22 +41,14 @@ function HighLightButton(props) {
         transform={`rotate(45deg)`}
         height={"24%"}
       ></Box>
+
       <Box
-        backgroundimage={`linear-gradient(to bottom, #ffa900, #f0bb00, #ddcb00, #c6dc00, #a8eb12);`}
+        backgroundImage={`linear-gradient(to top, #ff0844 0%, #ffb199 100%)`}
         pos="absolute"
         width="2px"
         right={0}
         top={0}
-        height={"66%"}
-      ></Box>
-      <Box
-        bg={`#A8EB12`}
-        pos="absolute"
-        width="2px"
-        bottom={"-6%"}
-        right={"5%"}
-        transform={`rotate(45deg)`}
-        height={"50%"}
+        height={"100%"}
       ></Box>
       <Box
         onTouchEnd={() => setIsHover(false)}

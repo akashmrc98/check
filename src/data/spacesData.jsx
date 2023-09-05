@@ -25,7 +25,7 @@ export const spacesData = [
   {
     display_name: "🎵 Music Gen Space",
     rating: 5,
-    tags: ["music", "named-entities", "english", "text", "recognition"],
+    tags: ["music", "named", "recognition"],
     link: "musicgen-space",
   },
   {
@@ -35,7 +35,7 @@ export const spacesData = [
     link: "chatgen-space",
   },
   {
-    display_name: "💬 ChatGPT Prompt Generator",
+    display_name: "💬 ChatGPT Prompt",
     rating: 5,
     tags: ["text", "generation", "text2text"],
     link: "textgen-space",
@@ -43,7 +43,7 @@ export const spacesData = [
   {
     display_name: "📷 Image Generation",
     rating: 5,
-    tags: ["image generation", "generation", "text2text"],
+    tags: ["image", "generation", "text2text"],
     link: "imggen-space",
   },
 ];

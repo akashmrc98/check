@@ -1,20 +1,15 @@
 import { fonts } from "../../theme/fonts";
 import { motion } from "framer-motion";
 import { colors } from "../../theme/colors";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation } from "swiper/modules";
-import { Box, Grid, GridItem, Text } from "@chakra-ui/react";
+import { Box, Flex, Grid, Image, Text } from "@chakra-ui/react";
 
-import { featuresData } from "../../data/featuresData";
+import SRC from "/public/ai_section/1.jpg";
 
 import HeadLines from "../common/HeadLine";
 
 function FeaturesComponent() {
   return (
-    <Box pos="relative">
-      <Grid gridTemplateColumns={"1fr"} p={12}>
-        <HeadLines desc="UTILITIES" subTitle="OPAI" title="Products" />
-      </Grid>
+    <Box p={4} pos="relative">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -29,75 +24,79 @@ function FeaturesComponent() {
           damping: 20,
         }}
       >
-        <Box mx="auto" width={{ base: "100%", md: "80%" }} pos="relative">
-          <Swiper
-            autoplay={{
-              delay: 3500,
-              disableOnInteraction: false,
-            }}
-            loop={true}
-            modules={[Autoplay, Navigation]}
-            spaceBetween={0}
-            slidesPerView={1}
-            style={{
-              border: `1px groove ${colors.boxBorder}`,
-            }}
+        <Grid>
+          <Grid gridTemplateColumns={{ base: "1fr 0", xl: "1fr 1fr" }}>
+            <Flex justifyContent={"flex-start"}>
+              <HeadLines
+                desc="UTILITIES"
+                subTitle="$OPAI"
+                title="OUR MISSION"
+              />
+              <Box></Box>
+            </Flex>
+          </Grid>
+          <Grid
+            width="100%"
+            justifyContent={"space-between"}
+            alignItems="center"
+            gridTemplateColumns={{ base: "1fr", xl: "1fr 1fr" }}
+            rowGap={{ base: "2rem" }}
+            mt={6}
           >
-            {featuresData.map((d, i) => (
-              <SwiperSlide key={i}>
-                <GridItem
-                  backgroundImage={d.img}
-                  height="100%"
-                  display={"flex"}
-                  justifyContent="flex-end"
-                  flexDir="column"
-                  pos={"relative"}
-                  rowGap="1rem"
-                  backgroundRepeat={"no-repeat"}
-                  backgroundSize="cover"
-                  backgroundPosition={"center"}
-                  minH="332px"
-                >
-                  <Box px={4}>
-                    <Text
-                      textAlign={"left"}
-                      fontWeight={"bold"}
-                      fontSize={{ base: "3xl" }}
-                      fontFamily={fonts.headingFont}
-                      color={colors.highLightColor}
-                    >
-                      {d.title}
-                    </Text>
-                  </Box>
-                  <Box
-                    pt={4}
-                    boxShadow={`0px 0px 8px ${colors.boxBorder}`}
-                    pos="relative"
-                  >
-                    <Text
-                      zIndex={8}
-                      px={4}
-                      fontFamily={fonts.parafont}
-                      color={colors.highLightColor}
-                      fontSize={{ base: "xs", md: "md" }}
-                      pb={2}
-                    >
-                      {d.subTitle}
-                    </Text>
-                    <Box
-                      bg={colors.highLightColor}
-                      filter="blur(40px)"
-                      pos="absolute"
-                      width={"100%"}
-                      minH="320px"
-                      zIndex={4}
-                    ></Box>
-                  </Box>
-                </GridItem>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </Box>
+            <Box width="100%">
+              <Text
+                fontFamily={fonts.headingFont}
+                color={colors.highLightColor}
+                fontWeight="bold"
+                fontSize={{ base: "xl", md: "2xl" }}
+              >
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Dignissimos velit impedit quibusdam voluptas quasi accusantium
+                rem cum est sed sapiente, et asperiores praesentium iste quo.
+                Asperiores hic cumque id fuga.
+              </Text>
+            </Box>
+            <Box display={"flex"} justifyContent="center" width="100%">
+              <Image maxW={{ base: "360", xl: "512" }} src={SRC} />
+            </Box>
+          </Grid>
+          <Box my={24}></Box>
+          <Grid
+            gridTemplateColumns={{ base: "0fr 1fr", xl: "1fr 1fr" }}
+            justifyContent=""
+          >
+            <Box></Box>
+            <Flex justifyContent={"flex-end"}>
+              <HeadLines desc="UTILITIES" subTitle="$OPAI" title="OUR VISION" />
+            </Flex>
+          </Grid>
+          <Grid
+            width="100%"
+            justifyContent={"space-between"}
+            alignItems="center"
+            gridTemplateColumns={{ base: "1fr", xl: "1fr 1fr" }}
+            rowGap={{ base: "2rem" }}
+            mt={6}
+          >
+            <Box display={"flex"} justifyContent="center" width="100%">
+              <Image maxW={{ base: "360", xl: "512" }} src={SRC} />
+            </Box>
+            <Box width="100%">
+              <Text
+                fontFamily={fonts.headingFont}
+                color={colors.highLightColor}
+                fontWeight="bold"
+                fontSize={{ base: "xl", md: "2xl" }}
+                textAlign="right"
+              >
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Dignissimos velit impedit quibusdam voluptas quasi accusantium
+                rem cum est sed sapiente, et asperiores praesentium iste quo.
+                Asperiores hic cumque id fuga.
+              </Text>
+            </Box>
+          </Grid>
+        </Grid>
       </motion.div>
     </Box>
   );

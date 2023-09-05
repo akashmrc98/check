@@ -8,11 +8,8 @@ import { Autoplay, EffectCoverflow, Navigation } from "swiper/modules";
 import { fonts } from "../../theme/fonts";
 import { colors } from "../../theme/colors";
 import HeadLines from "../common/HeadLine";
-import { useMediaQuery } from "@chakra-ui/react";
 
 const AIComponent = () => {
-  const [isLargerThan800] = useMediaQuery("(min-width: 800px)");
-
   return (
     <Box pos="relative">
       <Grid gridTemplateColumns={"1fr 1fr"}>

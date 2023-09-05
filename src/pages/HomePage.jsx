@@ -1,29 +1,27 @@
 import { Box } from "@chakra-ui/react";
-
-import { useRef } from "react";
 import { colors } from "../theme/colors";
-
-import AIComponent from "../components/home/AIComponent";
-import EcoSystemComponent from "../components/home/EcoSystemComponent";
-// import HomeComponent from "../components/home/HomeComponent";
-// import HowComponent from "../components/home/How/HowComponent";
-import MarketingComponent from "../components/home/MarketingComponent";
-import PartnersComponent from "../components/home/PartnersComponent";
-import TitleComponent from "../components/home/TitleComponent";
-import RoadmapComponent from "../components/home/RoadmapComponent";
-// import TokenComponent from "../components/home/Token/TokenComponent";
-import TeamComponent from "../components/home/TeamComponent";
-// import OurSolutionComponent from "../components/home/OurSolution/OurSolutionsComponent";
-import Footer from "../components/common/Footer";
-import FaqComponent from "../components/home/Faq";
 import { LiaArrowCircleUpSolid } from "react-icons/lia";
-import TokenComponent from "../components/home/Token/TokenComponent";
-import BG from "/public/bg/16.jpg";
+
 import Navbar from "../components/common/Navbar";
 
-function HomePage() {
-  const ref = useRef();
+import TitleComponent from "../components/home/TitleComponent";
+import AIComponent from "../components/home/AIComponent";
+import EcoSystemComponent from "../components/home/EcoSystemComponent";
+import MarketingComponent from "../components/home/MarketingComponent";
+import PartnersComponent from "../components/home/PartnersComponent";
+import RoadmapComponent from "../components/home/RoadmapComponent";
+import TeamComponent from "../components/home/TeamComponent";
+import TokenComponent from "../components/home/Token/TokenComponent";
+import FaqComponent from "../components/home/Faq";
+import Footer from "../components/common/Footer";
+import Feat from "../components/home/FeaturesComponent";
+import Sol from "../components/home/OurSolution/OurSolutionsComponent";
 
+import BG from "/public/bg/16.jpg";
+
+import { Element } from "react-scroll";
+
+function HomePage() {
   return (
     <Box
       display={"flex"}
@@ -43,8 +41,6 @@ function HomePage() {
       >
         <LiaArrowCircleUpSolid size={54} color={colors.highLightColor} />
       </Box>
-      {/* <Line left={"6%"} />
-      <Line left={"94%"} /> */}
       <Navbar />
       <TitleComponent />
       <Box
@@ -62,27 +58,34 @@ function HomePage() {
           rowGap={{ base: "4rem", lg: "4rem" }}
           zIndex={4}
           width={{ base: "100%", lg: "88%" }}
-          ref={ref}
           mx="auto"
           border={0}
           outline={0}
           p={4}
         >
-          <AIComponent />
-          {/* <HomeComponent /> */}
+          <Element name="AI">
+            <AIComponent />
+          </Element>
           <MarketingComponent />
-          <EcoSystemComponent />
-          {/* <FeaturesComponent /> */}
+          <Element name="ECO">
+            <EcoSystemComponent />
+          </Element>
+          <Feat />
+          {/* <How /> */}
+          <Sol />
           <PartnersComponent />
-          <RoadmapComponent />
-          <TokenComponent />
-
-          {/* <HowComponent /> */}
-          <TeamComponent />
+          <Element name="ROAD">
+            <RoadmapComponent />
+          </Element>
+          <Element name="TOKEN">
+            <TokenComponent />
+          </Element>
+          <Element name="TEAM">
+            <TeamComponent />
+          </Element>
           <FaqComponent />
         </Box>
       </Box>
-      {/* <OurSolutionComponent /> */}
       <Box zIndex={9999999}>
         <Footer />
       </Box>

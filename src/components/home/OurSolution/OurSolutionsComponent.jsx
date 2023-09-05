@@ -98,7 +98,6 @@ function OurSolutionComponent() {
           damping: 10,
           velocity: 50,
         }}
-        style={{ maxWidth: "95%", margin: "auto" }}
       >
         <OurSolutionContentComponent />
       </motion.div>

@@ -2,14 +2,17 @@
 import { Box } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { useNavigate } from "react-router";
 import { colors } from "../../theme/colors";
 import { fonts } from "../../theme/fonts";
 
 function Mainbutton(props) {
   const [changed, setChanged] = useState(true);
+  const navigate = useNavigate();
 
   return (
     <Box
+      onClick={() => navigate("/dapp")}
       minW="220px"
       onMouseEnter={() => setChanged(false)}
       onMouseUp={() => setChanged(false)}
@@ -145,7 +148,7 @@ function Mainbutton(props) {
                     color={
                       changed ? colors.fontLightColor : colors.highLightColor
                     }
-                    fontFamily={fonts.parafont}
+                    fontFamily={fonts.specialFont}
                     fontSize={{
                       base: "2xl",
                       lg: "3xl",

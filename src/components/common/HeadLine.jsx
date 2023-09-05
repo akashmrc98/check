@@ -24,7 +24,7 @@ function HeadLines(props) {
         >
           <Text
             color={colors.fontLightColorV2}
-            fontFamily={fonts.headingFont}
+            fontFamily={fonts.parafont}
             fontSize={{ base: "sm", lg: "xl" }}
             pb={4}
             pl={4}
@@ -145,7 +145,7 @@ function HeadLines(props) {
           <Text
             border={`2px solid ${colors.boxBorder}`}
             color={colors.fontLightColorV2}
-            fontFamily={fonts.headingFont}
+            fontFamily={fonts.specialFont}
             fontSize={{ base: "2xl", lg: "4xl" }}
             py={6}
             px={3}

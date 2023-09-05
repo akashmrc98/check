@@ -33,7 +33,7 @@ export default function Footer() {
             <Text
               cursor={"pointer"}
               _hover={{ color: colors.highLightColor }}
-              fontFamily={fonts.headingFont}
+              fontFamily={fonts.specialFont}
               color={colors.highLightColor}
               fontWeight="bold"
               fontSize={{ base: "xl", md: "2xl", lg: "4xl" }}
@@ -100,7 +100,7 @@ export default function Footer() {
                 <Grid>
                   <GridItem>
                     <Text
-                      fontFamily={fonts.headingFont}
+                      fontFamily={fonts.specialFont}
                       color={colors.highLightColor}
                       fontWeight="bold"
                       fontSize={{ base: "xl", lg: "2xl" }}

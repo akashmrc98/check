@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Grid, Input, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Grid, Text } from "@chakra-ui/react";
 import { colors } from "../../theme/colors";
 import { fonts } from "../../theme/fonts";
 
@@ -44,17 +44,21 @@ export default function TokenForm(props) {
                 alignItems="flex-end"
                 pt={2}
               >
-                <Input
+                <Box
+                  disabled
                   borderRadius={0}
                   outline={0}
                   border={`2px dashed ${colors.boxBorder}`}
                   fontFamily={fonts.parafont}
-                  value={props.address}
                   fontSize={{ base: "md", lg: "xl" }}
                   fontWeight="bolder"
                   color={colors.fontLightColorV2}
                   textAlign={"right"}
-                />
+                  p={2}
+                  width="100%"
+                >
+                  {props.address}
+                </Box>
               </Flex>
 
               <Box mt={6} width="100%" display={"flex"}>

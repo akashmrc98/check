@@ -8,7 +8,6 @@ import {
   GridItem,
   Image,
   Text,
-  useMediaQuery,
 } from "@chakra-ui/react";
 
 import { motion } from "framer-motion";
@@ -30,8 +29,6 @@ const TeamComponent = () => {
     if (link === "Twitter") return Twitter;
     return Email;
   }
-
-  const [isLargerThan800] = useMediaQuery("(min-width: 800px)");
 
   return (
     <Box pos="relative">
@@ -115,7 +112,7 @@ const TeamComponent = () => {
                       <Text
                         py={4}
                         textAlign={"center"}
-                        fontFamily={fonts.parafont}
+                        fontFamily={fonts.specialFont}
                         fontSize={{ base: "xl", lg: "2xl", xl: "3xl" }}
                         fontWeight={"bold"}
                         color={colors.highLightColor}
@@ -157,7 +154,7 @@ const TeamComponent = () => {
                       className="bg_img"
                     >
                       <Text
-                        fontFamily={fonts.parafont}
+                        fontFamily={fonts.headingFont}
                         fontSize={{ base: "lg", lg: "xl", xl: "2xl" }}
                         fontWeight={"bold"}
                         color={colors.fontLightColor}

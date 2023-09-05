@@ -1,7 +1,7 @@
 export const colors = {
   bgColor: "#000000",
-  boxBorder: "#526D82",
-  highLightColor: "#5ce1e6",
-  fontLightColor: "#FFE6C7",
-  fontLightColorV2: "#EDE4FF",
+  boxBorder: "#176B87",
+  highLightColor: "#DAFFFB",
+  fontLightColor: "#64CCC5",
+  fontLightColorV2: "#96B6C5",
 };

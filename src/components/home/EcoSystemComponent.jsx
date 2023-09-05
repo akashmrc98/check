@@ -78,7 +78,7 @@ function EcoSystemComponent() {
                   className="bg_img"
                 >
                   <Text
-                    fontFamily={fonts.parafont}
+                    fontFamily={fonts.specialFont}
                     color={colors.fontLightColor}
                     fontWeight="bold"
                     fontSize={{ base: "3xl" }}
@@ -89,7 +89,7 @@ function EcoSystemComponent() {
                 <Flex px={4} columnGap={"1rem"} alignItems={"center"}>
                   <Image maxH="32px" maxW="32px" src={Ico} />
                   <Text
-                    fontFamily={fonts.headingFont}
+                    fontFamily={fonts.specialFont}
                     color={colors.fontLightColor}
                     fontWeight="bold"
                     fontSize={{ base: "xl", lg: "3xl" }}

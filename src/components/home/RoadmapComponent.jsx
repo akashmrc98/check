@@ -1,15 +1,7 @@
 import { fonts } from "../../theme/fonts";
 import { colors } from "../../theme/colors";
 import { roadmapData } from "../../data/roadmapData";
-import {
-  Box,
-  Flex,
-  Grid,
-  GridItem,
-  Image,
-  Text,
-  useMediaQuery,
-} from "@chakra-ui/react";
+import { Box, Flex, Grid, GridItem, Image, Text } from "@chakra-ui/react";
 
 import Link from "/public/icons/road.png";
 import Arrow from "/public/icons/arrow_2.png";
@@ -25,8 +17,6 @@ import Pending from "/public/icons/loading.png";
 import HeadLines from "../../components/common/HeadLine";
 
 function RoadmapComponent() {
-  const [isLargerThan800] = useMediaQuery("(min-width: 800px)");
-
   return (
     <Box>
       <Grid gridTemplateColumns={"1fr 1fr"}>
@@ -126,7 +116,7 @@ function RoadmapComponent() {
                       </Text>
                     </Flex>
                     <Text
-                      fontFamily={fonts.headingFont}
+                      fontFamily={fonts.specialFont}
                       color={colors.highLightColor}
                       fontSize={{ base: "xl", lg: "3xl", xl: "4xl" }}
                     >

@@ -124,7 +124,11 @@ function HeadLines2() {
                 flexDir={"column"}
                 width="100%"
               >
-                <motion.div className="bg_img" style={{ width: "100%" }}>
+                <motion.div
+                  width="100%"
+                  className="bg_img"
+                  style={{ width: "100%" }}
+                >
                   <Box
                     color={colors.fontLightColor}
                     fontFamily={fonts.headingFont}
@@ -178,7 +182,7 @@ function HeadLines2() {
               }
               display={"inline"}
               color={colors.fontLightColorV2}
-              fontFamily={fonts.headingFont}
+              fontFamily={fonts.parafont}
               fontSize={{ base: "2xl", lg: "4xl", xl: "5xl" }}
             >
               {titlesMapSectionTwo[index]}
