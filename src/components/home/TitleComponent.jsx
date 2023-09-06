@@ -37,6 +37,7 @@ function TitleComponent() {
       backgroundBlendMode="color"
       minH={{ base: "100vh", xl: "100vh" }}
       backgroundPosition="center"
+      backgroundColor={`rgba(0,0,0,0.44)`}
     >
       <Box zIndex={999999999999999} pos="absolute" top="4%" right="5%">
         <Flex cursor={"pointer"}>
@@ -172,7 +173,7 @@ function SideBar() {
                   cursor="pointer"
                   borderRadius={j % 2 === 0 ? "200rem" : "md"}
                   borderColor={colors.boxBorder}
-                  transition={"all 200ms ease-in-out"}
+                  transition={"all 400ms ease-in-out"}
                   backgroundImage={`radial-gradient(circle, #40f8ff, #00e4ff, #00cfff, #00b7ff, #279eff);`}
                   boxShadow={`0px 0px 2px ${colors.bgColor}`}
                   _hover={{
@@ -183,10 +184,16 @@ function SideBar() {
                     transition: `all 200ms ease-in-out`,
                   }}
                   onMouseEnter={() => {
-                    let h = hover;
+                    let h = [
+                      "hidden",
+                      "hidden",
+                      "hidden",
+                      "hidden",
+                      "hidden",
+                      "hidden",
+                    ];
                     h[j] = "visible";
                     setHover([...h]);
-                    console.log(h, hover);
                   }}
                   onMouseLeave={() => {
                     setHover([

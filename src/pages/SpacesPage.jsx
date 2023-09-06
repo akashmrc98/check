@@ -1,4 +1,12 @@
-import { Box, Button, Grid, GridItem, Image, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  Grid,
+  GridItem,
+  Image,
+  Text,
+} from "@chakra-ui/react";
 import { colors } from "../theme/colors";
 import { fonts } from "../theme/fonts";
 import { emojisData, sGradientData, spacesData } from "../data/spacesData";
@@ -9,6 +17,7 @@ import G from "/public/eco_system/grid.png";
 import ModelSpaceNavbar from "../components/common/ModelSpaceNavbar";
 
 import BG from "/public/bg/7.jpg";
+import Logo from "/public/logo_main.png";
 
 function SpacesPage() {
   const navigate = useNavigate();
@@ -20,11 +29,20 @@ function SpacesPage() {
       backgroundSize={"cover"}
       backgroundBlendMode="color"
       pos="relative"
+      backgroundColor={`rgba(0,0,0,0.8)`}
       // className="bg_img"
       minH="100vh"
     >
+      <Box pos="absolute" top="2%" left="5%">
+        <Flex
+          display={{ base: "none", xl: "flex" }}
+          justifyContent={"flex-end"}
+        >
+          <Image maxW="180px" src={Logo} />
+        </Flex>
+      </Box>
       <ModelSpaceNavbar />
-      <Box mt={4} mx="auto" width={{ base: "100%", lg: "88%" }} pos="relative">
+      <Box mt={32} mx="auto" width={{ base: "100%", lg: "88%" }} pos="relative">
         <Box
           alignItems={"center"}
           display={"flex"}
@@ -105,7 +123,7 @@ function SpacesPage() {
         >
           {spacesData.map((d, i) => (
             <GridItem
-              opacity={0.8}
+              opacity={0.95}
               onClick={() => navigate(`/dapp/spaces/${d.link}`)}
               cursor={"pointer"}
               borderRadius={"lg"}

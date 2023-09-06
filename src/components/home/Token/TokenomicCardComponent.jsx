@@ -15,7 +15,7 @@ function TokenomicsCardComponent(props) {
       <Text
         fontWeight={"bold"}
         fontSize={{ base: "", lg: "xl" }}
-        fontFamily={fonts.parafont}
+        fontFamily={fonts.specialFont}
         color={colors.fontLightColorV2}
       >
         {props.value}

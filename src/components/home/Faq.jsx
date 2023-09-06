@@ -20,7 +20,7 @@ import Question from "/public/icons/question.png";
 export default function FaqComponent() {
   const [index, setIndex] = useState(0);
   return (
-    <Box>
+    <Box mb={0}>
       <Grid
         justifyContent={"flex-end"}
         gridTemplateColumns={{ base: "1fr", lg: "1fr 1fr" }}
@@ -203,7 +203,7 @@ export default function FaqComponent() {
           <Text
             cursor={"pointer"}
             fontFamily={fonts.specialFont}
-            color={colors.fontLightColorV2}
+            color={colors.highLightColor}
             textAlign="left"
             fontWeight="bold"
             fontSize={{ base: "lg", xl: "2xl" }}

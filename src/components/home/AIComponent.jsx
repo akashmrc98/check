@@ -95,7 +95,7 @@ const AIComponent = () => {
                     bg={colors.bgColor}
                   >
                     <Text
-                      fontFamily={fonts.parafont}
+                      fontFamily={fonts.specialFont}
                       fontSize={"xl"}
                       fontWeight={"bold"}
                       color={colors.fontLightColorV2}
@@ -114,8 +114,8 @@ const AIComponent = () => {
                     boxShadow={`0px 0px 2px ${colors.boxBorder}`}
                   >
                     <Text
-                      fontFamily={fonts.parafont}
-                      fontSize={{ base: "sm", md: "md", xl: "lg" }}
+                      fontFamily={fonts.specialFont}
+                      fontSize={{ base: "sm", md: "md", xl: "2xl" }}
                       fontWeight={"bold"}
                       color={colors.fontLightColorV2}
                       px={2}

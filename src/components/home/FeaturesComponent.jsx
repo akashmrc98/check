@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { colors } from "../../theme/colors";
 import { Box, Flex, Grid, Image, Text } from "@chakra-ui/react";
 
-import SRC from "/public/ai_section/1.jpg";
+import SRC from "/public/ai_section/1.webp";
 
 import HeadLines from "../common/HeadLine";
 
@@ -50,10 +50,11 @@ function FeaturesComponent() {
                 fontWeight="bold"
                 fontSize={{ base: "xl", md: "2xl" }}
               >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dignissimos velit impedit quibusdam voluptas quasi accusantium
-                rem cum est sed sapiente, et asperiores praesentium iste quo.
-                Asperiores hic cumque id fuga.
+                Empowering every person on the planet to step into the world of
+                Metaverse and {`NFT's`} with next-gen rendering technology
+                powered by AI. We strive to deliver the highest quality and
+                value possible through simple, easy, and relevant solutions with
+                a determination to succeed
               </Text>
             </Box>
             <Box display={"flex"} justifyContent="center" width="100%">
@@ -89,10 +90,12 @@ function FeaturesComponent() {
                 fontSize={{ base: "xl", md: "2xl" }}
                 textAlign="right"
               >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dignissimos velit impedit quibusdam voluptas quasi accusantium
-                rem cum est sed sapiente, et asperiores praesentium iste quo.
-                Asperiores hic cumque id fuga.
+                With our unique AI-powered application and $RNDV at the heart of
+                its economy, Project Renderverse is conquering the metaverse by
+                storm. Our state-of-the-art models enable users to transform
+                real-world items into high-quality NFTs. Users can mint NFTs,
+                purchase merchandise, and play P2E games on Renderverse
+                ecosystem.
               </Text>
             </Box>
           </Grid>

@@ -4,24 +4,28 @@ import { fonts } from "../../theme/fonts";
 
 import HighLightButton from "../common/HighLightButton";
 import L from "/public/eco_system/link.png";
+import { Link } from "react-scroll";
+import { useNavigate } from "react-router";
 
 export default function Footer() {
+  const navigate = useNavigate();
   return (
     <Box
-      zIndex={999}
-      borderTopRadius="3xl"
+      className="bg_img"
+      zIndex={999999999999999}
       width={{ base: "95%" }}
       mx="auto"
+      borderTopRadius={"3xl"}
+      pt={12}
       border={{
-        base: "2px solid ${colors.boxBorder}",
-        md: `2px solid ${colors.boxBorder}`,
+        base: 0,
       }}
       boxShadow={{
         base: 0,
         xl: `-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`,
       }}
     >
-      <Box bg={colors.bgColor} width={{ base: "90%", md: "75%" }} mx="auto">
+      <Box width={{ base: "90%", md: "75%" }} mx="auto">
         <Grid columnGap={"2rem"} rowGap={"4rem"}>
           <GridItem
             alignItems={"center"}
@@ -51,7 +55,7 @@ export default function Footer() {
               *Only valuable resources, no bullshit.
             </Text>
           </GridItem>
-          <GridItem className="bg_img">
+          <GridItem>
             <Box
               display={"flex"}
               alignItems="self-start"
@@ -60,6 +64,7 @@ export default function Footer() {
               flexDirection="column"
             >
               <Input
+                boxShadow={`0px 0px 8px ${colors.highLightColor}`}
                 variant={"unstyled"}
                 placeholder="Your E-mail"
                 width="100%"
@@ -109,18 +114,42 @@ export default function Footer() {
                     </Text>
                   </GridItem>
                   {d.sub.map((s, j) => (
-                    <GridItem key={j}>
-                      <Text
-                        fontFamily={fonts.parafont}
-                        color={colors.fontLightColorV2}
-                        fontWeight="bold"
-                        fontSize={{ base: "sm", lg: "md" }}
-                        cursor={"pointer"}
-                        _hover={{ color: colors.highLightColor }}
-                      >
-                        {s}
-                      </Text>
-                    </GridItem>
+                    <Box key={j}>
+                      {s.isLink ? (
+                        <Link
+                          to={s.link}
+                          spy={true}
+                          smooth={true}
+                          duration={500}
+                        >
+                          <Text
+                            fontFamily={fonts.parafont}
+                            color={colors.fontLightColorV2}
+                            fontWeight="bold"
+                            fontSize={{ base: "sm", lg: "md" }}
+                            cursor={"pointer"}
+                            _hover={{ color: colors.highLightColor }}
+                          >
+                            {s.display_name}
+                          </Text>
+                        </Link>
+                      ) : (
+                        <GridItem
+                          onClick={() => navigate(`/dapp/spaces/${s.link}`)}
+                        >
+                          <Text
+                            fontFamily={fonts.parafont}
+                            color={colors.fontLightColorV2}
+                            fontWeight="bold"
+                            fontSize={{ base: "sm", lg: "md" }}
+                            cursor={"pointer"}
+                            _hover={{ color: colors.highLightColor }}
+                          >
+                            {s.display_name}
+                          </Text>
+                        </GridItem>
+                      )}
+                    </Box>
                   ))}
                 </Grid>
               </GridItem>
@@ -170,47 +199,80 @@ const data = [
   {
     title: "AI SOLUTIONS",
     sub: [
-      "ChainGPT Chat Bot",
-      "AI NFT Generator",
-      "ChainGPT on Telegram",
-      "ChainGPT on Discord",
-      "Smart Contract Generator",
-      "Smart Contract Auditor",
-      "ChainGPT Pad",
+      {
+        display_name: "🎵 Music Gen Space",
+        rating: 5,
+        tags: ["music", "named", "recognition"],
+        link: "musicgen-space",
+        isLink: false,
+      },
+      {
+        display_name: "👋🏻 Chat Assistant",
+        rating: 5,
+        tags: ["chat", "ai", "elon musk"],
+        link: "chatgen-space",
+        isLink: false,
+      },
+      {
+        display_name: "💬 ChatGPT Prompt",
+        rating: 5,
+        tags: ["text", "generation", "text2text"],
+        link: "textgen-space",
+        isLink: false,
+      },
+      {
+        display_name: "📷 Image Generation",
+        rating: 5,
+        tags: ["image", "generation", "text2text"],
+        link: "imggen-space",
+        isLink: false,
+      },
     ],
   },
   {
     title: "QUICK LINKS",
     sub: [
-      "ChainGPT Blog",
-      "Documentation",
-      "$CGPT Staking (v2)",
-      "$CGPT Staking (v1)",
-
-      "DAO Governance",
-      "Pricing Model",
-      "Contact Us",
-      "Our LaunchPad",
+      {
+        display_name: "Products",
+        link: "AI",
+        isLink: true,
+      },
+      {
+        display_name: "Eco-System",
+        link: "ECO",
+        isLink: true,
+      },
+      {
+        display_name: "Roadmap",
+        link: "ROAD",
+        isLink: true,
+      },
+      {
+        display_name: "Tokenomics",
+        link: "TOKEN",
+        isLink: true,
+      },
+      {
+        display_name: "Team",
+        link: "TEAM",
+        isLink: true,
+      },
     ],
   },
   {
     title: "LEGAL",
     sub: [
-      "CGPT Agreement",
-      "Privacy Policy",
-      "Terms of Service",
-      "Cookies Policy",
+      {
+        display_name: "$OPAI Agreement",
+      },
+      {
+        display_name: "Privacy Policy",
+      },
+      {
+        display_name: "Terms of Service",
+      },
     ],
   },
 ];
 
-const links = [
-  "TELEGRAM",
-  "DISCORD",
-  "YOUTUBE",
-  "MEDIUM",
-  "LINKEDIN",
-  "FACEBOOK",
-  "INSTAGRAM",
-  "GITHUB",
-];
+const links = ["TELEGRAM", "TWITTER", "INSTAGRAM", "MEDIUM", "GITHUB"];

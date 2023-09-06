@@ -32,7 +32,7 @@ function Mainbutton(props) {
       borderRadius="sm"
       boxShadow={
         !changed
-          ? `0px 0px 32px ${colors.highLightColor}`
+          ? `0px 0px 32px ${colors.fontLightColor}`
           : `0px 0px 2px ${colors.fontLightColor}`
       }
       transition={`all 200ms ease-in-out`}

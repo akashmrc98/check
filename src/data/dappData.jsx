@@ -1,5 +1,5 @@
-import Logo from "/public/ai_section/6.jpg";
-import DappData from "/public/ai_section/6.jpg";
+import Logo from "/public/ai_section/6.webp";
+import DappData from "/public/ai_section/6.webp";
 
 export const dappData = {
   logo: Logo,

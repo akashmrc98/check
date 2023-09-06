@@ -7,7 +7,6 @@ import Navbar from "../components/common/Navbar";
 import TitleComponent from "../components/home/TitleComponent";
 import AIComponent from "../components/home/AIComponent";
 import EcoSystemComponent from "../components/home/EcoSystemComponent";
-import MarketingComponent from "../components/home/MarketingComponent";
 import PartnersComponent from "../components/home/PartnersComponent";
 import RoadmapComponent from "../components/home/RoadmapComponent";
 import TeamComponent from "../components/home/TeamComponent";
@@ -30,17 +29,6 @@ function HomePage() {
       position={"relative"}
       bg={colors.bgColor}
     >
-      <Box
-        cursor={"pointer"}
-        onClick={() => window.scrollTo(0, 0)}
-        position={"fixed"}
-        bottom={"2%"}
-        right="1%"
-        zIndex={999999999999}
-        display={{ base: "none", xl: "block" }}
-      >
-        <LiaArrowCircleUpSolid size={54} color={colors.highLightColor} />
-      </Box>
       <Navbar />
       <TitleComponent />
       <Box
@@ -61,19 +49,17 @@ function HomePage() {
           mx="auto"
           border={0}
           outline={0}
-          p={4}
+          pt={4}
         >
           <Element name="AI">
             <AIComponent />
           </Element>
-          <MarketingComponent />
+          <PartnersComponent />
           <Element name="ECO">
             <EcoSystemComponent />
           </Element>
           <Feat />
-          {/* <How /> */}
           <Sol />
-          <PartnersComponent />
           <Element name="ROAD">
             <RoadmapComponent />
           </Element>
@@ -84,10 +70,19 @@ function HomePage() {
             <TeamComponent />
           </Element>
           <FaqComponent />
+          <Footer />
         </Box>
       </Box>
-      <Box zIndex={9999999}>
-        <Footer />
+      <Box
+        cursor={"pointer"}
+        onClick={() => window.scrollTo(0, 0)}
+        position={"fixed"}
+        bottom={"2%"}
+        right="1%"
+        zIndex={999999999999999}
+        display={{ base: "none", xl: "block" }}
+      >
+        <LiaArrowCircleUpSolid size={54} color={colors.highLightColor} />
       </Box>
     </Box>
   );

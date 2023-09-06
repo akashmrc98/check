@@ -6,7 +6,7 @@ import { Box, Flex, Grid, GridItem, Image, Text } from "@chakra-ui/react";
 import HeadLines from "../common/HeadLine";
 import { ecoSystemData } from "../../data/ecoSystemData";
 
-import Ico from "/public/icons/arrow.png";
+import Ico from "/public/icons/archive.png";
 
 function EcoSystemComponent() {
   return (
@@ -50,11 +50,6 @@ function EcoSystemComponent() {
               borderTop={{
                 base: `1px groove ${colors.boxBorder}`,
                 lg: i === 0 ? `1px groove ${colors.boxBorder}` : 0,
-              }}
-              borderTopRightRadius={{ base: 0, lg: i === 0 ? "xl" : "none" }}
-              borderBottomRadius={{
-                base: 0,
-                lg: i === ecoSystemData.length - 1 ? "xl" : "none",
               }}
               gridTemplateColumns={{ base: "1fr", lg: "1fr 1fr" }}
               boxShadow={`-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`}

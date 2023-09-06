@@ -74,6 +74,7 @@ function MusicGenSpace() {
   return (
     <Box
       backgroundImage={BG}
+      backgroundColor={`rgba(0,0,0,0.66)`}
       backgroundRepeat="no-repeat"
       backgroundSize={"cover"}
       backgroundBlendMode="color"

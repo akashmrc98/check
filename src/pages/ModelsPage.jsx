@@ -1,4 +1,12 @@
-import { Box, Button, Grid, GridItem, Image, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  Grid,
+  GridItem,
+  Image,
+  Text,
+} from "@chakra-ui/react";
 import { colors } from "../theme/colors";
 import { fonts } from "../theme/fonts";
 import { emojis, gradientData, modelsData } from "../data/modelsData";
@@ -10,6 +18,7 @@ import { useState } from "react";
 import ModelSpaceNavbar from "../components/common/ModelSpaceNavbar";
 
 import BG from "/public/bg/7.jpg";
+import Logo from "/public/logo_main.png";
 
 function ModelsPage() {
   const navigate = useNavigate();
@@ -33,11 +42,20 @@ function ModelsPage() {
       backgroundRepeat="no-repeat"
       backgroundSize={"cover"}
       backgroundBlendMode="color"
+      backgroundColor={`rgba(0,0,0,0.8)`}
       pos="relative"
       minH="100vh"
     >
+      <Box pos="absolute" top="2%" left="5%">
+        <Flex
+          display={{ base: "none", xl: "flex" }}
+          justifyContent={"flex-end"}
+        >
+          <Image maxW="180px" src={Logo} />
+        </Flex>
+      </Box>
       <ModelSpaceNavbar />
-      <Box mt={4} mx="auto" width={{ base: "100%", lg: "88%" }} pos="relative">
+      <Box mt={32} mx="auto" width={{ base: "100%", lg: "88%" }} pos="relative">
         <Box
           alignItems={"center"}
           display={"flex"}
@@ -122,7 +140,7 @@ function ModelsPage() {
               onClick={() => navigate("/dapp/models/" + d.service_id)}
               cursor={"pointer"}
               borderRadius={"lg"}
-              opacity={0.75}
+              opacity={0.95}
               pos={"relative"}
               key={i}
               transition={`all 100ms ease-in-out`}

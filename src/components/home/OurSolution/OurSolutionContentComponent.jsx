@@ -4,7 +4,7 @@ import { fonts } from "../../../theme/fonts";
 import { colors } from "../../../theme/colors";
 
 import HeadLines from "../../common/HeadLine";
-import L from "/public/eco_system/link.png";
+import L from "/public/icons/tag.png";
 import { spacesData } from "../../../data/spacesData";
 import { useNavigate } from "react-router";
 import { useState } from "react";
@@ -24,23 +24,25 @@ function OurSolutionContentComponent() {
         />
       </Box>
       <Grid
-        width={{ base: "100%", xl: "80%" }}
+        gridTemplateColumns={{ base: "1fr", xl: "1fr 1fr" }}
         rowGap={"2rem"}
-        mx="auto"
-        borderRadius={"xl"}
+        columnGap="2rem"
       >
         {spacesData.map((sol, i) => (
           <Box
+            width={"100%"}
+            px={8}
+            py={4}
             className="bg_img"
             boxShadow={{
               base: `-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`,
             }}
-            display={"flex"}
-            justifyContent="flex-start"
-            key={i}
+            display={"grid"}
             alignItems="center"
+            rowGap={"1rem"}
+            key={i}
           >
-            <Box p={4} width="100%" display={"grid"} rowGap="2rem">
+            <Box width="100%" display={"grid"} rowGap="1rem">
               <Text
                 color={colors.highLightColor}
                 fontFamily={fonts.headingFont}
@@ -49,10 +51,7 @@ function OurSolutionContentComponent() {
                 {sol.display_name}
               </Text>
               <Flex justifyContent={"flex-start"}>
-                <Mainbutton
-                  title={"TRY NOW"}
-                  link={"/dapp/spaces/" + sol.link}
-                />
+                <Mainbutton title={"TRY NOW"} link={"/dapp/spaces/"} />
               </Flex>
             </Box>
             <Box
@@ -64,20 +63,20 @@ function OurSolutionContentComponent() {
               }}
               width="100%"
               rowGap={".5rem"}
-              p={4}
+              columnGap="1rem"
             >
               {sol.tags.map((tag, j) => (
                 <Box
                   display={"flex"}
                   justifyContent="flex-start"
+                  p={2}
                   bg={colors.bgColor}
-                  p={4}
-                  ml={2}
                   border={{
                     base: `2px groove ${colors.boxBorder}`,
                   }}
                   borderRadius="md"
                   key={j}
+                  columnGap="1rem"
                 >
                   <Image height={"24px"} width="24px" src={L} />
                   <Text
@@ -122,7 +121,6 @@ function Mainbutton(props) {
       onMouseOut={() => setChanged(true)}
       pos={"relative"}
       zIndex={999999999999999}
-      display={{ base: props.isMobile ? "flex" : "none", xl: "flex" }}
       borderRadius="sm"
       boxShadow={
         !changed

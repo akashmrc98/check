@@ -1,4 +1,4 @@
-import Image from "/public/ai_section/1.jpg";
+import Image from "/public/ai_section/1.webp";
 
 export const teamData = [
   {

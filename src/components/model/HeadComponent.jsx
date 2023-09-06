@@ -10,7 +10,7 @@ import {
 
 import { colors } from "../../theme/colors";
 import { fonts } from "../../theme/fonts";
-import Logo from "/public/logo_6.png";
+import Logo from "/public/logo_main.png";
 
 function ModelHeadComponent({ service_id, display_name, media }) {
   return (
