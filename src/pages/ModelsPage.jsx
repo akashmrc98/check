@@ -18,7 +18,7 @@ import { useState } from "react";
 import ModelSpaceNavbar from "../components/common/ModelSpaceNavbar";
 
 import BG from "/public/bg/7.jpg";
-import Logo from "/public/logo_main.png";
+import Logo from "/public/logos/text.webp";
 
 function ModelsPage() {
   const navigate = useNavigate();

@@ -17,7 +17,7 @@ import G from "/public/eco_system/grid.png";
 import ModelSpaceNavbar from "../components/common/ModelSpaceNavbar";
 
 import BG from "/public/bg/7.jpg";
-import Logo from "/public/logo_main.png";
+import Logo from "/public/logos/text.webp";
 
 function SpacesPage() {
   const navigate = useNavigate();

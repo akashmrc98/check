@@ -13,7 +13,7 @@ import { colors } from "../../theme/colors";
 import { fonts } from "../../theme/fonts";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { FiMenu } from "react-icons/fi";
-import Logo from "/public/logo_main.png";
+import Logo from "/public/logos/icon_text.webp";
 import Mainbutton from "./MainButton";
 
 function NavItem(props) {

@@ -10,7 +10,7 @@ import {
 
 import { colors } from "../../theme/colors";
 import { fonts } from "../../theme/fonts";
-import Logo from "/public/logo_main.png";
+import Logo from "/public/logos/text.webp";
 
 function ModelHeadComponent({ service_id, display_name, media }) {
   return (

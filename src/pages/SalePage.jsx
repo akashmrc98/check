@@ -5,7 +5,7 @@ import TokenForm from "../components/sale/TokenForm";
 import TokenInfoComponent from "../components/sale/TokenInfoComponent";
 
 import BG from "/public/bg/11.jpg";
-import Logo from "/public/logo_main.png";
+import Logo from "/public/logos/icon_text.webp";
 
 import { bsc } from "wagmi/chains";
 import { useWeb3Modal } from "@web3modal/react";

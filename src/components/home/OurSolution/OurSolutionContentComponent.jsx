@@ -38,8 +38,8 @@ function OurSolutionContentComponent() {
               base: `-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`,
             }}
             display={"grid"}
+            gridTemplateColumns={{ base: "1fr" }}
             alignItems="center"
-            rowGap={"1rem"}
             key={i}
           >
             <Box width="100%" display={"grid"} rowGap="1rem">
@@ -50,45 +50,80 @@ function OurSolutionContentComponent() {
               >
                 {sol.display_name}
               </Text>
-              <Flex justifyContent={"flex-start"}>
-                <Mainbutton title={"TRY NOW"} link={"/dapp/spaces/"} />
-              </Flex>
-            </Box>
-            <Box
-              display={"grid"}
-              gridTemplateColumns={{
-                base: "1fr",
-                lg: "1fr 1fr",
-                xl: "1fr 1fr 1fr",
-              }}
-              width="100%"
-              rowGap={".5rem"}
-              columnGap="1rem"
-            >
-              {sol.tags.map((tag, j) => (
-                <Box
-                  display={"flex"}
-                  justifyContent="flex-start"
-                  p={2}
-                  bg={colors.bgColor}
-                  border={{
-                    base: `2px groove ${colors.boxBorder}`,
-                  }}
-                  borderRadius="md"
-                  key={j}
-                  columnGap="1rem"
-                >
-                  <Image height={"24px"} width="24px" src={L} />
-                  <Text
-                    color={colors.fontLightColor}
-                    fontFamily={fonts.parafont}
-                    fontWeight="bold"
-                    textAlign={"right"}
+              <Grid
+                width="100%"
+                templateColumns={{ base: "1fr", xl: "2fr 1fr" }}
+                columnGap="1rem"
+                alignItems={"center"}
+              >
+                <Grid alignItems={"center"} rowGap={"1rem"}>
+                  <Box
+                    display={"grid"}
+                    gridTemplateColumns={{
+                      base: "1fr",
+                      lg: "1fr 1fr",
+                      xl: "1fr 1fr",
+                    }}
+                    width="100%"
+                    rowGap={".5rem"}
+                    columnGap="1rem"
                   >
-                    {tag}
-                  </Text>
+                    {sol.tags.map((tag, j) =>
+                      j === 2 ? null : (
+                        <Box
+                          display={"flex"}
+                          justifyContent="flex-start"
+                          p={2}
+                          bg={colors.bgColor}
+                          border={{
+                            base: `2px groove ${colors.boxBorder}`,
+                          }}
+                          borderRadius="md"
+                          key={j}
+                          columnGap="1rem"
+                        >
+                          <Image height={"24px"} width="24px" src={L} />
+                          <Text
+                            color={colors.fontLightColor}
+                            fontFamily={fonts.parafont}
+                            fontWeight="bold"
+                            textAlign={"right"}
+                          >
+                            {tag}
+                          </Text>
+                        </Box>
+                      )
+                    )}
+                  </Box>
+                  <Flex justifyContent={"center"}>
+                    <Box
+                      minW="260px"
+                      display={"flex"}
+                      justifyContent="flex-start"
+                      p={2}
+                      bg={colors.bgColor}
+                      border={{
+                        base: `2px groove ${colors.boxBorder}`,
+                      }}
+                      borderRadius="md"
+                      columnGap="1rem"
+                    >
+                      <Image height={"24px"} width="24px" src={L} />
+                      <Text
+                        color={colors.fontLightColor}
+                        fontFamily={fonts.parafont}
+                        fontWeight="bold"
+                        textAlign={"right"}
+                      >
+                        {sol.tags[0]}
+                      </Text>
+                    </Box>
+                  </Flex>
+                </Grid>
+                <Box ml={4}>
+                  <Mainbutton title={"TRY NOW"} link={"/dapp/spaces/"} />
                 </Box>
-              ))}
+              </Grid>
             </Box>
           </Box>
         ))}

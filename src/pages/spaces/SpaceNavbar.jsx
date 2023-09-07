@@ -1,8 +1,9 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import { colors } from "../../theme/colors";
 import { BiArrowBack } from "react-icons/bi";
 import { fonts } from "../../theme/fonts";
 import { useNavigate } from "react-router";
+import Logo from "/public/logos/text.webp";
 
 export default function SpaceNavbar() {
   const navigate = useNavigate();
@@ -14,6 +15,7 @@ export default function SpaceNavbar() {
       p={2}
       bg={`rgba(0,0,0,.4)`}
       boxShadow={`0px 0px 4px ${colors.highLightColor}`}
+      justifyContent="space-between"
     >
       <Flex
         cursor={"pointer"}
@@ -29,6 +31,8 @@ export default function SpaceNavbar() {
           color={colors.highLightColor}
         ></Text>
       </Flex>
+      <Image maxW="220px" src={Logo} />
+      <Box></Box>
     </Box>
   );
 }

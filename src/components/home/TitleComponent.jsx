@@ -12,7 +12,7 @@ import Spline from "@splinetool/react-spline";
 import { homeUtilsData } from "../../data/homeData";
 
 import BG from "/public/bg/11.jpg";
-import Logo from "/public/logo_main.png";
+import Logo from "/public/logos/icon_text.webp";
 
 import { Link } from "react-scroll";
 
@@ -50,7 +50,7 @@ function TitleComponent() {
           display={{ base: "none", xl: "flex" }}
           justifyContent={"flex-end"}
         >
-          <Image maxW="180px" src={Logo} />
+          <Image maxW="420px" src={Logo} />
         </Flex>
       </Box>
       <Model visible={true} />
