@@ -79,7 +79,7 @@ export default function SalePage() {
             window.open("https://chipper-yeot-d29d0d.netlify.app/", "_self")
           }
         >
-          <Image maxW="180px" src={Logo} />
+          <Image maxW="320px" src={Logo} />
         </Flex>
       </Box>
       <Container minW="80%" pt={32}>
