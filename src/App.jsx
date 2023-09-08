@@ -17,6 +17,11 @@ import {
 import { Web3Modal } from "@web3modal/react";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import { bsc, bscTestnet } from "wagmi/chains";
+import { useEffect, useState } from "react";
+import { colors } from "./theme/colors";
+
+import Lottie from "lottie-react";
+import groovyWalkAnimation from "/public/lottie/loader_3.json";
 
 const chains = [bsc, bscTestnet];
 const projectId = "f5dcf20eb66353538219a935685ad5fd";
@@ -62,7 +67,29 @@ const router = [
 ];
 
 function App() {
-  return (
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    if (loading) {
+      setTimeout(() => {
+        setLoading(false);
+      }, 3500);
+    }
+  }, [loading]);
+
+  return loading ? (
+    <div
+      style={{
+        background: colors.bgColor,
+        height: "100vh",
+        width: "100vw",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <Lottie animationData={groovyWalkAnimation} />
+    </div>
+  ) : (
     <BrowserRouter>
       <ChakraProvider>
         <WagmiConfig config={wagmiConfig}>
