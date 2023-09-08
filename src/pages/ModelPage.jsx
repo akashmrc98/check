@@ -44,8 +44,7 @@ function ModelPage() {
         return;
       }
     });
-  }, []);
-  console.log(model);
+  }, [params.model]);
 
   return (
     <Box

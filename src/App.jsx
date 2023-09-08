@@ -11,7 +11,6 @@ import {
 import { Web3Modal } from "@web3modal/react";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import { bsc, bscTestnet } from "wagmi/chains";
-import { useEffect, useState } from "react";
 import { colors } from "./theme/colors";
 
 import Lottie from "lottie-react";
@@ -68,14 +67,14 @@ const router = [
 ];
 
 function App() {
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    if (loading) {
-      setTimeout(() => {
-        setLoading(false);
-      }, 3500);
-    }
-  }, [loading]);
+  // const [loading, setLoading] = useState(true);
+  // useEffect(() => {
+  //   if (loading) {
+  //     setTimeout(() => {
+  //       setLoading(false);
+  //     }, 3500);
+  //   }
+  // }, [loading]);
 
   const Loader = () => (
     <div
@@ -92,9 +91,7 @@ function App() {
     </div>
   );
 
-  return loading ? (
-    <Loader />
-  ) : (
+  return (
     <Suspense fallback={<Loader />}>
       <BrowserRouter>
         <ChakraProvider>
