@@ -64,36 +64,59 @@
           })
         );
 
+        series
+          .get("colors")
+          .set("colors", [
+            am5.color(0xe9433e),
+            am5.color(0xfc8147),
+            am5.color(0xffa357),
+            am5.color(0xffcd98),
+            am5.color(0x96B6C5),
+            am5.color(0x5ce0e6),
+            am5.color(0x5ce1e7),
+            am5.color(0x7fe5d2), 
+            am5.color(0xffffff), 
+          ]);
+
         // Set data
         // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Setting_data
         series.data.setAll([
           {
-            key: "Lithuania",
-            value: 501.9,
+            key: "ECOSYSTEM AND STAKING REWARDS",
+            value: 30,
           },
           {
-            key: "Czechia",
-            value: 301.9,
+            key: "PRESALE",
+            value: 20,
           },
           {
-            key: "Australia",
-            value: 139.9,
+            key: "MARKETING",
+            value: 15,
           },
           {
-            key: "Austria",
-            value: 128.3,
+            key: "LIQUIDITY",
+            value: 12,
+          },
+
+          {
+            key: "CEX LISTING",
+            value: 9,
           },
           {
-            key: "UK",
-            value: 99,
+            key: "NULS SCO",
+            value: 5,
           },
           {
-            key: "Belgium",
-            value: 60,
+            key: "ADVISORS",
+            value: 4,
           },
           {
-            key: "The Netherlands",
-            value: 50,
+            key: "AIR DROPS AND GIVEAWAYS",
+            value: 3,
+          },
+          {
+            key: "PARTNERSHIP",
+            value: 2,
           },
         ]);
 
@@ -111,25 +134,21 @@
                 brighten: 1,
               },
               {
-                brighten: 0.2,
+                brighten: 0.5,
               },
               {
-                brighten: -0.5,
+                brighten: 1,
               },
               {
-                brighten: 0,
-              },
-              {
-                brighten: -0.5,
+                brighten: -0.7,
               },
             ],
           })
         );
-
-        // Play initial series animation
         // https://www.amcharts.com/docs/v5/concepts/animations/#Animation_of_series
         series.appear(1000, 100);
-      }); // end am5.ready()
+      });
+      am5.ready();
     </script>
   </body>
 </html>

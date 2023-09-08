@@ -115,7 +115,7 @@ function OurSolutionContentComponent() {
                         fontWeight="bold"
                         textAlign={"right"}
                       >
-                        {sol.tags[0]}
+                        {sol.tags[2]}
                       </Text>
                     </Box>
                   </Flex>

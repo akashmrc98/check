@@ -1,13 +1,7 @@
 import { ChakraProvider } from "@chakra-ui/react";
 
-import HomePage from "./pages/HomePage";
-import ModelPage from "./pages/ModelPage";
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import SpaceFactory from "./pages/spaces/SpacesFactory";
-import SalePage from "./pages/SalePage";
-import ModelsPage from "./pages/ModelsPage";
-import SpacesPage from "./pages/SpacesPage";
+import { lazy, Suspense } from "react";
 
 import {
   EthereumClient,
@@ -22,6 +16,13 @@ import { colors } from "./theme/colors";
 
 import Lottie from "lottie-react";
 import groovyWalkAnimation from "/public/lottie/loader_3.json";
+
+const HomePage = lazy(() => import("./pages/HomePage"));
+const ModelsPage = lazy(() => import("./pages/ModelsPage"));
+const SpacesPage = lazy(() => import("./pages/SpacesPage"));
+const SpaceFactory = lazy(() => import("./pages/spaces/SpacesFactory"));
+const ModelPage = lazy(() => import("./pages/ModelPage"));
+const SalePage = lazy(() => import("./pages/SalePage"));
 
 const chains = [bsc, bscTestnet];
 const projectId = "f5dcf20eb66353538219a935685ad5fd";
@@ -76,7 +77,7 @@ function App() {
     }
   }, [loading]);
 
-  return loading ? (
+  const Loader = () => (
     <div
       style={{
         background: colors.bgColor,
@@ -89,19 +90,25 @@ function App() {
     >
       <Lottie animationData={groovyWalkAnimation} />
     </div>
+  );
+
+  return loading ? (
+    <Loader />
   ) : (
-    <BrowserRouter>
-      <ChakraProvider>
-        <WagmiConfig config={wagmiConfig}>
-          <Routes>
-            {router.map((route, index) => (
-              <Route key={index} element={route.element} path={route.path} />
-            ))}
-          </Routes>
-        </WagmiConfig>
-        <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />
-      </ChakraProvider>
-    </BrowserRouter>
+    <Suspense fallback={<Loader />}>
+      <BrowserRouter>
+        <ChakraProvider>
+          <WagmiConfig config={wagmiConfig}>
+            <Routes>
+              {router.map((route, index) => (
+                <Route key={index} element={route.element} path={route.path} />
+              ))}
+            </Routes>
+          </WagmiConfig>
+          <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />
+        </ChakraProvider>
+      </BrowserRouter>
+    </Suspense>
   );
 }
 

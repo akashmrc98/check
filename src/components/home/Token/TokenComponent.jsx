@@ -88,7 +88,7 @@ function TokenComponent() {
               <Box minH="8" minW="8" borderRadius={"md"} bg={d.color}></Box>
               <Text
                 fontFamily={fonts.specialFont}
-                fontSize={{ base: "2xl" }}
+                fontSize={{ base: "md" }}
                 color={colors.highLightColor}
               >
                 {d.key}
@@ -96,7 +96,7 @@ function TokenComponent() {
               <Text
                 fontFamily={fonts.headingFont}
                 fontWeight="bolder"
-                fontSize={{ base: "xl" }}
+                fontSize={{ base: "md" }}
                 color={colors.fontLightColor}
               >
                 {d.value}%
@@ -111,39 +111,53 @@ function TokenComponent() {
 
 const data = [
   {
-    key: "Lithuania",
-    value: 501.9,
-    color: colors.highLightColor,
+    key: "ECOSYSTEM AND STAKING REWARDS",
+    value: 30,
+    color: "#ff6000",
   },
   {
-    key: "Czechia",
-    value: 301.9,
-    color: colors.boxBorder,
+    key: "PRESALE",
+
+    value: 20,
+    color: "#ff6f16",
   },
   {
-    key: "Australia",
-    value: 139.9,
-    color: colors.fontLightColor,
+    key: "MARKETING",
+    value: 15,
+    color: "#ff7d27",
   },
   {
-    key: "Austria",
-    value: 128.3,
-    color: colors.fontLightColorV2,
+    key: "LIQUIDITY",
+    value: 12,
+
+    color: "#ff8a36",
+  },
+
+  {
+    key: "CEX LISTING",
+    value: 9,
+
+    color: "#ff9645",
   },
   {
-    key: "UK",
-    value: 99,
-    color: colors.highLightColor,
+    key: "NULS SCO",
+    value: 5,
+    color: "#ffa154",
   },
   {
-    key: "Belgium",
-    value: 60,
-    color: colors.boxBorder,
+    key: "ADVISORS",
+    value: 4,
+    color: "#ffac63",
   },
   {
-    key: "The Netherlands",
-    value: 50,
-    color: colors.fontLightColor,
+    key: "AIR DROPS AND GIVEAWAYS",
+    value: 3,
+    color: "#ffb673",
+  },
+  {
+    key: "PARTNERSHIP",
+    value: 2,
+    color: "#ffc387",
   },
 ];
 
@@ -173,6 +187,7 @@ const chart = `
         display: flex;
       }
       body {
+        background-color: black;
       }
     </style>
   </head>
@@ -213,36 +228,59 @@ const chart = `
           })
         );
 
+        series
+          .get("colors")
+          .set("colors", [
+            am5.color(0xff6000),
+            am5.color(0xff6f16),
+            am5.color(0xff7d27),
+            am5.color(0xff8a36),
+            am5.color(0xff9645),
+            am5.color(0xffa154),
+            am5.color(0xffac63),
+            am5.color(0xffb673), 
+            am5.color(0xffc387), 
+          ]);
+
         // Set data
         // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Setting_data
         series.data.setAll([
           {
-            key: "Lithuania",
-            value: 501.9,
+            key: "ECOSYSTEM AND STAKING REWARDS",
+            value: 30,
           },
           {
-            key: "Czechia",
-            value: 301.9,
+            key: "PRESALE",
+            value: 20,
           },
           {
-            key: "Australia",
-            value: 139.9,
+            key: "MARKETING",
+            value: 15,
           },
           {
-            key: "Austria",
-            value: 128.3,
+            key: "LIQUIDITY",
+            value: 12,
+          },
+
+          {
+            key: "CEX LISTING",
+            value: 9,
           },
           {
-            key: "UK",
-            value: 99,
+            key: "NULS SCO",
+            value: 5,
           },
           {
-            key: "Belgium",
-            value: 60,
+            key: "ADVISORS",
+            value: 4,
           },
           {
-            key: "The Netherlands",
-            value: 50,
+            key: "AIR DROPS AND GIVEAWAYS",
+            value: 3,
+          },
+          {
+            key: "PARTNERSHIP",
+            value: 2,
           },
         ]);
 
@@ -251,7 +289,7 @@ const chart = `
         series.ticks.template.set("visible", false);
 
         // Adding gradients
-        series.slices.template.set("strokeOpacity", 2);
+        series.slices.template.set("strokeOpacity", 0);
         series.slices.template.set(
           "fillGradient",
           am5.RadialGradient.new(root, {
@@ -260,25 +298,21 @@ const chart = `
                 brighten: 1,
               },
               {
-                brighten: 0.2,
+                brighten: -0.7,
               },
               {
-                brighten: -0.5,
+                brighten: 1,
               },
               {
-                brighten: 0,
-              },
-              {
-                brighten: -0.5,
+                brighten: -0.9,
               },
             ],
           })
         );
-
-        // Play initial series animation
         // https://www.amcharts.com/docs/v5/concepts/animations/#Animation_of_series
         series.appear(1000, 100);
-      }); // end am5.ready()
+      });
+      am5.ready();
     </script>
   </body>
 </html>

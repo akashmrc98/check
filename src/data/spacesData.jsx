@@ -37,13 +37,13 @@ export const spacesData = [
   {
     display_name: "💬 ChatGPT Prompt",
     rating: 5,
-    tags: ["text", "generation", "text2text"],
+    tags: ["ai", "text", "text2text"],
     link: "textgen-space",
   },
   {
     display_name: "📷 Image Generation",
     rating: 5,
-    tags: ["image", "generation", "text2text"],
+    tags: ["ai", "image", "generation"],
     link: "imggen-space",
   },
 ];
