@@ -39,7 +39,8 @@ function HomePage() {
         backgroundBlendMode="color"
         backgroundPosition="center"
         backgroundClip={"border-box"}
-        p={{ base: 2, lg: 12 }}
+        px={{ base: 2, lg: 12 }}
+        pt={{ base: 2, lg: 12 }}
       >
         <Box
           display={"flex"}
