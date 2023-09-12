@@ -93,23 +93,13 @@ function Navbar() {
           onClick={() => toggleMenu()}
           as={AiOutlineCloseCircle}
         ></Icon>
-        <Flex
-          bg={colors.bgColor}
-          cursor={"pointer"}
-          px={8}
-          py={8}
-          justifyContent={{ base: "flex-end", xl: "center" }}
-          pos="relative"
-          alignItems={"center"}
-        >
-          <Image maxW="72" src={Logo} />
-        </Flex>
         <Box
           display={{ base: "block", xl: "none" }}
           minH="10vh"
           bg={colors.bgColor}
         >
           <Grid
+            mt={12}
             templateColumns={{ base: "1fr", lg: "1fr 1fr", xl: "1fr 1fr 1fr" }}
             bg={colors.bgColor}
           >

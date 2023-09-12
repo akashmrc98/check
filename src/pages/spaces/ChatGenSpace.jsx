@@ -96,7 +96,7 @@ function ChatGenSpace() {
         pos="relative"
         boxShadow={`0px 0px 4px ${colors.highLightColor}`}
         bg={`rgba(0,0,0,.7)`}
-        p={12}
+        p={{ base: 2, lg: 12 }}
         border="2px"
       >
         <Box display={"grid"} px={2} pt={2}>
@@ -159,7 +159,11 @@ function ChatGenSpace() {
             <Grid
               rowGap={"2rem"}
               columnGap="2rem"
-              gridTemplateColumns={"1fr 1fr 1fr 1fr"}
+              gridTemplateColumns={{
+                base: "1fr",
+                lg: "1fr 1fr",
+                xl: "1fr 1fr 1fr 1fr",
+              }}
               p={5}
             >
               {options.map((o, i) => (
@@ -300,7 +304,7 @@ function ChatGenSpace() {
                 cursor={"pointer"}
                 pos="absolute"
                 zIndex={999}
-                right={"2%"}
+                right={{ base: "8%", lg: "4%", xl: "2%" }}
                 top={"30%"}
                 onClick={() => generateMusic()}
               >

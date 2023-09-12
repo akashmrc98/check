@@ -60,7 +60,7 @@ function TextGenSpace() {
         bg={`rgba(0,0,0,.7)`}
         borderRadius="md"
         boxShadow={`0 0 2px ${colors.highLightColor}`}
-        p={12}
+        p={{ base: 2, lg: 12 }}
       >
         <Box display={"grid"} px={2} pt={8}>
           <Text
@@ -96,7 +96,8 @@ function TextGenSpace() {
           columnGap={"1rem"}
           mx="auto"
           gridTemplateColumns={{
-            base: "1fr 1fr",
+            base: "1fr",
+            lg: "1fr 1fr",
           }}
         >
           <GridItem>
@@ -150,6 +151,7 @@ function TextGenSpace() {
                     boxShadow={`0 0 4px ${colors.highLightColor}`}
                     fontWeight="bold"
                     mx={2}
+                    my={2}
                     key={i}
                     onClick={() => setInput(h)}
                   >
@@ -181,7 +183,12 @@ function TextGenSpace() {
             </Box>
           </GridItem>
 
-          <GridItem pos="relative" bg={`rgba(0,0,0,.7)`} borderRadius="md">
+          <GridItem
+            minH="30vh"
+            pos="relative"
+            bg={`rgba(0,0,0,.7)`}
+            borderRadius="md"
+          >
             <Box px={2} py={1} pos="absolute" border="2px">
               <Text
                 fontFamily={fonts.parafont}

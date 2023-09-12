@@ -78,7 +78,7 @@ function ImageGenSpace() {
         mx="auto"
         width={{ base: "100%", lg: "88%", xl: "75%" }}
         pos="relative"
-        p={12}
+        p={{ base: 2, lg: 12 }}
         bg={`rgba(0,0,0,0.7)`}
         border="2px"
         boxShadow={`0 0 2px ${colors.highLightColor}`}
@@ -122,7 +122,8 @@ function ImageGenSpace() {
           columnGap={"1rem"}
           mx="auto"
           gridTemplateColumns={{
-            base: "1fr 1fr",
+            base: "1fr",
+            lg: "1fr 1fr",
           }}
         >
           <GridItem>

@@ -19,20 +19,20 @@ function ModelHeadComponent({ service_id, display_name, media }) {
       border={{ base: 0, xl: `2px` }}
       boxShadow={`0px 0px 4px ${colors.highLightColor}`}
       borderColor={colors.boxBorder}
-      w={{ base: "100%", lg: "88%" }}
+      w={{ base: "95%", lg: "88%" }}
       borderTop={0}
-      mx="auto"
       templateColumns={{ base: "1fr", xl: "1fr 1fr" }}
       p={{ base: 2 }}
+      mx="auto"
       bg={`rgba(0,0,0, 0.7)`}
     >
-      <Grid px={4} pb={6} rowGap="1rem" pt={{ base: 0, lg: 6 }}>
+      <Grid p={4} rowGap="1rem">
         <Flex
           rowGap={"1rem"}
           columnGap="2rem"
-          alignItems={"start"}
-          flexDirection="row"
-          justifyContent={"start"}
+          alignItems={{ base: "start", lg: "start" }}
+          flexDirection={{ base: "column", lg: "row" }}
+          justifyContent={{ base: "start", lg: "start" }}
         >
           <Image
             boxShadow={`0px 0px 4px ${colors.highLightColor}`}
@@ -45,7 +45,12 @@ function ModelHeadComponent({ service_id, display_name, media }) {
             src={media.url}
           ></Image>
           <Box>
-            <Flex alignItems={"center"} columnGap="1rem">
+            <Flex
+              direction={{ base: "column", lg: "row" }}
+              rowGap="1rem"
+              alignItems={{ base: "flex-start", lg: "center" }}
+              columnGap="1rem"
+            >
               <Image
                 boxShadow={`0px 0px 2px ${colors.highLightColor}`}
                 p={2}

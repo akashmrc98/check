@@ -46,7 +46,7 @@ function TabTwo(props) {
               Overview
             </Text>
             <Text
-              fontSize={{ base: "xx-small", sm: "sm", md: "md" }}
+              fontSize={{ base: "x-small", sm: "sm", md: "md" }}
               fontFamily={fonts.parafont}
               color={colors.fontLightColorV2}
             >
@@ -96,7 +96,7 @@ function TabTwo(props) {
         </Grid>
       </Grid>
 
-      <GridItem>
+      <GridItem pt={{ base: 6, lg: 0 }}>
         <Box display="grid" rowGap="2rem">
           <Text
             fontFamily={fonts.headingFont}

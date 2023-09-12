@@ -61,14 +61,14 @@ function FeaturesComponent() {
               </Text>
             </Box>
             <Box display={"flex"} justifyContent="center" width="100%">
-              <Image maxW={{ base: "360", xl: "512" }} src={SRC} />
+              <Image maxW={{ base: "280", xl: "512" }} src={SRC} />
             </Box>
           </Grid>
           <Box>
             <Box
               my={{ base: 6, lg: 12 }}
               mx="auto"
-              maxW={{ base: "220", lg: "420" }}
+              maxW={{ base: "280", lg: "420" }}
             >
               <Lottie animationData={groovyWalkAnimation} />
             </Box>
@@ -91,7 +91,7 @@ function FeaturesComponent() {
             mt={6}
           >
             <Box display={"flex"} justifyContent="center" width="100%">
-              <Image maxW={{ base: "360", xl: "512" }} src={SRC} />
+              <Image maxW={{ base: "280", xl: "512" }} src={SRC} />
             </Box>
             <Box width="100%">
               <Text

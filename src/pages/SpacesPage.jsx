@@ -31,6 +31,7 @@ function SpacesPage() {
       pos="relative"
       backgroundColor={`rgba(0,0,0,0.8)`}
       // className="bg_img"
+      p={4}
       minH="100vh"
     >
       <Box pos="absolute" top="2%" left="5%">
@@ -42,7 +43,12 @@ function SpacesPage() {
         </Flex>
       </Box>
       <ModelSpaceNavbar />
-      <Box mt={32} mx="auto" width={{ base: "100%", lg: "88%" }} pos="relative">
+      <Box
+        mt={{ base: 8, lg: 32 }}
+        mx="auto"
+        width={{ base: "100%", lg: "88%" }}
+        pos="relative"
+      >
         <Box
           alignItems={"center"}
           display={"flex"}
@@ -88,7 +94,13 @@ function SpacesPage() {
               Discover amazing ML apps made by the community!
             </Text>
           </Box>
-          <Box alignItems={"center"} display={"flex"} columnGap="1rem">
+          <Box
+            flexDir={{ base: "column", lg: "row" }}
+            alignItems={"center"}
+            display={"flex"}
+            columnGap="1rem"
+            rowGap={"1rem"}
+          >
             <Button
               _hover={{
                 bg: colors.bgColor,

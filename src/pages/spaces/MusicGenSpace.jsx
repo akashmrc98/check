@@ -89,7 +89,7 @@ function MusicGenSpace() {
         border={"2px"}
         boxShadow={`0px 0px 4px ${colors.highLightColor}`}
         borderRadius="md"
-        p={12}
+        p={{ base: 2, lg: 12 }}
       >
         <Box
           py={5}
@@ -132,15 +132,14 @@ function MusicGenSpace() {
           columnGap={"1rem"}
           mx="auto"
           gridTemplateColumns={{
-            base: "1fr 1fr",
+            base: "1fr",
+            lg: "1fr 1fr",
           }}
         >
           <GridItem>
             <FormControl
               border="2px"
-              px={8}
-              py={8}
-              borderRadius={"md"}
+              p={{ base: 2, lg: 8 }}
               bg={`rgba(0,0,0,.7)`}
             >
               <FormLabel
@@ -166,9 +165,7 @@ function MusicGenSpace() {
             </FormControl>
             <FormControl
               border="2px"
-              px={8}
-              py={8}
-              borderRadius={"md"}
+              p={{ base: 2, lg: 8 }}
               bg={`rgba(0,0,0,.7)`}
             >
               <FormLabel
@@ -187,7 +184,7 @@ function MusicGenSpace() {
                       <Text
                         color={colors.boxBorder}
                         fontWeight="bold"
-                        size="lg"
+                        size={{ base: "sm", lg: "lg" }}
                         fontFamily={fonts.parafont}
                       >
                         {c}
@@ -199,11 +196,9 @@ function MusicGenSpace() {
             </FormControl>
 
             <FormControl
-              borderRadius={"md"}
               bg={`rgba(0,0,0,.7)`}
               border="2px"
-              px={8}
-              py={8}
+              p={{ base: 2, lg: 8 }}
             >
               <FormLabel
                 fontFamily={fonts.headingFont}
@@ -248,7 +243,7 @@ function MusicGenSpace() {
                 width={"100%"}
                 size="lg"
                 fontSize={{ base: "4xl" }}
-                p={8}
+                p={{ base: 2, lg: 8 }}
                 bg={colors.bgColor}
                 boxShadow={`0 0 1px ${colors.highLightColor}`}
                 color={colors.highLightColor}

@@ -43,6 +43,7 @@ function ModelsPage() {
       backgroundSize={"cover"}
       backgroundBlendMode="color"
       backgroundColor={`rgba(0,0,0,0.8)`}
+      p={4}
       pos="relative"
       minH="100vh"
     >
@@ -55,7 +56,12 @@ function ModelsPage() {
         </Flex>
       </Box>
       <ModelSpaceNavbar />
-      <Box mt={32} mx="auto" width={{ base: "100%", lg: "88%" }} pos="relative">
+      <Box
+        mt={{ base: 8, lg: 32 }}
+        mx="auto"
+        width={{ base: "100%", lg: "88%" }}
+        pos="relative"
+      >
         <Box
           alignItems={"center"}
           display={"flex"}
@@ -100,20 +106,6 @@ function ModelsPage() {
             >
               Discover amazing ML apps made by the community!
             </Text>
-          </Box>
-          <Box alignItems={"center"} display={"flex"} columnGap="1rem">
-            <Button
-              _hover={{
-                bg: colors.bgColor,
-                boxShadow: `0px 0px 4px ${colors.highLightColor}`,
-              }}
-              color={colors.highLightColor}
-              bg={colors.boxBorder}
-            >
-              Create New Space
-            </Button>
-            <Text color={colors.boxBorder}>or</Text>
-            <Button variant={"link"}>Learn more about spaces</Button>
           </Box>
         </Box>
         <Box
