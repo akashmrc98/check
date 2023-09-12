@@ -51,7 +51,7 @@ function FeaturesComponent() {
                 fontFamily={fonts.headingFont}
                 color={colors.highLightColor}
                 fontWeight="bold"
-                fontSize={{ base: "xl", md: "2xl" }}
+                fontSize={{ base: "sm", md: "md", xl: "lg", "2xl": "xl" }}
               >
                 Empowering every person on the planet to step into the world of
                 Metaverse and {`NFT's`} with next-gen rendering technology
@@ -98,8 +98,8 @@ function FeaturesComponent() {
                 fontFamily={fonts.headingFont}
                 color={colors.highLightColor}
                 fontWeight="bold"
-                fontSize={{ base: "xl", md: "2xl" }}
-                textAlign="right"
+                fontSize={{ base: "sm", md: "md", xl: "lg", "2xl": "xl" }}
+                textAlign={{ base: "left", lg: "right" }}
               >
                 With our unique AI-powered application and $RNDV at the heart of
                 its economy, Project Renderverse is conquering the metaverse by

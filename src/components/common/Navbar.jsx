@@ -16,6 +16,8 @@ import { FiMenu } from "react-icons/fi";
 import Logo from "/public/logos/icon_text.webp";
 import Mainbutton from "./MainButton";
 
+import { Link } from "react-scroll";
+
 function NavItem(props) {
   return (
     <Button
@@ -66,19 +68,19 @@ function Navbar() {
   ];
 
   return (
-    <Box>
+    <Box bg={colors.bgColor}>
       <Box
+        bg={colors.bgColor}
         display={"flex"}
         justifyContent="flex-start"
         pt={{ base: 12, lg: 0 }}
         alignItems={{ base: "center", lg: "center" }}
         flexDir="column"
         zIndex={open ? 999999999999999 : -1}
-        pos={"fixed"}
+        pos={"absolute"}
         minH="100vh"
         width="100%"
         overflowY={{ base: "scroll", xl: "hidden" }}
-        bg={colors.bgColor}
       >
         <Icon
           pos="absolute"
@@ -92,6 +94,7 @@ function Navbar() {
           as={AiOutlineCloseCircle}
         ></Icon>
         <Flex
+          bg={colors.bgColor}
           cursor={"pointer"}
           px={8}
           py={8}
@@ -102,9 +105,9 @@ function Navbar() {
           <Image maxW="72" src={Logo} />
         </Flex>
         <Box
-          bg={colors.highLightColor}
           display={{ base: "block", xl: "none" }}
           minH="10vh"
+          bg={colors.bgColor}
         >
           <Grid
             templateColumns={{ base: "1fr", lg: "1fr 1fr", xl: "1fr 1fr 1fr" }}
@@ -141,8 +144,9 @@ function Navbar() {
         minH="10vh"
         position={"fixed"}
         transition="all 200ms ease-in-out"
-        zIndex={9499}
+        zIndex={999999999999999}
         width="100%"
+        bg={colors.bgColor}
       >
         <Flex
           width={"100%"}
