@@ -136,7 +136,7 @@ function Navbar() {
         transition="all 200ms ease-in-out"
         zIndex={999999999999999}
         width="100%"
-        bg={colors.bgColor}
+        bg={{ base: colors.bgColor, lg: "transparent" }}
       >
         <Flex
           width={"100%"}
