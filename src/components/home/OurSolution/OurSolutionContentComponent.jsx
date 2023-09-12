@@ -98,7 +98,7 @@ function OurSolutionContentComponent() {
 
                   <Flex justifyContent={"center"}>
                     <Box
-                      minW="260px"
+                      minW={{ base: "100%", md: "260px" }}
                       display={"flex"}
                       justifyContent="flex-start"
                       p={2}
@@ -121,7 +121,7 @@ function OurSolutionContentComponent() {
                     </Box>
                   </Flex>
                 </Grid>
-                <Box ml={4}>
+                <Box mt={{ base: 6, lg: 0 }} ml={4}>
                   <Mainbutton title={"TRY NOW"} link={"/dapp/spaces/"} />
                 </Box>
               </Grid>

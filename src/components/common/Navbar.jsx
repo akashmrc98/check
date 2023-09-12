@@ -53,11 +53,11 @@ function Navbar() {
   const headers = [
     {
       title: "What We Do",
-      items: ["Technology", "Ecosystem", "Research"],
+      items: ["Products", "Ecosystem", "White Paper"],
     },
     {
       title: "Who We Are",
-      items: ["Overpowered AI Foundation", "Team", "Roadmap"],
+      items: ["Team", "Roadmap", "Tokenomics"],
     },
     {
       title: "What We Do",
@@ -69,16 +69,16 @@ function Navbar() {
     <Box>
       <Box
         display={"flex"}
-        justifyContent="center"
+        justifyContent="flex-start"
+        pt={{ base: 12, lg: 0 }}
         alignItems={{ base: "center", lg: "center" }}
         flexDir="column"
         zIndex={open ? 999999999999999 : -1}
         pos={"fixed"}
         minH="100vh"
         width="100%"
-        opacity={0.9}
-        bg={colors.bgColor}
         overflowY={{ base: "scroll", xl: "hidden" }}
+        bg={colors.bgColor}
       >
         <Icon
           pos="absolute"
@@ -94,16 +94,21 @@ function Navbar() {
         <Flex
           cursor={"pointer"}
           px={8}
-          pt={4}
+          py={8}
           justifyContent={{ base: "flex-end", xl: "center" }}
           pos="relative"
           alignItems={"center"}
         >
-          {/* <Image display={{ base: "none", xl: "block" }} maxW="72" src={Logo} /> */}
+          <Image maxW="72" src={Logo} />
         </Flex>
-        <Box display={{ base: "block", xl: "none" }} minH="10vh">
+        <Box
+          bg={colors.highLightColor}
+          display={{ base: "block", xl: "none" }}
+          minH="10vh"
+        >
           <Grid
             templateColumns={{ base: "1fr", lg: "1fr 1fr", xl: "1fr 1fr 1fr" }}
+            bg={colors.bgColor}
           >
             <Mainbutton isMobile={true} />
             {headers.map((h, i) => (
@@ -142,13 +147,17 @@ function Navbar() {
         <Flex
           width={"100%"}
           height="10vh"
-          bg={colors.bgColor}
           justifyContent={"space-between"}
           px={8}
           py={3}
           display={{ base: "flex", xl: "none" }}
+          alignItems="center"
         >
-          <Image src={Logo} />
+          <Image
+            objectFit={"contain"}
+            w={{ base: "66%", lg: "auto" }}
+            src={Logo}
+          />
           <FiMenu
             onClick={() => toggleMenu()}
             cursor={"pointer"}

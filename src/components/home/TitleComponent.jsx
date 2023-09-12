@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 import { colors } from "../../theme/colors";
 import { fonts } from "../../theme/fonts";
 
-import { FaAddressBook } from "react-icons/fa";
-
 import Mainbutton from "../common/MainButton";
 import HeadLines2 from "../common/HeadLine_2";
 import Spline from "@splinetool/react-spline";
@@ -17,7 +15,7 @@ import Logo from "/public/logos/icon_text.webp";
 import { Link } from "react-scroll";
 import Product from "/public/home/product.png";
 import Roadmap from "/public/home/roadmap.png";
-import Team from "/public/home/teamp.png";
+import Team from "/public/home/team.png";
 import Eco from "/public/home/eco.png";
 import Token from "/public/home/token.png";
 
@@ -210,8 +208,6 @@ function SideBar() {
                     }}
                     objectFit={"contain"}
                     src={imgs[j]}
-                    w="32"
-                    h="32"
                   />
                 </Box>
               </Box>
