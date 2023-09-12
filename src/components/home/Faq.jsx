@@ -13,6 +13,8 @@ import { colors } from "../../theme/colors";
 import { fonts } from "../../theme/fonts";
 import HeadLines from "../common/HeadLine";
 import { FaMinus, FaPlus } from "react-icons/fa";
+import Lottie from "lottie-react";
+import groovyWalkAnimation from "/public/lottie/1.json";
 
 import Faq from "/public/icons/faq.png";
 import Question from "/public/icons/question.png";
@@ -198,7 +200,18 @@ export default function FaqComponent() {
         ))}
       </Accordion>
 
-      <Box py={24} borderTopRadius={{ base: 0, xl: "2xl" }} px={4}>
+      <Box
+        py={{ base: 4, lg: 24 }}
+        borderTopRadius={{ base: 0, xl: "2xl" }}
+        px={4}
+      >
+        <Box
+          mb={{ base: 6, lg: 24 }}
+          mx="auto"
+          maxW={{ base: "220", lg: "420" }}
+        >
+          <Lottie animationData={groovyWalkAnimation} />
+        </Box>
         <Grid justifyContent={"center"} flexDir={"column"}>
           <Text
             cursor={"pointer"}

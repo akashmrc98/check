@@ -7,6 +7,9 @@ import SRC from "/public/ai_section/1.webp";
 
 import HeadLines from "../common/HeadLine";
 
+import Lottie from "lottie-react";
+import groovyWalkAnimation from "/public/lottie/2.json";
+
 function FeaturesComponent() {
   return (
     <Box p={4} pos="relative">
@@ -61,7 +64,15 @@ function FeaturesComponent() {
               <Image maxW={{ base: "360", xl: "512" }} src={SRC} />
             </Box>
           </Grid>
-          <Box my={24}></Box>
+          <Box>
+            <Box
+              my={{ base: 6, lg: 12 }}
+              mx="auto"
+              maxW={{ base: "220", lg: "420" }}
+            >
+              <Lottie animationData={groovyWalkAnimation} />
+            </Box>
+          </Box>
           <Grid
             gridTemplateColumns={{ base: "0fr 1fr", xl: "1fr 1fr" }}
             justifyContent=""

@@ -6,9 +6,13 @@ import { Box, Flex, Grid, GridItem, Image, Text } from "@chakra-ui/react";
 import HeadLines from "../common/HeadLine";
 import { ecoSystemData } from "../../data/ecoSystemData";
 
-import Ico from "/public/icons/archive.png";
+import Power from "/public/icons/power.png";
+import Vote from "/public/icons/vote.png";
+import Stake from "/public/icons/stake.png";
+import Token from "/public/icons/token.png";
 
 function EcoSystemComponent() {
+  const imgs = [Power, Token, Stake, Vote];
   return (
     <Box pos="relative">
       <Grid gridTemplateColumns={"1fr"} p={0}>
@@ -82,7 +86,7 @@ function EcoSystemComponent() {
                   </Text>
                 </Box>
                 <Flex px={4} columnGap={"1rem"} alignItems={"center"}>
-                  <Image maxH="32px" maxW="32px" src={Ico} />
+                  <Image maxH="32px" maxW="32px" src={imgs[i]} />
                   <Text
                     fontFamily={fonts.specialFont}
                     color={colors.fontLightColor}

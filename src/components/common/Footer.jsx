@@ -16,7 +16,7 @@ export default function Footer() {
       width={{ base: "95%" }}
       mx="auto"
       borderTopRadius={"3xl"}
-      pt={12}
+      pt={{ base: 4, lg: 14 }}
       border={{
         base: 0,
       }}

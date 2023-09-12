@@ -15,6 +15,11 @@ import BG from "/public/bg/11.jpg";
 import Logo from "/public/logos/icon_text.webp";
 
 import { Link } from "react-scroll";
+import Product from "/public/home/product.png";
+import Roadmap from "/public/home/roadmap.png";
+import Team from "/public/home/teamp.png";
+import Eco from "/public/home/eco.png";
+import Token from "/public/home/token.png";
 
 function TitleComponent() {
   const [index, setIndex] = useState(0);
@@ -99,6 +104,7 @@ function Model() {
 
 function SideBar() {
   const d = ["AI", "ECO", "ROAD", "TOKEN", "TEAM"];
+  const imgs = [Product, Eco, Roadmap, Token, Team];
   const [hover, setHover] = useState([
     "visible",
     "hidden",
@@ -174,15 +180,6 @@ function SideBar() {
                   borderRadius={j % 2 === 0 ? "200rem" : "md"}
                   borderColor={colors.boxBorder}
                   transition={"all 400ms ease-in-out"}
-                  backgroundImage={`radial-gradient(circle, #40f8ff, #00e4ff, #00cfff, #00b7ff, #279eff);`}
-                  boxShadow={`0px 0px 2px ${colors.bgColor}`}
-                  _hover={{
-                    bg: colors.highLightColor,
-                    cursor: "pointer",
-                    outline: `7px solid ${colors.highLightColor}`,
-                    outlineColor: `rgba(92, 225, 230, .5)`,
-                    transition: `all 200ms ease-in-out`,
-                  }}
                   onMouseEnter={() => {
                     let h = [
                       "hidden",
@@ -206,7 +203,16 @@ function SideBar() {
                     ]);
                   }}
                 >
-                  <FaAddressBook size={32} color={colors.bgColor} />
+                  <Image
+                    transition={"all 200ms ease-in-out"}
+                    _hover={{
+                      transform: `scale(1.2)`,
+                    }}
+                    objectFit={"contain"}
+                    src={imgs[j]}
+                    w="32"
+                    h="32"
+                  />
                 </Box>
               </Box>
             </Link>

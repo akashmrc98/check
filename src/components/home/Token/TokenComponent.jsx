@@ -111,7 +111,7 @@ function TokenComponent() {
 
 const data = [
   {
-    key: "ECOSYSTEM AND STAKING REWARDS",
+    key: "ECOSYSTEM",
     value: 30,
     color: "#ff6000",
   },

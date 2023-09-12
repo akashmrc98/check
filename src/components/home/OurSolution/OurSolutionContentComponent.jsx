@@ -95,6 +95,7 @@ function OurSolutionContentComponent() {
                       )
                     )}
                   </Box>
+
                   <Flex justifyContent={"center"}>
                     <Box
                       minW="260px"
