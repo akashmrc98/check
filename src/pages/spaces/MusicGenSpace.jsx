@@ -30,9 +30,9 @@ import { fonts } from "../../theme/fonts";
 import { useRef } from "react";
 import axios from "axios";
 
-import { Audio } from "react-loader-spinner";
-
 import BG from "/public/bg/7.jpg";
+import Lottie from "lottie-react";
+import groovyWalkAnimation from "/public/lottie/m.json";
 
 function MusicGenSpace() {
   const ref = useRef();
@@ -41,9 +41,11 @@ function MusicGenSpace() {
   const checks = ["melody", "medium", "small", "large"];
   const [model, setModel] = useState("melody");
   const [loaded, setLoaded] = useState(false);
+  const [isSearched, setIsSearched] = useState(false);
 
   function generateMusic() {
     setLoaded(true);
+    setIsSearched(true);
     axios
       .post(
         "https://opai.renderverse.io/music-gen",
@@ -67,6 +69,7 @@ function MusicGenSpace() {
       })
       .then(() => {
         setLoaded(false);
+        setIsSearched(false);
       })
       .catch((e) => console.log(e));
   }
@@ -281,17 +284,16 @@ function MusicGenSpace() {
               w="100%"
             >
               <Flex p={4} justifyContent="center">
-                <video minW="100%" ref={ref} controls />
-                {!loaded ? null : (
-                  <Audio
-                    height="80"
-                    width="80"
-                    radius="9"
-                    color="green"
-                    ariaLabel="loading"
-                    wrapperStyle
-                    wrapperClass
-                  />
+                {isSearched ? (
+                  <Box>
+                    {!loaded ? null : (
+                      <Box>
+                        <Lottie animationData={groovyWalkAnimation} />
+                      </Box>
+                    )}
+                  </Box>
+                ) : (
+                  <video minW="100%" ref={ref} controls />
                 )}
               </Flex>
             </Box>

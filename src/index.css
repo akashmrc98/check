@@ -253,3 +253,34 @@ html {
     opacity: 1;
   }
 }
+
+.side_anime {
+  animation: side_anime 2s infinite ease-in-out;
+}
+
+@keyframes side_anime {
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+.side_anime_x {
+  animation: side_anime_x 2s infinite ease-in-out;
+}
+
+@keyframes side_anime_x {
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+.side_anime_y {
+  animation: side_anime_y 2s infinite ease-in-out;
+  animation-delay: 200ms;
+}
+
+@keyframes side_anime_y {
+  50% {
+    transform: translateY(-4px);
+  }
+}

@@ -3,7 +3,7 @@ import { colors } from "../../theme/colors";
 import { BiArrowBack } from "react-icons/bi";
 import { fonts } from "../../theme/fonts";
 import { useNavigate } from "react-router";
-import Logo from "/public/logos/text.webp";
+import Logo from "/public/logos/icon_text.webp";
 
 export default function SpaceNavbar() {
   const navigate = useNavigate();

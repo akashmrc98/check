@@ -19,6 +19,19 @@ import groovyWalkAnimation from "/public/lottie/1.json";
 import Faq from "/public/icons/faq.png";
 import Question from "/public/icons/question.png";
 
+import { Tilt } from "react-tilt";
+const defaultOptions = {
+  reverse: true, // reverse the tilt direction
+  max: 35, // max tilt rotation (degrees)
+  perspective: 1000, // Transform perspective, the lower the more extreme the tilt gets.
+  scale: 1.1, // 2 = 200%, 1.5 = 150%, etc..
+  speed: 1000, // Speed of the enter/exit transition
+  transition: true, // Set a transition on enter/exit.
+  axis: null, // What axis should be disabled. Can be X or Y.
+  reset: true, // If the tilt effect has to be reset on exit.
+  easing: "cubic-bezier(.03,.98,.52,.99)", // Easing on enter/exit.
+};
+
 export default function FaqComponent() {
   const [index, setIndex] = useState(0);
   return (
@@ -165,7 +178,9 @@ export default function FaqComponent() {
                   {" "}
                   <Box flex="1" textAlign="left">
                     <Flex alignItems={"center"} columnGap="1rem">
-                      <Image maxW="24px" maxH="24px" src={Question} />
+                      <Box className="side_anime_y">
+                        <Image maxW="24px" maxH="24px" src={Question} />
+                      </Box>
                       <Text
                         cursor={"pointer"}
                         fontFamily={fonts.headingFont}
@@ -200,40 +215,55 @@ export default function FaqComponent() {
         ))}
       </Accordion>
 
-      <Box
-        py={{ base: 4, lg: 24 }}
-        borderTopRadius={{ base: 0, xl: "2xl" }}
-        px={4}
-      >
-        <Box
-          mb={{ base: 6, lg: 24 }}
+      <Box>
+        <Grid
+          justifyContent={"space-between"}
+          templateColumns={{ base: "1fr", xl: "1fr 1fr" }}
           mx="auto"
-          maxW={{ base: "220", lg: "420" }}
+          width={{ base: "100%", xl: "90%", "2xl": "85%" }}
+          rowGap="3rem"
         >
-          <Lottie animationData={groovyWalkAnimation} />
-        </Box>
-        <Grid justifyContent={"center"} flexDir={"column"}>
-          <Text
-            cursor={"pointer"}
-            fontFamily={fonts.specialFont}
-            color={colors.highLightColor}
-            textAlign="left"
-            fontWeight="bold"
-            fontSize={{ base: "lg", xl: "2xl" }}
-            mb={2}
+          <Box
+            transform={`translateY(20px)`}
+            display={"flex"}
+            alignItems={{ base: "center", xl: "flex-end" }}
+            justifyContent={{ base: "center", xl: "flex-start" }}
+            maxW={{ base: 260, xl: 320 }}
+            mx="auto"
           >
-            .. Join The
-          </Text>
-          <Box className="gbox">
-            <Text
-              cursor={"pointer"}
-              fontFamily={fonts.headingFont}
-              fontWeight="bold"
-              fontSize={{ base: "3xl", xl: "6xl" }}
-              className="grad_txt"
-            >
-              AI Revolution
-            </Text>
+            <Lottie animationData={groovyWalkAnimation} />
+          </Box>
+          <Box
+            display={"flex"}
+            alignItems={{ base: "center", xl: "flex-end" }}
+            justifyContent={{ base: "center", xl: "flex-end" }}
+          >
+            <Tilt options={defaultOptions}>
+              <Grid justifyContent={"center"} flexDir={"column"}>
+                <Text
+                  cursor={"pointer"}
+                  fontFamily={fonts.specialFont}
+                  color={colors.highLightColor}
+                  textAlign="left"
+                  fontWeight="bold"
+                  fontSize={{ base: "lg", xl: "2xl" }}
+                  mb={2}
+                >
+                  .. Join The
+                </Text>
+                <Box className="gbox">
+                  <Text
+                    cursor={"pointer"}
+                    fontFamily={fonts.headingFont}
+                    fontWeight="bold"
+                    fontSize={{ base: "3xl", xl: "6xl" }}
+                    className="grad_txt"
+                  >
+                    AI Revolution
+                  </Text>
+                </Box>
+              </Grid>
+            </Tilt>
           </Box>
         </Grid>
       </Box>

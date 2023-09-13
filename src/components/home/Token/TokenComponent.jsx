@@ -186,9 +186,6 @@ const chart = `
         overflow: hidden;
         display: flex;
       }
-      body {
-        background-color: black;
-      }
     </style>
   </head>
 

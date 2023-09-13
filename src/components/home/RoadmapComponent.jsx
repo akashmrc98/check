@@ -105,7 +105,9 @@ function RoadmapComponent() {
                     p={4}
                   >
                     <Flex alignItems={"center"} columnGap="1rem">
-                      <Image maxW="48px" src={Link} />
+                      <Box className="side_anime">
+                        <Image maxW="48px" src={Link} />
+                      </Box>
                       <Text
                         color={colors.fontLightColorV2}
                         fontSize={{ base: "xl", lg: "2xl", xl: "3xl" }}

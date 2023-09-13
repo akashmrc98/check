@@ -19,9 +19,11 @@ import { fonts } from "../../theme/fonts";
 import { FaBoxes } from "react-icons/fa";
 
 import axios from "axios";
-import { ThreeDots } from "react-loader-spinner";
 
 import BG from "/public/bg/7.jpg";
+
+import Lottie from "lottie-react";
+import groovyWalkAnimation from "/public/lottie/i.json";
 
 function ImageGenSpace() {
   const [input, setInput] = useState("");
@@ -29,6 +31,7 @@ function ImageGenSpace() {
   const [src, setSrc] = useState("");
 
   function generateMusic() {
+    setSrc("");
     setLoaded(true);
     axios
       .post(
@@ -235,17 +238,7 @@ function ImageGenSpace() {
               width="100%"
               justifyContent={"center"}
             >
-              {loaded ? (
-                <ThreeDots
-                  height="80"
-                  width="80"
-                  radius="9"
-                  color={colors.highLightColor}
-                  ariaLabel="loading"
-                  wrapperStyle
-                  wrapperClass
-                />
-              ) : null}
+              {loaded ? <Lottie animationData={groovyWalkAnimation} /> : null}
             </Flex>
             <Image width="100%" objectFit={"contain"} src={src} />
           </GridItem>

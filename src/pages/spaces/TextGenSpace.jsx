@@ -17,8 +17,10 @@ import { fonts } from "../../theme/fonts";
 import axios from "axios";
 
 import { FaBoxes } from "react-icons/fa";
-import { ThreeDots } from "react-loader-spinner";
 import BG from "/public/bg/7.jpg";
+
+import Lottie from "lottie-react";
+import groovyWalkAnimation from "/public/lottie/c.json";
 
 function TextGenSpace() {
   const [input, setInput] = useState("");
@@ -26,6 +28,7 @@ function TextGenSpace() {
   const [promp, setPromp] = useState("");
 
   function generateMusic() {
+    setPromp("");
     setLoaded(true);
     axios
       .post("https://opai.renderverse.io/prompt-gen", {
@@ -208,15 +211,9 @@ function TextGenSpace() {
               justifyContent={"center"}
             >
               {loaded ? (
-                <ThreeDots
-                  height="80"
-                  width="80"
-                  radius="9"
-                  color={colors.highLightColor}
-                  ariaLabel="loading"
-                  wrapperStyle
-                  wrapperClass
-                />
+                <Box maxW="220">
+                  <Lottie animationData={groovyWalkAnimation} />
+                </Box>
               ) : null}
             </Flex>
             <Box

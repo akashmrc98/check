@@ -18,6 +18,18 @@ import Roadmap from "/public/home/roadmap.png";
 import Team from "/public/home/team.png";
 import Eco from "/public/home/eco.png";
 import Token from "/public/home/token.png";
+import { Tilt } from "react-tilt";
+const defaultOptions = {
+  reverse: false, // reverse the tilt direction
+  max: 35, // max tilt rotation (degrees)
+  perspective: 100, // Transform perspective, the lower the more extreme the tilt gets.
+  scale: 1.2, // 2 = 200%, 1.5 = 150%, etc..
+  speed: 1000, // Speed of the enter/exit transition
+  transition: true, // Set a transition on enter/exit.
+  axis: null, // What axis should be disabled. Can be X or Y.
+  reset: false, // If the tilt effect has to be reset on exit.
+  easing: "cubic-bezier(.03,.98,.52,.99)", // Easing on enter/exit.
+};
 
 function TitleComponent() {
   const [index, setIndex] = useState(0);
@@ -53,7 +65,7 @@ function TitleComponent() {
           display={{ base: "none", xl: "flex" }}
           justifyContent={"flex-end"}
         >
-          <Image maxW="420px" src={Logo} />
+          <Image maxW="320px" src={Logo} />
         </Flex>
       </Box>
       <Model visible={true} />
@@ -201,14 +213,9 @@ function SideBar() {
                     ]);
                   }}
                 >
-                  <Image
-                    transition={"all 200ms ease-in-out"}
-                    _hover={{
-                      transform: `scale(1.2)`,
-                    }}
-                    objectFit={"contain"}
-                    src={imgs[j]}
-                  />
+                  <Tilt options={defaultOptions}>
+                    <Image src={imgs[j]} />
+                  </Tilt>
                 </Box>
               </Box>
             </Link>

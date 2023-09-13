@@ -17,7 +17,7 @@ import G from "/public/eco_system/grid.png";
 import ModelSpaceNavbar from "../components/common/ModelSpaceNavbar";
 
 import BG from "/public/bg/7.jpg";
-import Logo from "/public/logos/text.webp";
+import Logo from "/public/logos/icon_text.webp";
 
 function SpacesPage() {
   const navigate = useNavigate();
@@ -44,7 +44,7 @@ function SpacesPage() {
       </Box>
       <ModelSpaceNavbar />
       <Box
-        mt={{ base: 8, lg: 32 }}
+        mt={{ base: 8, lg: 24 }}
         mx="auto"
         width={{ base: "100%", lg: "88%" }}
         pos="relative"

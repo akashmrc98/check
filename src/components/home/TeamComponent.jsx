@@ -1,14 +1,7 @@
 import { fonts } from "../../theme/fonts";
 import { colors } from "../../theme/colors";
 
-import {
-  Box,
-  Divider,
-  Grid,
-  GridItem,
-  Image,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Divider, Grid, GridItem, Image, Text } from "@chakra-ui/react";
 
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -108,7 +101,9 @@ const TeamComponent = () => {
                       columnGap={"1rem"}
                       px={2}
                     >
-                      <Image maxW="42px" maxH="42px" src={Arrow} />
+                      <Box className="side_anime_x">
+                        <Image maxW="42px" maxH="42px" src={Arrow} />
+                      </Box>
                       <Text
                         py={4}
                         textAlign={"center"}
