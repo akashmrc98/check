@@ -164,8 +164,7 @@ export default function FaqComponent() {
       >
         {faqs[index].faqs.map((f, i) => (
           <AccordionItem
-            border={"2px"}
-            borderTopRadius={i === 0 ? "3xl" : ""}
+            boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
             borderBottom={i === faqs[index].faqs.length - 1 ? "2px" : "0"}
             borderColor={colors.fontLightColor}
             p={3}

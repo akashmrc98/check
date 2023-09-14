@@ -123,6 +123,7 @@ function HeadLines2() {
                 justifyContent="center"
                 flexDir={"column"}
                 width="100%"
+                boxShadow={`3px 3px 6px ${colors.fontLightColorV2}, -6px -6px 12px ${colors.boxEndColor}`}
               >
                 <motion.div
                   width="100%"

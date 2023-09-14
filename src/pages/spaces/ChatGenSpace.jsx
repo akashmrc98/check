@@ -116,13 +116,13 @@ function ChatGenSpace() {
       />
 
       <Box
+        mt={24}
         mx="auto"
         width={{ base: "100%", lg: "88%", xl: "75%" }}
         pos="relative"
-        boxShadow={`0px 0px 4px ${colors.highLightColor}`}
         bg={`rgba(0,0,0,.7)`}
         p={{ base: 2, lg: 12 }}
-        border="2px"
+        boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
       >
         <Box display={"grid"} px={2} pt={2}>
           <Text
@@ -161,7 +161,7 @@ function ChatGenSpace() {
 
         {!isSelected ? (
           <FormControl
-            boxShadow={`0px 0px 4px 0px ${colors.highLightColor}`}
+            boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
             bg={`rgba(0,0,0,.7)`}
             borderRadius="md"
             border="2px"
@@ -170,13 +170,11 @@ function ChatGenSpace() {
           >
             <FormLabel
               variant={"unstyled"}
-              border={`2px groove ${colors.boxBorder}`}
               p={4}
               fontFamily={fonts.parafont}
               fontSize={{ base: "md" }}
               fontWeight="bold"
               bg={`rgba(0,0,0,.7)`}
-              borderRadius="md"
               color={colors.fontLightColor}
             >
               Choose your AI assitance
@@ -193,6 +191,7 @@ function ChatGenSpace() {
             >
               {options.map((o, i) => (
                 <Flex
+                  boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
                   className="bg_img"
                   p={0}
                   m={0}
@@ -231,7 +230,9 @@ function ChatGenSpace() {
         ) : null}
 
         {isConnected ? (
-          <Grid boxShadow={`0px 0px 4px 0px ${colors.highLightColor}`}>
+          <Grid
+            boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
+          >
             <GridItem pos="relative">
               <Box my={5} px={4} pt={4} display={"flex"} flexDirection="column">
                 {promp.map((p, i) => (

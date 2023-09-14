@@ -118,16 +118,16 @@ function MusicGenSpace() {
         width={{ base: "100%", lg: "88%", xl: "75%" }}
         pos="relative"
         border={"2px"}
-        boxShadow={`0px 0px 4px ${colors.highLightColor}`}
-        borderRadius="md"
+        boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
         p={{ base: 2, lg: 12 }}
+        mt={12}
       >
         <Box
           py={5}
-          borderRadius={"md"}
           bg={`rgba(0,0,0,.7)`}
           display={"grid"}
-          px={2}
+          px={8}
+          boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
         >
           <Text
             textAlign={"left"}
@@ -156,7 +156,7 @@ function MusicGenSpace() {
           my={8}
           h={2}
           width="100%"
-          border={`1px solid ${colors.boxBorder}`}
+          boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
         ></Box>
         {isConnected ? (
           <Grid
@@ -173,6 +173,7 @@ function MusicGenSpace() {
                 border="2px"
                 p={{ base: 2, lg: 8 }}
                 bg={`rgba(0,0,0,.7)`}
+                boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
               >
                 <FormLabel
                   fontFamily={fonts.headingFont}
@@ -199,6 +200,7 @@ function MusicGenSpace() {
                 border="2px"
                 p={{ base: 2, lg: 8 }}
                 bg={`rgba(0,0,0,.7)`}
+                boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
               >
                 <FormLabel
                   fontFamily={fonts.headingFont}
@@ -231,6 +233,7 @@ function MusicGenSpace() {
                 bg={`rgba(0,0,0,.7)`}
                 border="2px"
                 p={{ base: 2, lg: 8 }}
+                boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
               >
                 <FormLabel
                   fontFamily={fonts.headingFont}
@@ -292,7 +295,12 @@ function MusicGenSpace() {
               </Box>
             </GridItem>
 
-            <GridItem pos="relative" borderRadius={"md"} bg={`rgba(0,0,0,.7)`}>
+            <GridItem
+              boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
+              pos="relative"
+              borderRadius={"md"}
+              bg={`rgba(0,0,0,.7)`}
+            >
               <Box px={2} py={1} pos="absolute" border="2px">
                 <Text
                   fontFamily={fonts.parafont}
@@ -349,7 +357,7 @@ function MusicGenSpace() {
           <Table
             bg={`rgba(0,0,0,.7)`}
             borderRadius="md"
-            border={`2px solid ${colors.bgColor}`}
+            boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
             variant={"simple"}
             mt={24}
             py={12}

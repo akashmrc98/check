@@ -43,11 +43,10 @@ function ModelsPage() {
       backgroundSize={"cover"}
       backgroundBlendMode="color"
       backgroundColor={`rgba(0,0,0,0.8)`}
-      p={4}
       pos="relative"
       minH="100vh"
     >
-      <Box pos="absolute" top="2%" left="5%">
+      <Box pos="absolute" top="3%" left="5%">
         <Flex
           display={{ base: "none", xl: "flex" }}
           justifyContent={"flex-end"}
@@ -144,9 +143,9 @@ function ModelsPage() {
                 minH="200px"
                 transition={"all 200ms"}
                 _hover={{
-                  boxShadow: `0px 0px 12px ${colors.bgColor}`,
+                  boxShadow: `-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`,
                   filter: `contrast(150%)`,
-                  transform: `scale(1.04)`,
+                  transform: `scale(.95)`,
                 }}
               >
                 <Box zIndex={2} width="100%" top={"0%"} pos="absolute">

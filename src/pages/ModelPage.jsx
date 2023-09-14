@@ -14,6 +14,7 @@ import { useParams } from "react-router";
 
 import SpaceNavbar from "./spaces/SpaceNavbar.jsx";
 import BG from "/public/bg/7.jpg";
+import ModelSpaceNavbar from "../components/common/ModelSpaceNavbar.jsx";
 
 function ModelPage() {
   const params = useParams();
@@ -58,7 +59,7 @@ function ModelPage() {
       pos="relative"
     >
       <Box mb={12}>
-        <SpaceNavbar />
+        <ModelSpaceNavbar />
       </Box>
       <ModelHeadComponent {...model} />
       <Box width={{ base: "100%", lg: "88%" }} mx="auto">

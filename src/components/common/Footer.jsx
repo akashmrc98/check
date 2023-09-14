@@ -15,14 +15,13 @@ export default function Footer() {
       zIndex={999999999999999}
       width={{ base: "95%" }}
       mx="auto"
-      borderTopRadius={"3xl"}
       pt={{ base: 4, lg: 14 }}
       border={{
         base: 0,
       }}
       boxShadow={{
         base: 0,
-        xl: `-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`,
+        xl: `-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`,
       }}
     >
       <Box width={{ base: "90%", md: "75%" }} mx="auto">
@@ -64,7 +63,7 @@ export default function Footer() {
               flexDirection="column"
             >
               <Input
-                boxShadow={`0px 0px 8px ${colors.highLightColor}`}
+                boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
                 variant={"unstyled"}
                 placeholder="Your E-mail"
                 width="100%"

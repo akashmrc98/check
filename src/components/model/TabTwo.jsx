@@ -22,7 +22,7 @@ function TabTwo(props) {
   return (
     <Grid
       p={4}
-      boxShadow={`0px 0px 4px ${colors.highLightColor}`}
+      boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
       bg={`rgba(0,0,0, 0.7)`}
       borderRadius="md"
       templateColumns={{ base: "1fr" }}

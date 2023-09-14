@@ -87,8 +87,9 @@ function TextGenSpace() {
         pos="relative"
         bg={`rgba(0,0,0,.7)`}
         borderRadius="md"
-        boxShadow={`0 0 2px ${colors.highLightColor}`}
+        boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
         p={{ base: 2, lg: 12 }}
+        mt={12}
       >
         <Box display={"grid"} px={2} pt={8}>
           <Text
@@ -113,12 +114,7 @@ function TextGenSpace() {
             prompt to be generated based on. 🧙🏻🧑🏻‍🚀🧑🏻‍🎨🧑🏻‍🔬🧑🏻‍💻🧑🏼‍🏫🧑🏽‍🌾
           </Text>
         </Box>
-        <Box
-          my={8}
-          h={2}
-          width="100%"
-          border={`1px solid ${colors.boxBorder}`}
-        ></Box>
+        <Box my={8} h={2} width="100%"></Box>
 
         {isConnected ? (
           <Grid
@@ -130,14 +126,10 @@ function TextGenSpace() {
               lg: "1fr 1fr",
             }}
           >
-            <GridItem>
-              <FormControl
-                border="2px"
-                px={8}
-                py={8}
-                bg={`rgba(0,0,0,.7)`}
-                borderRadius="md"
-              >
+            <GridItem
+              boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
+            >
+              <FormControl border="2px" px={8} py={8} bg={`rgba(0,0,0,.7)`}>
                 <FormLabel
                   fontFamily={fonts.headingFont}
                   fontSize={{ base: "lg" }}
@@ -151,7 +143,7 @@ function TextGenSpace() {
                   onChange={(i) => setInput(i.target.value)}
                   placeholder="Enter a persona"
                   variant={"unstyled"}
-                  border={`2px groove ${colors.boxBorder}`}
+                  boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
                   p={4}
                   fontFamily={fonts.parafont}
                   fontSize={{ base: "md" }}
@@ -191,14 +183,14 @@ function TextGenSpace() {
                 </Box>
               </FormControl>
 
-              <Box py={4}>
+              <Box mx="auto" w="80%" py={4}>
                 <Button
                   width={"100%"}
                   size="lg"
                   fontSize={{ base: "4xl" }}
                   p={8}
                   bg={colors.bgColor}
-                  boxShadow={`0 0 1px ${colors.highLightColor}`}
+                  boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
                   color={colors.highLightColor}
                   _hover={{
                     color: colors.bgColor,
@@ -218,6 +210,7 @@ function TextGenSpace() {
               pos="relative"
               bg={`rgba(0,0,0,.7)`}
               borderRadius="md"
+              boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
             >
               <Box px={2} py={1} pos="absolute" border="2px">
                 <Text

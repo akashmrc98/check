@@ -50,31 +50,22 @@ function EcoSystemComponent() {
           {ecoSystemData.map((e, i) => (
             <Grid
               bg={colors.bgColor}
-              border={`1px groove ${colors.boxBorder}`}
-              borderTop={{
-                base: `1px groove ${colors.boxBorder}`,
-                lg: i === 0 ? `1px groove ${colors.boxBorder}` : 0,
-              }}
               gridTemplateColumns={{ base: "1fr", lg: "1fr 1fr" }}
-              boxShadow={`-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`}
+              boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
               key={i}
             >
               <GridItem pos="relative">
                 <Box
                   height={"52px"}
                   width="52px"
-                  border={`1px groove ${colors.boxBorder}`}
-                  borderRight="none"
                   left={"-52px"}
-                  top={"-2px"}
+                  top={"-0px"}
                   pos="absolute"
                   display={{ base: "none", lg: "flex" }}
                   justifyContent="center"
                   alignItems={"center"}
-                  borderTopLeftRadius="xl"
-                  borderBottomLeftRadius={"xl"}
-                  boxShadow={`-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`}
                   className="bg_img"
+                  boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
                 >
                   <Text
                     fontFamily={fonts.specialFont}

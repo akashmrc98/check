@@ -23,8 +23,8 @@ export default function SpaceNavbar(props) {
       minH="7vh"
       p={2}
       bg={`rgba(0,0,0,.4)`}
-      boxShadow={`0px 0px 4px ${colors.highLightColor}`}
       justifyContent="space-between"
+      boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
     >
       <Flex
         cursor={"pointer"}

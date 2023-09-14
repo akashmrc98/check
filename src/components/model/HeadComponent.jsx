@@ -15,12 +15,8 @@ import Logo from "/public/logos/text.webp";
 function ModelHeadComponent({ service_id, display_name, media }) {
   return (
     <Grid
-      borderRadius={"md"}
-      border={{ base: 0, xl: `2px` }}
-      boxShadow={`0px 0px 4px ${colors.highLightColor}`}
-      borderColor={colors.boxBorder}
+      boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
       w={{ base: "95%", lg: "88%" }}
-      borderTop={0}
       templateColumns={{ base: "1fr", xl: "1fr 1fr" }}
       p={{ base: 2 }}
       mx="auto"
@@ -35,13 +31,12 @@ function ModelHeadComponent({ service_id, display_name, media }) {
           justifyContent={{ base: "start", lg: "start" }}
         >
           <Image
-            boxShadow={`0px 0px 4px ${colors.highLightColor}`}
+            boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
             minW="168"
             minH={"168"}
             maxW="168"
             maxH={"168"}
             objectFit="cover"
-            borderRadius="md"
             src={media.url}
           ></Image>
           <Box>
@@ -52,7 +47,7 @@ function ModelHeadComponent({ service_id, display_name, media }) {
               columnGap="1rem"
             >
               <Image
-                boxShadow={`0px 0px 2px ${colors.highLightColor}`}
+                boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
                 p={2}
                 maxH="16"
                 maxW="20"
@@ -94,7 +89,7 @@ function ModelHeadComponent({ service_id, display_name, media }) {
               fontSize={{ base: "xl", lg: "3xl" }}
               fontWeight={{ base: "bold", lg: "normal" }}
               bg={colors.highLightColor}
-              boxShadow={`0px 0px 9px ${colors.highLightColor}`}
+              boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
               _hover={{ bg: colors.boxBorder, color: colors.highLightColor }}
             >
               Buy Now

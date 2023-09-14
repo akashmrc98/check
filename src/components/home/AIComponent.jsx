@@ -50,6 +50,9 @@ const AIComponent = () => {
               disableOnInteraction: false,
             }}
             loop={true}
+            style={{
+              padding: "2rem 0rem",
+            }}
             // navigation={isLargerThan800 ? true : false}
             modules={[Autoplay, EffectCoverflow, Navigation]}
             spaceBetween={-60}
@@ -79,57 +82,51 @@ const AIComponent = () => {
           >
             {aiSectionData.map((s, i) => (
               <SwiperSlide key={i}>
-                <GridItem
-                  zIndex={4}
-                  pos={"relative"}
-                  borderColor={colors.boxBorder}
-                  display="grid"
-                  gridTemplateColumns={"1fr 9fr"}
-                >
-                  <Box
-                    p={{ base: 2, md: 6, lg: 8 }}
-                    border="1px"
-                    borderStyle={"groove"}
-                    borderColor={colors.boxBorder}
-                    boxShadow={`0px 0px 2px ${colors.boxBorder}`}
-                    bg={colors.bgColor}
-                  >
-                    <Text
-                      fontFamily={fonts.specialFont}
-                      fontSize={"xl"}
-                      fontWeight={"bold"}
-                      color={colors.fontLightColorV2}
-                    >
-                      {i + 1}
-                    </Text>
-                  </Box>
-                  <Box
-                    display={"flex"}
-                    alignItems="center"
-                    p={{ base: 2, md: 6, lg: 8 }}
-                    border="1px"
-                    borderStyle={"groove"}
-                    borderColor={colors.boxBorder}
-                    bg={colors.bgColor}
-                    boxShadow={`0px 0px 2px ${colors.boxBorder}`}
-                  >
-                    <Text
-                      fontFamily={fonts.specialFont}
-                      fontSize={{ base: "sm", md: "md", xl: "2xl" }}
-                      fontWeight={"bold"}
-                      color={colors.fontLightColorV2}
-                      px={2}
-                    >
-                      {s}
-                    </Text>
-                  </Box>
-                </GridItem>
                 <Box
-                  border={`1px groove ${colors.boxBorder}`}
-                  bg={colors.boxBorder}
-                  boxShadow={`0px 0px 2px ${colors.boxBorder}`}
+                  boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
                 >
-                  <Image src={aiImages[i]} />
+                  <GridItem
+                    zIndex={4}
+                    pos={"relative"}
+                    display="grid"
+                    gridTemplateColumns={"1fr 9fr"}
+                    bg={colors.bgColor}
+                  >
+                    <Box
+                      p={{ base: 2, md: 6, lg: 8 }}
+                      boxShadow={`0px 0px 2px ${colors.boxBorder}`}
+                      bg={colors.bgColor}
+                    >
+                      <Text
+                        fontFamily={fonts.specialFont}
+                        fontSize={"xl"}
+                        fontWeight={"bold"}
+                        color={colors.fontLightColorV2}
+                      >
+                        {i + 1}
+                      </Text>
+                    </Box>
+                    <Box
+                      display={"flex"}
+                      alignItems="center"
+                      p={{ base: 2, md: 6, lg: 8 }}
+                      bg={colors.bgColor}
+                      boxShadow={`0px 0px 2px ${colors.boxBorder}`}
+                    >
+                      <Text
+                        fontFamily={fonts.specialFont}
+                        fontSize={{ base: "sm", md: "md", xl: "2xl" }}
+                        fontWeight={"bold"}
+                        color={colors.fontLightColorV2}
+                        px={2}
+                      >
+                        {s}
+                      </Text>
+                    </Box>
+                  </GridItem>
+                  <Box zIndex={9999}>
+                    <Image src={aiImages[i]} />
+                  </Box>
                 </Box>
               </SwiperSlide>
             ))}

@@ -52,6 +52,7 @@ function HeadLines(props) {
             alignItems={"center"}
             bg={colors.bgColor}
             pos={"relative"}
+            boxShadow={`-1px -1px 2px ${colors.fontLightColorV2}, 1px 2px 4px ${colors.boxEndColor}`}
           >
             <Box
               backgroundImage={

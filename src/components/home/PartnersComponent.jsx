@@ -35,7 +35,7 @@ function PartnersComponent() {
           borderRightRadius={{ base: 0, lg: "xl" }}
           border={`1px solid ${colors.boxBorder}`}
           borderStyle="groove"
-          boxShadow={`-2px -2px 4px -1px ${colors.highLightColor}, 2px 2px 4px -1px ${colors.fontLightColor}, -2px 2px 4px -1px ${colors.highLightColor}, 2px -2px 4px -1px ${colors.fontLightColor}`}
+          boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
           p={4}
           className="bg_img"
         >

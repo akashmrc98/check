@@ -161,7 +161,7 @@ function SideBar() {
                   }}
                 >
                   <Box
-                    boxShadow={`0px 0px 12px ${colors.highLightColor}`}
+                    boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
                     cursor="pointer"
                     padding="1rem"
                     borderRadius={"md"}

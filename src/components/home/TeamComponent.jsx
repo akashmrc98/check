@@ -62,6 +62,7 @@ const TeamComponent = () => {
             loop={true}
             modules={[Autoplay, Navigation, EffectCoverflow]}
             spaceBetween={-60}
+            style={{ padding: "2rem 0" }}
             breakpoints={{
               420: {
                 slidesPerView: 1,
@@ -89,14 +90,14 @@ const TeamComponent = () => {
             {teamData.map((s, i) => (
               <SwiperSlide key={i}>
                 {({ isActive }) => (
-                  <Box opacity={isActive ? 1 : 0.5}>
+                  <Box
+                    boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
+                    opacity={isActive ? 1 : 0.5}
+                  >
                     <Box
                       className="bg_img"
-                      border={`1px groove ${colors.boxBorder}`}
-                      borderBottom={0}
                       display="flex"
                       justifyContent={"flex-start"}
-                      boxShadow={`0px 0px 2px ${colors.boxBorder}`}
                       alignItems="center"
                       columnGap={"1rem"}
                       px={2}
@@ -118,20 +119,12 @@ const TeamComponent = () => {
                     <Box
                       display="flex"
                       justifyContent={"center"}
-                      border={`1px groove ${colors.boxBorder}`}
-                      boxShadow={`0px 0px 2px ${colors.boxBorder}`}
                       p={4}
                       px={12}
                       borderTop={0}
                       borderBottom={0}
                     >
-                      <Box
-                        // bg={colors.bgColor}
-                        // borderRadius={"48vh 0vw 48vh 0vw"}
-                        // border={`12px solid ${colors.bgColor}`}
-                        // boxShadow={`0 0 4px 2px ${colors.highLightColor}`}
-                        p={4}
-                      >
+                      <Box p={4}>
                         <Image
                           borderRadius={"1vh 12vw 1vh 12vw"}
                           boxShadow={`0px 0px 2px ${colors.boxBorder}`}
@@ -141,13 +134,7 @@ const TeamComponent = () => {
                         />
                       </Box>
                     </Box>
-                    <Box
-                      border={`1px groove ${colors.boxBorder}`}
-                      borderTop={0}
-                      boxShadow={`0px 0px 2px ${colors.boxBorder}`}
-                      p={4}
-                      className="bg_img"
-                    >
+                    <Box borderTop={0} p={4} className="bg_img">
                       <Text
                         fontFamily={fonts.headingFont}
                         fontSize={{ base: "lg", lg: "xl", xl: "2xl" }}

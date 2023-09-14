@@ -110,7 +110,8 @@ function ImageGenSpace() {
         p={{ base: 2, lg: 12 }}
         bg={`rgba(0,0,0,0.7)`}
         border="2px"
-        boxShadow={`0 0 2px ${colors.highLightColor}`}
+        mt={12}
+        boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
       >
         <Box
           display={"grid"}
@@ -150,14 +151,16 @@ function ImageGenSpace() {
         {isConnected ? (
           <Grid
             rowGap="1rem"
-            columnGap={"1rem"}
+            columnGap={"2rem"}
             mx="auto"
             gridTemplateColumns={{
               base: "1fr",
               lg: "1fr 1fr",
             }}
           >
-            <GridItem>
+            <GridItem
+              boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
+            >
               <FormControl
                 border="2px"
                 px={8}
@@ -178,7 +181,7 @@ function ImageGenSpace() {
                   onChange={(i) => setInput(i.target.value)}
                   placeholder="Muskmelon"
                   variant={"unstyled"}
-                  border={`2px groove ${colors.boxBorder}`}
+                  boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
                   p={4}
                   fontFamily={fonts.parafont}
                   fontSize={{ base: "md" }}
@@ -220,14 +223,14 @@ function ImageGenSpace() {
                 </Box>
               </FormControl>
 
-              <Box py={4}>
+              <Box mx="auto" w="80%" py={4}>
                 <Button
                   width={"100%"}
                   size="lg"
                   fontSize={{ base: "4xl" }}
                   p={8}
                   bg={colors.bgColor}
-                  boxShadow={`0 0 1px ${colors.highLightColor}`}
+                  boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
                   color={colors.highLightColor}
                   _hover={{
                     color: colors.bgColor,
@@ -247,6 +250,7 @@ function ImageGenSpace() {
               minH="240px"
               bg={`rgba(0,0,0,.7)`}
               borderRadius="md"
+              boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
             >
               <Box
                 bg={colors.bgColor}

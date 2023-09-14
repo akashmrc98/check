@@ -11,29 +11,29 @@ export default function ModelSpaceNavbar() {
       return {
         color1: colors.bgColor,
         bg1: colors.highLightColor,
-        boxShadow1: `0px 0px 3px ${colors.bgColor}`,
+        boxShadow1: `-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`,
         color2: colors.highLightColor,
         bg2: colors.bgColor,
-        boxShadow2: `0px 0px 3px ${colors.highLightColor}`,
+        boxShadow2: `-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`,
       };
 
     if (pathname === "/dapp/models")
       return {
         color1: colors.highLightColor,
         bg1: colors.bgColor,
-        boxShadow1: `0px 0px 3px ${colors.highLightColor}`,
+        boxShadow1: `-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`,
         color2: colors.bgColor,
         bg2: colors.highLightColor,
-        boxShadow2: `0px 0px 3px ${colors.bgColor}`,
+        boxShadow2: `-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`,
       };
 
     return {
       color1: colors.highLightColor,
       bg1: colors.bgColor,
-      boxShadow1: `0px 0px 3px ${colors.highLightColor}`,
+      boxShadow1: `-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`,
       color2: colors.highLightColor,
       bg2: colors.bgColor,
-      boxShadow2: `0px 0px 3px ${colors.highLightColor}`,
+      boxShadow2: `-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`,
     };
   };
 
@@ -41,13 +41,11 @@ export default function ModelSpaceNavbar() {
 
   return (
     <Box
-      pt={4}
-      // bg={colors.bgColor}
-      // className="bg_img"
+      className="bg_img"
       display={"flex"}
       alignItems="center"
-      minH="7vh"
-      // boxShadow={`0px 0px 4px ${colors.highLightColor}`}
+      minH="9vh"
+      boxShadow={`3px 3px 6px ${colors.fontLightColorV2}, -6px -6px 12px ${colors.boxEndColor}`}
       justifyContent="center"
     >
       <Flex

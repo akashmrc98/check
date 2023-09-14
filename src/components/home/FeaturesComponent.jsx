@@ -72,7 +72,12 @@ function FeaturesComponent() {
             </Box>
             <Box display={"flex"} justifyContent="center" width="100%">
               <Tilt options={defaultOptions}>
-                <Image maxW={{ base: "300", xl: "512" }} src={SRC} />
+                <Image
+                  boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
+                  borderRadius="xl"
+                  maxW={{ base: "300", xl: "512" }}
+                  src={SRC}
+                />
               </Tilt>
             </Box>
           </Grid>
@@ -96,7 +101,11 @@ function FeaturesComponent() {
           >
             <Box display={"flex"} justifyContent="center" width="100%">
               <Tilt options={defaultOptions}>
-                <Image maxW={{ base: "300", xl: "512" }} src={SRC} />
+                <Image
+                  boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
+                  maxW={{ base: "300", xl: "512" }}
+                  src={SRC}
+                />
               </Tilt>
             </Box>
             <Box width="100%">
