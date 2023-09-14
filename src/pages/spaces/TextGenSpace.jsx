@@ -21,8 +21,29 @@ import BG from "/public/bg/7.jpg";
 
 import Lottie from "lottie-react";
 import groovyWalkAnimation from "/public/lottie/c.json";
+import SpaceNavbar from "./SpaceNavbar";
+
+import { bsc } from "wagmi/chains";
+import { useWeb3Modal } from "@web3modal/react";
+import { useAccount, useBalance, useDisconnect } from "wagmi";
+import { useEffect } from "react";
 
 function TextGenSpace() {
+  const { disconnect } = useDisconnect();
+  const { address, isConnected } = useAccount();
+  const { open, setDefaultChain } = useWeb3Modal();
+  const { data: balance, isFetched: balanceFeteched } = useBalance({
+    address,
+  });
+
+  function connectWallet() {
+    open();
+    setDefaultChain(bsc);
+  }
+
+  useEffect(() => {
+    disconnect();
+  }, []);
   const [input, setInput] = useState("");
   const [loaded, setLoaded] = useState(false);
   const [promp, setPromp] = useState("");
@@ -54,8 +75,12 @@ function TextGenSpace() {
       backgroundBlendMode="color"
       minH={{ base: "auto", xl: "100vh" }}
       backgroundPosition="center"
-      pt={12}
     >
+      <SpaceNavbar
+        balance={balanceFeteched ? balance.formatted : ""}
+        address={address ? address : ""}
+        isConnected={isConnected}
+      />
       <Box
         mx="auto"
         width={{ base: "100%", lg: "88%", xl: "75%" }}
@@ -94,150 +119,169 @@ function TextGenSpace() {
           width="100%"
           border={`1px solid ${colors.boxBorder}`}
         ></Box>
-        <Grid
-          rowGap="1rem"
-          columnGap={"1rem"}
-          mx="auto"
-          gridTemplateColumns={{
-            base: "1fr",
-            lg: "1fr 1fr",
-          }}
-        >
-          <GridItem>
-            <FormControl
-              border="2px"
-              px={8}
-              py={8}
+
+        {isConnected ? (
+          <Grid
+            rowGap="1rem"
+            columnGap={"1rem"}
+            mx="auto"
+            gridTemplateColumns={{
+              base: "1fr",
+              lg: "1fr 1fr",
+            }}
+          >
+            <GridItem>
+              <FormControl
+                border="2px"
+                px={8}
+                py={8}
+                bg={`rgba(0,0,0,.7)`}
+                borderRadius="md"
+              >
+                <FormLabel
+                  fontFamily={fonts.headingFont}
+                  fontSize={{ base: "lg" }}
+                  fontWeight="bold"
+                  color={colors.highLightColor}
+                >
+                  Input a persona, e.g. photographer
+                </FormLabel>
+                <Input
+                  value={input}
+                  onChange={(i) => setInput(i.target.value)}
+                  placeholder="Enter a persona"
+                  variant={"unstyled"}
+                  border={`2px groove ${colors.boxBorder}`}
+                  p={4}
+                  fontFamily={fonts.parafont}
+                  fontSize={{ base: "md" }}
+                  fontWeight="bold"
+                  color={colors.fontLightColor}
+                />
+                <Box pb={24}>
+                  <Flex py={4} columnGap=".4rem" alignItems={"center"}>
+                    <FaBoxes color={colors.fontLightColor} size={18} />
+                    <Text
+                      size={"lg"}
+                      bg={colors.bgColor}
+                      fontFamily={fonts.parafont}
+                      color={colors.highLightColor}
+                      fontWeight="bold"
+                    >
+                      Examples
+                    </Text>
+                  </Flex>
+
+                  {headers.map((h, i) => (
+                    <Tag
+                      size={"lg"}
+                      bg={colors.bgColor}
+                      fontFamily={fonts.headingFont}
+                      color={colors.highLightColor}
+                      boxShadow={`0 0 4px ${colors.highLightColor}`}
+                      fontWeight="bold"
+                      mx={2}
+                      my={2}
+                      key={i}
+                      onClick={() => setInput(h)}
+                    >
+                      {h}
+                    </Tag>
+                  ))}
+                </Box>
+              </FormControl>
+
+              <Box py={4}>
+                <Button
+                  width={"100%"}
+                  size="lg"
+                  fontSize={{ base: "4xl" }}
+                  p={8}
+                  bg={colors.bgColor}
+                  boxShadow={`0 0 1px ${colors.highLightColor}`}
+                  color={colors.highLightColor}
+                  _hover={{
+                    color: colors.bgColor,
+                    bg: colors.highLightColor,
+                  }}
+                  fontFamily={fonts.headingFont}
+                  borderRadius="none"
+                  onClick={() => generateMusic()}
+                >
+                  Generate
+                </Button>
+              </Box>
+            </GridItem>
+
+            <GridItem
+              minH="30vh"
+              pos="relative"
               bg={`rgba(0,0,0,.7)`}
               borderRadius="md"
             >
-              <FormLabel
-                fontFamily={fonts.headingFont}
-                fontSize={{ base: "lg" }}
-                fontWeight="bold"
-                color={colors.highLightColor}
-              >
-                Input a persona, e.g. photographer
-              </FormLabel>
-              <Input
-                value={input}
-                onChange={(i) => setInput(i.target.value)}
-                placeholder="Enter a persona"
-                variant={"unstyled"}
-                border={`2px groove ${colors.boxBorder}`}
-                p={4}
-                fontFamily={fonts.parafont}
-                fontSize={{ base: "md" }}
-                fontWeight="bold"
-                color={colors.fontLightColor}
-              />
-              <Box pb={24}>
-                <Flex py={4} columnGap=".4rem" alignItems={"center"}>
-                  <FaBoxes color={colors.fontLightColor} size={18} />
-                  <Text
-                    size={"lg"}
-                    bg={colors.bgColor}
-                    fontFamily={fonts.parafont}
-                    color={colors.highLightColor}
-                    fontWeight="bold"
-                  >
-                    Examples
-                  </Text>
-                </Flex>
-
-                {headers.map((h, i) => (
-                  <Tag
-                    size={"lg"}
-                    bg={colors.bgColor}
-                    fontFamily={fonts.headingFont}
-                    color={colors.highLightColor}
-                    boxShadow={`0 0 4px ${colors.highLightColor}`}
-                    fontWeight="bold"
-                    mx={2}
-                    my={2}
-                    key={i}
-                    onClick={() => setInput(h)}
-                  >
-                    {h}
-                  </Tag>
-                ))}
+              <Box px={2} py={1} pos="absolute" border="2px">
+                <Text
+                  fontFamily={fonts.parafont}
+                  fontWeight="bold"
+                  color={colors.fontLightColorV2}
+                  fontSize={{ base: "xs" }}
+                >
+                  Prompt output
+                </Text>
               </Box>
-            </FormControl>
-
-            <Box py={4}>
-              <Button
-                width={"100%"}
-                size="lg"
-                fontSize={{ base: "4xl" }}
-                p={8}
-                bg={colors.bgColor}
-                boxShadow={`0 0 1px ${colors.highLightColor}`}
-                color={colors.highLightColor}
-                _hover={{
-                  color: colors.bgColor,
-                  bg: colors.highLightColor,
-                }}
-                fontFamily={fonts.headingFont}
-                borderRadius="none"
-                onClick={() => generateMusic()}
+              <Flex
+                pos={"absolute"}
+                zIndex={8}
+                alignItems={"center"}
+                height="100%"
+                width="100%"
+                justifyContent={"center"}
               >
-                Generate
-              </Button>
-            </Box>
-          </GridItem>
-
-          <GridItem
-            minH="30vh"
-            pos="relative"
-            bg={`rgba(0,0,0,.7)`}
-            borderRadius="md"
-          >
-            <Box px={2} py={1} pos="absolute" border="2px">
-              <Text
-                fontFamily={fonts.parafont}
-                fontWeight="bold"
-                color={colors.fontLightColorV2}
-                fontSize={{ base: "xs" }}
+                {loaded ? (
+                  <Box maxW="220">
+                    <Lottie animationData={groovyWalkAnimation} />
+                  </Box>
+                ) : null}
+              </Flex>
+              <Box
+                minH="100%"
+                px={4}
+                pt={4}
+                display={"flex"}
+                alignItems="center"
+                justifyContent={"center"}
+                flexDirection="column"
               >
-                Prompt output
-              </Text>
-            </Box>
-            <Flex
-              pos={"absolute"}
-              zIndex={8}
-              alignItems={"center"}
-              height="100%"
-              width="100%"
-              justifyContent={"center"}
+                <Text
+                  fontWeight={"bold"}
+                  fontFamily={fonts.parafont}
+                  width="auto"
+                  color={colors.fontLightColor}
+                  mx="auto"
+                  fontSize={{ base: "md" }}
+                >
+                  {promp}
+                </Text>
+              </Box>
+            </GridItem>
+          </Grid>
+        ) : (
+          <Flex justifyContent={"center"}>
+            <Button
+              fontFamily={fonts.headingFont}
+              fontWeight="bold"
+              bg={colors.bgColor}
+              boxShadow={`0px 0px 4px ${colors.boxBorder}`}
+              color={colors.highLightColor}
+              _hover={{ color: colors.bgColor, bg: colors.highLightColor }}
+              fontSize={{ base: "xl" }}
+              textTransform="uppercase"
+              onClick={connectWallet}
             >
-              {loaded ? (
-                <Box maxW="220">
-                  <Lottie animationData={groovyWalkAnimation} />
-                </Box>
-              ) : null}
-            </Flex>
-            <Box
-              minH="100%"
-              px={4}
-              pt={4}
-              display={"flex"}
-              alignItems="center"
-              justifyContent={"center"}
-              flexDirection="column"
-            >
-              <Text
-                fontWeight={"bold"}
-                fontFamily={fonts.parafont}
-                width="auto"
-                color={colors.fontLightColor}
-                mx="auto"
-                fontSize={{ base: "md" }}
-              >
-                {promp}
-              </Text>
-            </Box>
-          </GridItem>
-        </Grid>
+              Connect Wallet
+            </Button>
+          </Flex>
+        )}
       </Box>
     </Box>
   );

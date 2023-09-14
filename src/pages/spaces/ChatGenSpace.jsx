@@ -20,6 +20,10 @@ import { FaForward, FaUser } from "react-icons/fa";
 import { useRef } from "react";
 import { useEffect } from "react";
 
+import { bsc } from "wagmi/chains";
+import { useWeb3Modal } from "@web3modal/react";
+import { useAccount, useBalance, useDisconnect } from "wagmi";
+
 import EM from "/public/chat/Elon Musk.png";
 import VB from "/public/chat/Vitalik Buterin.png";
 import CZ from "/public/chat/Changpeng Zhao.webp";
@@ -29,6 +33,7 @@ import MJS from "/public/chat/Michael J. Saylor.webp";
 import TD from "/public/chat/Tim Draper.png";
 import TW from "/public/chat/Tyler Winklevoss.webp";
 import BG from "/public/bg/10.jpg";
+import SpaceNavbar from "./SpaceNavbar";
 
 let imgs = [EM, VB, CZ, JS, BA, MJS, TD, TW];
 
@@ -44,6 +49,22 @@ const options = [
 ];
 
 function ChatGenSpace() {
+  const { disconnect } = useDisconnect();
+  const { address, isConnected } = useAccount();
+  const { open, setDefaultChain } = useWeb3Modal();
+  const { data: balance, isFetched: balanceFeteched } = useBalance({
+    address,
+  });
+
+  function connectWallet() {
+    open();
+    setDefaultChain(bsc);
+  }
+
+  useEffect(() => {
+    disconnect();
+  }, []);
+
   const [input, setInput] = useState("");
   const [loaded, setLoaded] = useState(false);
   const [promp, setPromp] = useState([]);
@@ -86,10 +107,14 @@ function ChatGenSpace() {
       backgroundBlendMode="color"
       minH={{ base: "auto", xl: "100vh" }}
       backgroundPosition="center"
-      pt={12}
-      py={12}
       ref={ref}
     >
+      <SpaceNavbar
+        balance={balanceFeteched ? balance.formatted : ""}
+        address={address ? address : ""}
+        isConnected={isConnected}
+      />
+
       <Box
         mx="auto"
         width={{ base: "100%", lg: "88%", xl: "75%" }}
@@ -205,114 +230,132 @@ function ChatGenSpace() {
           </FormControl>
         ) : null}
 
-        <Grid boxShadow={`0px 0px 4px 0px ${colors.highLightColor}`}>
-          <GridItem pos="relative">
-            <Box my={5} px={4} pt={4} display={"flex"} flexDirection="column">
-              {promp.map((p, i) => (
-                <Box columnGap={"2rem"} key={i} display="flex">
-                  {i % 2 === 0 ? (
-                    <Box
-                      display={"flex"}
-                      alignItems="center"
-                      justifyContent={"flex-end"}
-                    >
-                      <FaUser size={32} color={colors.highLightColor} />
-                    </Box>
-                  ) : null}
+        {isConnected ? (
+          <Grid boxShadow={`0px 0px 4px 0px ${colors.highLightColor}`}>
+            <GridItem pos="relative">
+              <Box my={5} px={4} pt={4} display={"flex"} flexDirection="column">
+                {promp.map((p, i) => (
+                  <Box columnGap={"2rem"} key={i} display="flex">
+                    {i % 2 === 0 ? (
+                      <Box
+                        display={"flex"}
+                        alignItems="center"
+                        justifyContent={"flex-end"}
+                      >
+                        <FaUser size={32} color={colors.highLightColor} />
+                      </Box>
+                    ) : null}
 
+                    <Text
+                      my={4}
+                      p={3}
+                      bg={`rgba(0,0,0,.7)`}
+                      borderRadius="md"
+                      fontWeight={"bold"}
+                      fontFamily={fonts.parafont}
+                      width="100%"
+                      color={colors.fontLightColor}
+                      mx="auto"
+                      fontSize={{ base: "sm" }}
+                    >
+                      {p}
+                    </Text>
+
+                    {i % 2 === 0 ? null : (
+                      <Box
+                        display={"flex"}
+                        alignItems="center"
+                        justifyContent={"flex-end"}
+                      >
+                        <Image
+                          borderRadius={"md"}
+                          maxW="48px"
+                          maxH="48px"
+                          objectFit={"contain"}
+                          src={imgs[index]}
+                        ></Image>
+                      </Box>
+                    )}
+                  </Box>
+                ))}
+              </Box>
+            </GridItem>
+            <GridItem>
+              {loaded ? (
+                <Flex
+                  pb={8}
+                  fontSize={{ base: "sm", lg: "lg" }}
+                  pr={12}
+                  justifyContent={"flex-end"}
+                  alignItems="center"
+                  columnGap={".5rem"}
+                >
                   <Text
-                    my={4}
-                    p={3}
-                    bg={`rgba(0,0,0,.7)`}
-                    borderRadius="md"
-                    fontWeight={"bold"}
                     fontFamily={fonts.parafont}
-                    width="100%"
-                    color={colors.fontLightColor}
-                    mx="auto"
-                    fontSize={{ base: "sm" }}
+                    fontSize={{ base: "md" }}
+                    fontWeight="bold"
+                    color={colors.highLightColor}
                   >
-                    {p}
+                    {person} is typing
                   </Text>
-
-                  {i % 2 === 0 ? null : (
-                    <Box
-                      display={"flex"}
-                      alignItems="center"
-                      justifyContent={"flex-end"}
-                    >
-                      <Image
-                        borderRadius={"md"}
-                        maxW="48px"
-                        maxH="48px"
-                        objectFit={"contain"}
-                        src={imgs[index]}
-                      ></Image>
-                    </Box>
-                  )}
-                </Box>
-              ))}
-            </Box>
-          </GridItem>
-          <GridItem>
-            {loaded ? (
-              <Flex
-                pb={8}
-                fontSize={{ base: "sm", lg: "lg" }}
-                pr={12}
-                justifyContent={"flex-end"}
-                alignItems="center"
-                columnGap={".5rem"}
-              >
-                <Text
+                  <div className="typing">
+                    <div className="dot"></div>
+                    <div className="dot"></div>
+                    <div className="dot"></div>
+                  </div>
+                </Flex>
+              ) : null}
+            </GridItem>
+            <GridItem>
+              <FormControl border="2px" px={4} py={2} bg={`rgba(0,0,0,.7)`}>
+                <Input
+                  value={input}
+                  onChange={(i) => setInput(i.target.value)}
+                  placeholder="send"
+                  variant={"unstyled"}
+                  border={`2px groove ${colors.boxBorder}`}
+                  p={4}
                   fontFamily={fonts.parafont}
                   fontSize={{ base: "md" }}
                   fontWeight="bold"
-                  color={colors.highLightColor}
+                  color={colors.fontLightColor}
+                  onKeyDown={(e) => {
+                    console.log(e);
+                    if (e.key === "Enter") {
+                      generateMusic();
+                    }
+                  }}
+                />
+                <Box
+                  cursor={"pointer"}
+                  pos="absolute"
+                  zIndex={999}
+                  right={{ base: "8%", lg: "4%", xl: "2%" }}
+                  top={"30%"}
+                  onClick={() => generateMusic()}
                 >
-                  {person} is typing
-                </Text>
-                <div className="typing">
-                  <div className="dot"></div>
-                  <div className="dot"></div>
-                  <div className="dot"></div>
-                </div>
-              </Flex>
-            ) : null}
-          </GridItem>
-          <GridItem>
-            <FormControl border="2px" px={4} py={2} bg={`rgba(0,0,0,.7)`}>
-              <Input
-                value={input}
-                onChange={(i) => setInput(i.target.value)}
-                placeholder="send"
-                variant={"unstyled"}
-                border={`2px groove ${colors.boxBorder}`}
-                p={4}
-                fontFamily={fonts.parafont}
-                fontSize={{ base: "md" }}
-                fontWeight="bold"
-                color={colors.fontLightColor}
-                onKeyDown={(e) => {
-                  console.log(e);
-                  if (e.key === "Enter") {
-                    generateMusic();
-                  }
-                }}
-              />
-              <Box
-                cursor={"pointer"}
-                pos="absolute"
-                zIndex={999}
-                right={{ base: "8%", lg: "4%", xl: "2%" }}
-                top={"30%"}
-                onClick={() => generateMusic()}
-              >
-                <FaForward size={32} color={colors.highLightColor} />
-              </Box>
-            </FormControl>
-          </GridItem>
-        </Grid>
+                  <FaForward size={32} color={colors.highLightColor} />
+                </Box>
+              </FormControl>
+            </GridItem>
+          </Grid>
+        ) : (
+          <Flex mt={12} justifyContent={"center"}>
+            <Button
+              fontFamily={fonts.headingFont}
+              fontWeight="bold"
+              bg={colors.bgColor}
+              boxShadow={`0px 0px 4px ${colors.boxBorder}`}
+              color={colors.highLightColor}
+              _hover={{ color: colors.bgColor, bg: colors.highLightColor }}
+              fontSize={{ base: "xl" }}
+              textTransform="uppercase"
+              onClick={connectWallet}
+            >
+              Connect Wallet
+            </Button>
+          </Flex>
+        )}
       </Box>
     </Box>
   );
