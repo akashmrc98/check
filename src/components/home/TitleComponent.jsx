@@ -128,7 +128,7 @@ function SideBar() {
       display={{ base: "none", xl: "grid" }}
       zIndex={9999999999}
       pos="absolute"
-      right="5%"
+      right="3%"
       top={0}
       bottom={0}
       m={"auto 0"}
@@ -139,7 +139,12 @@ function SideBar() {
         flexDir={"column"}
         justifyContent="center"
       >
-        <Box py={6} px={2} borderRadius="3xl">
+        <Box
+          boxShadow={`0 0 2px ${colors.highLightColor}`}
+          py={6}
+          px={4}
+          borderRadius="3xl"
+        >
           {homeUtilsData.map((h, j) => (
             <Link to={d[j]} spy={true} smooth={true} duration={500} key={j}>
               <Box
@@ -153,7 +158,7 @@ function SideBar() {
                 <Box
                   pos="absolute"
                   width="170px"
-                  right={"130%"}
+                  right={"160%"}
                   style={{
                     textAlign: "center",
                     visibility: hover[j],

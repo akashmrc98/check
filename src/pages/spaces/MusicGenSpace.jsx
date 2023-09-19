@@ -159,183 +159,185 @@ function MusicGenSpace() {
           boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
         ></Box>
         {isConnected ? (
-          <Grid
-            rowGap="1rem"
-            columnGap={"1rem"}
-            mx="auto"
-            gridTemplateColumns={{
-              base: "1fr",
-              lg: "1fr 1fr",
-            }}
-          >
-            <GridItem>
-              <FormControl
-                border="2px"
-                p={{ base: 2, lg: 8 }}
-                bg={`rgba(0,0,0,.7)`}
-                boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
-              >
-                <FormLabel
-                  fontFamily={fonts.headingFont}
-                  fontSize={{ base: "lg" }}
-                  fontWeight="bold"
-                  color={colors.highLightColor}
+          <Box>
+            <Grid
+              rowGap="1rem"
+              columnGap={"1rem"}
+              mx="auto"
+              gridTemplateColumns={{
+                base: "1fr",
+                lg: "1fr 1fr",
+              }}
+            >
+              <GridItem>
+                <FormControl
+                  border="2px"
+                  p={{ base: 2, lg: 8 }}
+                  bg={`rgba(0,0,0,.7)`}
+                  boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
                 >
-                  Describe Your Music
-                </FormLabel>
-                <Input
-                  value={input}
-                  onChange={(i) => setInput(i.target.value)}
-                  placeholder="Classic, Pop, Blues, Phonk, Rock..."
-                  variant={"unstyled"}
-                  border={`2px groove ${colors.boxBorder}`}
-                  p={4}
-                  fontFamily={fonts.parafont}
-                  fontSize={{ base: "md" }}
-                  fontWeight="bold"
-                  color={colors.fontLightColor}
-                />
-              </FormControl>
-              <FormControl
-                border="2px"
-                p={{ base: 2, lg: 8 }}
-                bg={`rgba(0,0,0,.7)`}
-                boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
-              >
-                <FormLabel
-                  fontFamily={fonts.headingFont}
-                  fontSize={{ base: "lg" }}
-                  fontWeight="bold"
-                  color={colors.highLightColor}
+                  <FormLabel
+                    fontFamily={fonts.headingFont}
+                    fontSize={{ base: "lg" }}
+                    fontWeight="bold"
+                    color={colors.highLightColor}
+                  >
+                    Describe Your Music
+                  </FormLabel>
+                  <Input
+                    value={input}
+                    onChange={(i) => setInput(i.target.value)}
+                    placeholder="Classic, Pop, Blues, Phonk, Rock..."
+                    variant={"unstyled"}
+                    border={`2px groove ${colors.boxBorder}`}
+                    p={4}
+                    fontFamily={fonts.parafont}
+                    fontSize={{ base: "md" }}
+                    fontWeight="bold"
+                    color={colors.fontLightColor}
+                  />
+                </FormControl>
+                <FormControl
+                  border="2px"
+                  p={{ base: 2, lg: 8 }}
+                  bg={`rgba(0,0,0,.7)`}
+                  boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
                 >
-                  Model
-                </FormLabel>
+                  <FormLabel
+                    fontFamily={fonts.headingFont}
+                    fontSize={{ base: "lg" }}
+                    fontWeight="bold"
+                    color={colors.highLightColor}
+                  >
+                    Model
+                  </FormLabel>
 
-                <RadioGroup onChange={setModel} value={model}>
-                  <Stack direction="row">
-                    {checks.map((c, i) => (
-                      <Radio value={c} key={i} colorScheme="purple">
-                        <Text
-                          color={colors.boxBorder}
-                          fontWeight="bold"
-                          size={{ base: "sm", lg: "lg" }}
-                          fontFamily={fonts.parafont}
-                        >
-                          {c}
-                        </Text>
-                      </Radio>
-                    ))}
-                  </Stack>
-                </RadioGroup>
-              </FormControl>
+                  <RadioGroup onChange={setModel} value={model}>
+                    <Stack direction="row">
+                      {checks.map((c, i) => (
+                        <Radio value={c} key={i} colorScheme="purple">
+                          <Text
+                            color={colors.boxBorder}
+                            fontWeight="bold"
+                            size={{ base: "sm", lg: "lg" }}
+                            fontFamily={fonts.parafont}
+                          >
+                            {c}
+                          </Text>
+                        </Radio>
+                      ))}
+                    </Stack>
+                  </RadioGroup>
+                </FormControl>
 
-              <FormControl
-                bg={`rgba(0,0,0,.7)`}
-                border="2px"
-                p={{ base: 2, lg: 8 }}
-                boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
-              >
-                <FormLabel
-                  fontFamily={fonts.headingFont}
-                  fontSize={{ base: "lg" }}
-                  fontWeight="bold"
-                  color={colors.highLightColor}
+                <FormControl
+                  bg={`rgba(0,0,0,.7)`}
+                  border="2px"
+                  p={{ base: 2, lg: 8 }}
+                  boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
                 >
-                  Duration in seconds
-                </FormLabel>
-                <Slider
-                  onChange={(val) => setDuration(val)}
-                  defaultValue={2}
-                  min={2}
-                  max={120}
-                  step={2}
-                >
-                  <SliderMark
-                    value={duration}
-                    textAlign="center"
+                  <FormLabel
+                    fontFamily={fonts.headingFont}
+                    fontSize={{ base: "lg" }}
+                    fontWeight="bold"
+                    color={colors.highLightColor}
+                  >
+                    Duration in seconds
+                  </FormLabel>
+                  <Slider
+                    onChange={(val) => setDuration(val)}
+                    defaultValue={2}
+                    min={2}
+                    max={120}
+                    step={2}
+                  >
+                    <SliderMark
+                      value={duration}
+                      textAlign="center"
+                      bg={colors.bgColor}
+                      color={colors.boxBorder}
+                      mt="5"
+                      ml="-6"
+                      fontFamily={fonts.parafont}
+                      fontWeight="bold"
+                      w="12"
+                    >
+                      {duration}
+                    </SliderMark>
+
+                    <SliderTrack bg={colors.bgColor}>
+                      <SliderFilledTrack bg={colors.highLightColor} />
+                    </SliderTrack>
+                    <SliderThumb boxSize={6}>
+                      {/* <Box color="tomato" as={MdGraphicEq} /> */}
+                    </SliderThumb>
+                  </Slider>
+                </FormControl>
+
+                <Box py={4}>
+                  <Button
+                    width={"100%"}
+                    size="lg"
+                    fontSize={{ base: "4xl" }}
+                    p={{ base: 2, lg: 8 }}
                     bg={colors.bgColor}
-                    color={colors.boxBorder}
-                    mt="5"
-                    ml="-6"
+                    boxShadow={`0 0 1px ${colors.highLightColor}`}
+                    color={colors.highLightColor}
+                    _hover={{
+                      color: colors.bgColor,
+                      bg: colors.highLightColor,
+                    }}
+                    fontFamily={fonts.headingFont}
+                    borderRadius="none"
+                    onClick={() => generateMusic()}
+                  >
+                    Generate
+                  </Button>
+                </Box>
+              </GridItem>
+
+              <GridItem
+                boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
+                pos="relative"
+                borderRadius={"md"}
+                bg={`rgba(0,0,0,.7)`}
+              >
+                <Box px={2} py={1} pos="absolute" border="2px">
+                  <Text
                     fontFamily={fonts.parafont}
                     fontWeight="bold"
-                    w="12"
+                    color={colors.fontLightColorV2}
+                    fontSize={{ base: "xs" }}
                   >
-                    {duration}
-                  </SliderMark>
-
-                  <SliderTrack bg={colors.bgColor}>
-                    <SliderFilledTrack bg={colors.highLightColor} />
-                  </SliderTrack>
-                  <SliderThumb boxSize={6}>
-                    {/* <Box color="tomato" as={MdGraphicEq} /> */}
-                  </SliderThumb>
-                </Slider>
-              </FormControl>
-
-              <Box py={4}>
-                <Button
-                  width={"100%"}
-                  size="lg"
-                  fontSize={{ base: "4xl" }}
-                  p={{ base: 2, lg: 8 }}
-                  bg={colors.bgColor}
-                  boxShadow={`0 0 1px ${colors.highLightColor}`}
-                  color={colors.highLightColor}
-                  _hover={{
-                    color: colors.bgColor,
-                    bg: colors.highLightColor,
-                  }}
-                  fontFamily={fonts.headingFont}
-                  borderRadius="none"
-                  onClick={() => generateMusic()}
+                    Audio output
+                  </Text>
+                </Box>
+                <Box
+                  pt={4}
+                  display={"flex"}
+                  alignItems="center"
+                  justifyContent={"center"}
+                  flexDirection="column"
+                  h="100%"
+                  w="100%"
                 >
-                  Generate
-                </Button>
-              </Box>
-            </GridItem>
-
-            <GridItem
-              boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
-              pos="relative"
-              borderRadius={"md"}
-              bg={`rgba(0,0,0,.7)`}
-            >
-              <Box px={2} py={1} pos="absolute" border="2px">
-                <Text
-                  fontFamily={fonts.parafont}
-                  fontWeight="bold"
-                  color={colors.fontLightColorV2}
-                  fontSize={{ base: "xs" }}
-                >
-                  Audio output
-                </Text>
-              </Box>
-              <Box
-                pt={4}
-                display={"flex"}
-                alignItems="center"
-                justifyContent={"center"}
-                flexDirection="column"
-                h="100%"
-                w="100%"
-              >
-                <Flex p={4} justifyContent="center">
-                  {isSearched ? (
-                    <Box>
-                      {!loaded ? null : (
-                        <Box>
-                          <Lottie animationData={groovyWalkAnimation} />
-                        </Box>
-                      )}
-                    </Box>
-                  ) : (
-                    <video minW="100%" ref={ref} controls />
-                  )}
-                </Flex>
-              </Box>
-            </GridItem>
-          </Grid>
+                  <Flex p={4} justifyContent="center">
+                    {isSearched ? (
+                      <Box>
+                        {!loaded ? null : (
+                          <Box>
+                            <Lottie animationData={groovyWalkAnimation} />
+                          </Box>
+                        )}
+                      </Box>
+                    ) : (
+                      <video minW="100%" ref={ref} controls />
+                    )}
+                  </Flex>
+                </Box>
+              </GridItem>
+            </Grid>
+          </Box>
         ) : (
           <Flex justifyContent={"center"}>
             <Button
@@ -382,6 +384,29 @@ function MusicGenSpace() {
               ))}
             </Tbody>
           </Table>
+          {isConnected ? (
+            <Box mt={12}>
+              <Text
+                textAlign={"left"}
+                fontWeight={"bold"}
+                fontFamily={fonts.parafont}
+                color={colors.highLightColor}
+                fontSize={{ base: "3xl" }}
+                my={12}
+              >
+                Generated Music List
+              </Text>
+              <Text
+                textAlign={"left"}
+                fontWeight={"bold"}
+                fontFamily={fonts.parafont}
+                color={colors.highLightColor}
+                fontSize={{ base: "md" }}
+              >
+                No music generated...
+              </Text>
+            </Box>
+          ) : null}
         </Box>
       </Box>
     </Box>

@@ -14,14 +14,23 @@ function HeadLines2() {
     if (index === 4) setIndex(0);
     else setIndex(index + 1);
     setChanged(true);
-  }, 4000);
+  }, 6000);
 
   return (
     <Box pos={"relative"} px={4} zIndex={24} display={"flex"}>
       <Box width="100%">
-        <motion.div>
+        <motion.div
+          animate={{
+            opacity: changed ? 1 : 0,
+          }}
+          transition={{
+            type: "tween",
+            repeat: Infinity,
+            duration: 6,
+            ease: "easeInOut",
+          }}
+        >
           <Text
-            className={!changed ? "fade_effect" : "normal_effect"}
             display={"inline"}
             color={colors.fontLightColorV2}
             fontFamily={fonts.headingFont}
@@ -34,7 +43,7 @@ function HeadLines2() {
             }}
             pb={4}
           >
-            {titlesMapSectionOne[index]}
+            {titles[index][0]}
           </Text>
         </motion.div>
         <motion.div
@@ -157,17 +166,14 @@ function HeadLines2() {
             columnGap: ".2rem",
             justifyContent: "flex-end",
           }}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={{
-            visible: { opacity: 1, y: 0 },
-            hidden: { opacity: 0, y: -200 },
+          animate={{
+            opacity: changed ? 1 : 0,
           }}
           transition={{
-            type: "spring",
-            stiffness: 260,
-            damping: 20,
+            type: "tween",
+            repeat: Infinity,
+            duration: 6,
+            ease: "easeInOut",
           }}
         >
           <Box
@@ -178,15 +184,12 @@ function HeadLines2() {
           >
             <Text
               px={0}
-              className={
-                !changed ? "fade_effect grad_txt" : "normal_effect grad_txt"
-              }
               display={"inline"}
               color={colors.fontLightColorV2}
               fontFamily={fonts.parafont}
               fontSize={{ base: "2xl", lg: "4xl", xl: "5xl" }}
             >
-              {titlesMapSectionTwo[index]}
+              {titles[index][1]}
             </Text>
           </Box>
         </motion.div>
@@ -197,18 +200,10 @@ function HeadLines2() {
 
 export default HeadLines2;
 
-const titlesMapSectionTwo = [
-  "world",
-  "ecosytem",
-  "power",
-  "future",
-  "frontier",
-];
-
-const titlesMapSectionOne = [
-  "Everything about",
-  "Exapanding the",
-  "Harnessing the",
-  "Pioneering the",
-  "Pushing the",
+const titles = [
+  ["Everything about", "world"],
+  ["Exapanding the", "ecosytem"],
+  ["Harnessing the", "power"],
+  ["Pioneering the", "future"],
+  ["Pushing the", "frontier"],
 ];

@@ -3,3 +3,8 @@ our solutions 3d icons
 our vision img
 our misson img
 
+
+                #ff914d
+				#fec48d 
+				#ede0b0
+				#5ce1e6

@@ -237,18 +237,12 @@ html {
 }
 
 @keyframes fade0 {
-  0% {
-    opacity: 1;
-  }
   50% {
     opacity: 0;
   }
 }
 
 @keyframes fade {
-  0% {
-    opacity: 0;
-  }
   50% {
     opacity: 1;
   }

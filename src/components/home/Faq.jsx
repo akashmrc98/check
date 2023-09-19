@@ -18,6 +18,7 @@ import groovyWalkAnimation from "/public/lottie/1.json";
 
 import Faq from "/public/icons/faq.png";
 import Question from "/public/icons/question.png";
+import FAQ from "/public/icons/headline/faq.png";
 
 import { Tilt } from "react-tilt";
 const defaultOptions = {
@@ -41,14 +42,7 @@ export default function FaqComponent() {
         gridTemplateColumns={{ base: "1fr", lg: "1fr 1fr" }}
       >
         <GridItem display={"flex"}>
-          <HeadLines
-            x={"80px"}
-            y="30px"
-            s={1.1}
-            desc=""
-            subTitle="$OPAI"
-            title="FAQ's"
-          />
+          <HeadLines img={FAQ} desc="" subTitle="$OPAI" title="FAQ's" />
         </GridItem>
         <GridItem></GridItem>
       </Grid>
@@ -164,12 +158,13 @@ export default function FaqComponent() {
       >
         {faqs[index].faqs.map((f, i) => (
           <AccordionItem
-            boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
+            boxShadow={`-2px -2px 3px ${colors.fontLightColorV2}, 3px 3px 6px ${colors.boxEndColor}`}
             borderBottom={i === faqs[index].faqs.length - 1 ? "2px" : "0"}
             borderColor={colors.fontLightColor}
             p={3}
             className="bg_img"
             key={i}
+            my={4}
           >
             {({ isExpanded }) => (
               <>
@@ -245,7 +240,7 @@ export default function FaqComponent() {
                   color={colors.highLightColor}
                   textAlign="left"
                   fontWeight="bold"
-                  fontSize={{ base: "lg", xl: "2xl" }}
+                  fontSize={{ base: "lg", xl: "5xl" }}
                   mb={2}
                 >
                   .. Join The
@@ -301,7 +296,7 @@ const faqs = [
     ],
   },
   {
-    title: "About OverPowered AI",
+    title: "What is OverPowered AI",
     faqs: [
       {
         title: "What is ChainGPT?",
@@ -330,10 +325,10 @@ const faqs = [
     ],
   },
   {
-    title: "About OverPowered AI",
+    title: "OverPowered AI",
     faqs: [
       {
-        title: "What is ChainGPT?",
+        title: "What is OAPAI?",
         sub: "ChainGPT is an advanced AI model that assists individuals and businesses with everything related to Crypto and Blockchain technology. Access complete solutions and use cases using our advanced AI model: Blockchain analytics, AI trading, smart-contract development, AI auditing, risk management, crypto news source, etc.",
       },
       {

@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { colors } from "../../theme/colors";
 import { fonts } from "../../theme/fonts";
@@ -21,16 +21,31 @@ function HeadLines(props) {
             stiffness: 260,
             damping: 20,
           }}
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center ",
+          }}
         >
           <Text
             color={colors.fontLightColorV2}
-            fontFamily={fonts.parafont}
-            fontSize={{ base: "sm", lg: "xl" }}
-            pb={4}
-            pl={4}
+            fontFamily={fonts.specialFont}
+            fontSize={{ base: "sm", lg: "lg" }}
+            fontWeight="bold"
           >
             {props.desc}
           </Text>
+          <Flex
+            mr={1}
+            boxShadow={`-2px -2px 4px ${colors.fontLightColorV2}, 3px 3px 6px ${colors.boxEndColor}`}
+            maxW="16"
+            maxH="16"
+            borderTopRadius="10rem"
+            py={2}
+            px={1}
+          >
+            <Image src={props.img} />
+          </Flex>{" "}
         </motion.div>
         <motion.div
           initial="hidden"
@@ -118,7 +133,7 @@ function HeadLines(props) {
               <Text
                 color={colors.fontLightColor}
                 fontFamily={fonts.headingFont}
-                fontSize={{ base: "4xl", lg: "8xl" }}
+                fontSize={{ base: "4xl", lg: "6xl" }}
                 py={2}
                 px={3}
                 lineHeight={1}
@@ -129,7 +144,12 @@ function HeadLines(props) {
           </Box>
         </motion.div>
         <motion.div
-          style={{ display: "flex", alignItems: "center", columnGap: ".2rem" }}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            columnGap: ".2rem",
+          }}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -144,19 +164,19 @@ function HeadLines(props) {
           }}
         >
           <Text
-            border={`2px solid ${colors.boxBorder}`}
             color={colors.fontLightColorV2}
-            fontFamily={fonts.specialFont}
+            fontFamily={fonts.parafont}
             fontSize={{ base: "2xl", lg: "4xl" }}
+            fontWeight="bold"
             py={6}
-            px={3}
-            borderRight={0}
-            borderTop={0}
+            px={6}
             borderLeftColor={colors.highLightColor}
             lineHeight={0.2}
             className="grad_txt"
+            boxShadow={`-2px -2px 4px ${colors.fontLightColorV2}, 3px 3px 6px ${colors.boxEndColor}`}
           >
-            {props.subTitle}
+            {/* {props.subTitle} */}
+            $OPAI
           </Text>
         </motion.div>
       </Box>

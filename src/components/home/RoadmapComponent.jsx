@@ -15,20 +15,14 @@ import Verify from "/public/icons/light.png";
 import Pending from "/public/icons/loading.png";
 
 import HeadLines from "../../components/common/HeadLine";
+import RDMP from "/public/icons/headline/roadmap.png";
 
 function RoadmapComponent() {
   return (
     <Box>
       <Grid gridTemplateColumns={"1fr 1fr"}>
         <GridItem>
-          <HeadLines
-            x="-40px"
-            y="-40px"
-            s={1.2}
-            desc=""
-            subTitle="$OPAI"
-            title="ROADMAP"
-          />
+          <HeadLines img={RDMP} desc="" subTitle="$OPAI" title="ROADMAP" />
         </GridItem>
         <GridItem></GridItem>
       </Grid>

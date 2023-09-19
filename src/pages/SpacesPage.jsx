@@ -13,7 +13,7 @@ import { emojisData, sGradientData, spacesData } from "../data/spacesData";
 
 import { useNavigate } from "react-router";
 
-import G from "/public/eco_system/grid.png";
+import G from "/public/icons/grid.png";
 import ModelSpaceNavbar from "../components/common/ModelSpaceNavbar";
 
 import BG from "/public/bg/7.jpg";
@@ -62,7 +62,7 @@ function SpacesPage() {
               alignItems="center"
               display={"flex"}
             >
-              <Image src={G} />
+              <Image maxW={16} maxH={16} src={G} />
               <Box
                 display={"flex"}
                 flexDir="column"
@@ -99,20 +99,7 @@ function SpacesPage() {
             display={"flex"}
             columnGap="1rem"
             rowGap={"1rem"}
-          >
-            <Button
-              _hover={{
-                bg: colors.bgColor,
-                boxShadow: `0px 0px 4px ${colors.bgColor}`,
-              }}
-              color={colors.highLightColor}
-              bg={colors.boxBorder}
-            >
-              Create New Space
-            </Button>
-            <Text color={colors.boxBorder}>or</Text>
-            <Button variant={"link"}>Learn more about spaces</Button>
-          </Box>
+          ></Box>
         </Box>
         <Box
           mb={12}

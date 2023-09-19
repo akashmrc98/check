@@ -8,6 +8,7 @@ import { Autoplay, EffectCoverflow, Navigation } from "swiper/modules";
 import { fonts } from "../../theme/fonts";
 import { colors } from "../../theme/colors";
 import HeadLines from "../common/HeadLine";
+import AI from "/public/icons/headline/ai.png";
 
 const AIComponent = () => {
   return (
@@ -15,6 +16,7 @@ const AIComponent = () => {
       <Grid gridTemplateColumns={"1fr 1fr"}>
         <GridItem display={"grid"} pt={12}>
           <HeadLines
+            img={AI}
             desc="UNLEASH THE POWER OF"
             subTitle="AI"
             title="Blockchain"

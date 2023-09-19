@@ -10,18 +10,24 @@ import { useNavigate } from "react-router";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
+import MS from "/public/icons/solutions/music.png";
+import CAI from "/public/icons/solutions/aibot.png";
+import CH from "/public/icons/solutions/chat.png";
+import IG from "/public/icons/solutions/camera.png";
+import SOL from "/public/icons/headline/sol.png";
+
 function OurSolutionContentComponent() {
+  const imgs = [MS, CAI, CH, IG];
+  const headings = [
+    "Music Generation",
+    "Chat Assistant",
+    "ChatGPT Prompt",
+    "Image Generation",
+  ];
   return (
     <Box my={32}>
       <Box px={8} py={16}>
-        <HeadLines
-          x="-20px"
-          y="-40px"
-          s={1.1}
-          px={24}
-          subTitle={"$OPAI"}
-          title="Our Solutions"
-        />
+        <HeadLines img={SOL} px={24} subTitle={"$OPAI"} title="Our Solutions" />
       </Box>
       <Grid
         gridTemplateColumns={{ base: "1fr", xl: "1fr 1fr" }}
@@ -41,13 +47,28 @@ function OurSolutionContentComponent() {
             key={i}
           >
             <Box width="100%" display={"grid"} rowGap="1rem">
-              <Text
-                color={colors.highLightColor}
-                fontFamily={fonts.headingFont}
-                fontSize={{ base: "4xl", lg: "5xl" }}
+              <Flex
+                justifyContent={"flex-start"}
+                columnGap="1rem"
+                alignItems="center"
               >
-                {sol.display_name}
-              </Text>
+                <Box
+                  boxShadow={`-2px -2px 4px ${colors.fontLightColorV2}, 3px 3px 6px ${colors.boxEndColor}`}
+                  borderRadius="10rem"
+                  p={3}
+                  maxW="16"
+                  maxH="16"
+                >
+                  <Image src={imgs[i]} />
+                </Box>
+                <Text
+                  color={colors.highLightColor}
+                  fontFamily={fonts.headingFont}
+                  fontSize={{ base: "4xl", lg: "5xl" }}
+                >
+                  {headings[i]}
+                </Text>
+              </Flex>
               <Grid
                 width="100%"
                 templateColumns={{ base: "1fr", xl: "2fr 1fr" }}

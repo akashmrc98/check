@@ -14,6 +14,7 @@ import Arrow from "/public/icons/arrow_2.png";
 import LinkedIn from "/public/socials/linkedin.png";
 import Twitter from "/public/socials/twitter.png";
 import Email from "/public/socials/email.png";
+import TEAM from "/public/icons/headline/team.png";
 
 const TeamComponent = () => {
   function getSocial(link) {
@@ -28,9 +29,7 @@ const TeamComponent = () => {
       <Grid gridTemplateColumns={"1fr 1fr"}>
         <GridItem>
           <HeadLines
-            x="-60px"
-            y="-40px"
-            s={1.1}
+            img={TEAM}
             desc="TEAM"
             subTitle="$OPAI"
             title="Faces behind"

@@ -19,6 +19,8 @@ const defaultOptions = {
   reset: true, // If the tilt effect has to be reset on exit.
   easing: "cubic-bezier(.03,.98,.52,.99)", // Easing on enter/exit.
 };
+import VISION from "/public/icons/headline/vision.png";
+import MISSION from "/public/icons/headline/mission.png";
 
 function FeaturesComponent() {
   return (
@@ -44,6 +46,7 @@ function FeaturesComponent() {
                 desc="UTILITIES"
                 subTitle="$OPAI"
                 title="OUR MISSION"
+                img={MISSION}
               />
               <Box></Box>
             </Flex>
@@ -88,7 +91,12 @@ function FeaturesComponent() {
           >
             <Box></Box>
             <Flex justifyContent={"flex-end"}>
-              <HeadLines desc="UTILITIES" subTitle="$OPAI" title="OUR VISION" />
+              <HeadLines
+                img={VISION}
+                desc="UTILITIES"
+                subTitle="$OPAI"
+                title="OUR VISION"
+              />
             </Flex>
           </Grid>
           <Grid

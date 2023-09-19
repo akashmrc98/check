@@ -11,7 +11,7 @@ import { colors } from "../theme/colors";
 import { fonts } from "../theme/fonts";
 import { emojis, gradientData, modelsData } from "../data/modelsData";
 import { slice } from "lodash";
-import G from "/public/eco_system/grid.png";
+import G from "/public/icons/grid.png";
 
 import { useNavigate } from "react-router";
 import { useState } from "react";
@@ -75,7 +75,7 @@ function ModelsPage() {
               alignItems="center"
               display={"flex"}
             >
-              <Image src={G} />
+              <Image maxW={16} maxH={16} src={G} />
               <Box
                 display={"flex"}
                 flexDir="column"

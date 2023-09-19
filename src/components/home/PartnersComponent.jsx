@@ -5,6 +5,7 @@ import { Box, Flex, Image } from "@chakra-ui/react";
 
 import Marquee from "react-fast-marquee";
 import HeadLines from "../../components/common/HeadLine";
+import Partner from "/public/icons/headline/partners.png";
 
 function PartnersComponent() {
   return (
@@ -33,8 +34,6 @@ function PartnersComponent() {
       >
         <Box
           borderRightRadius={{ base: 0, lg: "xl" }}
-          border={`1px solid ${colors.boxBorder}`}
-          borderStyle="groove"
           boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
           p={4}
           className="bg_img"
@@ -49,14 +48,7 @@ function PartnersComponent() {
         </Box>
       </motion.div>
       <Box>
-        <HeadLines
-          x="80px"
-          y="40px"
-          s={1.1}
-          desc=""
-          subTitle=""
-          title="PARTNERS"
-        />
+        <HeadLines img={Partner} desc="" subTitle="" title="PARTNERS" />
       </Box>
     </Box>
   );

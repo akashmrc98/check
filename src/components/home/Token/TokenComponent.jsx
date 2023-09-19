@@ -10,20 +10,14 @@ import { tokenomicsData } from "../../../data/tokenomicsData";
 
 import TokenomicsCardComponent from "./TokenomicCardComponent";
 import { fonts } from "../../../theme/fonts";
+import TKN from "/public/icons/headline/token.png";
 
 function TokenComponent() {
   return (
     <Box width="100%">
       <Grid gridTemplateColumns={{ base: "1fr" }}>
         <GridItem>
-          <HeadLines
-            x={"80px"}
-            y="30px"
-            s={1.1}
-            desc=""
-            subTitle="$OPAI"
-            title="TOKENOMICS"
-          />
+          <HeadLines img={TKN} desc="" subTitle="$OPAI" title="TOKENOMICS" />
         </GridItem>
         <GridItem></GridItem>
       </Grid>

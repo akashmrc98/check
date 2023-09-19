@@ -10,6 +10,7 @@ import Power from "/public/icons/power.png";
 import Vote from "/public/icons/vote.png";
 import Stake from "/public/icons/stake.png";
 import Token from "/public/icons/token.png";
+import ECO from "/public/icons/headline/eco.png";
 
 function EcoSystemComponent() {
   const imgs = [Power, Token, Stake, Vote];
@@ -17,9 +18,7 @@ function EcoSystemComponent() {
     <Box pos="relative">
       <Grid gridTemplateColumns={"1fr"} p={0}>
         <HeadLines
-          x="-40px"
-          y={"-40px"}
-          s={1.1}
+          img={ECO}
           desc="UTILITIES"
           subTitle="$OPAI"
           title="ECO-SYSTEM"
