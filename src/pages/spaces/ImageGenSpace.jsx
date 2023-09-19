@@ -29,6 +29,7 @@ import { bsc } from "wagmi/chains";
 import { useWeb3Modal } from "@web3modal/react";
 import { useAccount, useBalance, useDisconnect } from "wagmi";
 import SpaceNavbar from "./SpaceNavbar";
+import ConnectWalletButton from "../../components/common/ConnectWalletButton";
 
 function ImageGenSpace() {
   const { disconnect } = useDisconnect();
@@ -115,6 +116,7 @@ function ImageGenSpace() {
       backgroundPosition="center"
     >
       <SpaceNavbar
+        disconnect={() => disconnect()}
         balance={balanceFeteched ? balance.formatted : ""}
         address={address ? address : ""}
         isConnected={isConnected}
@@ -344,19 +346,10 @@ function ImageGenSpace() {
           </Box>
         ) : (
           <Flex justifyContent={"center"}>
-            <Button
-              fontFamily={fonts.headingFont}
-              fontWeight="bold"
-              bg={colors.bgColor}
-              boxShadow={`0px 0px 4px ${colors.boxBorder}`}
-              color={colors.highLightColor}
-              _hover={{ color: colors.bgColor, bg: colors.highLightColor }}
-              fontSize={{ base: "xl" }}
-              textTransform="uppercase"
+            <ConnectWalletButton
               onClick={connectWallet}
-            >
-              Connect Wallet
-            </Button>
+              title="Connect Wallet"
+            />
           </Flex>
         )}
       </Box>

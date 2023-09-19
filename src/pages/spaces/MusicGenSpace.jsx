@@ -40,6 +40,7 @@ import { useAccount, useBalance, useDisconnect } from "wagmi";
 import { useEffect } from "react";
 
 import SpaceNavbar from "./SpaceNavbar";
+import ConnectWalletButton from "../../components/common/ConnectWalletButton";
 
 function MusicGenSpace() {
   const { disconnect } = useDisconnect();
@@ -109,6 +110,7 @@ function MusicGenSpace() {
       backgroundPosition="center"
     >
       <SpaceNavbar
+        disconnect={disconnect}
         balance={balanceFeteched ? balance.formatted : ""}
         address={address ? address : ""}
         isConnected={isConnected}
@@ -340,19 +342,10 @@ function MusicGenSpace() {
           </Box>
         ) : (
           <Flex justifyContent={"center"}>
-            <Button
-              fontFamily={fonts.headingFont}
-              fontWeight="bold"
-              bg={colors.bgColor}
-              boxShadow={`0px 0px 4px ${colors.boxBorder}`}
-              color={colors.highLightColor}
-              _hover={{ color: colors.bgColor, bg: colors.highLightColor }}
-              fontSize={{ base: "xl" }}
-              textTransform="uppercase"
+            <ConnectWalletButton
               onClick={connectWallet}
-            >
-              Connect Wallet
-            </Button>
+              title="Connect Wallet"
+            />
           </Flex>
         )}
         <Box pb={24}>

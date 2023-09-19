@@ -34,6 +34,7 @@ import TD from "/public/chat/Tim Draper.png";
 import TW from "/public/chat/Tyler Winklevoss.webp";
 import BG from "/public/bg/10.jpg";
 import SpaceNavbar from "./SpaceNavbar";
+import ConnectWalletButton from "../../components/common/ConnectWalletButton";
 
 let imgs = [EM, VB, CZ, JS, BA, MJS, TD, TW];
 
@@ -110,6 +111,7 @@ function ChatGenSpace() {
       ref={ref}
     >
       <SpaceNavbar
+        disconnect={disconnect}
         balance={balanceFeteched ? balance.formatted : ""}
         address={address ? address : ""}
         isConnected={isConnected}
@@ -342,19 +344,10 @@ function ChatGenSpace() {
           </Grid>
         ) : (
           <Flex mt={12} justifyContent={"center"}>
-            <Button
-              fontFamily={fonts.headingFont}
-              fontWeight="bold"
-              bg={colors.bgColor}
-              boxShadow={`0px 0px 4px ${colors.boxBorder}`}
-              color={colors.highLightColor}
-              _hover={{ color: colors.bgColor, bg: colors.highLightColor }}
-              fontSize={{ base: "xl" }}
-              textTransform="uppercase"
+            <ConnectWalletButton
               onClick={connectWallet}
-            >
-              Connect Wallet
-            </Button>
+              title="Connect Wallet"
+            />
           </Flex>
         )}
       </Box>
