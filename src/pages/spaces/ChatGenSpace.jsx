@@ -2,6 +2,13 @@ import {
   Box,
   Button,
   Flex,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
   FormControl,
   FormLabel,
   Grid,
@@ -16,7 +23,7 @@ import { colors } from "../../theme/colors";
 import { fonts } from "../../theme/fonts";
 import axios from "axios";
 
-import { FaForward, FaUser } from "react-icons/fa";
+import { FaForward, FaRobot, FaUser } from "react-icons/fa";
 import { useRef } from "react";
 import { useEffect } from "react";
 
@@ -64,6 +71,9 @@ function ChatGenSpace() {
 
   useEffect(() => {
     disconnect();
+    setChats([]);
+    setChatHistory([]);
+    setShowChat(false);
   }, []);
 
   const [input, setInput] = useState("");
@@ -72,7 +82,38 @@ function ChatGenSpace() {
   const [person, setPerson] = useState("Elon Musk");
   const [isSelected, setIsSelected] = useState(false);
   const [index, setIndex] = useState(0);
+  const [m, setM] = useState(0);
   const ref = useRef();
+
+  const [chats, setChats] = useState([]);
+  const [showChat, setShowChat] = useState(false);
+  const namedMonths = [
+    "January",
+    "Feburary",
+    "March",
+    "April",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const [chatHistory, setChatHistory] = useState([]);
+  const [viewHistory, setViewHistory] = useState([]);
+
+  function getMonthChats(n) {
+    setM(n);
+    const monthChats = [];
+    for (let i = 0; i < chats.length; i++) {
+      const month = new Date(chats[i].createdAt).getUTCMonth() - 1;
+      if (n === month) {
+        monthChats.push(chats[i]);
+      }
+      setViewHistory([...monthChats]);
+    }
+  }
 
   useEffect(() => {
     ref.current.scrollIntoView({ behavior: "smooth", block: "end" });
@@ -86,10 +127,10 @@ function ChatGenSpace() {
         .post("https://opai.renderverse.io/chat-gen", {
           question: input,
           person: person,
+          walletAddress: address,
         })
         .then((res) => {
           setPromp([...promp, input, res.data.ans]);
-
           setInput("");
         })
         .then(() => {
@@ -97,6 +138,138 @@ function ChatGenSpace() {
         })
         .catch((e) => console.log(e));
     }
+  }
+
+  useEffect(() => {
+    axios
+      .post(
+        "https://api.renderverse.io/renderscan/v1/users/op/generate-chat/gens",
+        {
+          walletAddress: address,
+        }
+      )
+      .then((res) => {
+        const chats = res.data.generatedImages;
+        let months = [];
+        for (let i = 0; i < chats.length; i++) {
+          const month = new Date(chats[i].createdAt).getUTCMonth() - 1;
+          months.push(month);
+        }
+        months = [...new Set(months)];
+        setChatHistory(months);
+        setChats([...chats]);
+      });
+  }, [isConnected]);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  function ChatModal() {
+    return (
+      <Modal
+        size="4xl"
+        isOpen={modalIsOpen}
+        onClose={() => setModalIsOpen(false)}
+      >
+        <ModalOverlay />
+        <ModalContent
+          py={4}
+          boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
+          bg={colors.bgColor}
+        >
+          <ModalHeader mt={4}>
+            <Text
+              my={4}
+              boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
+              p={3}
+              bg={`rgba(0,0,0,.7)`}
+              borderRadius="md"
+              fontWeight={"bold"}
+              fontFamily={fonts.parafont}
+              color={colors.fontLightColor}
+              fontSize={{ base: "3xl" }}
+            >
+              {namedMonths[m]} Chats
+            </Text>
+          </ModalHeader>
+          <ModalCloseButton color={colors.highLightColor} />
+          <ModalBody>
+            <ChatHistoryComponent />
+          </ModalBody>
+          <ModalFooter>
+            <Button
+              colorScheme="blue"
+              mr={3}
+              onClick={() => setModalIsOpen(false)}
+            >
+              Close
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+    );
+  }
+
+  function ChatHistoryComponent() {
+    return (
+      <Box>
+        {isConnected && showChat ? (
+          <Box my={5} px={4} pt={4} display={"flex"} flexDirection="column">
+            {viewHistory.map((p, i) => (
+              <Box flexDir={"column"} columnGap={"2rem"} key={i} display="flex">
+                <Box
+                  display={"flex"}
+                  alignItems="center"
+                  justifyContent={"flex-start"}
+                  columnGap="1rem"
+                >
+                  <FaUser size={32} color={colors.highLightColor} />
+                  <Text
+                    my={4}
+                    boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
+                    p={3}
+                    bg={`rgba(0,0,0,.7)`}
+                    borderRadius="md"
+                    fontWeight={"bold"}
+                    fontFamily={fonts.parafont}
+                    width="100%"
+                    color={colors.fontLightColor}
+                    mx="auto"
+                    fontSize={{ base: "sm" }}
+                  >
+                    {p.question}
+                  </Text>
+                </Box>
+
+                <Box
+                  display={"flex"}
+                  alignItems="center"
+                  justifyContent={"flex-end"}
+                  columnGap="1rem"
+                >
+                  <Text
+                    boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
+                    my={4}
+                    p={3}
+                    bg={`rgba(0,0,0,.7)`}
+                    borderRadius="md"
+                    fontWeight={"bold"}
+                    fontFamily={fonts.parafont}
+                    textAlign="right"
+                    width="100%"
+                    color={colors.fontLightColor}
+                    mx="auto"
+                    fontSize={{ base: "sm" }}
+                  >
+                    {p.anwser}
+                  </Text>
+
+                  <FaRobot size={32} color={colors.highLightColor} />
+                </Box>
+              </Box>
+            ))}
+          </Box>
+        ) : null}
+      </Box>
+    );
   }
 
   return (
@@ -110,6 +283,7 @@ function ChatGenSpace() {
       backgroundPosition="center"
       ref={ref}
     >
+      <ChatModal />
       <SpaceNavbar
         disconnect={disconnect}
         balance={balanceFeteched ? balance.formatted : ""}
@@ -125,6 +299,7 @@ function ChatGenSpace() {
         bg={`rgba(0,0,0,.7)`}
         p={{ base: 2, lg: 12 }}
         boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
+        py={12}
       >
         <Box display={"grid"} px={2} pt={2}>
           <Text
@@ -232,9 +407,7 @@ function ChatGenSpace() {
         ) : null}
 
         {isConnected ? (
-          <Grid
-            boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
-          >
+          <Grid>
             <GridItem pos="relative">
               <Box my={5} px={4} pt={4} display={"flex"} flexDirection="column">
                 {promp.map((p, i) => (
@@ -250,6 +423,7 @@ function ChatGenSpace() {
                     ) : null}
 
                     <Text
+                      boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
                       my={4}
                       p={3}
                       bg={`rgba(0,0,0,.7)`}
@@ -309,8 +483,13 @@ function ChatGenSpace() {
                 </Flex>
               ) : null}
             </GridItem>
+
             <GridItem>
-              <FormControl border="2px" px={4} py={2} bg={`rgba(0,0,0,.7)`}>
+              <FormControl
+                border="2px"
+                borderRadius={"xl"}
+                bg={`rgba(0,0,0,.7)`}
+              >
                 <Input
                   value={input}
                   onChange={(i) => setInput(i.target.value)}
@@ -351,6 +530,59 @@ function ChatGenSpace() {
           </Flex>
         )}
       </Box>
+
+      {isConnected ? (
+        <Box
+          mx="auto"
+          width={{ base: "100%", lg: "88%", xl: "75%" }}
+          bg={`rgba(0,0,0,.7)`}
+          p={{ base: 2, lg: 12 }}
+          boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
+        >
+          <Text
+            textAlign={"left"}
+            fontWeight={"bold"}
+            fontFamily={fonts.parafont}
+            color={colors.highLightColor}
+            fontSize={{ base: "3xl" }}
+          >
+            Previous Chats
+          </Text>
+          <Grid
+            templateColumns={{
+              base: "1fr",
+              lg: "1fr 1fr 1fr",
+              xl: "1fr 1fr 1fr 1fr",
+            }}
+          >
+            {chatHistory.map((c, l) => (
+              <Box
+                onClick={() => {
+                  setModalIsOpen(true);
+                  setShowChat(true);
+                  getMonthChats(c);
+                }}
+                my={4}
+                cursor="pointer"
+                p={3}
+                boxShadow={`-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`}
+                bg={`rgba(0,0,0,.7)`}
+                borderRadius="md"
+                fontWeight={"bold"}
+                fontFamily={fonts.parafont}
+                width="100%"
+                color={colors.fontLightColor}
+                mx="auto"
+                fontSize={{ base: "sm" }}
+                textAlign="center"
+                key={l}
+              >
+                {namedMonths[c]}
+              </Box>
+            ))}
+          </Grid>
+        </Box>
+      ) : null}
     </Box>
   );
 }

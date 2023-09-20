@@ -109,7 +109,7 @@ export default function SpaceNavbar(props) {
             <Flex
               zIndex={999999999999999}
               right={"2%"}
-              bottom={"-410%"}
+              bottom={"-433%"}
               pos={"absolute"}
               onMouseEnter={() => setChanged(false)}
               onMouseUp={() => setChanged(false)}
@@ -127,13 +127,12 @@ export default function SpaceNavbar(props) {
               <Flex
                 borderRadius="xl"
                 py={4}
-                boxShadow={`2px 2px 4px ${colors.highLightColor}, -2px -2px 4px ${colors.bgColor}`}
+                boxShadow={`-1px -1px 1px ${colors.highLightColor}, 1px 1px 1px ${colors.fontLightColor}`}
                 px={4}
                 justifyContent={"center"}
                 alignItems="center"
                 bg={colors.bgColor}
                 flexDirection={"column"}
-                borderTopRadius="none"
                 rowGap="1rem"
               >
                 <Box
@@ -142,7 +141,10 @@ export default function SpaceNavbar(props) {
                   flexDir={"column"}
                   alignItems="center"
                   borderRadius="xl"
+                  bg={colors.boxBorder}
                   px={4}
+                  py={2}
+                  w="100%"
                 >
                   <Text
                     fontFamily={fonts.specialFont}
@@ -166,6 +168,12 @@ export default function SpaceNavbar(props) {
                   px={4}
                   py={2}
                   w="100%"
+                  _hover={{
+                    bg: colors.bgColor,
+                    color: colors.highLightColor,
+
+                    boxShadow: `-3px -3px 6px ${colors.fontLightColorV2}, 6px 6px 12px ${colors.boxEndColor}`,
+                  }}
                   borderRadius={"md"}
                 >
                   <Text
